@@ -32,6 +32,6 @@ output:
 
 * Grupo grande: Hemos mostrado el acceso al material del curso. Instalación R, Rstudio y  otro software
 *  Grupo medianos:  Taller de dos horas: Acabar instalación y ejercicios de [AprendeR1](https://aprender-uib.github.io/AprendeR1/) . 
-* Trabajo en casa: Estudiar temas [1 en 4 AprendeR1](https://aprender-uib.github.io/AprendeR1/).
+* Trabajo en casa: Estudiar temas [1 a 4 AprendeR1](https://aprender-uib.github.io/AprendeR1/).
 
 
