@@ -30,6 +30,12 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
 * Grupo mediano:  Dos horas de taller el jueves, traed los portátiles. Haremos problemas de combinatoria y probabilidad, también haremos ejercicios de los temas de R.
 * Trabajo en casa: Estudiad los temas [7, 9 y 10](https://aprender-uib.github.io/AprendeR1/). Estudiar teoría y hacer problemas propuestos. !!! El tema 8 lo veremos en clase de grupo grande.
 
+----------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------
+
 
 
 
