@@ -1,0 +1,23 @@
+---
+title: "Simulación Dado parchís"
+author: "Ricardo"
+date: "4/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+set.sed(2020)
+dado=1:6
+dado
+simulacion=sample(dado,size=10^6, replace=TRUE)
+length(simulacion)  
+prop.table(table(simulacion))
+1/6
+mean(simulacion)
+sum((1:6)*prop.table(table(simulacion)))
+```
+
