@@ -1,0 +1,145 @@
+---
+title: "Estudio empírico del orden de la multiplicación de matrices"
+author: "Ricardo Alberich."
+date: 
+output:
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+  html_document: 
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+toccolor: 'blue'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,cache=TRUE)
+```
+
+#  Generación de la muestra
+
+La muestra se ha obtenido con el código siguiente que no se ejecuta. Por [reproducibilidad](https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad)  se ha guardado en el objeto de R `dades1000` y  no ejecutamos el código
+
+```{r, eval=FALSE}
+library(future.apply)
+set.seed(2020)# fijo la semilla para poder reproducir los datos
+#lanzo la muestra
+data1000=future_sapply(seq(10,5000,100),FUN=function(n){
+random_matrix_n=function(n){
+M1=matrix(runif(n^2),ncol=n)
+M2=matrix(runif(n^2),ncol=n)
+system.time(M1%*%M2, gcFirst = TRUE)}
+c(n,sum(replicate(1,random_matrix_n(n),simplify="array")))
+}
+)
+#guardamos el objeto en el working directory actual
+save(data1000,file="data1000.Robj")
+```
+
+
+# Carga de datos
+
+Cargamos los datos, los transformamos en un `data frame` de dos variables `n` y `seconds`
+
+```{r}
+#cargamos el objeto del working directory actual
+load("data1000.Robj")
+class(data1000)# clase
+str(data1000)# estructura
+head(data1000)# primeros datos
+data=as.data.frame(matrix(unlist(data1000),ncol=2,byrow=TRUE))
+head(data)
+
+#ponemos nombres
+names(data)=c("n","seconds")
+#eliminamos las filas con seconds=0
+data=data[data$seconds!=0,]
+head(data)
+```
+
+# Estudio del ajuste de tres modelos de curvas de orden
+
+Vamos a estudiar si los modelos de orden del algoritmo de multiplicación de matrices se ajustan a un modelo lineal a uno exponencial o a uno potencial. Recordemos que sabemos que la multiplicación de matrices cuadradas de orden es  $O(n^3)$.
+
+Os pongo sólo el código simple, vosotros ampliad-lo y poned nombres a los gráficos
+
+## Regresión lineal
+
+Pon el modelo
+
+```{r}
+lm_x_y=lm(seconds~n,data=data)
+summary(lm_x_y)
+plot(data,main="Pon tu main")
+abline(lm_x_y,col="red")
+```
+
+## Regresión exponencial (semilog)
+
+Pon el modelo
+
+```{r}
+lm_x_logy=lm(log10(seconds)~n,data=data)
+summary(lm_x_logy)
+plot(data,main="Pon tu main",log="y")
+abline(lm_x_logy,col="red")
+```
+
+## Regresión potencial (loglog)
+
+
+```{r}
+lm_x_logy=lm(log10(seconds)~n,data=data)
+summary(lm_x_logy)
+plot(data,main="Pon tu main",log="y")
+abline(lm_x_logy,col="red")
+```
+
+Pon el modelo
+
+```{r}
+lm_logx_logy=lm(log10(seconds)~log10(n),data=data)
+summary(lm_logx_logy)
+plot(data,main="Pon tu main",log="xy")
+abline(lm_logx_logy,col="red")
+```
+
+# Estudio del ajuste de tres modelos de curvas de orden
+
+
+
+## Selección del mejor modelo
+
+En principio el modelo con mejor $R^2$ es el log-log que equivale a  una curva potencial $$second\approx \beta\cdot n^{\alpha}$$.
+
+Como hemos visto en el manual (tema2 MOOC), si 
+$log_{10}(seconds)= a \cdot log_{10}(n)+ b$ Entonces $\beta= 10^b$ y $\alpha=a$.
+
+Así que 
+
+```{r}
+b=lm_logx_logy$coefficients[1]
+a=lm_logx_logy$coefficients[2]
+b
+a
+beta=10^b
+beta
+alpha=a
+alpha
+```
+
+# Estudio del ajuste de tres modelos de curvas de orden
+
+
+Así que el modelo potencial es $$secons\approx `r beta` \cdot n^{`r \alpha}$$.
+
+Ahora podemos hacer el dibujo de la curva y los datos en las unidades originales
+
+
+```{r}
+plot(data,main="Simulación del orden de complejidad\n de la multiplicación de matrices")
+curve(beta*x^alpha,add=TRUE,col="blue")
+```
+

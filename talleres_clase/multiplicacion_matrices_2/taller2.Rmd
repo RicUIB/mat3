@@ -1,14 +1,13 @@
 ---
-title: Estudio empírico del orden de la multiplicación de matrices. El orden del algoritmo
-  de Strassen
-author: "Taller 2 Minería de Datos. Pon tu nombre y apellidos"
-date: "16 de octubre de 2016"
+title: "Regresión múltiple: estudio empírico del orden de la multiplicación de matrices."
+author: "Taller MAT III GIUN. 1920"
+date: ""
 output:
+  pdf_document:
+    toc: yes
   html_document:
     fig_caption: yes
     theme: cosmo
-    toc: yes
-  pdf_document:
     toc: yes
   word_document:
     toc: yes

@@ -13,13 +13,11 @@ knitr::opts_chunk$set(echo = TRUE,cache=TRUE)
 
 ##  Grados de un grafo
 
-En el artículo de A. Broder et al., "Graph structure in the Web." Computer Networks 33, 309 (2000). 
+En el artículo de A. Broder et al., [Graph structure in the Web. Computer Networks 33, 309 (2000)](http://snap.stanford.edu/class/cs224w-readings/broder00bowtie.pdf). 
 
 Se recopiló el número de enlaces a sitios web encontrados en un rastreo web de 1997 de aproximadamente 200 millones de páginas web, 
 
-Con el se construyó una t
-
-abla con  la frecuencia de sitios  por número de enlaces. El código siguiente carga del enlace que han puesto los autores del artículo
+Con el se construyó una [tabla](http://tuvalu.santafe.edu/~aaronc/powerlaws/data/weblinks.hist) con  la frecuencia de sitios  por número de enlaces. El código siguiente carga del enlace que han puesto los autores del artículo
 
 ```{r}
 data_links=read.table("http://tuvalu.santafe.edu/~aaronc/powerlaws/data/weblinks.hist",header=TRUE)

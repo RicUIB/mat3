@@ -3,13 +3,16 @@ title: "Ejercicios Tema 1 - Probabilidad"
 author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: "Curso de Probabilidad y Variables Aleatorias con R y Python"
 output:
+  pdf_document: 
+    number_sections: yes
+    toc: yes
   html_document:
     df_print: paged
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999)
 ```
 
 
@@ -27,330 +30,301 @@ library(gtools)
 combinations(4, 3, c('R', 'A', 'V', 'N'), repeats.allowed = TRUE)
 ```
 $$
-A = \left\{RRR\right\}\\
-B = \left\{RVA\right\}\\
-C = \left\{RAV, RAN, RVN, AVN \right\}
+A = \left\{RRR\right\}, \quad B = \left\{RVA\right\}, \quad C = \left\{RAV, RAN, RVN, AVN \right\}
 $$
 
 
+#  Ejercicios de Probabilidad
 
-##  Ejercicios de Probabilidad
+## Problema 1.
 
-1. Se lanzan al aire dos monedas iguales. Hallar la probabilidad de que salgan dos caras iguales.
+Se lanzan al aire dos monedas iguales. Hallar la probabilidad de que salgan dos caras iguales.
 
-**Solución**
+### Solución
 
-$$
-P(CC) = \frac{\textrm{casos favorables}}{\textrm{casos posibles}}
-$$
-Nuestro espacio muestral será:
+Nuestro espacio muestral es:
 
 ```{r}
-permutations(2, 2, c('C', 'X'), repeats.allowed = TRUE)
+permutations(2, 2, c('c', '+'), repeats.allowed = TRUE)
 ```
 $$
-P(CC) = \frac{\textrm{1}}{4}
+P({cc}) = \frac{\textrm{casos favorables}}{\textrm{casos posibles}}= \frac{\textrm{1}}{4}.
 $$
 
-2. Suponer que se ha trucado un dado de modo que la probabilidad de que salga un número es proporcional al mismo.
+## Problema 2.
 
-    - Hallar la probabilidad de los sucesos elementales, de que salga un número par y también de que salga un número impar.
+Suponer que se ha trucado un dado de modo que la probabilidad de que salga un número es proporcional al mismo. 
+  a. ) Hallar la probabilidad de los sucesos elementales, de que salga un número par y también de que salga un número impar.
+  b. )  Repetir el problema pero suponiendo que la probabilidad de que salga un determinado número es inversamente proporcional al mismo.
     
-**Solución**
-Definimos nuestro espacio muestral $\Omega$:
-$$
-\Omega = \left\{1, 2, 3, 4, 5, 6 \right\}
-$$
-Sabemos que la suma de la probabilidad de todos los sucesos elementales es $1$ y que la probabilidad de que salga un número es proporcional al mismo.
+### Solución
+
+**Apartado a)**
+
+El  espacio muestral es   $\Omega= \left\{1, 2, 3, 4, 5, 6 \right\}$.
+
+Sabemos que la suma de la probabilidad de todos los sucesos elementales es $1$ y que la probabilidad de que salga  un número es proporcional al mismo  $P(k)=\alpha\cdot k$ para $k=1,2,3,4,5,6$, entonces
+
 
 \begin{eqnarray*}
 1=P(\Omega) & =& P(1) + P(2) + P(3) + P(4) + P(5) + P(6)\\ 
 & = & 1\cdot \alpha + 2 \cdot \alpha + 3 \cdot \alpha + 4 \cdot \alpha + 5 \cdot \alpha + 6 \cdot \alpha \\
-& =& 21 \cdot \alpha
+& =& 21 \cdot \alpha.
 \end{eqnarray*}
+
 
 luego $\alpha= \frac1{21}.$
 
-Con esto ya sabemos la probabilidad de que salga cada suceso elemental:
-$$
-P(1) = \frac{1}{21}\\
-P(2) = \frac{2}{21}\\
-P(3) = \frac{3}{21}\\
-P(4) = \frac{4}{21}\\
-P(5) = \frac{5}{21}\\
-P(6) = \frac{6}{21}\\
-$$
-Ahora calculamos la probabilidad de que salga un número par:
+Utilizando este valor las probabilidades de   los sucesos elementales son :
 
 $$
-P(par) = P(2) + P(4) + P(6) = \frac{2}{21} + \frac{4}{21} + \frac{6}{21} = \frac{12}{21} = \frac{4}{7}
+P(1) = \frac{1}{21}, \quad P(2) = \frac{2}{21}, \quad 
+P(3) = \frac{3}{21}, \quad 
+P(4) = \frac{4}{21}, \quad 
+P(5) = \frac{5}{21}, \quad 
+P(6) = \frac{6}{21}.
+$$
+La probabilidad de que salga un número par es:
+
+$$
+P(\mbox{par}) = P(\{2,4,6\})=P(2) + P(4) + P(6) = \frac{2}{21} + \frac{4}{21} + \frac{6}{21} = \frac{12}{21} = \frac{4}{7}.
 $$
 Y la probabilidad de que salga un número impar:
 
 $$
-P(impar) = P(1) + P(3) + P(5) = \frac{1}{21} + \frac{3}{21} + \frac{5}{21} = \frac{9}{21} = \frac{3}{7}
+P(impar) = = P(\{2,4,6\})=P(1) + P(3) + P(5) = \frac{1}{21} + \frac{3}{21} + \frac{5}{21} = \frac{9}{21} = \frac{3}{7}.
 $$
 
-    - Repetir el problema pero suponiendo que la probabilidad de que salga un determinado número es inversamente proporcional al mismo.
 
-**Solución**
+**Apartado b)**
+
+El espacio muestral es el mismo pero ahroa $P(k)=\alpha\cdot \frac{1}{k}$ para $k=1,2,3,4,5,6.$
+
+\begin{eqnarray*}
+1=P(\Omega) &= & P(1) + P(2) + P(3) + P(4) + P(5) + P(6)\\
+&=&  \frac{\alpha}{1} + \frac{\alpha}{2} + \frac{\alpha}{3} + \frac{\alpha}{4} + \frac{\alpha}{5} + \frac{\alpha}{6}\\
+&=& \frac{60\alpha + 30\alpha + 20\alpha + 15\alpha + 12\alpha + 10\alpha}{60}  \\
+&=&\frac{147\alpha}{60},
+\end{eqnarray*}
+
+despejando $\alpha = \frac{60}{147} = \frac{20}{49}$
+
+La probabilidad de cada suceso elemental es:
 $$
-\Omega = \left\{1, 2, 3, 4, 5, 6 \right\}\\
-P(\Omega) = 1\\
-P(\Omega) = P(1) + P(2) + P(3) + P(4) + P(5) + P(6) = \\ \frac{\alpha}{1} + \frac{\alpha}{2} + \frac{\alpha}{3} + \frac{\alpha}{4} + \frac{\alpha}{5} + \frac{\alpha}{6} = \frac{60\alpha + 30\alpha + 20\alpha + 15\alpha + 12\alpha + 10\alpha}{60}  \\
-\frac{147\alpha}{60} = 1 \\
-\alpha = \frac{60}{147} = \frac{20}{49}
-$$
-Con esto ya sabemos la probabilidad de que salga cada suceso elemental:
-$$
-P(1) = \frac{20}{49}\\
-P(2) = \frac{10}{49}\\
-P(3) = \frac{20}{147}\\
-P(4) = \frac{10}{98}\\
-P(5) = \frac{4}{49}\\
-P(6) = \frac{3}{98}\\
+P(1) = \frac{20}{49},\quad P(2) = \frac{10}{49}, \quad 
+P(3) = \frac{20}{147}, \quad 
+P(4) = \frac{10}{98}, \quad 
+P(5) = \frac{4}{49}, \quad 
+P(6) = \frac{3}{98}.
 $$
 Ahora calculamos la probabilidad de par e impar: 
-$$
-P(par) = P(2) + P(4) + P(6) = \frac{10}{49} + \frac{10}{98} + \frac{3}{98} = \frac{33}{98} \\
-P(impar) = P(1) + P(3) + P(5) = \frac{20}{49} + \frac{20}{147} + \frac{4}{49} = \frac{92}{147}
-$$
 
-3. En una prisión de 100 presos se seleccionan al azar dos personas para ponerlas en libertad. 
 
-- ¿Cual es la probabilidad de que el más viejo de los presos sea uno de los elegidos?
+\begin{eqnarray*}
+P(par) &=& P(\{2,4,6\})=P(2) + P(4) + P(6) = \frac{10}{49} + \frac{10}{98} + \frac{3}{98} = \frac{33}{98}, \\
+P(impar) &=&P(\{1,3,5\})= P(1) + P(3) + P(5) = \frac{20}{49} + \frac{20}{147} + \frac{4}{49} = \frac{92}{147}.
+\end{eqnarray*}
 
-**Solución**
 
-Definimos el suceso elemental:
-V: elegir al preso más viejo
+## Problema3
 
-$$
-P(V) = \frac{\textrm{casos favorables}}{\textrm{casos posibles}}
-$$
-Solución a la fuerza bruta:
+En una prisión de 100 presos se seleccionan al azar dos personas para ponerlas en libertad.  
+  * a.) ¿Cual es la probabilidad de que el más viejo de los presos sea uno de los elegidos?
+  * b.) ¿Y que salga elegida la pareja formada por el más viejo y el más joven?
+
+### Solución
+
+**Apartado a)**
+
+Todas las elecciones de dos presos son equiprobables  casos posibles ${100\choose 2}$, mientras que los casos favorables son ${99\choose 1}$, luego 
+
+$$P(\mbox{``que entre 2 presos esté el más viejo"})=\frac{\mbox{CF}}{\mbox{CP}}=
+\frac{{99\choose 1}}{{100\choose 2}}=\frac{99}{\frac{ 100\cdot 99}{2}}=\frac{2}{100}=0.02.$$
+
 ```{r}
-casos_posibles = nrow(combinations(100, 2, repeats.allowed = FALSE))
-casos_favorables = 0
-viejo = 1
-par_presos = combinations(100, 2, repeats.allowed = FALSE)
-for(ind_par_presos in 1:casos_posibles){
-  #print(ind_par_presos)
-  if(par_presos[ind_par_presos, 1] == viejo || par_presos[ind_par_presos, 2] == viejo)
-    casos_favorables = casos_favorables + 1
-}
-
-probabilidad_viejo = casos_favorables / casos_posibles
-print(probabilidad_viejo)
-
+choose(99,1)/choose(100,2)
 ```
 
-Una manera de calcularlo sería: 
-$$
-P(V_1)\cdot P(V_2^c|V_1) + P(V_1^c) \cdot P(V_2|V_1^c) = \frac{1}{100} \cdot \frac{99}{99} + \frac{99}{100} \cdot \frac{1}{99} = 0.02 \\ 
-$$
-Otra manera de calcularlo sería:
-$$
-P(V) = \frac{99}{\binom{100}{2}} = 0.02
-$$
-- ¿Y que salga elegida la pareja formada por el más viejo y el más joven?
 
-Nuevamente podemos hacer el cálculo bruto con R:
+
+**Apartado b)**
+
+De forma similar  ahora solo hay un caso posible
+
+$$P(``\mbox{que entre 2 presos esté el más viejo y el más joven}")=\frac{\mbox{CF}}{\mbox{CP}}=
+\frac{1}{{100\choose 2}}=\frac{1}{\frac{100\cdot 99}{2}}=\frac{1}{4950}\approx 0.000202.$$
 ```{r}
-casos_posibles = nrow(combinations(100, 2, repeats.allowed = FALSE))
-casos_favorables = 0
-viejo = 1
-joven = 2
-par_presos = combinations(100, 2, repeats.allowed = FALSE)
-for(ind_par_presos in 1:casos_posibles){
-  #print(ind_par_presos)
-  if(par_presos[ind_par_presos, 1] == viejo && par_presos[ind_par_presos, 2] == joven || par_presos[ind_par_presos, 2] == viejo && par_presos[ind_par_presos, 1] == joven)
-    casos_favorables = casos_favorables + 1
-}
-
-probabilidad_pareja = casos_favorables / casos_posibles
-print(probabilidad_pareja)
-
+1/choose(100,2)
 ```
 
-Una manera de calcularlo sería:
-$$
-P(V_1) \cdot P(J_2|V_1) + P(J_1) \cdot P(V_2|J_1) = \frac{1}{100}\cdot \frac{1}{99} + \frac{1}{100} \cdot \frac{1}{99} = 0.0002020202 \\
-$$
+## Problema 4
 
-Otra manera de calcularlo sería:
-$$
-P(\textrm{pareja viejo-joven}) = \frac{1}{\binom{100}{2}} = 0.0002020202
-$$
+Se apuntan A, B i C a una carrera. ¿Cuál es la probabilidad de que A acabe antes que C si todos son igual de hábiles corriendo y no puede haber empates?
 
-4. Se apuntan A, B i C a una carrera.
-
-    - ¿Cuál es la probabilidad de que A acabe antes que C si todos son igual de hábiles corriendo y no puede haber empates?
-
-**Solución**
+### Solución
 Cálculo a fuerza bruta con R:
+
 ```{r}
 gtools::permutations(n=3,r=3,v=c("A","B","C"))-> maneras
+maneras
 contarAC= function(x) if(which(x=="A")>which(x=="C")) { return(1)} else {0}
-unlist(apply(maneras,1,contarAC))
-sum(unlist(apply(maneras,1,contarAC)))
+apply(maneras,1,contarAC)
+sum(apply(maneras,1,contarAC))
 ```
+hay tres maneras de que A acabe antes de C.
+
+## Pregunta 5.
+
+En una sala se hallan $n$ personas. ¿Cual es la probabilidad de que haya almenos dos personas con el mismo mes de nacimiento? Dar el resultado para los valores de  $n=3,4,5,6$.
+
+### Solución
+
+Sea el suceso $A=$ "al menos dos han nacido el mismo día", entonces $A^c=$ "ninguno ha nacido el mismo día".
+
+Entonces si son $n$ personas 
+
+$$P(A^c)=\frac{CF}{CP}=\frac{V_{365}^n}{VR_{365}^n}=\frac{365\cdot 354\cdot \ldots\cdot (365-n+1) }{365^n},$
+
+haciendo el complementario 
+
+$$P(A)=1-\frac{365\cdot 354\cdot \ldots\cdot (365-n+1) }{365^n}.$
 
 
 ```{r}
-n_casos_posibles = nrow(permutations(3, 3, repeats.allowed = FALSE))
-casos_posibles = permutations(3, 3, repeats.allowed = FALSE)
-casos_favorables = 0
-A = 1
-B = 2
-C = 3
-for(ind_caso in 1:n_casos_posibles){
-  if(casos_posibles[ind_caso, 1] == A || casos_posibles[ind_caso, 2] == A && casos_posibles[ind_caso, 1] == B){
-    casos_favorables = casos_favorables + 1
-  }
-}
-
-probabilidad = casos_favorables / n_casos_posibles
-print(probabilidad)
-
+prob_mismo_dia=function(n){prod((365-n+1):365)/365^n}
+df=data.frame(n=2:40,prob=sapply(2:40, prob_mismo_dia))
+knitr::kable(df,digits = 4)
 ```
 
-A mano:
-Para que $A$ acabe antes que $C$, $A$ puede quedar en primer lugar y nos da igual en el orden en el que acaben $B$ y $C$, o $B$ puede quedar en primer lugar, $A$ en segundo y $C$ en tercero:
-$$
-P(A \textrm{ antes que } C) = P(A_1) + P(A_1 \textrm{ y } B_2) = \frac{1}{3} + \frac{1}{3} \cdot \frac{1}{2} = 0.5
-$$
 
 
-    - ¿Cuál es la probabilidad de que A acabe antes que B y C?
+## Problema 6.
 
-**Solución**
-Probabilidad de que A acabe el primero    
-$$
-P(A_1) = \frac{1}{3}
-$$
+Una urna contiene 4 bolas numeradas con los números 1, 2, 3 y 4, respectivamente. Se sacan dos bolas sin reposición. Sea $A$ el suceso que la suma sea 5 y sea $B_i$ el suceso que la primera bola extraida tenga un $i$, con $i=1,2,3,4$. Hallar $P(A/B_i)$ y $P(B_i/A)$, para  $i=1,2,3,4$.
 
-5. En una sala se hallan $n$ personas. ¿Cual es la probabilidad de que haya almenos dos personas con el mismo mes de nacimiento? Dar el resultado para los valores de  $n=3,4,5,6$.
+### Solución
 
-**Solución**
-Calculamos 1a la probabilidad de que ninguno de las 3 personas tenga el cumpleaños el mismo día:
-$$
-P(A) = 1 - \frac{364}{365} \cdot \frac{363}{365} = 0.0008204166
-$$
-La fórmula general sería: 
+Los casos equiprobables  y el valor de su suma son 
 
-$$
-P(A) = 1 - \frac{364 \cdot 363 \cdot ... (365 - n + 1)}{365^n}
-$$
 ```{r}
-probabilidad_mismo_cumpleanos = function(n){
-  probabilidad_no_mismo_cumpleanos = 1
-  for(ind_n in 1:n)
-    probabilidad_no_mismo_cumpleanos = probabilidad_no_mismo_cumpleanos * (365 - ind_n + 1) / 365
-  return(1 - probabilidad_no_mismo_cumpleanos)
-}
-
-probabilidad_mismo_cumpleanos(3)
-probabilidad_mismo_cumpleanos(4)
-probabilidad_mismo_cumpleanos(5)
-probabilidad_mismo_cumpleanos(6)
+resultados=gtools::permutations(4,r=2)
+df_resultados=data.frame(bola1=resultados[,1],bola2=resultados[,2],suma=unlist(apply(resultados,1,sum)))
+df_resultados
+table(df_resultados$suma)
 ```
- 
 
-6. Una urna contiene 4 bolas numeradas con los números 1, 2, 3 y 4, respectivamente. Se sacan dos bolas sin reposición. Sea  $A$ el suceso que la suma sea 5 y sea $B_i$ el suceso que la primera bola extraida tenga un $i$,con $i=1,2,3,4$. Hallar $P(A/B_i),\  i=1,2,3,4$ y $P(B_i/A), i=1,2,3,4$.
 
-**Solución**
-$$
-P(A|B_1) = \frac{P(A \cap B_1)}{P(B_1)} = \frac{1/12}{1/4} = \frac{1}{3}
-$$
-$$
-P(A|B_2) = \frac{P(A \cap B_2)}{P(B_2)} = \frac{1/12}{1/4} = \frac{1}{3}
-$$
-$$
-P(A|B_3) = \frac{P(A \cap B_3)}{P(B_3)} = \frac{1/12}{1/4} = \frac{1}{3}
-$$
-$$
-P(A|B_4) = \frac{P(A \cap B_4)}{P(B_4)} = \frac{1/12}{1/4} = \frac{1}{3}
-$$
-$$
-P(B_1|A) = \frac{P(B_1 \cap A)}{P(A)} = \frac{1/12}{4/12} = 0.25
-$$
-$$
-P(B_2|A) = \frac{P(B_2 \cap A)}{P(A)} = \frac{1/12}{4/12} = 0.25
-$$
-$$
-P(B_3|A) = \frac{P(B_3 \cap A)}{P(A)} = \frac{1/12}{4/12} = 0.25
-$$
-$$
-P(B_4|A) = \frac{P(B_4 \cap A)}{P(A)} = \frac{1/12}{4/12} = 0.25
-$$
+Con esta tabla es sencillo calcular las probabilidades pedidas
 
-7. Se lanza al aire una moneda no trucada.
 
-    - ¿Cuál es la probabilidad que la cuarta vez salga cara, si sale cara en las tres primeras tiradas?
+\begin{eqnarray*}
+P(A|B_1) &=& \frac{P(A \cap B_1)}{P(B_1)} = \frac{1/12}{1/4} = \frac{1}{3}\\
+P(A|B_2) &=& \frac{P(A \cap B_2)}{P(B_2)} = \frac{1/12}{1/4} = \frac{1}{3}\\
+P(A|B_3) &=& \frac{P(A \cap B_3)}{P(B_3)} = \frac{1/12}{1/4} = \frac{1}{3}\\
+P(A|B_4) &=& \frac{P(A \cap B_4)}{P(B_4)} = \frac{1/12}{1/4} = \frac{1}{3}\\
+P(B_1|A) &=& \frac{P(B_1 \cap A)}{P(A)} = \frac{1/12}{4/12} = \frac{1}{4}\\
+P(B_2|A) &=& \frac{P(B_2 \cap A)}{P(A)} = \frac{1/12}{4/12} = \frac{1}{4}\\
+P(B_3|A) &=& \frac{P(B_3 \cap A)}{P(A)} = \frac{1/12}{4/12} = \frac{1}{4}\\
+P(B_4|A) &=& \frac{P(B_4 \cap A)}{P(A)} = \frac{1/12}{4/12} = \frac{1}{4}\\
+\end{eqnarray*}
 
-**Solución**
+## Problema 7
 
-Definimos los sucesos:
+Se lanza al aire una moneda no trucada. 
 
-  - C: que salga cara
-  - X: que salga cruz
+* a) ¿Cuál es la probabilidad que la cuarta vez salga cara, si sale cara en las tres primeras tiradas?
+* b) ¿Y si salen 2 caras en las 4 tiradas?
+
+## Solución
+
+**Apartado a)**
+
+Denotemos por $c$ la cara y por $+$ la cruz y $P(c)=P(+)=\frac{1}{2}$. Y denotemos por cadanas las sucesivas tiradas
+$cccc,ccc+,\ldots$.
   
-Dado que son sucesos independientes, nos da igual cuántas veces hayamos tirado el dado y lo que haya salido las veces anteriores:
+Dado que son sucesos independientes, nos da igual cuántas veces hayamos tirado el dado y lo que haya salido las veces anteriores Luego $P("\mbox{4 cuarta  tirada  cara}"/ccc)=P("\mbox{4 cuarta  tirada  cara}"/ccc)=\frac{1}{2}.$
 
-$$
-P(C) = \frac{1}{2}
-$$
-    
-    - ¿Y si salen 2 caras en las 4 tiradas?
+**Apartado b)**
 
-**Solución**
 Nuevamente, al ser sucesos independientes, nuestra probabilidad de cara será:
-$$
-P(C) = \frac{1}{2}
-$$
 
-8. La urna 1 contiene 2 bolas rojas y 4 de azules. La urna 2 contiene 10 bolas rojas y 2 de azules. Si escogemos al azar una urna y sacamos una bola, 
 
-    - ¿Cuál es la probabilidad que la bola seleccionada sea azul? 
+\begin{eqnarray*}
+P(``\mbox{4 cuarta  tirada  cara}"&/& ``\mbox{si han salido  3 caras en 4 tiradas}") \\ 
+& =& P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}/\{cc++,c+c+,c++c,+c+c,++cc\})\\
+&=& \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\\&\cap &\{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
+&=& \frac{P(\{cc++,c+c+,c++c\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}=\frac{\frac{3}{16}}{\frac{5}{16}}=\frac{3}{5}.
+\end{eqnarray*}
+
+
+
+## Problema 8. 
+
+La urna 1 contiene 2 bolas rojas y 4 de azules. La urna 2 contiene 10 bolas rojas y 2 de azules. Si escogemos al azar una urna y sacamos una bola, 
+
+* a) ¿Cuál es la probabilidad que la bola seleccionada sea azul? 
+* b) ¿Y que sea roja?
 
 **Solución**
 
 Definimos los sucesos:
 
-  - 1: Escoger la urna 1
-  - 2: Escoger la urna 2
+  - U1: Escoger la urna 1
+  - U2: Escoger la urna 2
   - R: Escoger una bola roja
   - A: Escoger una bola azul
+
+**Apartado a)**
   
 $$
-P(A) = P(1) \cdot P(A|1) + P(2) \cdot P(A|2) = \frac{1}{2}\cdot \frac{4}{6} + \frac{1}{2} \cdot \frac{2}{12} = 0.4166
+P(A) = P(U1) \cdot P(A|U1) + P(2) \cdot P(A|U2) = \frac{1}{2}\cdot \frac{4}{6} + \frac{1}{2} \cdot \frac{2}{12} = 0.4166
 $$
-    - ¿Y que sea roja?
-
-**Solución**
+    
+**Apartado b)**
 
 $$
-P(R) = 1 - P(R^c) = 1 - 0.41666 = 0.5833
+P(R) = 1 - P(R^c) = 1-P(A)= 1 - 0.41666 = 0.5833
 $$
 
-1. Supongamos que la ciencia médica ha desarrollado una prueba para el diagnóstico de cáncer que tiene un 95\% de exactitud, tanto en los que tienen cáncer como en los que no. Si el 5 por mil de la población realmente tiene cáncer, encontrar la probabilidad que un determinado individuo tenga cáncer, si la prueba ha dado positiva.
+
+
+## Problema 8
+
+Supongamos que la ciencia médica ha desarrollado una prueba para el diagnóstico de cáncer que tiene un 95\% de exactitud, tanto en los que tienen cáncer como en los que no. Si el 5 por mil de la población realmente tiene cáncer, encontrar la probabilidad que un determinado individuo tenga cáncer, si la prueba ha dado positiva.
 
 **Solución**
 
 Definimos los sucesos:
 
-  - +: Prueba da positivo
-  - C: Tener cancer
+  * +: Prueba da positivo
+  * C: Tener cancer
 
 $$
-P(C|+) = \frac{P(C) \cdot P(+|C)}{P(+)} = \\
-\frac{P(C) \cdot P(+|C)}{P(C) \dot P(+|C) + P(C^c) \cdot P(+|C^c)} = \\ \frac{5/1000 \cdot 0.95}{5/1000 \cdot 0.95 + 995/1000 \cdot 0.05} = 0.087115596
+\begin{eqnarray*}
+P(C|+) &=& \frac{P(C) \cdot P(+|C)}{P(+)} =
+\frac{P(C) \cdot P(+|C)}{P(C) \dot P(+|C) + P(C^c) \cdot P(+|C^c)} \\
+&=&  \frac{\frac5{1000} \cdot 0.95}{\frac5{1000} \cdot 0.95 + \frac{995}{1000} \cdot 0.05} = 0.087115596.
+\end{eqnarray*}
 $$
 
-9. Se lanzan una sola vez dos dados. Si la suma de los dos dados es como mínimo 7, ¿cuál es la probabilidad que la suma sea igual a $i$, para $i=7,8,9,10,11,12$?
+##  Problema 9.
 
-**Solución**
+Se lanzan una sola vez dos dados. Si la suma de los dos dados es como mínimo 7, ¿cuál es la probabilidad que la suma sea igual a $i$, para $i=7,8,9,10,11,12$?
+
+### Solución
+
+Los casos son 
+
+```{r}
+dados=gtools::permutations(n=6,r=2,repeats.allowed = TRUE)
+df_dados=data.frame(dado1=dados[,1],dado2=dados[,2],suma=dados[,1]+dados[,2])
+df_dados
+table(df_dados$suma)
+```
+
+
+A partir de esta tabla es sencillo cacular las siguientes probabilidades:
+
 
 $$
 P(suma = 7|suma \geq 7) = \frac{P(suma =7 \cap suma \geq 7)}{P(suma \geq 7)} = \\
@@ -378,9 +352,10 @@ P(suma = 12|suma \geq 7) = \frac{P(suma =12 \cap suma \geq 7)}{P(suma \geq 7)} =
 \frac{1/36}{6/36 + 5/36 + 4/36 + 3/36 + 2/36 + 1/36} = \frac{1}{21}
 $$
 
-10. Se sabe que ${2 \over 3}$ de los internos de una cierta prisión son menores de 25 años. También se sabe que ${3\over 5}$ son hombres y que ${5\over 8}$ de los internos son mujeres o mayores de 25 años. ¿Cuál es la probabilidad de que un prisionero escogido al azar sea mujer y menor de 25 años?
+## Problema 10.
+Se sabe que ${2 \over 3}$ de los internos de una cierta prisión son menores de 25 años. También se sabe que ${3\over 5}$ son hombres y que ${5\over 8}$ de los internos son mujeres o mayores de 25 años. ¿Cuál es la probabilidad de que un prisionero escogido al azar sea mujer y menor de 25 años?
 
-**Solución**
+### Solución
 
 Sean los sucesos:
 
@@ -401,14 +376,16 @@ P(M) - (1 - P((M \cap H)^c)) = P(M) - (1 - P(M^c \cup H^c)) = \\
 \frac{2}{3} - \left(1 - \frac{5}{8} \right) = 0.29
 $$
 
-11. Consideremos una hucha con $2n$ bolas numeradas del $1$ al $2n$. Sacamos $2$ bolas de la urna sin reposición. Sabiendo que la segunda bola es par, ¿cuál es la probabilidad de que la primera bola sea impar?
+## Problema 11
+
+Consideremos una hucha con $2n$ bolas numeradas del $1$ al $2n$. Sacamos $2$ bolas de la urna sin reposición. Sabiendo que la segunda bola es par, ¿cuál es la probabilidad de que la primera bola sea impar?
 
 **Solución**
 
 Definimos los sucesos:
 
-  - $P_2$: que la segunda bola sea par
-  - $I_1$: que la primera bola se impar
+  * $P_2$: que la segunda bola sea par
+  * $I_1$: que la primera bola se impar
 
 $$
 P(I_1 | P_2) = \frac{P(P_2 \cap I_1)}{P(P_2)}
@@ -439,11 +416,13 @@ $$
 P(I_1|P_2) = \frac{P(P_2 \cap I_1)}{P(P_2)} = \frac{\frac{n^2}{\frac{(2n))!}{(2n - 2)!}}}{1/2} = \frac{n}{2n-1}
 $$
 
-12. Consideramos el siguiente experimento aleatorio: sacamos $5$ números al azar sin reposición a partir de los números naturales $1,2,\dots,20$. Encontrad la probabilidad $p$ de que haya exactamente dos números tales que sean múltiplos de $3$
+### Problema 12.
 
-**Solución**
+Consideramos el siguiente experimento aleatorio: sacamos $5$ números al azar sin reposición a partir de los números naturales $1,2,\dots,20$. Encontrad la probabilidad $p$ de que haya exactamente dos números tales que sean múltiplos de $3$
 
-Mútiplos de 3 = {3, 6, 9, 12, 15, 18}
+### Solución
+
+Múltiplos de 3 $=\dot 3= \{3, 6, 9, 12, 15, 18\}.$
 
 A fuerza bruta con R:
 ```{r}
@@ -459,9 +438,15 @@ Haciendo el cálculo:
 
 Definimos el suceso:
 
-  -$M$: sacar múltiplo de 3
+  -$\dot3$: sacar múltiplo de 3
 
 Existen 10 maneras en las que podemos sacar exactamente 2 múltiplos de 3: 
+
+```{r}
+gtools::permutations(n=5,r=5,v=c("M","M","noM","noM","noM"),set=FALSE)
+```
+
+
 
 $$
 M, M, M^c, M^c, M^c \\
