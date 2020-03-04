@@ -1,0 +1,68 @@
+---
+title: "Taller  de R. Grados de los vértices de  un grafo"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,cache=TRUE)
+```
+
+
+
+##  Grados de un grafo
+
+En el artículo de A. Broder et al., "Graph structure in the Web." Computer Networks 33, 309 (2000). 
+
+Se recopiló el número de enlaces a sitios web encontrados en un rastreo web de 1997 de aproximadamente 200 millones de páginas web, 
+
+Con el se construyó una t
+
+abla con  la frecuencia de sitios  por número de enlaces. El código siguiente carga del enlace que han puesto los autores del artículo
+
+```{r}
+data_links=read.table("http://tuvalu.santafe.edu/~aaronc/powerlaws/data/weblinks.hist",header=TRUE)
+head(data_links)
+str(data_links)
+# eliminamos la páginas con menos de 8 enlaces  enlaces y las de más de 1000 enlaces
+data_links_central=data_links[data_links$degree>8&data_links$degree<10^3,]
+head(data_links_central)
+tail(data_links_central)
+```
+
+El siguiente código calcula las regresiones exponecial, potencial y lineal (en algún orden) de las frecuencias (`frequency`) contra los enlaces (`degree`).
+
+```{r}
+sol1=lm(frequency~ degree,data=data_links_central)
+summary(sol1)
+sol2=lm(log10(frequency)~ degree,data=data_links_central)
+summary(sol2)
+sol3=lm(log10(frequency)~ log10(degree),data=data_links_central)
+summary(sol3)
+
+```
+
+Ahora dibujamos los gráficos adecuados a cada modelo
+
+```{r}
+plot(data_links_central,main="Modelo ..........")
+abline(sol1,col="red")
+plot(data_links_central,main="Modelo ..........",log="y")
+abline(sol2,col="red")
+plot(data_links_central,main="Modelo ..........",log="xy")
+abline(sol3,col="red")
+```
+
+
+
+Se pide:
+
+1.)  Explicad el modelo de regresión que calcula cada función `lm` (1)
+
+2.)  ¿Qué modelo y en función de qué parámetros es el mejor? (1.5)
+
+3.) Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos (1.5)
+
+
+

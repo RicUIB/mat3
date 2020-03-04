@@ -1,0 +1,79 @@
+---
+title: Estudio empírico del orden de la multiplicación de matrices. El orden del algoritmo
+  de Strassen
+author: "Taller 2 Minería de Datos. Pon tu nombre y apellidos"
+date: "16 de octubre de 2016"
+output:
+  html_document:
+    fig_caption: yes
+    theme: cosmo
+    toc: yes
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Enunciado
+
+Cargamos los datos, los transformamos en un `data frame` de dos variables `n` y `seconds`
+
+```{r}
+#cargamos el objeto del working directory actual
+load("data1000.Robj")
+class(data1000)
+#no muestro la extructura pues es muy larga
+#str(data1000)
+#head(data1000)
+data=as.data.frame(matrix(unlist(data1000),ncol=2,byrow=TRUE))
+head(data)
+#ponemos nombres
+names(data)=c("n","seconds")
+#eliminamos las filas con seconds=0
+data=data[data$seconds!=0,]
+head(data)
+```
+
+# Estudio del orden por regresión múltiple
+
+
+En el taller anterior estudiamos si los modelos de orden del algoritmo de multiplicación de matrices se ajustan a un modelo lineal a uno exponencial o a uno potencial y recordamos que sabemos que la multiplicación de matrices cuadradas de orden es  $O(n^3)$. Pero los resultados nos daban un orden de $O(n^2.7)$ aproximadamente.
+
+El algoritmo de [Strassen de multiplicación de matrices](https://es.wikipedia.org/wiki/Algoritmo_de_Strassen)
+consiste en multiplicar la matriz a trozos y nos promete un orden de $O(n^{log_2(7)+o(1)})=O(log(7,2))$. Así que vamos a utilizar una regresión lineal  múltiple con nuestros datos.
+
+## Regresión lineal múltiple
+
+
+Os paso estos modelos  
+
+```{r}
+lm_fit=lm(seconds~n+I(n^2)+I(n^3)+I(n^log(7,2)),data=data)
+summary(lm_fit)
+step(lm_fit)
+cor(data$n^3,data$n^log(7,2))
+summary(update(lm_fit,~.-n-I(n^2)))
+summary(lm(seconds~I(n^3),data=data))
+summary(update(lm_fit,~.-n-I(n^2)-I(n^log(7,2))))
+summary(update(lm_fit,~.-n-I(n^2)-I(n^3)))
+```
+
+# Cuestiones 
+
+Con estos modelos y algunos otros se pide:
+
+1. Para el  primer modelo. Comprobad que la suma de los residuos es $0$. Calcular
+la desviación estándar de los residuos. Interpretar los resultados.
+
+2. Para el primer modelo. Calcular los intervalos de confianza al 90% para los coeficientes. Con estos intervalos, los $t$-test y el ANOVA de la regresión discutir qué parámetros entran en el modelo.
+
+3. Para el primer modelo. Dibujar los gráficos de los residuos contra los valores ajustados. Estudiar la normalidad de los residuos con un gráfico cuantil-cuantil
+
+4. Utilizad el resto de modelos para decidir mediante la función step qué modelo más simple es el que se ajusta mejor a los datos.
+
+5. Discutid qué modelo o modelos son  los mejores para los datos y si es necesario ampliar la muestra de datos.
