@@ -11,7 +11,11 @@ output:
 **PLANIFICACIÓN SEMANAL** 
 ==========================================
 
-**Semana 4 del 9 de marzo al 15 de marzo** [Enlaces al material](https://ricuib.github.io/Enlaces/).
+**Semana 4 del 9 de marzo al 15 de marzo** 
+
+  + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
+  + [Enlaces al material](https://ricuib.github.io/Enlaces/).
+
 
 * Grupo Grande (3 horas martes GG1 y 2 horas miercoles y  2 horas jueves GR3: 
 Acabaremos  los temas de  distribuciones notables: 
@@ -25,15 +29,13 @@ Acabaremos  los temas de  distribuciones notables:
   + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
-* Grupo mediano:  No hay  taller el GR1 no viene y el GR3  teneis teoria
+* Grupo mediano:  No hay  taller el GR1 no viene y el GR3  tenéis teoría
 
 * Trabajo en casa: Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
   + [Descripción de datos cuantitativos](https://aprender-uib.github.io/AprendeR1/chap-quan.html)
   + [Datos cuantitativos agrupados](https://aprender-uib.github.io/AprendeR1/datos-cuantitativos-agrupados.html)
   + [Gráficos avanzados](https://aprender-uib.github.io/AprendeR1/graficos-avanzados.html)
-  
-  
-  Estudiad los temas [12, 13, 14](https://aprender-uib.github.io/AprendeR1/). Estudiar teoría y hacer problemas propuestos. !!! El tema 8 lo veremos en clase de grupo grande.
+
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
@@ -42,7 +44,9 @@ Acabaremos  los temas de  distribuciones notables:
 
 
 
-**Semana 3 del 2 de marzo al 8 de marzo** [Enlaces al material](https://ricuib.github.io/Enlaces/).
+**Semana 3 del 2 de marzo al 8 de marzo** 
++ [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
++ [Enlaces al material](https://ricuib.github.io/Enlaces/).
 
 * Grupo Grande: 
 Acabaremos el  tema 
@@ -61,10 +65,10 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
 * Grupo mediano:  Dos horas de taller el jueves, traed los portátiles. Haremos problemas de combinatoria y probabilidad, también haremos ejercicios de los temas de R.
 * Trabajo en casa: Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
   + [Gráficos básicos](https://aprender-uib.github.io/AprendeR1/chap-plot.html)
-  + [Descripcion de datos cualitativos](https://aprender-uib.github.io/AprendeR1/chap-edqual.html)
-  + [Descripcion de datos ordinales](https://aprender-uib.github.io/AprendeR1/chap-ord.html). 
+  + [Descripción de datos cualitativos](https://aprender-uib.github.io/AprendeR1/chap-edqual.html)
+  + [Descripción  de datos ordinales](https://aprender-uib.github.io/AprendeR1/chap-ord.html). 
   
-  ¡¡¡ Son voluntarios!!!! Los temas [Estructuras de control basicas](https://aprender-uib.github.io/AprendeR1/chap-for.html)  y [Dsitribuciones de probabilidad](https://aprender-uib.github.io/AprendeR1/chap-distr.html) los veremos en clase de grupo grande y de mediano. 
+  ¡¡¡ Son opcionales!!!! Los temas [Estructuras de control basicas](https://aprender-uib.github.io/AprendeR1/chap-for.html)  y [Dsitribuciones de probabilidad](https://aprender-uib.github.io/AprendeR1/chap-distr.html) los veremos en clase de grupo grande y de mediano. 
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
