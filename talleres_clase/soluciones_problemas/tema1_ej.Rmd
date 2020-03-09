@@ -424,118 +424,72 @@ Consideramos el siguiente experimento aleatorio: sacamos $5$ números al azar si
 
 Múltiplos de 3 $=\dot 3= \{3, 6, 9, 12, 15, 18\}.$
 
-A fuerza bruta con R:
-```{r}
-casos_posibles = combinations(20, 5)
-casos_favorables = 0
-for(ind_caso in 1:nrow(casos_posibles)){
-  if(sum(casos_posibles[ind_caso, ] %% 3 == 0) == 2)
-    casos_favorables = casos_favorables + 1
-}
-casos_favorables/nrow(casos_posibles)
-```
-Haciendo el cálculo:
 
-Definimos el suceso:
+$$
+P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{6\choose2}\cdot{{20-6}\choose {3}}}{{20\choose 5}}=\frac{`r choose(6,2)*choose(10-6,2)`}{ `r choose(20,5)`}.=`r  choose(6,2)* choose(20-6,3)/choose(20,5)`.
+$$
 
-  -$\dot3$: sacar múltiplo de 3
-
-Existen 10 maneras en las que podemos sacar exactamente 2 múltiplos de 3: 
+Con R:
 
 ```{r}
-gtools::permutations(n=5,r=5,v=c("M","M","noM","noM","noM"),set=FALSE)
+choose(6,2)
+choose(20-6,3)
+choose(20,5)
+choose(6,2)* choose(20-6,3)/choose(20,5)
 ```
 
 
 
-$$
-M, M, M^c, M^c, M^c \\
-M, M^c, M, M^c, M^c \\
-M, M^c, M^c, M, M^c \\
-M, M^c, M^c, M^c, M \\
-M^c, M, M, M^c, M^c \\
-M^c, M, M^c, M, M^c \\
-M^c, M, M^c, M^c, M \\
-M^c, M^c, M, M, M^c \\
-M^c, M^c, M, M^c, M \\
-M^c, M^c, M^c, M, M
-$$
-Calculemos la probabilidad del primer caso:
-
-$$
-P(M, M, M^c, M^c, M^c) = \frac{6}{20} \cdot \frac{5}{19} \cdot \frac{14}{18} \cdot \frac{13}{17} \cdot \frac{12}{16} = 0.03521672
-$$
-Cada uno de los 10 casos tiene la misma probabilidad de suceder, por tanto: 
-
-$$
-P(\textrm{dos múltiplos de 3}) = 10 \cdot 0.03521672 = 0.3521672
-$$
-  
 
 
+## Problema 13 
 
-13. En una hucha hay $10$ bolas, numeradas del $1$ al $10$. Las $4$ primeras bolas, o sea, las bolas $1,2,3,4$ son blancas. Las bolas $5,6$ son negras y las bolas restantes son rojas. Sacamos dos bolas sin reposición. Sabiendo que la segunda bola es de color negro, encuentra la probabilidad $p$ de que la primera bola sea blanca.
+En una hucha hay $10$ bolas, numeradas del $1$ al $10$. Las $4$ primeras bolas, o sea, las bolas $1,2,3,4$ son blancas. Las bolas $5,6$ son negras y las bolas restantes son rojas. Sacamos dos bolas sin reposición. Sabiendo que la segunda bola es de color negro, encuentra la probabilidad $p$ de que la primera bola sea blanca.
 
 **Solución**
-
-A la fuerza bruta con R:
-```{r}
-B = c(1, 2, 3, 4)
-N = c(5, 6)
-R = c(7, 8, 9, 10)
-casos_posibles = permutations(10, 2)
-casos_favorables = 0
-n_casos_posibles = 0
-for(ind_caso in 1:nrow(permutations(10, 2))){
-  if (casos_posibles[ind_caso, 2] %in% N){
-    n_casos_posibles = n_casos_posibles + 1
-  if(casos_posibles[ind_caso, 1] %in% B)
-    casos_favorables = casos_favorables + 1
-    }
-  
-}
-
-casos_favorables/n_casos_posibles
-```
-
-Calculándolo:
 
 Definimos los sucesos:
 
-  - $B_i$: que la bola $i$ sea blanca
-  - $N_2$: que la bola $i$ sea negra
+  * $B_i$: que la bola $i$ sea blanca, para $i=1,2.$
+  * $N_2$: que la bola $i$ sea negra, para $i=1,2.$
 
-$$
-P(B_1|N_2) = \frac{P(B_1 \cap N_2)}{P(N_2)} = \\
-\frac{P(B_1 \cap N_2)}{P(N_1^c)\cdot P(N_2 |N_1^c) + P(N_1) \cdot P(N_2|N_1)} = \\
+
+\begin{eqnarray*}
+P(B_1|N_2) &=& \frac{P(B_1 \cap N_2)}{P(N_2)} = 
+\frac{P(B_1 \cap N_2)}{P(N_1^c)\cdot P(N_2 |N_1^c) + P(N_1) \cdot P(N_2|N_1)} \\
+&=& 
 \frac{4/10 \cdot 2/9}{8/10 \cdot 8/9 + 2/10 \cdot 1/9} = 0.4444
-$$
+\end{eqnarray*}
 
-14. Lanzamos un dado no trucado 3 veces. Encontrad la probabilidad $p$ de que la suma de las 3 caras sea $10$.
 
-**Solución**
+## Problema 14
+
+Lanzamos un dado no trucado 3 veces. Encontrad la probabilidad $p$ de que la suma de las 3 caras sea $10$.
+
+### Solución
+
+Lo calculamos con R
 
 ```{r}
-casos_favorables = 0
-casos_posibles = 0
-for (dado_1 in 1:6){
-  for (dado_2 in 1:6){
-    for (dado_3 in 1:6){
-      casos_posibles = casos_posibles + 1
-      if (dado_1 + dado_2 + dado_3 == 10)
-        casos_favorables = casos_favorables + 1
-    }
-  }
-}
+casos_tres_lanzamientos=gtools::permutations(n=6,r=3,repeats.allowed = TRUE)
+df_tres_lanzamientos=data.frame(casos_tres_lanzamientos, suma=unlist(apply(casos_tres_lanzamientos,1,sum)))
+head(df_tres_lanzamientos)
+dim(df_tres_lanzamientos)
+table(df_tres_lanzamientos$suma)
 
+casos_favorables=27
+casos_posibles=dim(df_tres_lanzamientos)[1]
+casos_posibles
 casos_favorables/casos_posibles
 ```
 
 
 
-15. 4 cartas numeradas del 1 al 4 están giradas boca abajo sobre una mesa. Una persona, supuestamente adivina, irá adivinando los valores de las 4 cartas una a una. Suponiendo que es un farsante y que lo que hace es decir los 4 números al azar, ¿cuál es la probabilidad de que acierte como mínimo 1? (Obviamente, no repite ningún número)
+## Problema 15
 
-**Solución**
+cartas numeradas del 1 al 4 están giradas boca abajo sobre una mesa. Una persona, supuestamente adivina, irá adivinando los valores de las 4 cartas una a una. Suponiendo que es un farsante y que lo que hace es decir los 4 números al azar, ¿cuál es la probabilidad de que acierte como mínimo 1? (Obviamente, no repite ningún número)
+
+## Solución
 
 A fuerza bruta con R:
 
@@ -558,21 +512,24 @@ Calculándolo:
 $$
 P(\textrm{acierte al menos 1} = 1 - P(\textrm{no acierte ninguna})) = \frac{3\cdot 3 \cdot 1 \cdot 1}{4!} = \frac{15}{24}
 $$
-16. Una forma de aumentar la fiabilidad de un sistema es mediante la introducción de una copia de los componentes en una configuración paralela. Supongamos que la NASA quiere una probabilidad no menor que 0.99999 de que el transbordador espacial entre en órbita alrededor de la Tierra con éxito. ¿Cúantos motores se deben configurar en paralelo para que se consiga dicha fiabilidad si se sabe que la probabilidad de que un motor funcione adecuadamente es 0.95? Supongamos que los motores funcionan de manera independiente los unos con los otros.
+## Problema 16
 
-**Solución**
+Una forma de aumentar la fiabilidad de un sistema es mediante la introducción de una copia de los componentes en una configuración paralela. Supongamos que la NASA quiere una probabilidad no menor que 0.99999 de que el transbordador espacial entre en órbita alrededor de la Tierra con éxito. ¿Cúantos motores se deben configurar en paralelo para que se consiga dicha fiabilidad si se sabe que la probabilidad de que un motor funcione adecuadamente es 0.95? Supongamos que los motores funcionan de manera independiente los unos con los otros.
 
-Definimos el suceso:
+### Solución
 
-  - $E_1$: éxito del motor$i$
+Definimos el suceso:  $E_1$: éxito del motor$i$
 
 $$
 P(E_1) = 0.95
 $$
+
 Nos preguntan cuántos motores hay que poner para que la probabilidad de que al menos 1 tenga éxito sea como mínimo 0.99999, que es igual que decir que buscamos la configuración que con un mínimo de un 0.99999 de probabilidad no va a tener ningún motor que falle:
+
 $$
 P(E_1 \cup E\_2 \cup \dots) = 0.99999 = 1 - P(E_1^c \cap E_2^c \cap \dots) = 1 - 0.05^n
 $$
+
 Resolvemos la inecuación:
 
 $$
@@ -584,51 +541,54 @@ n = 4
 $$
 
 
-##  Ejercicios de Independencia de sucesos
+#  Ejercicios de Independencia de sucesos
 
-1. Una moneda no trucada se lanza al aire 2 veces Consideremos los siguientes sucesos:
+## Problema 1
 
-    - A: Sale una cara en la primera tirada.
-    - B: Sale una cara en la segunda tirada.
+Una moneda no trucada se lanza al aire 2 veces Consideremos los siguientes sucesos:
+
+    * A: Sale una cara en la primera tirada.
+    * B: Sale una cara en la segunda tirada.
 
     ¿Son los sucesos A y B independientes?
     
-Si
+### Solución
 
-2. Una urna contiene 4 bolas numerades con los números 1, 2, 3 y 4, respectivamente. Se extraen dos bolas sin reposición. Sea A el suceso que la primera bola extraida tenga un 1 marcado y sea B el suceso que la segunda bola extraida tenga un 1 marcado. 
+Sí
 
-    - ¿Se puede decir que A y B son independientes?
-No
-    - ¿Y si el experimento fuera con reposición?
-Si
+## Problema 2
+
+Una urna contiene 4 bolas numerades con los números 1, 2, 3 y 4, respectivamente. Se extraen dos bolas sin reposición. Sea A el suceso que la primera bola extraida tenga un 1 marcado y sea B el suceso que la segunda bola extraida tenga un 1 marcado. 
+
+    *  a) ¿Se puede decir que A y B son independientes?
+    *  b) ¿Y si el experimento fuera con reposición?
+
+### Solución 
+
+En el primer caso no son independientes y en el segundo caso sí.
+
+## Problema 2 
+
+Sea $\Omega$ un espacio muestral y $A,B,C$ tres sucesos. Probad que 
+
+* $A$ y $B$ son independientes, también lo son $A$ y $B^c$
+* Si $A,B,C$ son independientes, también lo son $A,B$ y $C^c$
+    
+## Solución
+Si los sucesos $A$ y $B$ son independientes tenemos que $P(A \cap B) = P(A)\cdot P(B).
+
+Para que los sucesos $A$ y $B^c$ sean independientes se tiene que cumplir que $P(A \cap B^c) = P(A) \cdot P(B^c)$, operemos 
 
 
-
-3. Sea $\Omega$ un espacio muestral y $A,B,C$ tres sucesos. Probad que
-
-    - Si $A$ y $B$ son independientes, también lo son $A$ y $B^c$
-
-Si los sucesos $A$ y $B$ son independientes:
-$$
-P(A \cap B) = P(A)\cdot P(B)
-$$
-Para que los sucesos $A$ y $B^c$ sean independientes se tiene que cumplir:
-
-$$
-P(A \cap B^c) = P(A) \cdot P(B^c)
-$$
 $$
 P(A \cap B^c) = P(A) - P(A \cap B) = P(A) \cdot (1 - P(B)) = P(A) \cdot P(B^c)
 $$
-Queda demostrado que $A$ y $B^c$ son sucesos independientes.
+
+por lo tanto $A$ y $B^c$ son sucesos independientes.
     
     - Si $A,B,C$ son independientes, también lo son $A,B$ y $C^c$
     
-Si $A,B,C$ son independientes significa que:
-
-$$
-P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)
-$$
+Si $A,B,C$ son independientes significa que:$P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C) $ , $P(A\cap B)=P(A)
 Y queremos comprobar que:
 $$
 P(A \cap B \cap C^c) = P(A) \cdot P(B) \cdot P(C^c)
