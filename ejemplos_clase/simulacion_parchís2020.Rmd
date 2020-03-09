@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-set.sed(2020)
+set.seed(2020)
 dado=1:6
 dado
 simulacion=sample(dado,size=10^6, replace=TRUE)
