@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "26/2/2020"
+date: "10 marzo, 2020"
 output:
   html_document:
     keep_md: yes
