@@ -9,8 +9,45 @@ output:
   word_document: default
 ---
 
+
+
+
 **PLANIFICACIÓN SEMANAL** 
 ==========================================
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
+**Semana 5 del 16 de marzo al 22 de marzo** 
+
+  + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
+  + [Enlaces al material](https://ricuib.github.io/Enlaces/).
+
+ <span style="color:red">TALLER EVALUABLE EL JUEVES (GR3 de 8:30 a 10:30. GR1 de 12:30 a 14:30).</span>.
+
+* Grupo Grande (GG1 3 horas martes. GG3  2 horas miercoles): 
+Acabaremos  el tema de  distribuciones notables continuas y  daremos algún contenido del tema de variables aleatorias  bidimensoionales: 
+  + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1)
+  + [Variables multidimensionales](https://joanby.github.io/probabilidad/Tema_5_Varias_Variables#1)
+
+* Problemas propuestos (seguimos con los mismos de cara al control 1)
+  + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
+  + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
+  + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
+
+* Grupo mediano:  No hay  taller el GR1 no viene y el GR3  tenéis teoría
+
+* Trabajo en casa: Repasar los ejercicios de AprendeR1 y  los talleres de R
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
+
+
 
 **Semana 4 del 9 de marzo al 15 de marzo** 
 

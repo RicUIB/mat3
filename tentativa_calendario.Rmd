@@ -1,14 +1,4 @@
 ---
-title: "Tentativa calendario"
-author: "Ricardo"
-date: "9/3/2020"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
----
 title: "Matemàtiques III - Estadística. Grup 02. Curs 2019/2020"
 author: "JL.Lisani"
 date: "2/13/2020"
