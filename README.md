@@ -24,7 +24,7 @@ output:
   + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/).
 
- <span style="color:red">TALLER EVALUABLE EL JUEVES (GR3 de 8:30 a 10:30. GR1 de 12:30 a 14:30).</span>.
+ <span style="color:red">TALLER EVALUABLE EL JUEVES (GR3 de 8:30 a 10:30. GR1 de 12:30 a 14:30) en el aula habitual.</span>.
 
 * Grupo Grande (GG1 3 horas martes. GG3  2 horas miercoles): 
 Acabaremos  el tema de  distribuciones notables continuas y  daremos algún contenido del tema de variables aleatorias  bidimensoionales: 
@@ -38,7 +38,7 @@ Acabaremos  el tema de  distribuciones notables continuas y  daremos algún cont
   + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
-* Grupo mediano:  No hay  taller el GR1 no viene y el GR3  tenéis teoría
+* Grupo mediano:  Hay taller EVALUABLE GR1 de 12:30 a 14:30. GR3 de 8:30 a 10:30 en l eaula habitual.
 
 * Trabajo en casa: Repasar los ejercicios de AprendeR1 y  los talleres de R
 
