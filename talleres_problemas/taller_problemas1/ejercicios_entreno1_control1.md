@@ -1,20 +1,23 @@
 ---
-title: "Matemáticas III  ejercicios para entrenar 1"
+title: "Matemáticas III. Ejercicios resueltos"
+author: Ricardo Alberich
 output:
-  pdf_document:
-    toc: yes
-  html_document:
+  html_document: 
+    keep_md: yes
     number_sections: yes
     toc: yes
-    toc_depth: 2
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
 urlcolor: blue
+toccolor: red
+header-includes:
+  \renewcommand{\contentsname}{Contenidos}
 ---
 
 
-```{r echo=FALSE,results='hide'}
-library(knitr)
-options(digits=4)
-```
+
 # Matemáticas III. Algunos EJERCICIOS para ENTRENAR tipo examen; de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables
 
 ## Ejercicio 1
@@ -32,15 +35,11 @@ En una muestra aleatoria simple de tamaño $100$ de la población de internautas
 
 ### Solución:
 
-```{r proporcioninternautas,results='hide',echo=FALSE}
-phat=0.8
-n=100
-error.estandar=sqrt(phat*(1-phat)/n)
-```
+
 
 Tenemos una muestra aleatoria simple de tamaño $n=100$ en la que la proporción muestral es $\hat{p}=0.8$. Bajo estas condiciones el error estándar del estadístico $\hat{p}$ es 
 
-$$\sqrt{\frac{\hat{p}\cdot (1- \hat{p})}{n}}=\sqrt{\frac{`r phat`\cdot (`r 1-phat`)}{ n}}=`r error.estandar`.$$
+$$\sqrt{\frac{\hat{p}\cdot (1- \hat{p})}{n}}=\sqrt{\frac{0.8\cdot (0.2)}{ n}}=0.04.$$
 
 
 ## Ejercicio  3
@@ -54,15 +53,7 @@ b). Tiro a la  vez dos dados  blancos y sumo los resultados.
 c). Tiro a la vez un  dado rojo y uno azul y sumo los resultados.
 
 ### Solución:
-```{r sumasdados,results='hide',echo=FALSE}
-puntuaciones=1:6
-sumas=matrix(0,nrow=6,ncol=6)
-for(dado1 in puntuaciones){
-  for (dado2 in puntuaciones){
-    sumas[dado1,dado2]=as.integer(dado1+dado2)
-  }
-}
-```
+
 
  En las tres situaciones a), b) y c) los casos posibles son los siguientes
  pares dónde el primer elemento es el Dado1 (sea del color que sea) y el segundo es el Dado 2 (de cualquier color) $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$.
@@ -81,7 +72,7 @@ Sea $X$ una variable aleatoria que  cuenta el número de \textbf{CARAS} de una m
 Sea $Y$ la variable que cuenta el número de cruces en el mismo experimento. Obviamente tenemos que $Y=100-X$. 
 Así que 
 
-$$P(Y=59)= P(100-X\leq 59) = P(X\geq 41)= 1-P(X < 41)=1-P(X\leq 40)=1-0.8962=`r 1-0.8962`.$$
+$$P(Y=59)= P(100-X\leq 59) = P(X\geq 41)= 1-P(X < 41)=1-P(X\leq 40)=1-0.8962=0.1038.$$
 
 ## Ejercicio 5 
 
@@ -101,13 +92,51 @@ Cuatro personas con cuatro gorras diferentes las lanzan al aire para celebrar la
 ### Solución:
 
 
-```{r}
+
+```r
 library(combinat)
 Casos=as.data.frame(matrix(unlist(permn(1:4)),byrow=TRUE,ncol=4))
 names(Casos)=paste("Persona",1:4,sep="")
 Casos$Aciertos=unlist(apply(Casos[,1:4],MARGIN=1,FUN=function(x) sum(x==c(1:4))))
 Casos
+```
+
+```
+##    Persona1 Persona2 Persona3 Persona4 Aciertos
+## 1         1        2        3        4        4
+## 2         1        2        4        3        2
+## 3         1        4        2        3        1
+## 4         4        1        2        3        0
+## 5         4        1        3        2        1
+## 6         1        4        3        2        2
+## 7         1        3        4        2        1
+## 8         1        3        2        4        2
+## 9         3        1        2        4        1
+## 10        3        1        4        2        0
+## 11        3        4        1        2        0
+## 12        4        3        1        2        0
+## 13        4        3        2        1        0
+## 14        3        4        2        1        0
+## 15        3        2        4        1        1
+## 16        3        2        1        4        2
+## 17        2        3        1        4        1
+## 18        2        3        4        1        0
+## 19        2        4        3        1        1
+## 20        4        2        3        1        2
+## 21        4        2        1        3        1
+## 22        2        4        1        3        0
+## 23        2        1        4        3        0
+## 24        2        1        3        4        2
+```
+
+```r
 table(Casos$Aciertos)
+```
+
+```
+## 
+## 0 1 2 4 
+## 9 8 6 1
 ```
 
 Sea $X=$ número de personas con su propio sombrero, el dominio es $D_X=\{0,1,2,3,4\}$.
@@ -118,10 +147,13 @@ $$P(X=k)=\frac{\mbox{Casos favorables a $k$ aciertos}}{\mbox{Casos posibles}}=\f
 
 Contando los casos tenemos que 
 
-```{r tabla1, echo=FALSE}
-df=data.frame(Aciertos=c(0,1,2,4),Frecuencia=c(9 , 8 , 6 , 1))
-knitr::kable(df)
-```
+
+ Aciertos   Frecuencia
+---------  -----------
+        0            9
+        1            8
+        2            6
+        4            1
 
 
 por lo tanto 
@@ -286,16 +318,35 @@ La media es $\overline{x}=\frac{\sum_{i=1}^n x_i}{n}=\frac{-3-2-1+1+2+3}{6}=0.$
 
 $\tilde{S}=\sqrt{\frac{n}{n-1}\cdot \left(\frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2\right)}=
 \sqrt{\frac{6}{6-1}\cdot \left(\frac{(-3)^2+(-2)^2+(-1)^2+(1)^2+(2)^2+(3)^2}{6}-0^2\right)}=
-\sqrt{\frac{6}{5}\cdot \frac{28}{6}}=\sqrt{\frac{28}{5}}= `r round(sqrt(28/5),4)`.$
+\sqrt{\frac{6}{5}\cdot \frac{28}{6}}=\sqrt{\frac{28}{5}}= 2.3664.$
  
 Con R obtenemos el mismo resultado 
 
-```{r}
+
+```r
 x=c(-3,-2,-1,1,2,3)
 n=length(x)
 n
+```
+
+```
+## [1] 6
+```
+
+```r
 sqrt((sum(x^2)/n-(sum(x)/n)^2) *(n/(n-1)))
+```
+
+```
+## [1] 2.366
+```
+
+```r
 sd(x)
+```
+
+```
+## [1] 2.366
 ```
 
 ##  Ejercicio 10 
@@ -423,7 +474,7 @@ El cuantil $0.95$ es el valor $y_0$ tal que $F_y(y_0)=P(Y\leq y_0)=0.95$. Por lo
 
 $$F_y(y_0)=\frac{10^{y_0}-1}{9}=0.95$$
 
-así que $10^{y_0}=9\cdot 0.95+1=`r 9*0.95+1`$, de donde $y_0=\log_{10}(`r 9*0.95+1`)=`r log10(9*0.95+1)`.$
+así que $10^{y_0}=9\cdot 0.95+1=9.55$, de donde $y_0=\log_{10}(9.55)=0.98.$
 
 
 ## Ejercicio 16
@@ -439,19 +490,24 @@ $Var(X)=E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displa
 10\cdot p+0^2=10\cdot p=10\cdot \frac{1}{5}=2.$
 
 ## Ejercicio 17
-Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=`r  pnorm(-0.2)`. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
+Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=0.4207. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
 
 ### Solución:
 Por simetŕia de la normal estándar sabemos que 
 $P(Z>0.2)=p(Z<-0.2)$ por lo tanto 
 
-$$P(|Z|\geq 0.2)=P(Z>0.2)+p(Z<-0.2)=2\cdot P(Z<-0.2)=2\cdot `r  pnorm(-0.2)`=
-`r  2*pnorm(-0.2)`.$$
+$$P(|Z|\geq 0.2)=P(Z>0.2)+p(Z<-0.2)=2\cdot P(Z<-0.2)=2\cdot 0.4207=
+0.8415.$$
 
 Con  R
 
-```{r}
+
+```r
 2*pnorm(-0.2)
+```
+
+```
+## [1] 0.8415
 ```
 
 ## Ejercicio 18

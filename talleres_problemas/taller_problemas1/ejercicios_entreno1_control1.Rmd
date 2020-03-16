@@ -1,23 +1,31 @@
 ---
-title: "Matemáticas III  ejercicios para entrenar 1"
+title: "Matemáticas III. Ejercicios resueltos"
+author: Ricardo Alberich
 output:
-  pdf_document:
-    toc: yes
-  html_document:
+  pdf_document: 
     number_sections: yes
     toc: yes
-    toc_depth: 2
+    toc_depth: 4
+  html_document: 
+    keep_md: yes
+    number_sections: yes
+    toc: yes
 urlcolor: blue
+toccolor: red
+header-includes:
+  \renewcommand{\contentsname}{Contenidos}
 ---
 
 
 ```{r echo=FALSE,results='hide'}
-library(knitr)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE)
 options(digits=4)
+prob=1
+pr=function(x=prob) {prob=prob+1; return (prob)}
 ```
 # Matemáticas III. Algunos EJERCICIOS para ENTRENAR tipo examen; de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables
 
-## Ejercicio 1
+## Ejercicio `r pr(x=prob); prob`
 Sean $A$ y $B$ dos sucesos tales que $P(A\cap B^c)=P(B\cap A^c)=P(A\cap B)=0.2$  ¿Qué vale $P(A\cup B)$?
 
 ### Solución:
