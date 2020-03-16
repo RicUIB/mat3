@@ -3,10 +3,10 @@ title: "Ejercicios Tema 1 - Probabilidad"
 author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: "Curso de Probabilidad y Variables Aleatorias con R y Python"
 output:
-  word_document:
-    toc: yes
   pdf_document:
     number_sections: yes
+    toc: yes
+  word_document:
     toc: yes
   html_document:
     keep_md: yes
@@ -252,14 +252,14 @@ Dado que son sucesos independientes, nos da igual cuántas veces hayamos tirado 
 
 Nuevamente, al ser sucesos independientes, nuestra probabilidad de cara será:
 
-$$
+
 \begin{eqnarray*}
 P(\mbox{"4 cuarta  tirada  cara"}&/& \mbox{"si han salido  3 caras en 4 tiradas"}) \\ 
 & =& P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}/\{cc++,c+c+,c++c,+c+c,++cc\})\\
 &=& \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\cap \{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
 &=& \frac{P(\{cc++,c+c+,c++c\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}=\frac{\frac{3}{16}}{\frac{5}{16}}=\frac{3}{5}.
 \end{eqnarray*}
-$$
+
 
 
 ## Problema 8. 
@@ -303,13 +303,13 @@ Definimos los sucesos:
   * +: Prueba da positivo
   * C: Tener cancer
 
-$$
+
 \begin{eqnarray*}
 P(C|+) &=& \frac{P(C) \cdot P(+|C)}{P(+)} =
 \frac{P(C) \cdot P(+|C)}{P(C) \dot P(+|C) + P(C^c) \cdot P(+|C^c)} \\
 &=&  \frac{\frac5{1000} \cdot 0.95}{\frac5{1000} \cdot 0.95 + \frac{995}{1000} \cdot 0.05} = 0.087115596.
 \end{eqnarray*}
-$$
+
 
 ##  Problema 9.
 
@@ -594,10 +594,13 @@ por lo tanto $A$ y $B^c$ son sucesos independientes.
     
 Si $A,B,C$ son independientes significa que:$P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C) $ , $P(A\cap B)=P(A)
 Y queremos comprobar que:
+
 $$
 P(A \cap B \cap C^c) = P(A) \cdot P(B) \cdot P(C^c)
 $$
+
 Sabemos que:
+
 $$
 P(A \cap B \cap C^c) = P(A \cap B) - P(A \cap B \cap C) = \\
 P(A) \cdot P(B) - P(A)\cdot P(B) \cdot P(C) = \\
