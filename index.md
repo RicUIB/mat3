@@ -5,8 +5,6 @@ date: "16 marzo, 2020"
 output:
   html_document: 
     keep_md: yes
-    number_sections: yes
-    toc: yes
   pdf_document: default
   word_document: default
 ---
@@ -25,16 +23,18 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
 ### **Semana 5 del 16 de marzo al 22 de marzo** 
 
 * Grupo Grande (3 horas martes GG1 8:30 a 11:30 + 1 taller el jueves a las 12:30 a 13:30, GG3 2 horas martes 8:30 a 10:30 y una hora jueves 8:30  a 9:30 y una hora taller jueves a las 9:30 a 10:30  ): 
-Acabaremos  los temas de  distribuciones notables MIRANDO LOS VIDEOS: 
+Acabaremos  los temas de  distribuciones notables **MIRANDO LOS VIDEOS**: 
   + [Distribuciones Notables Parte I: Distribuciones Discretas](https://joanby.github.io/probabilidad/Tema_3_1_Notables#1). [Sección 8 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
   + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1). [Sección 9 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
 
 * Problemas propuestos
+  + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
+  + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
+  + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
+*  Taller  evaluable: Estad atentos a  Aula Digital
 
 
 ## PLANIFICACIÓN SEMANAL PRESENCIAL
@@ -55,7 +55,7 @@ Acabaremos  los temas de  distribuciones notables MIRANDO LOS VIDEOS:
 
 
 **Semana 4 del 9 de marzo al 15 de marzo** 
->>>>>>> 394740185ba223f2eaf825f3dfe03fe552f9aafb
+
 
   + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/).
