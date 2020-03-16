@@ -3,14 +3,17 @@ title: "FIFA2019"
 author: "Ricardo Alberich"
 date: "18 de marzo de 2019"
 output:
-  html_document: 
-    df_print: tibble
-    number_sections: yes
-    toc: yes
   pdf_document: 
     number_sections: yes
     toc: yes
+  html_document: 
+    number_sections: yes
+    toc: yes
+header-includes:
+  - \usepackage[spanish]{babel}
 ---
+
+# Ejemplos datos jugadores FIFA 2019
 
 En [FIFA 19 complete player dataset 18k+ FIFA 19 players, ~90 attributes extracted from the latest FIFA database](https://www.kaggle.com/karangadiya/fifa19#data.csv)
 
@@ -31,7 +34,7 @@ head(data)
 str(data)
 ```
 
-## Algunos estadisticos por nacionalidad
+## Algunos estadísticos por nacionalidad
 
 Calculamos la media de la  edad de los jugadores por nacionalidad. Como hay muchas nacionalidades ordenamos y visualizamos las o nacionalidades más abundantes. 
 
@@ -75,22 +78,26 @@ data4=data[data$Club %in% c("FC Barcelona", "Juventus","Paris Saint-Germain", "M
 head(data4)
 ```
 ## Pregunta 3
-Discretiza a un factor ordenado llamado `Overall_Level` en 5 niveles ("Low","Regular","Best","Very Best","Ace"), el Overall de los jugadores de `data4`.
+Discretiza a un factor ordenado llamado `Overall_Level` en 5 niveles 
+"Low","Regular","Best","Very Best","Ace", el Overall de los jugadores de `data4`.
 
 ```{r}
-Overall_Level=ordered(cut(data4$Overall,breaks=5),labels=c("Low","Regular","Best","Very Best","Ace"))
+Overall_Level=ordered(cut(data4$Overall,breaks=5),
+                      labels=c("Low","Regular","Best","Very Best","Ace"))
 Overall_Level
 ```
 
-# Pregunta 4
+## Pregunta 4
 Dibuja un diagrama de mosaico de las proporciones  globales de Overall_Level por los 4 clubes.
 
 ```{r}
-mosaicplot(prop.table(table(data4$Club,Overall_Level)),main="Diagram de mosaico de proporciones del Overal_level y Club",color = rainbow(5))
+mosaicplot(prop.table(table(data4$Club,Overall_Level)),
+           main="Diagram de mosaico de proporciones del Overal_level y Club",
+           color = rainbow(5))
 ```
 
 
-#  Pregunta 5
+##  Pregunta 5
 Calcula los porcentajes  de `Overall_Level` por club. ¿Qué club tiene un mayor porcentaje de jugadores Ace?.
 
 ```{r}
@@ -98,7 +105,7 @@ prop.table(table(Overall_Level,data4$Club),margin=2)
 ```
 
 
-#  Pregunta 6
+##  Pregunta 6
 Del total de Ace entre los 4 clubes ¿qué club tiene el menor porcentaje?
 
 ```{r}

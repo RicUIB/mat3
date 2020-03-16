@@ -3,9 +3,9 @@ title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
 date: "16 marzo, 2020"
 output:
+  pdf_document: default
   html_document: 
     keep_md: yes
-  pdf_document: default
   word_document: default
 ---
 
