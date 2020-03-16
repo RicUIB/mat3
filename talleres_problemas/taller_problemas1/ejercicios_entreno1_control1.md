@@ -29,20 +29,8 @@ Tenemos que  $P(A\cap B^c)=P(A-B)=P(A)-P(A\cap B)=0.2$  y también  $P(B\cap A^c
  De donde, utilizando que $P(A\cap B)=0.2$ tenemos que $P(A)=P(B)=0.4$. Y ahora calculamos lo que se pide
  $$P(A\cup B)=P(A)+P(B)-P(A\cap B)=0.4+0.4-0.2=0.6.$$
 
-## Ejercicio 2
 
-En una muestra aleatoria simple de tamaño $100$ de la población de internautas  se obtuvo que el 80\% tenían cuenta en al menos dos redes sociales. Calcular el error estándar de la proporción $p$ de internautas que tienen  cuenta el al menos dos redes sociales.
-
-### Solución:
-
-
-
-Tenemos una muestra aleatoria simple de tamaño $n=100$ en la que la proporción muestral es $\hat{p}=0.8$. Bajo estas condiciones el error estándar del estadístico $\hat{p}$ es 
-
-$$\sqrt{\frac{\hat{p}\cdot (1- \hat{p})}{n}}=\sqrt{\frac{0.8\cdot (0.2)}{ n}}=0.04.$$
-
-
-## Ejercicio  3
+## Ejercicio  2
 
 ¿Cuál es la probabilidad de que la suma de  los puntos de  dos dados  de parchís perfectos sea $7$ en los siguientes tres  casos?
 
@@ -63,7 +51,7 @@ c). Tiro a la vez un  dado rojo y uno azul y sumo los resultados.
 Así que $P( \mbox{La suma es } 7)=\frac{\mbox{Casos Favorables}}{\mbox{Casos Posibles}}=\frac{6}{36}=\frac{1}{6}$
 
 
-## Ejercicio 4
+## Ejercicio 3
 
 Sea $X$ una variable aleatoria que  cuenta el número de \textbf{CARAS} de una moneda trucada una distribución $B(n=100,p=\frac{1}{4})$.  Sabemos que $P(X\leq 40)=0.8962$ ¿Cuál es la probabilidad de obtener  $59$ **CRUCES** o menos? (Indicación construid la variable $Y=100-X$ que cuenta el número de **CRUCES**.)
 
@@ -74,7 +62,7 @@ Así que
 
 $$P(Y=59)= P(100-X\leq 59) = P(X\geq 41)= 1-P(X < 41)=1-P(X\leq 40)=1-0.8962=0.1038.$$
 
-## Ejercicio 5 
+## Ejercicio 4
 
 Si $X$ es una variable aleatoria con distribución $Exp(\lambda)$ y sabemos que $P(X>4)=0.5$ ¿Qué vale $P(X\geq 8/X>4)$?
 
@@ -85,7 +73,7 @@ $P(X> x+y/X>x)=P(X> y)$. En nuestro caso
 
 $$P(X>8/X>4)=P(X> 4+4/X>4)=P(X>4)=0.5.$$
 
-## Ejercicio 6 
+## Ejercicio 5
 
 Cuatro personas con cuatro gorras diferentes las lanzan al aire para celebrar la victoria de su equipo. Cuando caen las recogen al azar. Estudiar la distribución de la variable que nos da  el número de gorras que se quedan con su dueño (**1 punto**).
 
@@ -184,7 +172,7 @@ $E(X^2)= 0\cdot \frac{9}{24} +1^2\cdot
 
 $Var(X)=E(X^2)-E(X)^2=2-1^2=1$.
 
-## Ejercicio 7
+## Ejercicio 6
 
 Diseñamos un examen tipo test de $n=10$ preguntas con $k>2$ opciones cada una de la que sólo una es correcta.
 Cada pregunta vale un punto. Supongamos que un estudiante contesta todas las preguntas al azar. Se pide
@@ -221,7 +209,7 @@ $Var(N)=Var\left(\left(1+\frac{1}{k-1}\right) X-10\cdot\frac{1}{k-1}\right)=\lef
 \left(1+\frac{1}{k-1}\right)^2\cdot 10\cdot \frac{1}{k} \left(1-\frac{1}{k}\right)=\frac{10}{k-1}.$
 
 
-## Ejercicio 8 
+## Ejercicio 7
 
 Consideremos la función de densidad de una cierta variable continua $X$
 
@@ -306,50 +294,8 @@ $$Var(X)=E(X^2)-E(X)^2=\int_{-1}^{0} x^2\cdot (-x) dx+\int_{0}^{1} x^2\cdot x dx
 
 
 
-## Ejercicio 9
 
-Consideremos la siguiente muestra aleatoria simple de  una cierta variable aleatoria $X$.
-$$-3,-2,-1,1,2,3$$
-Calculad la desviación típica muestral.(*0.5 puntos*)
-
-### Solución:
-
-La media es $\overline{x}=\frac{\sum_{i=1}^n x_i}{n}=\frac{-3-2-1+1+2+3}{6}=0.$
-
-$\tilde{S}=\sqrt{\frac{n}{n-1}\cdot \left(\frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2\right)}=
-\sqrt{\frac{6}{6-1}\cdot \left(\frac{(-3)^2+(-2)^2+(-1)^2+(1)^2+(2)^2+(3)^2}{6}-0^2\right)}=
-\sqrt{\frac{6}{5}\cdot \frac{28}{6}}=\sqrt{\frac{28}{5}}= 2.3664.$
- 
-Con R obtenemos el mismo resultado 
-
-
-```r
-x=c(-3,-2,-1,1,2,3)
-n=length(x)
-n
-```
-
-```
-## [1] 6
-```
-
-```r
-sqrt((sum(x^2)/n-(sum(x)/n)^2) *(n/(n-1)))
-```
-
-```
-## [1] 2.366
-```
-
-```r
-sd(x)
-```
-
-```
-## [1] 2.366
-```
-
-##  Ejercicio 10 
+##  Ejercicio 8
 
 Si $A$, $B$ y $C$ son tres sucesos tales que  $P(A/C)= 0.3$,  $P(B/C)=0.8$ y que $P((A\cap B)/C)=0.1$. Calculad $P((A-B)/C)$.(*0.5 puntos*)
 
@@ -357,32 +303,9 @@ Si $A$, $B$ y $C$ son tres sucesos tales que  $P(A/C)= 0.3$,  $P(B/C)=0.8$ y que
 
 La probabilidad pedida es $P((A-B)/C)=$P(A/C)-$P(A\cap B/C)=0.3-0.1=0.2.$
 
-## Ejercicio 11
-
-Consideremos una muestra aleatoria simple  de tamaño $n=100$ de una variable aleatoria $X$ Bernoulli de parámetro $p$.
-¿Cuál es el valor  esperado y el error estándar de la media aritmética de la muestra? (*0.5 puntos*)
-
-### Solución
-
-El valor esperado es $E(\overline{X}) =E(X)= 100\cdot p$  y el error estándar $\sigma_{\overline{X}} =\sigma_{X}=\sqrt{\frac{p\cdot(1-p)}{100}}.$
-
-## Ejercicio 12  
-
-Consideremos  una v.a. $X$ normal de media $\mu=20$ y $\sigma=50$. Tomamos una muestra aleatoria simple de tamaño $n=100$. Calculad
-$P(20< \overline{X}<25 /\overline{X}>20)$ (*0.5 puntos*)
 
 
-![](normal1examen.jpg)
-
-
-### Solución:
-$\begin{aligned}
-P(20< \overline{X}<25 /\overline{X}>20)&=\frac{P(20< \overline{X}<25\cap \overline{X}>20)}{1-P( \overline{X}\leq 20))}\\
-&=\frac{F_Z\left(\frac{25-20}{\frac{50}{\sqrt{100}}}\right)-F_Z\left(\frac{20-20}{\frac{50}{\sqrt{100}}}\right)}{1-F_Z\left(\frac{20-20}{\frac{50}{\sqrt{100}}}\right)}=
-\frac{F_Z(1)-F_Z(0)}{F_Z(0)}.
-\end{aligned}$
-
-## Ejercicio 13
+## Ejercicio 9
 
 Lanzamos un dado de 12 caras numeradas  con enteros del 1 al 12 sobre una mesa plana. Observamos el número superior del dado. Suponiendo equiprobabilidad de todas las caras calcular la probabilidad de que salga mayor que 8  si el resultado es par. (*1 punto*)
 
@@ -390,7 +313,7 @@ Lanzamos un dado de 12 caras numeradas  con enteros del 1 al 12 sobre una mesa p
 
 $$ P(X>8/X\in\{2,4,6,8,10,12\})=\frac{P(X\in\{10,12\})}{P(X\in\{2,4,6,8,10,12\})}=\frac{2/12}{6/12}=\frac{1}{3}.$$
 
-## Ejercicio 14
+## Ejercicio 10
 
 Lanzamos una moneda con probabilidad de cara $p=\frac{1}{2}$ hasta que sale cara dos veces  o bien la hemos lanzamos 5 veces, lo primero que ocurra.
 
@@ -426,7 +349,7 @@ $$
 $E(X)=2\cdot\frac{1}{4}+3\cdot \frac{1}{4}+ 4\cdot \frac{3}{16}+5\cdot \frac{10}{32}=\frac{57}{16}.$
 
 
-## Ejercicio 15
+## Ejercicio 11
 
 Sea $X$  una variable  con distribución uniforme en el intervalo $(1,10)$ con  $a>1$. Consideremos la variable $Y=\log_{10}(X)$. Se pide
 
@@ -477,7 +400,7 @@ $$F_y(y_0)=\frac{10^{y_0}-1}{9}=0.95$$
 así que $10^{y_0}=9\cdot 0.95+1=9.55$, de donde $y_0=\log_{10}(9.55)=0.98.$
 
 
-## Ejercicio 16
+## Ejercicio 12
 
 Sea $X$ una v.a. discreta de dominio $D_X=\{-2,-1,0,1,2\}$. Sabemos que $P(X=x)=p$ para $x\in D_X$. Calculad $Var(X)$. (**0.5 puntos**)
 
@@ -489,7 +412,7 @@ $Var(X)=E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displa
 (-2)^2\cdot p+(-1)^2\cdot p+0^2\cdot p+1^2\cdot p+(-2)^2\cdot p-\left(-2\cdot p -1\cdot p+0\cdot p+1\cdot p +2\cdot p\right)^2=
 10\cdot p+0^2=10\cdot p=10\cdot \frac{1}{5}=2.$
 
-## Ejercicio 17
+## Ejercicio 13
 Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=0.4207. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
 
 ### Solución:
@@ -510,7 +433,89 @@ Con  R
 ## [1] 0.8415
 ```
 
+## Ejercicio 14
+
+En una muestra aleatoria simple de tamaño $100$ de la población de internautas  se obtuvo que el 80\% tenían cuenta en al menos dos redes sociales. Calcular el error estándar de la proporción $p$ de internautas que tienen  cuenta el al menos dos redes sociales.
+
+### Solución:
+
+
+
+Tenemos una muestra aleatoria simple de tamaño $n=100$ en la que la proporción muestral es $\hat{p}=0.8$. Bajo estas condiciones el error estándar del estadístico $\hat{p}$ es 
+
+$$\sqrt{\frac{\hat{p}\cdot (1- \hat{p})}{n}}=\sqrt{\frac{0.8\cdot (0.2)}{ n}}=0.04.$$
+
+## Ejercicio 15
+
+Consideremos la siguiente muestra aleatoria simple de  una cierta variable aleatoria $X$.
+$$-3,-2,-1,1,2,3$$
+Calculad la desviación típica muestral.(*0.5 puntos*)
+
+### Solución:
+
+La media es $\overline{x}=\frac{\sum_{i=1}^n x_i}{n}=\frac{-3-2-1+1+2+3}{6}=0.$
+
+$\tilde{S}=\sqrt{\frac{n}{n-1}\cdot \left(\frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2\right)}=
+\sqrt{\frac{6}{6-1}\cdot \left(\frac{(-3)^2+(-2)^2+(-1)^2+(1)^2+(2)^2+(3)^2}{6}-0^2\right)}=
+\sqrt{\frac{6}{5}\cdot \frac{28}{6}}=\sqrt{\frac{28}{5}}= 2.3664.$
+ 
+Con R obtenemos el mismo resultado 
+
+
+```r
+x=c(-3,-2,-1,1,2,3)
+n=length(x)
+n
+```
+
+```
+## [1] 6
+```
+
+```r
+sqrt((sum(x^2)/n-(sum(x)/n)^2) *(n/(n-1)))
+```
+
+```
+## [1] 2.366
+```
+
+```r
+sd(x)
+```
+
+```
+## [1] 2.366
+```
+## Ejercicio 16
+
+Consideremos una muestra aleatoria simple  de tamaño $n=100$ de una variable aleatoria $X$ Bernoulli de parámetro $p$.
+¿Cuál es el valor  esperado y el error estándar de la media aritmética de la muestra? (*0.5 puntos*)
+
+### Solución
+
+El valor esperado es $E(\overline{X}) =E(X)= 100\cdot p$  y el error estándar $\sigma_{\overline{X}} =\sigma_{X}=\sqrt{\frac{p\cdot(1-p)}{100}}.$
+
+
+## Ejercicio 17
+
+Consideremos  una v.a. $X$ normal de media $\mu=20$ y $\sigma=50$. Tomamos una muestra aleatoria simple de tamaño $n=100$. Calculad
+$P(20< \overline{X}<25 /\overline{X}>20)$ (*0.5 puntos*)
+
+
+![](normal1examen.jpg)
+
+
+### Solución:
+
+$\begin{aligned}
+P(20< \overline{X}<25 /\overline{X}>20)&=\frac{P(20< \overline{X}<25\cap \overline{X}>20)}{1-P( \overline{X}\leq 20))}\\
+&=\frac{F_Z\left(\frac{25-20}{\frac{50}{\sqrt{100}}}\right)-F_Z\left(\frac{20-20}{\frac{50}{\sqrt{100}}}\right)}{1-F_Z\left(\frac{20-20}{\frac{50}{\sqrt{100}}}\right)}=
+\frac{F_Z(1)-F_Z(0)}{F_Z(0)}.
+\end{aligned}$ 
+
 ## Ejercicio 18
+
  **(3 puntos)**
 Consideremos la v.a. $X$ con función densidad
 

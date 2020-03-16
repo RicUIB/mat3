@@ -1,10 +1,10 @@
 ---
 title: "Taller Evaluable 1 2020, FIFA 2019"
-author: 'mat3: Laura ;   Lidia '
 date: "3/12/2020"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 
@@ -19,15 +19,16 @@ Las siguientes preguntas son relativas al data set `players_20.csv`.
 
 Hay que contestar con código R explicar muy brevemente cada salida. Subid a la activada el Rmd y el html. 
 
-En el mismo grupo de 3 que el proyecto final.
+Este grupo  de entrega será el  mismo grupo de 3 que el proyecto final.
 
 Rellenad estos datos:
 
-** NOMBRE DEL GRUPO**
+**PONED NOMBRE DEL GRUPO**
 
-*  Apellidos, Nombre Alumno1 
-*  Apellidos, Nombre Alumno1
-*  Apellidos, Nombre Alumno1
+
+*  Apellidos, Nombre Alumno 1
+*  Apellidos, Nombre Alumno 2
+*  Apellidos, Nombre Alumno 3
 
 ## Pregunta 0
 
@@ -35,129 +36,50 @@ Explica  el data set y de qué tipo son cada una de las variables y  en qué tip
 
 ```{r}
 datos = read.csv("FIFA2020/players_20.csv", encoding="UTF-8")
-head(datos, 5)
+str(datos, 5)
 ```
 
 ##  Pregunta 1
 
-¿Qué clubs tienen a los 10 mejores jugadores según su "overall"?
+¿Qué 6  clubs tienen a los 10 mejores jugadores según la variable  "shooting"?
 
 
-```{r}
-sort_overall =sort(datos$overall,decreasing=TRUE)[1:10]
-clubs = datos[datos$overall %in% sort_overall,]$club
-clubs = as.vector(clubs)
-clubs = clubs[!duplicated(clubs)]
-```
-
-```{r}
-clubs = datos[order(datos$overall, decreasing=TRUE)[1:10], "club"]
-clubs = unique(clubs)
-clubs
-```
 
 
 ## Pregunta 2
 
-Crea un dataframe "sub_fifa20" que contenga a los jugadores de los clubs encontrados en el ejercicio anterior.
+Crea un dataframe `fifa20_best_shooting` que contenga a TODOS  los jugadores de los clubs encontrados en el ejercicio anterior.
 
-```{r}
-sub_fifa20 =datos[datos$club %in% clubs, ]
-```
 
 ## Pregunta 3
 
-Calcula la media y desviación típica muestral de los sueldos de los jugadores por equipo del dataframe sub_fifa20. 
-```{r}
-aggregate(wage_eur~club,data=sub_fifa20,FUN= function(x) {c(media=mean(x),sd=sd(x))})
-```
+Calcula media y la desviación típica   del sueldo de cada equipo del dataframe `fifa20_best_shooting`. 
 
-```{r}
-f = function(x) {c(mean(x),sd(x))}
-tabla = aggregate(wage_eur~club,data=sub_fifa20,FUN=f)
-tabla2 = data.frame(Club=tabla$club, Sueldo_medio = tabla$wage_eur[, 1], Desv_tip_mues = tabla$wage_eur[, 2])
-tabla2
-```
 
 
 ## Pregunta 4
 
-Discretiza la variable age de sub_fifa20 en los 3 niveles siguientes: “freshman”, “junior”, “senior”, según los cortes por defecto. La variable resultante age_Level tiene que ser un factor ordenado en orden creciente de edad. 
-
-```{r}
-age_Level=ordered(cut(sub_fifa20$age,breaks=3),labels=c("freshman","junior","senior"))
-head(age_Level)
-```
+Discretiza la variable `age` de  `fifa20_best_shooting` en los 3 niveles siguientes: “freshman”, “junior”, “senior”, según los cortes por defecto. La variable resultante age_Level tiene que ser un factor ordenado en orden creciente de edad. 
 
 
 ## Pregunta 5
 
-¿Qué club tiene a más jugadores en el nivel "freshman" calculado en el ejercicio anterior?
-
-```{r}
-sub_fifa20$age_level = age_Level
-aggregate(age_level~club,data=sub_fifa20,FUN=function(x) sum(x=='freshman'))
-```
-
-```{r}
-aggregate(age_level~club,data=sub_fifa20,FUN=function(x) table(x)["freshman"] )
-```
+¿Qué club tiene a más jugadores en el nivel "senior" calculado en el ejercicio anterior?
 
 
 
 ## Pregunta 6
 
-¿Cuántas nacionalidades hay entre todos los jugadores de sub_fifa20? ¿Qué club tiene mayor cantidad de nacionalidades?
-
-```{r}
-length(unique(sub_fifa20$nationality))
-```
-
-
-```{r}
-nationalities_per_club = aggregate(nationality~club,data=sub_fifa20,FUN=function(x) length(unique(x)))
-nationalities_per_club[nationalities_per_club$nationality==max(nationalities_per_club$nationality),]
-```
+¿Cuántas nacionalidades hay entre todos los jugadores de `fifa20_best_shooting`? ¿Qué club tiene mayor cantidad de nacionalidades?
 
 
 ## Pregunta 7
 
-Calcula mediante un diagrama de tarta la proporción de jugadores de cada nacionalidad en cada club
+Calcula mediante un diagrama de barras ordenado de mayor a menor la proporción de jugadores de cada nacionalidad en cada club
 
-```{r}
-for(club in clubs){
-  nationalities = sub_fifa20[sub_fifa20$club %in% c(club), ]$nationality
-  nationalities = as.vector(nationalities)
-  pie(table(nationalities), main=paste0("Proporción de nacionalidades en el", club))
-}
-
-```
-```{r}
-aggregate(nationality~club, sub_fifa20, FUN =function(x) pie(table(droplevels(x))))
-```
 
 
 ## Pregunta 8
 
-Encuentra la función (lineal, exponencial o potencial) que mejor describe la dependencia funcional del sueldo de los jugadores en función de la variable overall en el dataframe sub_fifa20. Representa dicha función junto con los puntos (overall, sueldo) en escala lineal.
-
-```{r}
-summary(lm(sub_fifa20$wage_eur~sub_fifa20$overall))$r.squared
-summary(lm(log10(sub_fifa20$wage_eur)~sub_fifa20$overall))$r.squared
-summary(lm(log10(sub_fifa20$wage_eur)~log10(sub_fifa20$overall)))$r.squared
-```
-
-```{r}
-lm(log10(sub_fifa20$wage_eur)~log10(sub_fifa20$overall))
-```
-
-$$
-\textrm{wage_eur}(\textrm{overall}) = 10^{-14.29} \cdot \textrm{overall}^{10.10}
-$$
-
-```{r}
-
-plot(sub_fifa20$overall, sub_fifa20$wage_eur)
-curve(10^-14.29*x^10.10, add = TRUE, col="red")
-```
+Encuentra la función (lineal, exponencial o potencial) que mejor describe la dependencia funcional del sueldo de los jugadores en función de la variable `shooting` en el dataframe `fifa20_best_shooting`. Representa dicha función junto con los puntos (shooting, sueldo) en escala lineal.
 
