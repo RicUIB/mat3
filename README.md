@@ -9,10 +9,42 @@ output:
   word_document: default
 ---
 
-**PLANIFICACIÓN SEMANAL** 
-==========================================
+# Enlaces 
 
-**Semana 4 del 9 de marzo al 15 de marzo** 
+  + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
+  + [Enlaces al material](https://ricuib.github.io/Enlaces/)
+
+
+
+## PLANIFICACIÓN SEMANAL  A DISTANCIA
+
+Iré informando sobre la marcha en  Aula figitak de la UIB o en otros foros que acordemos.
+
+### **Semana 5 del 16 de marzo al 22 de marzo** 
+
+* Grupo Grande (3 horas martes GG1 8:30 a 11:30 + 1 taller el jueves a las 12:30 a 13:30, GG3 2 horas martes 8:30 a 10:30 y una hora jueves 8:30  a 9:30 y una hora taller jueves a las 9:30 a 10:30  ): 
+Acabaremos  los temas de  distribuciones notables MIRANDO LOS VIDEOS: 
+  + [Distribuciones Notables Parte I: Distribuciones Discretas](https://joanby.github.io/probabilidad/Tema_3_1_Notables#1). [Sección 8 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
+  + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1). [Sección 9 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
+
+* Problemas propuestos
+  + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
+  + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
+  + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
+
+
+* Trabajo en casa: Seguid haciendo los problemas propuestos de  [AprendeR1](https://aprender-uib.github.io/AprendeR1/). 
+
+* Constituid los grupos del proyecto final
+* Atención Taller evaluable en grupo.
+
+
+## PLANIFICACIÓN SEMANAL  presencial
+
+
+### **Semana 4 del 9 de marzo al 15 de marzo** 
 
   + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/).
@@ -45,9 +77,7 @@ Acabaremos  los temas de  distribuciones notables:
 
 
 
-**Semana 3 del 2 de marzo al 8 de marzo** 
-+ [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
-+ [Enlaces al material](https://ricuib.github.io/Enlaces/).
+### **Semana 3 del 2 de marzo al 8 de marzo** 
 
 * Grupo Grande: 
 Acabaremos el  tema 
@@ -77,7 +107,7 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
 
 
 
-**Semana 2 del 24 de febrero al al  1 de marzo** [Enlaces al material](https://ricuib.github.io/Enlaces/).
+### **Semana 2 del 24 de febrero al al  1 de marzo** [Enlaces al material](https://ricuib.github.io/Enlaces/).
 
 * Grupo Grande: Probabilidad: [Prerrequisitos](https://joanby.github.io/bookdown-probabilidad/pre-requisitos-teor%C3%ADa-de-conjuntos-y-combinatoria.html), [Probabilidad](https://joanby.github.io/bookdown-probabilidad/probabilidad.html). [Introducción variables aleatorias](https://joanby.github.io/bookdown-probabilidad/variables-aleatorias.html). 
 * Problemas propuestos
@@ -94,7 +124,7 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 
-**Semana 1 del 17 del Febrero al 23 de Febrero** [Enlaces al material](https://ricuib.github.io/Enlaces/).
+### **Semana 1 del 17 del Febrero al 23 de Febrero** [Enlaces al material](https://ricuib.github.io/Enlaces/).
 
 * Grupo grande: Hemos mostrado el acceso al material del curso. Instalación R, Rstudio y  otro software
 *  Grupo medianos:  Taller de dos horas: Acabar instalación y ejercicios de [AprendeR1](https://aprender-uib.github.io/AprendeR1/) . 
