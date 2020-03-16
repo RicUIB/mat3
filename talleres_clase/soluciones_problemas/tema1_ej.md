@@ -3,21 +3,16 @@ title: "Ejercicios Tema 1 - Probabilidad"
 author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: "Curso de Probabilidad y Variables Aleatorias con R y Python"
 output:
-  word_document:
-    toc: yes
-  pdf_document:
+  html_document: 
+    keep_md: yes
     number_sections: yes
     toc: yes
-  html_document:
-    keep_md: yes
+  pdf_document: 
     number_sections: yes
     toc: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-options(scipen=999)
-```
+
 
 
 ##  Ejercicios de Espacios muestrales y sucesos
@@ -29,9 +24,34 @@ options(scipen=999)
     
 **Solución**
 Nuestro espacio muestral será:
-```{r}
+
+```r
 library(gtools)
 combinations(4, 3, c('R', 'A', 'V', 'N'), repeats.allowed = TRUE)
+```
+
+```
+##       [,1] [,2] [,3]
+##  [1,] "A"  "A"  "A" 
+##  [2,] "A"  "A"  "N" 
+##  [3,] "A"  "A"  "R" 
+##  [4,] "A"  "A"  "V" 
+##  [5,] "A"  "N"  "N" 
+##  [6,] "A"  "N"  "R" 
+##  [7,] "A"  "N"  "V" 
+##  [8,] "A"  "R"  "R" 
+##  [9,] "A"  "R"  "V" 
+## [10,] "A"  "V"  "V" 
+## [11,] "N"  "N"  "N" 
+## [12,] "N"  "N"  "R" 
+## [13,] "N"  "N"  "V" 
+## [14,] "N"  "R"  "R" 
+## [15,] "N"  "R"  "V" 
+## [16,] "N"  "V"  "V" 
+## [17,] "R"  "R"  "R" 
+## [18,] "R"  "R"  "V" 
+## [19,] "R"  "V"  "V" 
+## [20,] "V"  "V"  "V"
 ```
 $$
 A = \left\{RRR\right\}, \quad B = \left\{RVA\right\}, \quad C = \left\{RAV, RAN, RVN, AVN \right\}
@@ -48,8 +68,17 @@ Se lanzan al aire dos monedas iguales. Hallar la probabilidad de que salgan dos 
 
 Nuestro espacio muestral es:
 
-```{r}
+
+```r
 permutations(2, 2, c('c', '+'), repeats.allowed = TRUE)
+```
+
+```
+##      [,1] [,2]
+## [1,] "+"  "+" 
+## [2,] "+"  "c" 
+## [3,] "c"  "+" 
+## [4,] "c"  "c"
 ```
 $$
 P({cc}) = \frac{\textrm{casos favorables}}{\textrm{casos posibles}}= \frac{\textrm{1}}{4}.
@@ -145,8 +174,13 @@ Todas las elecciones de dos presos son equiprobables  casos posibles ${100\choos
 $$P(\mbox{``que entre 2 presos esté el más viejo"})=\frac{\mbox{CF}}{\mbox{CP}}=
 \frac{{99\choose 1}}{{100\choose 2}}=\frac{99}{\frac{ 100\cdot 99}{2}}=\frac{2}{100}=0.02.$$
 
-```{r}
+
+```r
 choose(99,1)/choose(100,2)
+```
+
+```
+## [1] 0.02
 ```
 
 
@@ -157,8 +191,13 @@ De forma similar  ahora solo hay un caso posible
 
 $$P(``\mbox{que entre 2 presos esté el más viejo y el más joven}")=\frac{\mbox{CF}}{\mbox{CP}}=
 \frac{1}{{100\choose 2}}=\frac{1}{\frac{100\cdot 99}{2}}=\frac{1}{4950}\approx 0.000202.$$
-```{r}
+
+```r
 1/choose(100,2)
+```
+
+```
+## [1] 0.0002020202
 ```
 
 ## Problema 4
@@ -168,12 +207,37 @@ Se apuntan A, B i C a una carrera. ¿Cuál es la probabilidad de que A acabe ant
 ### Solución
 Cálculo a fuerza bruta con R:
 
-```{r}
+
+```r
 gtools::permutations(n=3,r=3,v=c("A","B","C"))-> maneras
 maneras
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,] "A"  "B"  "C" 
+## [2,] "A"  "C"  "B" 
+## [3,] "B"  "A"  "C" 
+## [4,] "B"  "C"  "A" 
+## [5,] "C"  "A"  "B" 
+## [6,] "C"  "B"  "A"
+```
+
+```r
 contarAC= function(x) if(which(x=="A")>which(x=="C")) { return(1)} else {0}
 apply(maneras,1,contarAC)
+```
+
+```
+## [1] 0 0 0 1 1 1
+```
+
+```r
 sum(apply(maneras,1,contarAC))
+```
+
+```
+## [1] 3
 ```
 hay tres maneras de que A acabe antes de C.
 
@@ -194,11 +258,56 @@ haciendo el complementario
 $$P(A)=1-\frac{365\cdot 354\cdot \ldots\cdot (365-n+1) }{365^n}.$
 
 
-```{r}
+
+```r
 prob_mismo_dia=function(n){prod((365-n+1):365)/365^n}
 df=data.frame(n=2:40,prob=sapply(2:40, prob_mismo_dia))
 knitr::kable(df,digits = 4)
 ```
+
+
+
+  n     prob
+---  -------
+  2   0.9973
+  3   0.9918
+  4   0.9836
+  5   0.9729
+  6   0.9595
+  7   0.9438
+  8   0.9257
+  9   0.9054
+ 10   0.8831
+ 11   0.8589
+ 12   0.8330
+ 13   0.8056
+ 14   0.7769
+ 15   0.7471
+ 16   0.7164
+ 17   0.6850
+ 18   0.6531
+ 19   0.6209
+ 20   0.5886
+ 21   0.5563
+ 22   0.5243
+ 23   0.4927
+ 24   0.4617
+ 25   0.4313
+ 26   0.4018
+ 27   0.3731
+ 28   0.3455
+ 29   0.3190
+ 30   0.2937
+ 31   0.2695
+ 32   0.2467
+ 33   0.2250
+ 34   0.2047
+ 35   0.1856
+ 36   0.1678
+ 37   0.1513
+ 38   0.1359
+ 39   0.1218
+ 40   0.1088
 
 
 
@@ -210,11 +319,37 @@ Una urna contiene 4 bolas numeradas con los números 1, 2, 3 y 4, respectivament
 
 Los casos equiprobables  y el valor de su suma son 
 
-```{r}
+
+```r
 resultados=gtools::permutations(4,r=2)
 df_resultados=data.frame(bola1=resultados[,1],bola2=resultados[,2],suma=unlist(apply(resultados,1,sum)))
 df_resultados
+```
+
+```
+##    bola1 bola2 suma
+## 1      1     2    3
+## 2      1     3    4
+## 3      1     4    5
+## 4      2     1    3
+## 5      2     3    5
+## 6      2     4    6
+## 7      3     1    4
+## 8      3     2    5
+## 9      3     4    7
+## 10     4     1    5
+## 11     4     2    6
+## 12     4     3    7
+```
+
+```r
 table(df_resultados$suma)
+```
+
+```
+## 
+## 3 4 5 6 7 
+## 2 2 4 2 2
 ```
 
 
@@ -319,11 +454,61 @@ Se lanzan una sola vez dos dados. Si la suma de los dos dados es como mínimo 7,
 
 Los casos son 
 
-```{r}
+
+```r
 dados=gtools::permutations(n=6,r=2,repeats.allowed = TRUE)
 df_dados=data.frame(dado1=dados[,1],dado2=dados[,2],suma=dados[,1]+dados[,2])
 df_dados
+```
+
+```
+##    dado1 dado2 suma
+## 1      1     1    2
+## 2      1     2    3
+## 3      1     3    4
+## 4      1     4    5
+## 5      1     5    6
+## 6      1     6    7
+## 7      2     1    3
+## 8      2     2    4
+## 9      2     3    5
+## 10     2     4    6
+## 11     2     5    7
+## 12     2     6    8
+## 13     3     1    4
+## 14     3     2    5
+## 15     3     3    6
+## 16     3     4    7
+## 17     3     5    8
+## 18     3     6    9
+## 19     4     1    5
+## 20     4     2    6
+## 21     4     3    7
+## 22     4     4    8
+## 23     4     5    9
+## 24     4     6   10
+## 25     5     1    6
+## 26     5     2    7
+## 27     5     3    8
+## 28     5     4    9
+## 29     5     5   10
+## 30     5     6   11
+## 31     6     1    7
+## 32     6     2    8
+## 33     6     3    9
+## 34     6     4   10
+## 35     6     5   11
+## 36     6     6   12
+```
+
+```r
 table(df_dados$suma)
+```
+
+```
+## 
+##  2  3  4  5  6  7  8  9 10 11 12 
+##  1  2  3  4  5  6  5  4  3  2  1
 ```
 
 
@@ -430,16 +615,42 @@ Múltiplos de 3 $=\dot 3= \{3, 6, 9, 12, 15, 18\}.$
 
 
 $$
-P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{6\choose2}\cdot{{20-6}\choose {3}}}{{20\choose 5}}=\frac{`r choose(6,2)*choose(10-6,2)`}{ `r choose(20,5)`}.=`r  choose(6,2)* choose(20-6,3)/choose(20,5)`.
+P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{6\choose2}\cdot{{20-6}\choose {3}}}{{20\choose 5}}=\frac{90}{ 15504}.=0.3521672.
 $$
 
 Con R:
 
-```{r}
+
+```r
 choose(6,2)
+```
+
+```
+## [1] 15
+```
+
+```r
 choose(20-6,3)
+```
+
+```
+## [1] 364
+```
+
+```r
 choose(20,5)
+```
+
+```
+## [1] 15504
+```
+
+```r
 choose(6,2)* choose(20-6,3)/choose(20,5)
+```
+
+```
+## [1] 0.3521672
 ```
 
 
@@ -474,17 +685,57 @@ Lanzamos un dado no trucado 3 veces. Encontrad la probabilidad $p$ de que la sum
 
 Lo calculamos con R
 
-```{r}
+
+```r
 casos_tres_lanzamientos=gtools::permutations(n=6,r=3,repeats.allowed = TRUE)
 df_tres_lanzamientos=data.frame(casos_tres_lanzamientos, suma=unlist(apply(casos_tres_lanzamientos,1,sum)))
 head(df_tres_lanzamientos)
-dim(df_tres_lanzamientos)
-table(df_tres_lanzamientos$suma)
+```
 
+```
+##   X1 X2 X3 suma
+## 1  1  1  1    3
+## 2  1  1  2    4
+## 3  1  1  3    5
+## 4  1  1  4    6
+## 5  1  1  5    7
+## 6  1  1  6    8
+```
+
+```r
+dim(df_tres_lanzamientos)
+```
+
+```
+## [1] 216   4
+```
+
+```r
+table(df_tres_lanzamientos$suma)
+```
+
+```
+## 
+##  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 
+##  1  3  6 10 15 21 25 27 27 25 21 15 10  6  3  1
+```
+
+```r
 casos_favorables=27
 casos_posibles=dim(df_tres_lanzamientos)[1]
 casos_posibles
+```
+
+```
+## [1] 216
+```
+
+```r
 casos_favorables/casos_posibles
+```
+
+```
+## [1] 0.125
 ```
 
 
@@ -497,7 +748,8 @@ cartas numeradas del 1 al 4 están giradas boca abajo sobre una mesa. Una person
 
 A fuerza bruta con R:
 
-```{r}
+
+```r
 cartas = c(1, 2, 3, 4)
 permutaciones = permutations(4, 4)
 casos_favorables = 0
@@ -509,6 +761,10 @@ for(ind_caso in 1:nrow(permutaciones)){
 }
 
 casos_favorables/nrow(permutaciones)
+```
+
+```
+## [1] 0.625
 ```
 
 Calculándolo:
