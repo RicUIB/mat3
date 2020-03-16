@@ -3,11 +3,13 @@ title: "Ejercicios Tema 1 - Probabilidad"
 author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: "Curso de Probabilidad y Variables Aleatorias con R y Python"
 output:
-  html_document: 
+  html_document:
     keep_md: yes
     number_sections: yes
     toc: yes
-  pdf_document: 
+  word_document:
+    toc: yes
+  pdf_document:
     number_sections: yes
     toc: yes
 ---
@@ -387,14 +389,14 @@ Dado que son sucesos independientes, nos da igual cuántas veces hayamos tirado 
 
 Nuevamente, al ser sucesos independientes, nuestra probabilidad de cara será:
 
-
+$$
 \begin{eqnarray*}
-P(``\mbox{4 cuarta  tirada  cara}"&/& ``\mbox{si han salido  3 caras en 4 tiradas}") \\ 
+P(\mbox{"4 cuarta  tirada  cara"}&/& \mbox{"si han salido  3 caras en 4 tiradas"}) \\ 
 & =& P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}/\{cc++,c+c+,c++c,+c+c,++cc\})\\
-&=& \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\\&\cap &\{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
+&=& \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\cap \{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
 &=& \frac{P(\{cc++,c+c+,c++c\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}=\frac{\frac{3}{16}}{\frac{5}{16}}=\frac{3}{5}.
 \end{eqnarray*}
-
+$$
 
 
 ## Problema 8. 
@@ -615,7 +617,7 @@ Múltiplos de 3 $=\dot 3= \{3, 6, 9, 12, 15, 18\}.$
 
 
 $$
-P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{6\choose2}\cdot{{20-6}\choose {3}}}{{20\choose 5}}=\frac{90}{ 15504}.=0.3521672.
+P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{{6}\choose{2}}\cdot{{20-6}\choose {3}}}{{{20}\choose{5}}}=\frac{90}{ 15504}.=0.3521672.
 $$
 
 Con R:

@@ -569,12 +569,14 @@ tirado el dado y lo que haya salido las veces anteriores Luego
 Nuevamente, al ser sucesos independientes, nuestra probabilidad de cara
 será:
 
+\[
 \begin{eqnarray*}
-P(``\mbox{4 cuarta  tirada  cara}"&/& ``\mbox{si han salido  3 caras en 4 tiradas}") \\ 
+P(\mbox{"4 cuarta  tirada  cara"}&/& \mbox{"si han salido  3 caras en 4 tiradas"}) \\ 
 & =& P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}/\{cc++,c+c+,c++c,+c+c,++cc\})\\
-&=& \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\\&\cap &\{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
+&=& \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\cap \{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
 &=& \frac{P(\{cc++,c+c+,c++c\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}=\frac{\frac{3}{16}}{\frac{5}{16}}=\frac{3}{5}.
 \end{eqnarray*}
+\]
 
 \hypertarget{problema-8.}{%
 \subsection{Problema 8.}\label{problema-8.}}
@@ -860,7 +862,7 @@ exactamente dos números tales que sean múltiplos de \(3\)
 Múltiplos de 3 \(=\dot 3= \{3, 6, 9, 12, 15, 18\}.\)
 
 \[
-P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{6\choose2}\cdot{{20-6}\choose {3}}}{{20\choose 5}}=\frac{90}{ 15504}.=0.3521672.
+P(\mbox{``dos multiplos de 3"} )=\frac{CF}{CP}=\frac{{{6}\choose{2}}\cdot{{20-6}\choose {3}}}{{{20}\choose{5}}}=\frac{90}{ 15504}.=0.3521672.
 \]
 
 Con R:

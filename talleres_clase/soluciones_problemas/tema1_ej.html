@@ -815,12 +815,14 @@ P(B_4|A) &amp;=&amp; \frac{P(B_4 \cap A)}{P(A)} = \frac{1/12}{4/12} = \frac{1}{4
 <p>Dado que son sucesos independientes, nos da igual cuántas veces hayamos tirado el dado y lo que haya salido las veces anteriores Luego <span class="math inline">\(P(&quot;\mbox{4 cuarta tirada cara}&quot;/ccc)=P(&quot;\mbox{4 cuarta tirada cara}&quot;/ccc)=\frac{1}{2}.\)</span></p>
 <p><strong>Apartado b)</strong></p>
 <p>Nuevamente, al ser sucesos independientes, nuestra probabilidad de cara será:</p>
-<p><span class="math display">\[\begin{eqnarray*}
-P(``\mbox{4 cuarta  tirada  cara}&quot;&amp;/&amp; ``\mbox{si han salido  3 caras en 4 tiradas}&quot;) \\ 
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(\mbox{&quot;4 cuarta  tirada  cara&quot;}&amp;/&amp; \mbox{&quot;si han salido  3 caras en 4 tiradas&quot;}) \\ 
 &amp; =&amp; P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}/\{cc++,c+c+,c++c,+c+c,++cc\})\\
-&amp;=&amp; \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\\&amp;\cap &amp;\{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
+&amp;=&amp; \frac{P(\{cccc,ccc+,cc+c,c+cc,cc++,c+c+,c++c,c+++\}\cap \{cc++,c+c+,c++c,+c+c,++cc\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}\\
 &amp;=&amp; \frac{P(\{cc++,c+c+,c++c\})}{P(\{cc++,c+c+,c++c,+c+c,++cc\})}=\frac{\frac{3}{16}}{\frac{5}{16}}=\frac{3}{5}.
-\end{eqnarray*}\]</span></p>
+\end{eqnarray*}
+\]</span></p>
 </div>
 <div id="problema-8." class="section level2">
 <h2><span class="header-section-number">1.9</span> Problema 8.</h2>
@@ -1000,7 +1002,7 @@ P(I_1|P_2) = \frac{P(P_2 \cap I_1)}{P(P_2)} = \frac{\frac{n^2}{\frac{(2n))!}{(2n
 <h3><span class="header-section-number">1.13.2</span> Solución</h3>
 <p>Múltiplos de 3 <span class="math inline">\(=\dot 3= \{3, 6, 9, 12, 15, 18\}.\)</span></p>
 <p><span class="math display">\[
-P(\mbox{``dos multiplos de 3&quot;} )=\frac{CF}{CP}=\frac{{6\choose2}\cdot{{20-6}\choose {3}}}{{20\choose 5}}=\frac{90}{ 15504}.=0.3521672.
+P(\mbox{``dos multiplos de 3&quot;} )=\frac{CF}{CP}=\frac{{{6}\choose{2}}\cdot{{20-6}\choose {3}}}{{{20}\choose{5}}}=\frac{90}{ 15504}.=0.3521672.
 \]</span></p>
 <p>Con R:</p>
 <pre class="r"><code>choose(6,2)</code></pre>
