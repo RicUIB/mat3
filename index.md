@@ -24,8 +24,8 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
 
 * Grupo Grande (3 horas martes GG1 8:30 a 11:30 + 1 taller el jueves a las 12:30 a 13:30, GG3 2 horas martes 8:30 a 10:30 y una hora jueves 8:30  a 9:30 y una hora taller jueves a las 9:30 a 10:30  ): 
 Acabaremos  los temas de  distribuciones notables **MIRANDO LOS VIDEOS**: 
-  + [Distribuciones Notables Parte I: Distribuciones Discretas](https://joanby.github.io/probabilidad/Tema_3_1_Notables#1). [Sección 8 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
-  + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1). [Sección 9 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
+  + [Distribuciones Notables Parte I: Distribuciones Discretas](https://joanby.github.io/probabilidad/Tema_3_1_Notables#1). VIDEOS [Sección 8 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
+  + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1). VIDEOS [Sección 9 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
 
 * Problemas propuestos
   + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
