@@ -1,12 +1,12 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "26/2/2020"
+date: "16 marzo, 2020"
 output:
   html_document:
     keep_md: yes
-  pdf_document: default
   word_document: default
+  pdf_document: default
 ---
 
 # Enlaces 
@@ -18,7 +18,7 @@ output:
 
 ## PLANIFICACIÓN SEMANAL  A DISTANCIA
 
-Iré informando sobre la marcha en  Aula figitak de la UIB o en otros foros que acordemos.
+Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
 ### **Semana 5 del 16 de marzo al 22 de marzo** 
 
@@ -28,12 +28,38 @@ Acabaremos  los temas de  distribuciones notables MIRANDO LOS VIDEOS:
   + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1). [Sección 9 curso de UDEMY](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/)
 
 * Problemas propuestos
+=======
+
+
+
+**PLANIFICACIÓN SEMANAL** 
+==========================================
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
+**AVANCE  DE LA Semana 5 del 16 de marzo al 22 de marzo** 
+
+  + [Enlaces al  github de planificación](https://www.github.com/ricuib/mat3)
+  + [Enlaces al material](https://ricuib.github.io/Enlaces/).
+
+ <span style="color:red">TALLER EVALUABLE EL JUEVES (GR3 de 8:30 a 10:30. GR1 de 12:30 a 14:30) en el aula habitual.</span>.
+
+* Grupo Grande (GG1 3 horas martes. GG3  2 horas miercoles): 
+Acabaremos  el tema de  distribuciones notables continuas y  daremos algún contenido del tema de variables aleatorias  bidimensoionales: 
+  + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1)
+  + [Variables multidimensionales](https://joanby.github.io/probabilidad/Tema_5_Varias_Variables#1)
+
+* Problemas propuestos (seguimos con los mismos de cara al control 1)
+>>>>>>> 394740185ba223f2eaf825f3dfe03fe552f9aafb
   + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
   + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
   + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
+<<<<<<< HEAD
 
 * Trabajo en casa: Seguid haciendo los problemas propuestos de  [AprendeR1](https://aprender-uib.github.io/AprendeR1/). 
 
@@ -45,6 +71,20 @@ Acabaremos  los temas de  distribuciones notables MIRANDO LOS VIDEOS:
 
 
 ### **Semana 4 del 9 de marzo al 15 de marzo** 
+=======
+* Grupo mediano:  Hay taller EVALUABLE GR1 de 12:30 a 14:30. GR3 de 8:30 a 10:30 en l eaula habitual.
+
+* Trabajo en casa: Repasar los ejercicios de AprendeR1 y  los talleres de R
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
+
+
+
+**Semana 4 del 9 de marzo al 15 de marzo** 
+>>>>>>> 394740185ba223f2eaf825f3dfe03fe552f9aafb
 
   + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/).
