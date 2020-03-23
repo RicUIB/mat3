@@ -36,21 +36,19 @@ Leer el las siguientes  secciones del [Curso de Probabilidad y variables aleator
  
  
   * [Sección 7.1 Muestras aleatorias simples](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#muestras-aleatorias-simples)
-  * [Sección 7.2 Convergencia se sucesiones de variables aleatorias](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#convergencia-de-sucesiones-de-variables-aleatorias)
-    + Sólo la introducción y la [Subsección 7.2.3 Convergencia en ley o en distribución]()
-  * [Sección 7.3 entera Teorema Central del Límite]  (https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#teorema-central-del-l%C3%ADmite)
+  * [Sección 7.2 Convergencia se sucesiones de variables aleatorias SOLO LA INTRODUCCIóN](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#convergencia-de-sucesiones-de-variables-aleatorias) y la [Subsección 7.2.3 Convergencia en ley o en distribución]()
+  * [Sección 7.3 ENTERA Teorema Central del Límite](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#teorema-central-del-l%C3%ADmite)
 
-* Ejercicios SOLO LA SECCIÓN el TEOREMA CENTRAL DEL LíMITE][pdf ]https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.pdf,[Rmd]
-https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.Rmd
+* Ejercicios SOLO LA SECCIÓN el TEOREMA CENTRAL DEL LíMITE:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.Rmd).
 
 
 * Problemas propuestos
   + Introducción variables aleatorias:
   [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd). 
-^* Acabar los problemas de :
+
+* Acabar los problemas de :
   + Distribuciones notables discretas: [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd).
-  + Distribuciones notables continuas:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf), [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
-[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf).
+  + Distribuciones notables continuas:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf), [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd).
 
 *  Problemas  para entregar: Estad atentos a  Aula Digital saldrá algunos ejercicios para entregar la semana que viene.
 
@@ -152,7 +150,7 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
   + [Descripción de datos cualitativos](https://aprender-uib.github.io/AprendeR1/chap-edqual.html)
   + [Descripción  de datos ordinales](https://aprender-uib.github.io/AprendeR1/chap-ord.html). 
   
-  ¡¡¡ Son opcionales!!!! Los temas [Estructuras de control basicas](https://aprender-uib.github.io/AprendeR1/chap-for.html)  y [Dsitribuciones de probabilidad](https://aprender-uib.github.io/AprendeR1/chap-distr.html) los veremos en clase de grupo grande y de mediano. 
+  ¡¡¡ Son opcionales!!!! Los temas [Estructuras de control basicas](https://aprender-uib.github.io/AprendeR1/chap-for.html)  y [Distribuciones de probabilidad](https://aprender-uib.github.io/AprendeR1/chap-distr.html) los veremos en clase de grupo grande y de mediano. 
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
