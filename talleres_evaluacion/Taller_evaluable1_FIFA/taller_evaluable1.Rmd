@@ -43,6 +43,10 @@ str(datos, 5)
 
 ¿Qué 6  clubs tienen a los 10 mejores jugadores según la variable  "shooting"?
 
+```{r}
+datos_o=datos[order(datos$shooting,decreasing=TRUE),]
+names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6]
+```
 
 
 
@@ -50,10 +54,14 @@ str(datos, 5)
 
 Crea un dataframe `fifa20_best_shooting` que contenga a TODOS  los jugadores de los clubs encontrados en el ejercicio anterior.
 
+```{r}
+datos6=datos[datos$club %in% names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6],]
+unique(datos6$club)
+```
 
 ## Pregunta 3
 
-Calcula media y la desviación típica   del sueldo de cada equipo del dataframe `fifa20_best_shooting`. 
+Calcular la media y la desviación típica   del sueldo de cada equipo del dataframe `fifa20_best_shooting`. 
 
 
 

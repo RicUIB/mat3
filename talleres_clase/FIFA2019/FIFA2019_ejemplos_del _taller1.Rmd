@@ -3,10 +3,10 @@ title: "FIFA2019"
 author: "Ricardo Alberich"
 date: "18 de marzo de 2019"
 output:
-  pdf_document: 
+  html_document: 
     number_sections: yes
     toc: yes
-  html_document: 
+  pdf_document: 
     number_sections: yes
     toc: yes
 header-includes:

@@ -11,7 +11,7 @@ output:
 
 # Enlaces 
 
-  + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
+  + [Enlaces al  github de planificación](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/)
 
 
@@ -19,6 +19,48 @@ output:
 ## PLANIFICACIÓN SEMANAL  A DISTANCIA
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
+
+
+### **Semana 6 del 23 de marzo al 30 de marzo** 
+
+* Grupo Grande (3 horas martes GG1 8:30 a 11:30 + 1 taller el jueves a las 12:30 a 13:30, GG3 2 horas martes 8:30 a 10:30 y una hora jueves 8:30  a 9:30 y una hora taller jueves a las 9:30 a 10:30  ): 
+
+
+Introducción a variables variables: Sólo estudiaremos el  **TEOREMA CENTRAL DEL LÍMITE**
+
+Leer el las siguientes  secciones del [Curso de Probabilidad y variables aleatorias para ML con R y Python](https://joanby.github.io/bookdown-probabilidad/).
+ 
+ [Tema 7  Ley de los grandes números y Teorema Central del Límite](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#muestras-aleatorias-simples):
+ 
+ 
+ 
+ 
+  * [Sección 7.1 Muestras aleatorias simples](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#muestras-aleatorias-simples)
+  * [Sección 7.2 Convergencia se sucesiones de variables aleatorias](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#convergencia-de-sucesiones-de-variables-aleatorias)
+    + Sólo la introducción y la [Subsección 7.2.3 Convergencia en ley o en distribución]()
+  * [Sección 7.3 entera Teorema Central del Límite]  (https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#teorema-central-del-l%C3%ADmite)
+
+* Ejercicios SOLO LA SECCIÓN el TEOREMA CENTRAL DEL LíMITE][pdf ]https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.pdf,[Rmd]
+https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.Rmd
+
+
+* Problemas propuestos
+  + Introducción variables aleatorias:
+  [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd). 
+^* Acabar los problemas de :
+  + Distribuciones notables discretas: [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd).
+  + Distribuciones notables continuas:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf), [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
+[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf).
+
+*  Problemas  para entregar: Estad atentos a  Aula Digital saldrá algunos ejercicios para entregar la semana que viene.
+
+
+
+
+
+
+
+
 
 ### **Semana 5 del 16 de marzo al 22 de marzo** 
 
