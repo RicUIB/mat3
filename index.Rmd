@@ -37,7 +37,7 @@ Leer el las siguientes  secciones del [Curso de Probabilidad y variables aleator
  
   * [Sección 7.1 Muestras aleatorias simples](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#muestras-aleatorias-simples)
   * [Sección 7.2 Convergencia se sucesiones de variables aleatorias SOLO LA INTRODUCCIóN](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#convergencia-de-sucesiones-de-variables-aleatorias) y la [Subsección 7.2.3 Convergencia en ley o en distribución]()
-  * [Sección 7.3 ENTERA Teorema Central del Límite](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#teorema-central-del-l%C3%ADmite)
+  * [Sección 7.3 ENTERA: Teorema Central del Límite](https://joanby.github.io/bookdown-probabilidad/ley-de-los-grandes-n%C3%BAmeros-y-teorema-central-del-l%C3%ADmite.html#teorema-central-del-l%C3%ADmite)
 
 * Ejercicios SOLO LA SECCIÓN el TEOREMA CENTRAL DEL LíMITE:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-7---TCL.Rmd).
 
