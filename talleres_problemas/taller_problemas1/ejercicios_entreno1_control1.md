@@ -408,9 +408,12 @@ Sea $X$ una v.a. discreta de dominio $D_X=\{-2,-1,0,1,2\}$. Sabemos que $P(X=x)=
 
 Obviamente $p=\frac{1}{5}.$
 
-$Var(X)=E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displaystyle\sum_{x=-2}^2 x\cdot P(X=x)\right)^2=
-(-2)^2\cdot p+(-1)^2\cdot p+0^2\cdot p+1^2\cdot p+(-2)^2\cdot p-\left(-2\cdot p -1\cdot p+0\cdot p+1\cdot p +2\cdot p\right)^2=
-10\cdot p+0^2=10\cdot p=10\cdot \frac{1}{5}=2.$
+\begin{eqnarray*}
+Var(X)&=&E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displaystyle\sum_{x=-2}^2 x\cdot P(X=x)\right)^2\\
+&=& (-2)^2\cdot p+(-1)^2\cdot p+0^2\cdot p+1^2\cdot p+(-2)^2\cdot p-\left(-2\cdot p -1\cdot p+0\cdot p+1\cdot p +2\cdot p\right)^2\\
+&=& 10\cdot p+0^2=10\cdot p=10\cdot \frac{1}{5}=2.
+\end{eqnarray*}
+
 
 ## Ejercicio 13
 Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=0.4207. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
