@@ -490,23 +490,14 @@ str(datos, 5)</code></pre>
 <div id="pregunta-1" class="section level2">
 <h2>Pregunta 1</h2>
 <p>¿Qué 6 clubs tienen a los 10 mejores jugadores según la variable “shooting”?</p>
-<pre class="r"><code>datos_o=datos[order(datos$shooting,decreasing=TRUE),]
-names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6]</code></pre>
-<pre><code>## [1] &quot;FC Barcelona&quot;      &quot;Borussia Dortmund&quot; &quot;FC Bayern München&quot;
-## [4] &quot;Juventus&quot;          &quot;LA Galaxy&quot;         &quot;Manchester City&quot;</code></pre>
 </div>
 <div id="pregunta-2" class="section level2">
 <h2>Pregunta 2</h2>
 <p>Crea un dataframe <code>fifa20_best_shooting</code> que contenga a TODOS los jugadores de los clubs encontrados en el ejercicio anterior.</p>
-<pre class="r"><code>datos6=datos[datos$club %in% names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6],]
-unique(datos6$club)</code></pre>
-<pre><code>## [1] FC Barcelona      Juventus          Manchester City   FC Bayern München
-## [5] Borussia Dortmund LA Galaxy        
-## 698 Levels:  SSV Jahn Regensburg 1. FC Heidenheim 1846 ... Zaglebie Lubin</code></pre>
 </div>
 <div id="pregunta-3" class="section level2">
 <h2>Pregunta 3</h2>
-<p>Calcular la media y la desviación típica del sueldo de cada equipo del dataframe <code>fifa20_best_shooting</code>.</p>
+<p>Calcula media y la desviación típica del sueldo de cada equipo del dataframe <code>fifa20_best_shooting</code>.</p>
 </div>
 <div id="pregunta-4" class="section level2">
 <h2>Pregunta 4</h2>

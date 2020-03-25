@@ -447,7 +447,16 @@ datos_o$shooting[1:10]</code></pre>
 ##  [5] FC Barcelona      Sampdoria         Borussia Dortmund LA Galaxy        
 ##  [9] FC Bayern München Real Madrid      
 ## 698 Levels:  SSV Jahn Regensburg 1. FC Heidenheim 1846 ... Zaglebie Lubin</code></pre>
-<pre class="r"><code>club6 = unique(datos_o$club)[1:10]# así sacamos os 6 clubs o simplemente construyendo la lista</code></pre>
+<pre class="r"><code>unique(datos_o$club)[1:10]</code></pre>
+<pre><code>##  [1] Juventus          FC Barcelona      Tottenham Hotspur Manchester City  
+##  [5] Sampdoria         Borussia Dortmund LA Galaxy         FC Bayern München
+##  [9] Real Madrid       Liverpool        
+## 698 Levels:  SSV Jahn Regensburg 1. FC Heidenheim 1846 ... Zaglebie Lubin</code></pre>
+<pre class="r"><code>club6 = unique(datos_o$club)[1:6]# así sacamos os 6 clubs o simplemente construyendo la lista
+club6</code></pre>
+<pre><code>## [1] Juventus          FC Barcelona      Tottenham Hotspur Manchester City  
+## [5] Sampdoria         Borussia Dortmund
+## 698 Levels:  SSV Jahn Regensburg 1. FC Heidenheim 1846 ... Zaglebie Lubin</code></pre>
 <p>Notad que guardamos los nombres de los 6 clubs en la variable <code>club6</code>.</p>
 </div>
 </div>

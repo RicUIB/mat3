@@ -2,9 +2,9 @@
 title: "Taller Evaluable 1 2020, FIFA 2019"
 date: "3/12/2020"
 output:
+  word_document: default
   html_document: default
   pdf_document: default
-  word_document: default
 ---
 
 
@@ -43,10 +43,6 @@ str(datos, 5)
 
 ¿Qué 6  clubs tienen a los 10 mejores jugadores según la variable  "shooting"?
 
-```{r}
-datos_o=datos[order(datos$shooting,decreasing=TRUE),]
-names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6]
-```
 
 
 
@@ -54,14 +50,10 @@ names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6]
 
 Crea un dataframe `fifa20_best_shooting` que contenga a TODOS  los jugadores de los clubs encontrados en el ejercicio anterior.
 
-```{r}
-datos6=datos[datos$club %in% names(sort(table(datos_o$club[1:10]),decreasing = TRUE))[1:6],]
-unique(datos6$club)
-```
 
 ## Pregunta 3
 
-Calcular la media y la desviación típica   del sueldo de cada equipo del dataframe `fifa20_best_shooting`. 
+Calcula media y la desviación típica   del sueldo de cada equipo del dataframe `fifa20_best_shooting`. 
 
 
 
