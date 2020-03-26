@@ -351,11 +351,11 @@ $E(X)=2\cdot\frac{1}{4}+3\cdot \frac{1}{4}+ 4\cdot \frac{3}{16}+5\cdot \frac{10}
 
 ## Ejercicio 11
 
-Sea $X$  una variable  con distribución uniforme en el intervalo $(1,10)$ con  $a>1$. Consideremos la variable $Y=\log_{10}(X)$. Se pide
+Sea $X$  una variable  con distribución uniforme en el intervalo $(1,10)$. Consideremos la variable $Y=\log_{10}(X)$. Se pide
 
-a). Calcular la función de distribución  de $Y$ (**1 punto**)
-b). Calcular la función de densidad de $Y$. (**0.5 puntos**)
-c). Calcular el cuantil 0.95 de $Y$es decir un valor $y_0$ tal que $P(Y\leq y_0)=0.95$. (**0.5 puntos**)
+* a). Calcular la función de distribución  de $Y$ (**1 punto**)
+* b). Calcular la función de densidad de $Y$. (**0.5 puntos**)
+* c). Calcular el cuantil 0.95 de $Y$es decir un valor $y_0$ tal que $P(Y\leq y_0)=0.95$. (**0.5 puntos**)
 
 ### Solución:
 
@@ -363,9 +363,9 @@ Recordemos que
 $$
 F_X(x)=\left\{
 \begin{array}{ll} 
-0 & \mbox{si} x\leq 0\\
-\frac{x-1}{9} & \mbox{si} 0< x < 10\\
-1 & \mbox{si} x\geq 10
+0 & \mbox{si } x\leq 0\\
+\frac{x-1}{9} & \mbox{si } 0< x < 10\\
+1 & \mbox{si } x\geq 10
 \end{array}\right.
 $$
 
