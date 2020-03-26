@@ -2,17 +2,17 @@
 title: "Taller Evaluable 1 2020, FIFA 2019"
 date: "3/12/2020"
 output:
+  pdf_document: 
+    keep_tex: yes
   html_document: 
     number_sections: yes
     toc: yes
-  pdf_document: 
-    keep_tex: yes
   word_document: default
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,cache=TRUE)
+knitr::opts_chunk$set(echo = TRUE,cache=FALSE)
 ```
 
 
@@ -128,8 +128,9 @@ Discretiza la variable `age` de  `fifa20_best_shooting` en los 3 niveles siguien
 
 ```{r}
 age3=ordered(cut(fifa20_best_shooting$age,breaks=3))# corto en tres  partes
-fifa20_best_shooting$age[1:3]
-head(age3)
+fifa20_best_shooting$age[1:10]
+age3[1:10]
+table(age3)
 class(age3)
 str(age3)
 levels(age3)<- c("freshman", "junior", "senior")
@@ -238,8 +239,6 @@ Encuentra la función (lineal, exponencial o potencial) que mejor describe la de
 Hay que seguir los pasos de la lección [Un aperitivo: Introducción a la regresión linea: AprendeR1](https://aprender-uib.github.io/AprendeR1/chap-lm.html)
 
 ```{r}
-tiro=fifa20_best_shooting$shooting
-sueldo=fifa20_best_shooting$wage_eur
 summary(lm(wage_eur~shooting,data=fifa20_best_shooting))$r.squared # lineal
 summary(lm(log10(wage_eur)~log10(shooting),data=fifa20_best_shooting))$r.squared # potencial
 summary(lm(log10(wage_eur)~shooting,data=fifa20_best_shooting))$r.squared # exponencial
