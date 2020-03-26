@@ -1,0 +1,120 @@
+---
+title: "FIFA2019 Taller 1 Evaluable"
+author: "Ricardo Alberich; Juan Gabriel Gomila"
+date: "30 de mayo de 2019"
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+  word_document: default
+---
+
+
+# Preguntas:
+
+Hay que subir a la actividad el Rmd y el HTML  con los nombres del los estudiantes y lo que se pide
+
+
+Con vuestros datos del proyecto final realizar los siguientes análisis:
+
+1. Seleccionar un factor F de más de tres niveles y menos 5 ( si es posible) y una variable cuantitativa X (continua).
+    a.  Para cada nivel del factor F hacer un test KS de normalidad para contrastar que la distribución de X sea normal (de media y desviación típica la que corresponda a cada muestra).
+    b.   Hacer un boxplot de X para cada nivel de F.
+    c. Utilizad el la función  `bartlet.test` para contrastar la homodedasticidad de X en cada nivel del factor F. (Consultad AprendeR2)[https://aprender-uib.github.io/AprendeR2/chap-ANOVA.html#metodos-no-parametricos]
+    d.  Realizar una ANOVA.
+    e. Comparación de medias dos a dos  con ajuste de Bonferrori.
+ 
+2.  Escoge dos o tres variables cuantitativas X1,X2,X3
+  a. Clustering por k-means  en 4 clases, extraer  el cluster de cada observación
+  b. Haz un Boxplot para cada una de las variables para cada cluster.
+  c. Dibujad un matrixplot de las tres variables coloreando por cluster.
+  
+
+
+
+## Ejemplo del FIFA
+
+En [FIFA 19 complete player dataset 18k+ FIFA 19 players, ~90 attributes extracted from the latest FIFA database](https://www.kaggle.com/karangadiya/fifa19#data.csv)
+
+Tenemos acceso al data set de los jugadores del videojuego FIFA 2019. La información que aporta la página es la siguiente (para más información acudid a la página):
+
+*About this file*
+
+ *data.csv includes lastest edition FIFA 2019 players attributes like Age, Nationality, Overall, Potential, Club, Value, Wage, Preferred Foot, International Reputation, Weak Foot, Skill Moves, Work Rate, Position, Jersey Number, Joined, Loaned From, Contract Valid Until, Height, Weight, LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB, Crossing, Finishing, Heading, Accuracy, ShortPassing, Volleys, Dribbling, Curve, FKAccuracy, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Reactions, Balance, ShotPower, Jumping, Stamina, Strength, LongShots, Aggression, Interceptions, Positioning, Vision, Penalties, Composure, Marking, StandingTackle, SlidingTackle, GKDiving, GKHandling, GKKicking, GKPositioning, GKReflexes, and Release Clause.*
+
+
+## Carga de los datos
+
+Cargamos los datos y los visualizamos
+```{r}
+data=read.csv("data.csv",stringsAsFactors = FALSE)
+#head(data)
+#str(data)
+```
+
+
+```{r}
+clubs=c("FC Barcelona", "Real Madrid", "Manchester City","Paris Saint-Germain")
+clubs
+data2=data[data$Club%in% clubs,c("Club", "Name","Penalties", "Marking", "Interceptions")]
+head(data2)
+```
+
+
+```{r}
+X=data2$Penalties
+F=as.factor(data2$Club)
+levels(F)
+muestra1=X[F=="FC Barcelona"]
+ks.test(muestra1,"pnorm",mean(muestra1),sd(muestra1))
+#idem los demás muestras por valor
+hist(muestra1,freq =FALSE,main="Histograma de del score de penalties",xlab="FC Barcelona")
+lines(density(muestra1),col="red")
+curve(dnorm(x,mean(muestra1),sd(muestra1)),add=TRUE,col="blue")
+legend("topleft",c("Densidad muestral","Densidad normal"),fill=c("red","blue"))
+
+```
+
+```{r}
+boxplot(X~F,main="Pon tu main")#arreglas las....
+```
+
+```{r}
+bartlett.test(X~F)
+```
+
+
+
+```{r}
+sola_aov=aov(X~F)
+summary(sola_aov)
+```
+
+
+```{r}
+pairwise.t.test(X,F,p.adjust.method = "bonferroni")
+```
+
+
+```{r}
+cluster4=kmeans(data2[,3:5],centers = 4)
+table(cluster4$cluster,F)
+```
+
+
+```{r}
+plot(data2[,3:5],col=cluster4$cluster)
+```
+
+
+```{r}
+estadisticos=function(x) c(media=mean(x),sd=sd(x),min=min(x),mediana=median(x),max=max(x))
+
+aggregate(data2[,3],list(cluster4$cluster),estadisticos)
+
+aggregate(data2[,4],list(cluster4$cluster),estadisticos)
+
+aggregate(data2[,5],list(cluster4$cluster),estadisticos)
+
+```
+
