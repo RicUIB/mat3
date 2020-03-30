@@ -21,13 +21,6 @@ output:
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
 
-
-
-## PLANIFICACIÓN SEMANAL  A DISTANCIA
-
-Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
-
-
 ### **Semana 7 del 30 de marzo al 5 de abril** 
 
 * Grupo Grande BBCOLLABORATE Y DISCORD (GG1 martes  9:00 + 1 taller el jueves a las 12:30 a 13:30, GG3 miércoles y jueves (taller)  a las 9:00): 
