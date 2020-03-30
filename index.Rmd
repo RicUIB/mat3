@@ -21,6 +21,49 @@ output:
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
 
+
+
+## PLANIFICACIÓN SEMANAL  A DISTANCIA
+
+Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
+
+
+### **Semana 7 del 30 de marzo al 5 de abril** 
+
+* Grupo Grande BBCOLLABORATE Y DISCORD (GG1 martes  9:00 + 1 taller el jueves a las 12:30 a 13:30, GG3 miércoles y jueves (taller)  a las 9:00): 
+
+
+Os recurso el material del cursos e estadística inferencial 
+
+* [Curso completo de estadística inferencial con R y Python bookdown. EN CONSTRUCCIÓN](https://joanby.github.io/bookdown-estadistica-inferencial)
+* [Presentaciones](https://joanby.github.io/estadistica-inferencial)
+* [Presentaciones repositorio](https://github.com/joanby/estadistica-inferencial)
+   
+
+
+* Estudiad: EMPEZAMOS ESTADÍSTICA INFERENCIAL: 
+
+
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/practice/1156538?couponCode=558B1259A85F3C62C9F9#overview)
+     secciones 3 (todas las lecciones) y sección 4 (lecciones 23 a 32 inclusive). 
+ 
+  +  Y los correspondientes temas:  [Muestreo Estadístico](https://joanby.github.io/estadistica-inferencial/Tema-1---Muestreo#1), [2.Estimación Puntual](https://joanby.github.io/estadistica-inferencial/Tema-2---Estimaci%C3%B3n#1)
+  
+
+
+* Problemas propuestos CONTINUAD con los problemas de 
+  + Introducción variables aleatorias:
+  [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd). 
+  + Distribuciones notables discretas: [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd).
+  + Distribuciones notables continuas:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf), [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd).
+
+*  Problemas  para entregar: Estad atentos a  Aula Digital saldrán algunos ejercicios para entregar.
+
+
+
+
+
+
 ### **Semana 6 del 23 de marzo al 30 de marzo** 
 
 * Grupo Grande (3 horas martes GG1 8:30 a 11:30 + 1 taller el jueves a las 12:30 a 13:30, GG3 2 horas martes 8:30 a 10:30 y una hora jueves 8:30  a 9:30 y una hora taller jueves a las 9:30 a 10:30  ): 
@@ -70,7 +113,7 @@ Acabaremos  los temas de  distribuciones notables **MIRANDO LOS VIDEOS**:
 * Problemas propuestos
   + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
-  + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
+  + Distribuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
   + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
@@ -83,7 +126,7 @@ Acabaremos  los temas de  distribuciones notables **MIRANDO LOS VIDEOS**:
 
 ### **Semana 4 del 9 de marzo al 15 de marzo** 
 
-* Grupo mediano:  Hay taller EVALUABLE GR1 de 12:30 a 14:30. GR3 de 8:30 a 10:30 en l eaula habitual.
+* Grupo mediano:  Hay taller EVALUABLE GR1 de 12:30 a 14:30. GR3 de 8:30 a 10:30 en l aula habitual.
 
 * Trabajo en casa: Repasar los ejercicios de AprendeR1 y  los talleres de R
 
@@ -97,11 +140,11 @@ Acabaremos  los temas de  distribuciones notables **MIRANDO LOS VIDEOS**:
 **Semana 4 del 9 de marzo al 15 de marzo** 
 
 
-  + [Enlaces al  github de planificacion](https://www.github.com/ricuib/mat3)
+  + [Enlaces al  github de planificación](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/).
 
 
-* Grupo Grande (3 horas martes GG1 y 2 horas miercoles y  2 horas jueves GR3: 
+* Grupo Grande (3 horas martes GG1 y 2 horas miércoles y  2 horas jueves GR3: 
 Acabaremos  los temas de  distribuciones notables: 
   + [Distribuciones Notables Parte I: Distribuciones Discretas](https://joanby.github.io/probabilidad/Tema_3_1_Notables#1)
   + [Distribuciones Notables Parte II: Distribuciones Continuas. Cuantiles](https://joanby.github.io/probabilidad/Tema_3_2_Notables#1)
@@ -109,7 +152,7 @@ Acabaremos  los temas de  distribuciones notables:
 * Problemas propuestos
   + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
-  + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
+  + Distribuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
   + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
@@ -140,7 +183,7 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
 * Problemas propuestos
   + Introducción variables aleatorias: [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd), 
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf)
-  + Distibuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
+  + Distribuciones notables discretas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd), [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf)
   + Distribuciones notables continuas:[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd)
 [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf)
 
