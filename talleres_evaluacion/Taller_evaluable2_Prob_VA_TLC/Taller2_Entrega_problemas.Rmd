@@ -1,8 +1,10 @@
 ---
-title: "Taller 2 entrega problemas  - Probabilidad, Variables aleatoris , distribuciones notables y Teorema Central del Límite"
+title: Taller 2 entrega problemas  - Probabilidad, Variables aleatoris , distribuciones
+  notables y Teorema Central del Límite
 author: "PONED LOS NOMBRES"
 date: ''
 output:
+  word_document: default
   pdf_document: default
   html_document:
     df_print: paged
@@ -99,7 +101,7 @@ aleatoria de Poisson.
 ## Problema 7
 
 Tenemos que elegir entre  dos tarjetas gráficas (TG1 y TG2) para entrenar su red neuronal. El tiempo  de vida del la  TG1 se ha modelado según una 
-$N(\mu=120000, \sigma=140000)$ (la probabilidad de un tiempo de vida negativo es despreciable) y en TG2 según una $N(\mu_22=22000, \sigma_2=1000)$. 
+$N(\mu_1=120000, \sigma_1=140000)$ (la probabilidad de un tiempo de vida negativo es despreciable) y en TG2 según una $N(\mu_2=22000, \sigma_2=1000)$. 
 
 * a) ¿Qué tarjeta elegimos si el tiempo de duración objetivo del sistemas es de  20000 horas? 
 * b) ¿Y si es   de 24000 horas?
