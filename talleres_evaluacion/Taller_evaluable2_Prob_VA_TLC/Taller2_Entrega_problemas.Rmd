@@ -4,8 +4,8 @@ title: Taller 2 entrega problemas  - Probabilidad, Variables aleatoris , distrib
 author: "PONED LOS NOMBRES"
 date: ''
 output:
-  word_document: default
   pdf_document: default
+  word_document: default
   html_document:
     df_print: paged
 ---
