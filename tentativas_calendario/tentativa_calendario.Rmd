@@ -38,23 +38,29 @@ Mostrar exemples Aula Digital Ricardo 18/19 (part descriptiva):
 * 21/04: Intervals de confiança.  
   Feina a casa: llegir tema 4 AprendeR2
 * 23/04: Exercicis intervals de confiança.
+
 * 28/04: Contrast d'hipòtesis (introducció).
 * 30/04: (TALLER avaluable) Estimació puntual i intervals de confiança.
+
 * 05/05: Contrast d'hipòtesis (1 mostra).  
   Feina a casa: llegir tema 5 AprendeR2.
 * 07/05: Contrast d'hipòtesis (2 mostres).
+
 * 12/05: Exercicis contrast d'hipòtesis.  
 Pràctica ordinador, mostrar exemples Aula Digital Ricardo 18/19 (part inferencial): 
   * Activitats/Estimación y contrastes taller.
   * Activitats/EJEMPLO PROYECTO FINAL (PARTE 2).
 * 14/05: (TALLER avaluable) Contrast d'hipòtesis.
+
 * 19/05: Bondat d'ajustament.  
   Feina a casa: llegir tema 6 AprendeR2.
 * 21/05: Tests d'independència.  
   Feina a casa: llegir tema 7 AprendeR2.
+
 * 26/05: ANOVA 1 factor.  
   Feina a casa: llegir tema 9 AprendeR2.
 * 28/05: (TALLER avaluable) Bondat d'ajustament i tests d'independència.
+
 * 02/06: Regressió lineal simple. Clustering.  
   Feina a casa: llegir temes 10 i 11 AprendeR2.
 * 04/06: (TALLER no avaluable) prova tipus examen.

@@ -20,13 +20,48 @@ output:
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
+### **Semana 8 del 6 de abril al  12 de abril (primera semana de PASCUA)** 
+
+* Grupo Grande BBCOLLABORATE Y DISCORD (GG1 martes  9:00 y  GG3 miércoles a las 9:00): 
+
+
+Los recurso del material de los cursos de estadística inferencial 
+
+* [Curso completo de estadística inferencial con R y Python bookdown. EN CONSTRUCCIÓN](https://joanby.github.io/bookdown-estadistica-inferencial)
+* [Presentaciones](https://joanby.github.io/estadistica-inferencial)
+* [Presentaciones repositorio](https://github.com/joanby/estadistica-inferencial)
+   
+
+
+ 
+
+
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/practice/1156538?couponCode=558B1259A85F3C62C9F9#overview)
+A acabar la sección 4 (estimación puntual) (lecciones 23 a 32 inclusive). 
+ 
+  +  Y los correspondientes temas:  [Muestreo Estadístico](https://joanby.github.io/estadistica-inferencial/Tema-1---Muestreo#1), [2.Estimación Puntual](https://joanby.github.io/estadistica-inferencial/Tema-2---Estimaci%C3%B3n#1)
+  
+
+
+* Problemas propuestos CONTINUAD con los problemas de 
+  + Introducción variables aleatorias:
+  [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-2---Variables-Aleatorias.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%202%20-%20Variables%20Aleatorias.Rmd). 
+  + Distribuciones notables discretas: [pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_discretas.pdf),[Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_discretas.Rmd).
+  + Distribuciones notables continuas:[pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-3---Notables_continuas.pdf), [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%203%20-%20Notables_continuas.Rmd).
+
+*  Problemas  para entregar: Estad atentos a  Aula Digital saldrán algunos ejercicios para entregar.
+
+
+
+
+
 
 ### **Semana 7 del 30 de marzo al 5 de abril** 
 
 * Grupo Grande BBCOLLABORATE Y DISCORD (GG1 martes  9:00 + 1 taller el jueves a las 12:30 a 13:30, GG3 miércoles y jueves (taller)  a las 9:00): 
 
 
-Os recurso el material del cursos e estadística inferencial 
+Los recursos del material del curso de estadística inferencial 
 
 * [Curso completo de estadística inferencial con R y Python bookdown. EN CONSTRUCCIÓN](https://joanby.github.io/bookdown-estadistica-inferencial)
 * [Presentaciones](https://joanby.github.io/estadistica-inferencial)
