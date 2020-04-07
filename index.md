@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "02 abril, 2020"
+date: "07 abril, 2020"
 output:
   html_document: 
     keep_md: yes
@@ -20,13 +20,49 @@ output:
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
+### **Semana 8 del 6 de abril al  12 de abril Y PASCUA** 
+
+* Grupo Grande BBCOLLABORATE Y DISCORD (GG1 martes  9:00 y  GG3 miércoles a las 9:00): 
+
+
+Los recurso del material de los cursos de estadística inferencial 
+
+* [Curso completo de estadística inferencial con R y Python bookdown. EN CONSTRUCCIÓN](https://joanby.github.io/bookdown-estadistica-inferencial)
+* [Presentaciones](https://joanby.github.io/estadistica-inferencial)
+* [Presentaciones repositorio](https://github.com/joanby/estadistica-inferencial)
+   
+
+
+
+
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
+A acabar la sección 4 (estimación puntual) (lecciones [33](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16505056#overview)  a la  [48](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16618414#overview) inclusive; los temas de python son opcionales). 
+En pascua podéis pegar un vistazo  a los vídeos de la sección 5  de intervalos de confianza las lecciones [49](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)[].
+ a [66](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview).
+  +  Y los correspondientes temas:  [Muestreo Estadístico](https://joanby.github.io/estadistica-inferencial/Tema-1---Muestreo#1), [2.Estimación Puntual](https://joanby.github.io/estadistica-inferencial/Tema-2---Estimaci%C3%B3n#1)  y pegad un cistazo al tema  [3. Intervalos de confianza](https://joanby.github.io/estadistica-inferencial/Tema-3---IC#1)
+  
+
+
+* Problemas propuestos teneís que ir haciendo los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+ 
+  + Estimación 1  :[pdf](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller1.pdf), [Rmd](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller1.Rmd). [Soluciones](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones).
+  + Estimación 2  :[pdf](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller2.pdf), [Rmd](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller2.Rmd). [Soluciones](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones).
+  + Estimación 3  :[pdf](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller3.pdf), [Rmd](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller3.Rmd).[Soluciones](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones).
+
+
+
+*  PROYECTO FASE 2 : Estad atentos a  Aula Digital iré dando indicaciones y fechas para la fase dos del proyecto. Tendríais que endeñarme algo de la fase 2 sobre el  24 de abril y entregarla sobre el  3 de mayo. Haré tutorías por grupos.
+
+
+
+
 
 ### **Semana 7 del 30 de marzo al 5 de abril** 
 
 * Grupo Grande BBCOLLABORATE Y DISCORD (GG1 martes  9:00 + 1 taller el jueves a las 12:30 a 13:30, GG3 miércoles y jueves (taller)  a las 9:00): 
 
 
-Os recurso el material del cursos e estadística inferencial 
+Los recursos del material del curso de estadística inferencial 
 
 * [Curso completo de estadística inferencial con R y Python bookdown. EN CONSTRUCCIÓN](https://joanby.github.io/bookdown-estadistica-inferencial)
 * [Presentaciones](https://joanby.github.io/estadistica-inferencial)
