@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "07 abril, 2020"
+date: "08 abril, 2020"
 output:
   html_document: 
     keep_md: yes
@@ -13,7 +13,6 @@ output:
 
   + [Enlaces al  github de planificación](https://www.github.com/ricuib/mat3)
   + [Enlaces al material](https://ricuib.github.io/Enlaces/)
-
 
 
 ## PLANIFICACIÓN SEMANAL  A DISTANCIA
@@ -39,11 +38,11 @@ Los recurso del material de los cursos de estadística inferencial
 A acabar la sección 4 (estimación puntual) (lecciones [33](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16505056#overview)  a la  [48](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16618414#overview) inclusive; los temas de python son opcionales). 
 En pascua podéis pegar un vistazo  a los vídeos de la sección 5  de intervalos de confianza las lecciones [49](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)[].
  a [66](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview).
-  +  Y los correspondientes temas:  [Muestreo Estadístico](https://joanby.github.io/estadistica-inferencial/Tema-1---Muestreo#1), [2.Estimación Puntual](https://joanby.github.io/estadistica-inferencial/Tema-2---Estimaci%C3%B3n#1)  y pegad un cistazo al tema  [3. Intervalos de confianza](https://joanby.github.io/estadistica-inferencial/Tema-3---IC#1)
+  +  Y los correspondientes temas:  [Muestreo Estadístico](https://joanby.github.io/estadistica-inferencial/Tema-1---Muestreo#1), [2.Estimación Puntual](https://joanby.github.io/estadistica-inferencial/Tema-2---Estimaci%C3%B3n#1)  y pegad un vistazo al tema  [3. Intervalos de confianza](https://joanby.github.io/estadistica-inferencial/Tema-3---IC#1)
   
 
 
-* Problemas propuestos teneís que ir haciendo los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+* Problemas propuestos tenéis que ir haciendo los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
  
   + Estimación 1  :[pdf](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller1.pdf), [Rmd](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller1.Rmd). [Soluciones](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones).
   + Estimación 2  :[pdf](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller2.pdf), [Rmd](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema2_estimacion_ejercicios_taller2.Rmd). [Soluciones](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones).
@@ -51,7 +50,7 @@ En pascua podéis pegar un vistazo  a los vídeos de la sección 5  de intervalo
 
 
 
-*  PROYECTO FASE 2 : Estad atentos a  Aula Digital iré dando indicaciones y fechas para la fase dos del proyecto. Tendríais que endeñarme algo de la fase 2 sobre el  24 de abril y entregarla sobre el  3 de mayo. Haré tutorías por grupos.
+*  PROYECTO FASE 2 : Estad atentos a  Aula Digital iré dando indicaciones y fechas para la fase dos del proyecto. Tendríais que enseñarme algo de la fase 2 sobre el  24 de abril y entregarla sobre el  3 de mayo. Haré tutorías por grupos.
 
 
 
