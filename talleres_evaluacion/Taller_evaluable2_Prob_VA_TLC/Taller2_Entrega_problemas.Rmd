@@ -54,7 +54,7 @@ Sea $Y$ una variable continua con función de densidad:
 $$
 f_Y(y)=
 \left\{\begin{array}{ll}
-2\cdot (1-y), & \mbox{si } $0<y<1$,\\ 0, & \mbox{en los otros casos}.
+2\cdot (1-y), & \mbox{si } 0<y<1,\\ 0, & \mbox{en los otros casos}.
 \end{array}\right.
 $$
 Hallar la función de distribución $F_Y(t)$.

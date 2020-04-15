@@ -1,13 +1,16 @@
 ---
-title: "Taller 2 entrega problemas  - Probabilidad, Variables aleatoria , distribuciones notables y Teorema Central del Límite"
+title: Taller 2 entrega problemas  - Probabilidad, Variables aleatoria , distribuciones
+  notables y Teorema Central del Límite
 author: "SOLUCIONES DEL TALLER 2"
 date: ''
 output:
-  html_document: 
+  word_document:
+    toc: yes
+  pdf_document:
     number_sections: yes
     toc: yes
+  html_document:
     linkcolor: red
-  pdf_document: 
     number_sections: yes
     toc: yes
 header-includes: \renewcommand{\contentsname}{Contenidos}
@@ -447,12 +450,12 @@ Tenemos una muestra  aleatoria simple   $X_1,\ldots X_{n=48}$  de una v.a. $X$ c
 $\sigma^2_X=\frac{(0-a)^2}{12}=\frac{a^2}{12}$ por lo tanto $\sigma^2_x=\frac{a^2}{12}=
 \frac{a}{\sqrt{12}}$.
 
-Entonces $E\left(\sum_{i=1}^{48} X_i\right)=48\cdot \frac{a}{2}=24\cdot a$ , $\sigma^2_{\sum_{i=1}^{48}X_i}=48^2\cdot \frac{a^2}{12}=4\cdot a^2$ y por lo tanto la deviación típica de la suma es $\sigma_{\sum_{i=1}^{48}X_i}=+\sqrt{\sigma^2_{\sum_{i=1}^{48} X_i}}=\sqrt{4\cdot a^2}=2\cdot a.$
+Entonces $E\left(\sum_{i=1}^{48} X_i\right)=48\cdot \frac{a}{2}=24\cdot a$ , $\sigma^2_{\sum_{i=1}^{48}X_i}=48\cdot \frac{a^2}{12}=4\cdot a^2$ y por lo tanto la deviación típica de la suma es $\sigma_{\sum_{i=1}^{48}X_i}=+\sqrt{\sigma^2_{\sum_{i=1}^{48} X_i}}=\sqrt{4\cdot a^2}=2\cdot a.$
 
 Límite sabemos que 
 Bajo estas condiciones y por el Teorema Central del Límite sabemo  que 
 $\sum_{i=1}^{48} X_i$ sigue aproximadamente una distribución $N(24\cdot a, 2\cdot a).$
 
 
-Luego  $P\left(\sum_{i=1}^{48} X_i >a\right)=1-P\left(\sum_{i=1}^{48}\leq a \right)\approx 1-P\left(Z\leq \frac{a-24 \cdot a}{2\dot a}\right)=1-P\left(Z\leq \frac{-23}{2}\right)\approx 1-1=0.$
+Luego  $P\left(\sum_{i=1}^{48} X_i >a\right)=1-P\left(\sum_{i=1}^{48}\leq a \right)\approx 1-P\left(Z\leq \frac{a-24 \cdot a}{2\cdot a}\right)=1-P\left(Z\leq \frac{-23}{2}\right)\approx 1-0=1.$
 

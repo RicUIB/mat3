@@ -703,9 +703,9 @@ P(|\hat{p_n}-p|&lt;0.01)&amp;=P\left(\frac{-n\cdot 0.01}{\sqrt{n\cdot p\cdot (1-
 <div id="solución-8" class="section level3">
 <h3><span class="header-section-number">1.9.1</span> Solución</h3>
 <p>Tenemos una muestra aleatoria simple <span class="math inline">\(X_1,\ldots X_{n=48}\)</span> de una v.a. <span class="math inline">\(X\)</span> con distribución uniforme <span class="math inline">\(U(0,a)\)</span> entonces <span class="math inline">\(\mu_X=E(X)=\frac{a}{2}\)</span> y <span class="math inline">\(\sigma^2_X=\frac{(0-a)^2}{12}=\frac{a^2}{12}\)</span> por lo tanto <span class="math inline">\(\sigma^2_x=\frac{a^2}{12}= \frac{a}{\sqrt{12}}\)</span>.</p>
-<p>Entonces <span class="math inline">\(E\left(\sum_{i=1}^{48} X_i\right)=48\cdot \frac{a}{2}=24\cdot a\)</span> , <span class="math inline">\(\sigma^2_{\sum_{i=1}^{48}X_i}=48^2\cdot \frac{a^2}{12}=4\cdot a^2\)</span> y por lo tanto la deviación típica de la suma es <span class="math inline">\(\sigma_{\sum_{i=1}^{48}X_i}=+\sqrt{\sigma^2_{\sum_{i=1}^{48} X_i}}=\sqrt{4\cdot a^2}=2\cdot a.\)</span></p>
+<p>Entonces <span class="math inline">\(E\left(\sum_{i=1}^{48} X_i\right)=48\cdot \frac{a}{2}=24\cdot a\)</span> , <span class="math inline">\(\sigma^2_{\sum_{i=1}^{48}X_i}=48\cdot \frac{a^2}{12}=4\cdot a^2\)</span> y por lo tanto la deviación típica de la suma es <span class="math inline">\(\sigma_{\sum_{i=1}^{48}X_i}=+\sqrt{\sigma^2_{\sum_{i=1}^{48} X_i}}=\sqrt{4\cdot a^2}=2\cdot a.\)</span></p>
 <p>Límite sabemos que Bajo estas condiciones y por el Teorema Central del Límite sabemo que <span class="math inline">\(\sum_{i=1}^{48} X_i\)</span> sigue aproximadamente una distribución <span class="math inline">\(N(24\cdot a, 2\cdot a).\)</span></p>
-<p>Luego <span class="math inline">\(P\left(\sum_{i=1}^{48} X_i &gt;a\right)=1-P\left(\sum_{i=1}^{48}\leq a \right)\approx 1-P\left(Z\leq \frac{a-24 \cdot a}{2\dot a}\right)=1-P\left(Z\leq \frac{-23}{2}\right)\approx 1-1=0.\)</span></p>
+<p>Luego <span class="math inline">\(P\left(\sum_{i=1}^{48} X_i &gt;a\right)=1-P\left(\sum_{i=1}^{48}\leq a \right)\approx 1-P\left(Z\leq \frac{a-24 \cdot a}{2\cdot a}\right)=1-P\left(Z\leq \frac{-23}{2}\right)\approx 1-0=1.\)</span></p>
 </div>
 </div>
 </div>
