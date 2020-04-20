@@ -19,7 +19,6 @@ output:
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
-### **Semana 9 del 20 de abril al  26 de abril
 ### **Semana 9 del 20 de abril al  26 de abril**
 
 * Grupo Grande BBCOLLABORATE Y DISCORD 
