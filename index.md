@@ -39,9 +39,9 @@ Sección 7  Contrastes de hipótesis paramétricos: las lecciones [73](https://w
   
 
 
-* No hay más problemas Problemas propuestos. Tenéis que ACABAR  los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+* De momento **NO** hay más problemas propuestos. **Tenéis que ACABAR^^  los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
  
-* HAY QUE ENTREGAR la FASE 2 del  PROYECTO: pedid tutoría hasta el jueves en horas de clase presencial. 
+* **HAY QUE ENTREGAR la FASE 2 del  PROYECTO**: pedid tutoría hasta el jueves en horas de clase presencial. 
 
 
 
