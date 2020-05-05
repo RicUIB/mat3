@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "28 abril, 2020"
+date: "05 mayo, 2020"
 output:
   html_document: 
     keep_md: yes
@@ -26,20 +26,21 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
   + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
   + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
 
-Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):[Id leyendo la lección 5: Contrates de hipótesis(https://aprender-uib.github.io/AprendeR2/chap-contrastes.html).
+Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):[Id leyendo la lección 5: Contrates de hipótesis](https://aprender-uib.github.io/AprendeR2/chap-contrastes.html).
 
  
 
 
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
-Sección 7  Contrastes de hipótesis paramétricos: las lecciones [73](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  A  [88] inclusive (https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
+Sección 7  Contrastes de hipótesis paramétricos: las lecciones [73](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  a la
+[88 inclusive] (https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
   + [Tema 4 del libro :Contrates hipótesis paramétricos secciones 4.1 a 4.7 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial)
   + [Tema 4 presentaciones: tansparencias 1 a 140](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
 
   
 
 
-* De momento **NO** hay más problemas propuestos. **Tenéis que ACABAR^^  los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+* De momento **NO** hay más problemas propuestos. **Tenéis que ACABAR**  los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
  
 * **HAY QUE ENTREGAR la FASE 2 del  PROYECTO**: pedid tutoría hasta el jueves en horas de clase presencial. 
 
