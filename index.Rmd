@@ -20,6 +20,47 @@ output:
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
+### **Semana 11 del  4 de mayo  al 10 de mayo**
+
+
+* Clases: Grupo Grande COLLABORATE Y DISCORD:  Tutorías y talleres en linea.   
+  + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
+  + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
+
+
+* Trabajo  de la semana:
+ 
+  + Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/index.html):[Acabar la lección lección 5: Contrates de hipótesis](https://aprender-uib.github.io/AprendeR2/chap-contrastes.html).
+
+
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
+Sección 7  Contrastes de hipótesis paramétricos: las lecciones [89: Contraste de hipótesis de dos muestras](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  a la
+[107  inclusive. Contraste para proporciones binom.test](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
+  + [Tema 4 del libro :Contrates hipótesis paramétricos secciones 4.7 a 4.12 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-hip%C3%B3tesis-param%C3%A9tricos.html)
+  + [Tema 4 presentaciones: tansparencias 141 a la 258](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
+
+  
+
+
+* Estad atentos a  nuevos problemas de contrates. Acabad los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+
+ 
+* Esta semana saldrá el enunciado de otra entrega en grupo. Lo comentaremos en la clase del jueves
+
+
+  
+
+
+* **Tenéis que ACABAR**  los problemas de Estimación por intervalos TEMA 3[están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+Ejercicios Tema 3 intervalos-taller1: 
+
+* [Enunciados tema 3: Estimación por intervalos - taller 1](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema3_intervalos_de_confianza_taller1.pdf), [soluciones tema 3taller 1](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema3_intervalos_de_confianza_taller1_SOLUCIONES.pdf)
+
+[Enunciados tema 3: Estimación por intervalos- taller 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema3_intervalos_de_confianza_taller2.pdf), [soluciones tema 3 taller 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema3_intervalos_de_confianza_taller2_SOLUCIONES.pdf)
+
+
+
+
 ### **Semana 10 del 27 de abril al 3 de mayo**
 
 * Grupo Grande COLLABORATE Y DISCORD:  Tutorías y talleres en linea.   
@@ -59,10 +100,10 @@ Sección 7  Contrastes de hipótesis paramétricos: las lecciones [73](https://w
 
 **ATENCION SALDRÁN EN EL EXAMEN FINAL: EMPEZAD** Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):
 
-  + [1. Distribuciones de  probabilidad](https://aprender-uib.github.io/AprendeR2/chap-distr.html)
-  + [2. Conceptos básicos de muestreo](https://aprender-uib.github.io/AprendeR2/chap-muestreo.html)
-  + [3. Estimación puntual](https://aprender-uib.github.io/AprendeR2/chap-estimacion.html)
-  + [4. Intervalos de confianza](https://aprender-uib.github.io/AprendeR2/chap-IC.html)
+  + [1. Distribuciones de  probabilidad](https://cescrossello.github.io/AprendeR-II/AprendeR2/chap-distr.html)
+  + [2. Conceptos básicos de muestreo](https://cescrossello.github.io/AprendeR-II/chap-muestreo.html)
+  + [3. Estimación puntual](https://cescrossello.github.io/AprendeR-II/chap-estimacion.html)
+  + [4. Intervalos de confianza](https://cescrossello.github.io/AprendeR-II/chap-IC.html)
 
 Los recurso del material de los cursos de estadística inferencial 
 
