@@ -51,12 +51,10 @@ Sección 7  Contrastes de hipótesis paramétricos: las lecciones [89: Contraste
   
 
 
-* **Tenéis que ACABAR**  los problemas de Estimación por intervalos TEMA 3[están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
-Ejercicios Tema 3 intervalos-taller1: 
+* **Tenéis que ACABAR**  los problemas de ESTIMACIÓN POR INTERVALOS TEMA 3 son dos talleres:
 
-* [Enunciados tema 3: Estimación por intervalos - taller 1](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema3_intervalos_de_confianza_taller1.pdf), [soluciones tema 3taller 1](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema3_intervalos_de_confianza_taller1_SOLUCIONES.pdf)
-
-[Enunciados tema 3: Estimación por intervalos- taller 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema3_intervalos_de_confianza_taller2.pdf), [soluciones tema 3 taller 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema3_intervalos_de_confianza_taller2_SOLUCIONES.pdf)
+  + [Enunciados tema 3: Estimación por intervalos - taller 1](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema3_intervalos_de_confianza_taller1.pdf), [soluciones tema 3taller 1](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema3_intervalos_de_confianza_taller1_SOLUCIONES.pdf).
+  + [Enunciados tema 3: Estimación por intervalos- taller 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema3_intervalos_de_confianza_taller2.pdf), [soluciones tema 3 taller 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema3_intervalos_de_confianza_taller2_SOLUCIONES.pdf).
 
 
 
