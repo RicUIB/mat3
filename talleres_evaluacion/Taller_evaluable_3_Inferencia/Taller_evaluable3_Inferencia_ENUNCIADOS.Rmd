@@ -1,0 +1,302 @@
+---
+title: "Taller 3 entrega problemas. Inferencia 1: Estimación y Contraste de Hipótesis"
+author: "SOLUCIONES DEL TALLER 3"
+date: ''
+output:
+  html_document:
+    linkcolor: red
+    number_sections: yes
+    toc: yes
+  word_document:
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+header-includes: \renewcommand{\contentsname}{Contenidos}
+citecolor: blue
+toccolor: blue
+urlcolor: blue
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999)
+contador=0
+cuenta=function(x=contador) {contador<<- contador+1;return(contador)} 
+library(tidyverse)
+```
+
+
+#  Taller 3 evaluable. Entrega de problemas
+
+Taller en grupo entregad las soluciones en Rmd y html o pdf, o si lo hacéis  mano  escaneado ...
+
+
+## Ejercicio `r cuenta()`
+Los datos de la siguiente tabla muestran el número de horas de
+alivio proporcionado por 3 diferentes marcas de pastillas para el dolor  cabeza (marcas: A,B, E) administradas a una muestra aleatoria de pacientes que cursaban una dolencia con fiebre de 38 o más grados celsius. 
+
+```{r}
+#horas=c(1,2,1,2,4,3,7,8,6,9,5,2,3,7,3,4,1,4,16,19,14,7)
+#tipo=c("A","A","A","A","A","B","B","B","B","C","C","C","C","D","D","D","D","E","E","E","E","E")
+horas=c(1,2,1,2,4,3,7,8,8,4,16,19,14,7)
+tipo=c("A","A","A","A","A","B","B","B","B","E","E","E","E","E")
+
+data=data.frame(horas,tipo,stringsAsFactors=FALSE)
+
+data
+sol=aov(horas~tipo,data=data)
+summary(sol)
+pairwise.t.test(data$horas,data$tipo,"none")
+```
+
+```{r}
+#Datos para el problema
+##
+t1=data[data$tipo=="A",1]
+t2=data[data$tipo=="B",1]
+t3=data[data$tipo=="E",1]
+T1=sum(t1)
+T2=sum(t2)
+T3=sum(t3)
+T1
+T2
+T3
+n1=length(data[data$tipo=="A",1])
+n2=length(data[data$tipo=="B",1])
+n3=length(data[data$tipo=="E",1])
+N=n1+n2+n3
+T_square=sum(data$horas^2)
+T_square
+TT=T1+T2+T3
+TT
+SST=T_square-(T1+T2+T3)^2/N
+SST
+SSTr=T1^2/n1+T2^2/n2+T3^2/n3-(T1+T2+T3)^2/N
+SSTr
+SSE=SST-SSTr
+SSE
+k=3
+MST=SSTr/(k-1)
+MST
+MSE=SSE/(N-k)
+MSE
+F_est=MST/MSE
+F_est
+p_value=1-pf(F_est,k-1,N-k)
+p_value
+# t-test holmn a mano
+
+MSE=SSE/11
+TEst1_2=(mean(t1)-mean(t2))/sqrt(MSE*(1/5+1/4))
+TEst1_3=(mean(t1)-mean(t3))/sqrt(MSE*(1/5+1/5))
+TEst2_3=(mean(t2)-mean(t3))/sqrt(MSE*(1/4+1/5))
+TEst=c(TEst1_2,TEst1_3,TEst2_3)
+TEst
+pvalores=2*(1-pt(abs(TEst),14-3))
+pvalores
+pairwise.t.test(data$horas,data$tipo,"none")
+bon=pairwise.t.test(data$horas,data$tipo,"bonferroni")
+bon$p.value
+pvalores/3
+
+pvaloresOr=sort(pvalores)
+
+pvaloresOr
+pvaloresAd=pvaloresOr*(3+1-(1:3))
+pvaloresAd
+pairwise.t.test(data$horas,data$tipo,"bonferroni")
+```
+
+
+
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{|r|r|r|}
+\hline
+A & B & E
+\\
+\hline
+1 & 3 & 4 \\
+2 & 7 & 16 \\
+1 & 8 & 19\\
+2 & 8 & 14\\
+4 &   & 7\\ \hline
+\end{tabular}
+
+\end{table*}
+
+Las suma de los cuadrados de todas las horas de alivio es $1090$.
+
+
+
+
+
+\punt Se pide plantear el ANOVA  que compara las horas medias de alivio que da cada uno de los tratamientos. Decid que condiciones adicionales son necesarias para aplicar el ANOVA. ({1 punto}.)
+
+\punt Realizar todos los cálculos del ANOVA dando la tabla del test de ANOVA y concluir si hay evidencias a favor de que los tratamientos tienen medias de alivio distintas. ({1 punto}.)
+
+
+\punt Sea cual sea el resultado del ANOVA interpretad la salida del siguiente código y discutid qué comparaciones de medias dos a dos se aceptan. Dad explicitamente las hipótesis nula y alternativa de cada test. 
+
+```{r}
+horas=c(1,2,1,2,4,3,7,8,8,4,16,19,14,7)
+tipo=c("A","A","A","A","A","B","B","B","B","E","E","E","E","E")
+pairwise.t.test(data$horas,data$tipo,"bonferroni")
+```
+
+({1 punto}.)
+
+
+
+
+## Ejercicio `r cuenta()`
+
+El data frame `diamonds` contiene información del   precio y otras características de una muestra de unos 54000 diamantes. 
+
+
+%Seleccionamos los diamantes mas de 1000 dólares
+
+```{r}
+library(ggplot2)
+#set.seed(2018)
+diamonds=as.data.frame(diamonds)
+```
+
+Haciendo `help(diamons)` obtenemos la descripción del data set 
+
+```
+Prices of 50,000 round cut diamonds
+Description
+A dataset containing the prices and other attributes of almost 54,000 diamonds.
+The variables are as follows:
+Format
+A data frame with 53940 rows and 10 variables:
+
+price: price in US dollars ($326–$18,823)
+carat: weight of the diamond (0.2–5.01)
+cut: quality of the cut (Fair, Good, Very Good, Premium, Ideal)
+color: diamond colour, from J (worst) to D (best)
+clarity: a measurement of how clear the diamond is
+            (I1 (worst), SI1, SI2, VS1, VS2, VVS1, VVS2, IF (best))
+x: length in mm (0–10.74)
+y: width in mm (0–58.9)
+z: depth in mm (0–31.8)
+depth: total depth percentage = z / mean(x, y) = 2 * z / (x + y) (43–79)
+table: width of top of diamond relative to widest point (43–95)
+```
+
+```{r}
+str(diamonds)
+head(diamonds)
+#help(diamonds)
+summary(diamonds)
+sol=lm(price~carat+depth+table+x+y+z,data=diamonds)
+summary(sol)
+step(sol)
+```
+
+
+Contestad a las siguientes cuestiones justificando que parte del código utilizáis
+
+1. Comentad qué variables tiene el dataset, de qué tipo es cada una de ellas y así como el rango de valores de las mismas. ({1 punto}.)
+
+2. Escribir el modelo de regresión lineal original que se ha creado para estimar el precio del diamante. Da un sentido a cada uno de los coeficientes de la regresión e indica cuales parecen ser pocos relevantes para la misma. ({1 punto}.)
+
+3. Explica detalladamente el uso de la función step, cada uno de los pasos de la misma, y qué función cumple en el ejemplo anterior. ({0.5 punto}.)
+
+4.  Escribid la hipótesis del contraste de ANOVA que resulta de la regresión anterior y discutid su función. ¿Qué se concluye en base a los resultados anteriores? ({ 0.5 puntos})
+
+
+
+## Ejercicio `r cuenta()`
+
+Después de una comida de trabajo el profesor Richard le dice al profesor John Gabriel que se apuesta un café a que no hay evidencias de que su coche comsuma menos combustible. Para ello y de forma científica anotan durante 10 días el el consumo de combustible desde  dos puntos fijos a su universidad, concretamente desde la Spain Square hasta su lugar de trabajo en la Higher Polytechnic School. Los resultados son los siguientes:
+
+```{r}
+set.seed(2018)
+ric =round(runif(10, 4, 6.5),2)
+jb = round(runif(10, 5, 6),2)
+sumr=round(sum(ric),2)
+sumjb=round(sum(jb),2)
+sumr_sq=round(sum(ric^2),2)
+sumjb_sq=round(sum(jb^2),2)
+c(sumr,sumjb,sumr_sq,sumjb_sq)
+aux=data.frame(jb,ric)
+#no la imprimo porque he usado un xtable para formatear bonito
+t.test(ric,jb,var.equal = TRUE,alternative = "less")
+t.test(ric,jb,var.equal = FALSE,alternative = "less")
+```
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrrrr}
+\hline
+& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 
+\\\hline
+Prof. Richard & 4.8 & 5.1 & 4.1 & 4.4 & 5.1 & 4.7 & 5.5 & 4.3 & 6.4 & 5.3 \\
+Prof. John Gabriel & 5.4 & 5.6 & 5.9 & 5.6 & 5.8 & 5.6 & 5.2 & 5.5 & 5.7 & 5.8 \\
+\hline
+\end{tabular}
+\end{table}
+
+Ayuda: Suma de los consumos de los coches de  Richard y John `r round(sumr,2)` y 
+`r round(sumjb,2)` respectivamente. Suma de los cuadrados de los consumos de los
+coches de  Richard y John `r round(sumr_sq,2)` y `r round(sumjb_sq,2)` respectivamente.
+Todos los resultados están redondeados a dos decimales.
+
+1. Plantead la hipótesis del contraste de igualdad de medias que permita afirmar o rechazar la afirmación anterior. (**0.5 puntos**)
+
+2. Calculad el estadístico de contraste, la región de aceptación y el p-valor del problema suponiendo igualdad de varianzas en el consumo de combustible de ambos coches. (**1 punto**)
+
+3. Calculad el estadístico de contraste y la región de aceptación y el p-valor del problema suponiendo que las varianzas del consumo de combustible son diferentes en ambos coches. (**1 punto**)
+
+
+
+```{r}
+
+## VAR EQUAL
+
+n1=10
+n2=10
+sumx=sumr
+sumy=sumjb
+sumx2=sumr_sq
+sumy2=sumjb_sq
+mx=sumx/n1
+my=sumy/n2
+sx2=n1/(n1)*(sumx2/n1-mx^2)
+sy2=n2/(n2-1)*(sumy2/n2-my^2)
+c(mx,my,sx2,sy2)
+c(mean(ric),mean(jb),var(ric),var(jb),sd(ric),sd(jb))
+
+t1_var_dif=(mx-my)/sqrt(sx2/n1+sy2/n2)
+t1_var_dif
+round(t1_var_dif,4)
+
+
+t.test(ric,jb,var.equal = TRUE,alternative = "less")
+p1_valor_less=pt(t1_var_dif,n1+n2-2)
+p1_valor_less
+```
+
+```{r}
+## VAR NOT EQUAL
+
+t2_var_dif=(mx-my)/sqrt((1/n1+1/n2)*((n1-1)*sx2+(n2-1)*sy2)/(n1+n2-2))
+(mx-my)/(sqrt((1/n1+1/n2))*((n1-1)*sx2+(n2-1)*sy2)/(n1+n2-2))
+round(t2_var_dif,4)
+t.test(ric,jb,var.equal = FALSE,alternative = "less")
+df=floor((sx2/n1+sy2/n2)^2/((1/(n1-1))*(sx2/n1)^2+
+(1/(n2-1))*(sy2/n2)^2))
+df=df-2
+p2_valor_less=pt(t2_var_dif,df)
+p2_valor_less
+p2_valor_gr=1-pt(t2_var_dif,df)
+p2_valor_noteq=2*(1-pt(abs(t2_var_dif),df))
+p2_valor_noteq
+```
+
+

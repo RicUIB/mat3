@@ -20,6 +20,117 @@ output:
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* CONTROL FINAL día xx de junio  a las xx:yy por Aula Digital
+* CONTROL FINAL RECUPERACIÓN día xx de junio  a las xx:yy por Aula Digital
+* ENTREGA proyecto FINAL día XX  y día YY
+
+
+### **Semana 15 del  1 de junio  al  7 de junio**
+
+
+Provisional: Acabar problemas e introducción al clustering
+
+### **Semana 14 del  25 de mayo  al  31  de mayo**
+
+Provisional: Regresión lineal simple y múltiple
+
+### **Semana 13 del  18 de mayo  al 24 de mayo**
+
+Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y pos-hoc
+
+### **Semana 12 del  11 de mayo  al 17 de mayo**
+
+Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y pos-hoc
+
+
+* Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos para clase y para fijar las tareas para FINALIZAR ESTE CURSO. 
+  + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
+  + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
+
+
+* Trabajo  de la semana:
+ 
+  + En paralelo a las lecciones del curso que se sepiden (y solo esa parte) y como soporte de R id consultando las Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/index.html):[Contrastes de bondad de ajuste](https://aprender-uib.github.io/AprendeR2/chap-contrastes.html),[Contrastes de independencia y homogeneidad ajuste](https://cescrossello.github.io/AprendeR-II/chap-indep.html),[Introducción  a la Estadística Multimensional](https://cescrossello.github.io/AprendeR-II/introduccion-a-la-estadistica-descriptiva-multidimensional.html).
+
+
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
+Sección 8  Contrastes de hipótesis paramétricos: las clases (incluye  ejemplos)  [116: Contrastes Paramétricos versus no Paramétricos](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17372742#overview)  a la
+clase [132: Test omnibus de Agostino-Pearson](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17374692#overview).
+  + [Tema 5 del libro :Bondad de Ajuste](https://joanby.github.io/bookdown-estadistica-inferencial/bondad-de-ajuste.html)
+  + [Tema 5 presentaciones: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-5---BondadAjuste#1)
+
+  
+
+
+* Nuevos problemas propuestos y resueltos  el Tema 4 y del tema 5:
+  + [Tema 4 Contraste Hipótesis Taller1: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller1.pdf),[Tema 4 Contraste Hipótesis Taller1: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller1_SOLUCIONES.pdf)
+  + [Tema 4 Contraste Hipótesis Taller2: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller2.pdf),[Tema 4 Contraste Hipótesis Taller2: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller2_SOLUCIONES.pdf)
+  + [Tema 4 Contraste Hipótesis Taller3: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller3.pdf),[Tema 4 Contraste Hipótesis Taller3: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller3_SOLUCIONES.pdf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### **Semana 11 del  4 de mayo  al 10 de mayo**
 
 
@@ -30,19 +141,19 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
 
 * Trabajo  de la semana:
  
-  + Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/index.html):[Acabar la lección lección 5: Contrates de hipótesis](https://aprender-uib.github.io/AprendeR2/chap-contrastes.html).
+  + Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/index.html):[Acabar la lección lección 5: Contrastes de hipótesis](https://aprender-uib.github.io/AprendeR2/chap-contrastes.html).
 
 
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
 Sección 7  Contrastes de hipótesis paramétricos: las lecciones [89: Contraste de hipótesis de dos muestras](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  a la
 [107  inclusive. Contraste para proporciones binom.test](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
-  + [Tema 4 del libro :Contrates hipótesis paramétricos secciones 4.7 a 4.12 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-hip%C3%B3tesis-param%C3%A9tricos.html)
+  + [Tema 4 del libro :Contrastes hipótesis paramétricos secciones 4.7 a 4.12 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-hip%C3%B3tesis-param%C3%A9tricos.html)
   + [Tema 4 presentaciones: tansparencias 141 a la 258](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
 
   
 
 
-* Estad atentos a  nuevos problemas de contrates. Acabad los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
+* Estad atentos a  nuevos problemas de contrastes. Acabad los problemas de Estimación puntual que [están resueltos Las soluciones están en esta dirección](https://github.com/joanby/estadistica-inferencial/tree/master/ejercicios/talleres%20propuestos/soluciones)
 
  
 * Esta semana saldrá el enunciado de otra entrega en grupo. Lo comentaremos en la clase del jueves
@@ -64,7 +175,7 @@ Sección 7  Contrastes de hipótesis paramétricos: las lecciones [89: Contraste
   + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
   + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
 
-Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):[Id leyendo la lección 5: Contrates de hipótesis](https://aprender-uib.github.io/AprendeR2/contrastos-dhip%C3%B2tesis-dun-i-dos-par%C3%A0metres.html).
+Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):[Id leyendo la lección 5: Contrastes de hipótesis](https://aprender-uib.github.io/AprendeR2/contrastos-dhip%C3%B2tesis-dun-i-dos-par%C3%A0metres.html).
 
  
 
@@ -72,7 +183,7 @@ Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):[Id leyendo 
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
 Sección 7  Contrastes de hipótesis paramétricos: las lecciones [73](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  a la
 [88 inclusive](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
-  + [Tema 4 del libro :Contrates hipótesis paramétricos secciones 4.1 a 4.7 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial)
+  + [Tema 4 del libro :Contrastes hipótesis paramétricos secciones 4.1 a 4.7 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial)
   + [Tema 4 presentaciones: tansparencias 1 a 140](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
 
   
