@@ -3,9 +3,11 @@ title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
+  pdf_document: default
   html_document: 
     keep_md: yes
-  pdf_document: default
+    number_sections: yes
+    toc: yes
   word_document: default
 ---
 
@@ -21,31 +23,69 @@ output:
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
 
-* CONTROL FINAL día xx de junio  a las xx:yy por Aula Digital
-* CONTROL FINAL RECUPERACIÓN día xx de junio  a las xx:yy por Aula Digital
-* ENTREGA proyecto FINAL día XX  y día YY
+* CONTROL FINAL día 12 de junio  a las 17:00 (duración aproximada 3 horas) por Aula Digital
+* CONTROL FINAL RECUPERACIÓN día 20 de julio  a las 9:00 (duración aproximada 3 horas ) por Aula Digital
+* ENTREGA proyecto FINAL  o bien el día día 12 de junio  y  o el día  10 de julio.
+
+
 
 
 ### **Semana 15 del  1 de junio  al  7 de junio**
 
-Provisional: Acabar problemas e introducción al clustering
+**Provisional: Regresión lineal simple y múltiple (la múltiple es opcional)**
+
+
+* Lecciones de la **Sección 11 de curso de estadística Inferencial** [Clase 148: El problema de la regresión lineal simple ](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17482878#overview)  hasta la clase 
+[Clase 187: Contraste de hipótesis para los parámetros Beta_i ](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17493358#overview)
+* Temas del libro [Tema 8 Regresión lineal: desde el principio hasta la sección 8.2.9](
+https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.html)
+
+* Presentaciones [Tema 8 Regresión lineal: desde el pricipio hasta la TRANSPARENCIA 143](https://joanby.github.io/estadistica-inferencial/Tema-8---RegresionLineal#1)
+
+
+* Opcional Tema 9  de clustering...
+
 
 ### **Semana 14 del  25 de mayo  al  31  de mayo**
 
-Provisional: Regresión lineal simple y múltiple
+**Provisional: Acabar problemas tema 7 ANOVA de una vía y comenzar tema 8 Regresión**
+
+
+* Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos en clase y para fijar los contenidos y hacer problemas. 
+  + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
+  + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
+
+
+* Trabajo  de la semana:
+ 
+
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008).
+**Sección 11: Regresión Lineal ** [Sección 1: desde la clase 175: El problema de la regresión lineal simple](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [195: EL resumen de toda la regresión lineal](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17494662#overview).
+  + [Tema 8 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html), y  también  [Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1 y 7.2](https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
+  + [Tema 8 presentaciones Contrastes de independencia y homogeneidad: transparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1), y  también [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 100](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
+
+
+
+
+
+
+* Nuevos problemas propuestos y resueltos  el Tema 8:
+  + [Tema 8 Contrastes de independencia y homogeneidad. Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema6_Independencia_y_Homogeneidad_taller1.pdf), y las soluciones [Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema6_Independencia_SOLUCIONES.pdf)
+  + [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Enunciados 1 y 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema7_Analisis_Varianza_taller1.pdf), y las soluciones [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema7_ANOVA_SOLUCIONES.pdf)
+  
+  
+
+
+
+
+
+
+
+
 
 ### **Semana 13 del  18 de mayo  al 24 de mayo**
 
-Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y pos-hoc
-
-
-
-
-
-
-### **Semana 12 del  11 de mayo  al 17 de mayo**
-
-Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y post-hoc
+**Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y post-hoc**
 
 
 * Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos en clase y para fijar los contenidos y hacer problemas. 
@@ -58,15 +98,15 @@ Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y post-hoc
   + En paralelo a las lecciones del curso que se se piden (y solo esa parte) y como soporte de R id consultando las Lecciones de [AprendeR2](https://cescrossello.github.io/AprendeR-II/index.html):[Contrastes de independencia y homogeneidad](https://cescrossello.github.io/AprendeR-II/chap-indep.html),[Introducción  a la Estadística Multimensional](https://cescrossello.github.io/AprendeR-II/introduccion-a-la-estadistica-descriptiva-multidimensional.html).
 
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008).
-Sección 9: Contrastes de Independencia y Homogeneidad: las clases (incluye  ejemplos) [Sección 9: desde la clase 137: Ejemplo ¿Reducen las vacunas el riesgo de enfermar?](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [146: La importancia del diseño experimental](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422798#overview). [Sección 10 ANOVA] de la lección [148: Análisis de la varianza entre Subpoblaciones](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17427636#overview)  a la lección [154; Comparación por pareja, test de Duncan y de Tukey](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17430098#overview)
-  + [Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html), [Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1 y 7.2] (https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
-  + [Tema 6 presentaciones Contrastes de independencia y homogeneidad: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1), [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 100](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
+**Sección 9: Contrastes de Independencia y Homogeneidad: las clases (incluye  ejemplos)** [Sección 9: desde la clase 137: Ejemplo ¿Reducen las vacunas el riesgo de enfermar?](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [146: La importancia del diseño experimental](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422798#overview). **Sección 10 ANOVA** de la lección [148: Análisis de la varianza entre Subpoblaciones](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17427636#overview)  a la lección [154; Comparación por pareja, test de Duncan y de Tukey](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17430098#overview)
+  + [Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html), y  también  [Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1 y 7.2](https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
+  + [Tema 6 presentaciones Contrastes de independencia y homogeneidad: transparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1), y  también [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 100](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
 
 
 
 * Nuevos problemas propuestos y resueltos  el Tema 5 y ALGUNOS del tema 6:
-  + [Tema 6 Contrastes de independencia y homogeneidad. Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema6_Independencia_y_Homogeneidad_taller1.pdf),[Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema6_Independencia_SOLUCIONES.pdf)
-  + [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Enunciados 1 y 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema7_Analisis_Varianza_taller1.pdf),[Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema7_ANOVA_SOLUCIONES.pdf)
+  + [Tema 6 Contrastes de independencia y homogeneidad. Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema6_Independencia_y_Homogeneidad_taller1.pdf), y las soluciones [Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema6_Independencia_SOLUCIONES.pdf)
+  + [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Enunciados 1 y 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema7_Analisis_Varianza_taller1.pdf), y las soluciones [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema7_ANOVA_SOLUCIONES.pdf)
   
   
   
@@ -92,7 +132,7 @@ Sección 9: Contrastes de Independencia y Homogeneidad: las clases (incluye  eje
 Sección 8  Contrastes de hipótesis NO paramétricos: las clases (incluye  ejemplos)[116: Contrastes Paramétricos versus no Paramétricos](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17372742#overview)  a la
 clase [132: Test omnibus de Agostino-Pearson](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17374692#overview).
   + [Tema 5 del libro :Bondad de Ajuste](https://joanby.github.io/bookdown-estadistica-inferencial/bondad-de-ajuste.html)
-  + [Tema 5 presentaciones: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-5---BondadAjuste#1)
+  + [Tema 5 presentaciones: transparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-5---BondadAjuste#1)
 
   
 
@@ -125,7 +165,7 @@ clase [132: Test omnibus de Agostino-Pearson](https://www.udemy.com/course/estad
 Sección 7  Contrastes de hipótesis paramétricos: las lecciones [89: Contraste de hipótesis de dos muestras](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  a la
 [107  inclusive. Contraste para proporciones binom.test](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
   + [Tema 4 del libro :Contrastes hipótesis paramétricos secciones 4.7 a 4.12 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-hip%C3%B3tesis-param%C3%A9tricos.html)
-  + [Tema 4 presentaciones: tansparencias 141 a la 258](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
+  + [Tema 4 presentaciones: transparencias 141 a la 258](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
 
   
 
@@ -161,7 +201,7 @@ Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/):[Id leyendo 
 Sección 7  Contrastes de hipótesis paramétricos: las lecciones [73](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16621992#overview)  a la
 [88 inclusive](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17201856#overview).
   + [Tema 4 del libro :Contrastes hipótesis paramétricos secciones 4.1 a 4.7 inclusive ](https://joanby.github.io/bookdown-estadistica-inferencial)
-  + [Tema 4 presentaciones: tansparencias 1 a 140](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
+  + [Tema 4 presentaciones: transparencias 1 a 140](https://joanby.github.io/estadistica-inferencial/Tema-4---ContrasteHipotesis#1)
 
   
 
@@ -357,12 +397,6 @@ Acabaremos  los temas de  distribuciones notables **MIRANDO LOS VIDEOS**:
 
 * Trabajo en casa: Repasar los ejercicios de AprendeR1 y  los talleres de R
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-
-
-
 
 **Semana 4 del 9 de marzo al 15 de marzo** 
 
@@ -391,13 +425,6 @@ Acabaremos  los temas de  distribuciones notables:
   + [Gráficos avanzados](https://aprender-uib.github.io/AprendeR1/graficos-avanzados.html)
 
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-
-
-
-
 ### **Semana 3 del 2 de marzo al 8 de marzo** 
 
 * Grupo Grande: 
@@ -422,10 +449,6 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
   
   ¡¡¡ Son opcionales!!!! Los temas [Estructuras de control basicas](https://aprender-uib.github.io/AprendeR1/chap-for.html)  y [Distribuciones de probabilidad](https://aprender-uib.github.io/AprendeR1/chap-distr.html) los veremos en clase de grupo grande y de mediano. 
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-
 
 
 ### **Semana 2 del 24 de febrero al al  1 de marzo** [Enlaces al material](https://ricuib.github.io/Enlaces/).
@@ -442,15 +465,13 @@ Comenzaremos el tema de distribuciones notables que está dividido en dos partes
   + [Data frames](https://aprender-uib.github.io/AprendeR1/chap-df.html).    
  
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
 
 ### **Semana 1 del 17 del Febrero al 23 de Febrero** [Enlaces al material](https://ricuib.github.io/Enlaces/).
 
 * Grupo grande: Hemos mostrado el acceso al material del curso. Instalación R, Rstudio y  otro software
 *  Grupo medianos:  Taller de dos horas: Acabar instalación y ejercicios de [AprendeR1](https://aprender-uib.github.io/AprendeR1/) . 
 * Trabajo en casa: Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
-  + [Logistica de R](https://aprender-uib.github.io/AprendeR1/chap-0.html)
+  + [Logística de R](https://aprender-uib.github.io/AprendeR1/chap-0.html)
   + [La calculadora](https://aprender-uib.github.io/AprendeR1/chap-calc.html)
   + [Un aperitivo: Introducción a la regresión lineal](https://aprender-uib.github.io/AprendeR1/chap-lm.html)
   + [Vectores y otros tipos de listas](https://aprender-uib.github.io/AprendeR1/chap-vect.html)
