@@ -48,7 +48,7 @@ Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y pos-hoc
 Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y post-hoc
 
 
-* Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos para clase y para fijar las tareas para FINALIZAR ESTE CURSO. 
+* Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos en clase y para fijar los contenidos y hacer problemas. 
   + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
   + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
 
@@ -57,15 +57,42 @@ Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y post-hoc
  
   + En paralelo a las lecciones del curso que se se piden (y solo esa parte) y como soporte de R id consultando las Lecciones de [AprendeR2](https://cescrossello.github.io/AprendeR-II/index.html):[Contrastes de independencia y homogeneidad](https://cescrossello.github.io/AprendeR-II/chap-indep.html),[Introducción  a la Estadística Multimensional](https://cescrossello.github.io/AprendeR-II/introduccion-a-la-estadistica-descriptiva-multidimensional.html).
 
+  + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008).
+Sección 9: Contrastes de Independencia y Homogeneidad: las clases (incluye  ejemplos) [Sección 9: desde la clase 137: Ejemplo ¿Reducen las vacunas el riesgo de enfermar?](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [146: La importancia del diseño experimental](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422798#overview). [Sección 10 ANOVA] de la lección [148: Análisis de la varianza entre Subpoblaciones](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17427636#overview)  a la lección [154; Comparación por pareja, test de Duncan y de Tukey](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17430098#overview)
+  + [Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html), [Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1 y 7.2] (https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
+  + [Tema 6 presentaciones Contrastes de independencia y homogeneidad: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1), [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 100](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
+
+
+
+* Nuevos problemas propuestos y resueltos  el Tema 5 y ALGUNOS del tema 6:
+  + [Tema 6 Contrastes de independencia y homogeneidad. Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema6_Independencia_y_Homogeneidad_taller1.pdf),[Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema6_Independencia_SOLUCIONES.pdf)
+  + [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Enunciados 1 y 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema7_Analisis_Varianza_taller1.pdf),[Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema7_ANOVA_SOLUCIONES.pdf)
+  
+  
+  
+  
+
+### **Semana 12 del  11 de mayo  al 17 de mayo**
+
+
+**Bondad de ajuste: test NO paramétricos**
+
+
+* Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos para clase y para fijar las tareas para FINALIZAR ESTE CURSO. 
+  + GG1: martes 9:30 y jueves 12:30 (están invitados los del grupo 3)
+  + GG3 miércoles a las 9:30 y jueves a las 9:30 (están invitados los del grupo 1)
+
+
+* Trabajo  de la semana:
+ 
+  + En paralelo a las lecciones del curso que se se piden (y solo esa parte) y como soporte de R id consultando las Lecciones de [AprendeR2](https://aprender-uib.github.io/AprendeR2/index.html):[Contrastes de bondad de ajuste](https://aprender-uib.github.io/AprendeR2/chap-contrastes.html),[Contrastes de independencia y homogeneidad ajuste](https://cescrossello.github.io/AprendeR-II/chap-indep.html),[Introducción  a la Estadística Multimensional](https://cescrossello.github.io/AprendeR-II/introduccion-a-la-estadistica-descriptiva-multidimensional.html).
+
+
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008)
-Sección 9] Contrastes de Independencia y Homogeneidad: las clases (incluye  ejemplos)  [137: Ejemplo ¿Reducen las vacunas el riesgo de enfermar?](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview)  a la clase [146: La importancia del diseño experimental](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422798#overview). [Sección ANOVA] de la lección [148: Análisis de la varianza entre Subpoblaciones](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17427636#overview)  a la lección [154; Comparación por pareja, test de Duncan y de Tukey](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17430098#overview)
-  + [Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html).[Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html)
-  + [Tema 6 presentaciones Contrastes de independencia y homogeneidad: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1)
-  
-+ [Sección 10] ANOVA:   [137: Ejemplo ¿Reducen las vacunas el riesgo de enfermar?](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview)  a la clase [146: La importancia del diseño experimental](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422798#overview).
-  + [Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html)
-  + [Tema 6 presentaciones Contrastes de independencia y homogeneidad: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1)
-  
+Sección 8  Contrastes de hipótesis NO paramétricos: las clases (incluye  ejemplos)[116: Contrastes Paramétricos versus no Paramétricos](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17372742#overview)  a la
+clase [132: Test omnibus de Agostino-Pearson](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17374692#overview).
+  + [Tema 5 del libro :Bondad de Ajuste](https://joanby.github.io/bookdown-estadistica-inferencial/bondad-de-ajuste.html)
+  + [Tema 5 presentaciones: tansparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-5---BondadAjuste#1)
 
   
 
@@ -74,19 +101,7 @@ Sección 9] Contrastes de Independencia y Homogeneidad: las clases (incluye  eje
   + [Tema 4 Contraste Hipótesis Taller1: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller1.pdf),[Tema 4 Contraste Hipótesis Taller1: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller1_SOLUCIONES.pdf)
   + [Tema 4 Contraste Hipótesis Taller2: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller2.pdf),[Tema 4 Contraste Hipótesis Taller2: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller2_SOLUCIONES.pdf)
   + [Tema 4 Contraste Hipótesis Taller3: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller3.pdf),[Tema 4 Contraste Hipótesis Taller3: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller3_SOLUCIONES.pdf)
-
-
-
-
-
-
-
-
-
-
-
-
-
+  + [Tema 5 Bondad de Ajuste Taller1: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema5_Bondad_de_Ajuste_taller1.pdf),[Tema 5 Bondad de Ajuste Taller1: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/Tema5_Bondad_de_Ajuste_taller1_SOLUCIONES.pdf)
 
 
 
