@@ -3,11 +3,11 @@ title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
-  pdf_document: default
   html_document: 
     keep_md: yes
     number_sections: yes
     toc: yes
+  pdf_document: default
   word_document: default
 ---
 
