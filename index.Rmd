@@ -22,12 +22,14 @@ output:
 
 Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que acordemos.
 
+### ENTREGAS Y CONTROLES PENDIENTES
 
-* CONTROL FINAL día 12 de junio  a las 17:00 (duración aproximada 3 horas) por Aula Digital
-* CONTROL FINAL RECUPERACIÓN día 20 de julio  a las 9:00 (duración aproximada 3 horas ) por Aula Digital
-* ENTREGA proyecto FINAL  o bien el día día 12 de junio  y  o el día  10 de julio.
+* CONTROL FINAL día 12 de junio  a las 17:00 (duración aproximada 3 horas) por Aula Digital.
+* CONTROL FINAL RECUPERACIÓN día 10 de julio  a las 9:00 (duración aproximada 3 horas ) por Aula Digital.
+* (PROVISONAL) ENTREGA proyecto FINAL  o bien el día día 12 de junio  y  o el día  10 de julio.
 
-
+* (PROVISONAL) Entrega de problemas 3 día 31 de mayo.
+* (PROVISONAL) Entrega de problemas 4 (y última) día 11 de junio.
 
 
 ### **Semana 15 del  1 de junio  al  7 de junio**
