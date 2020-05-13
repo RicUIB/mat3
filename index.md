@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "13 mayo, 2020"
+date: "14 mayo, 2020"
 output:
   html_document: 
     keep_md: yes
@@ -143,8 +143,7 @@ clase [132: Test omnibus de Agostino-Pearson](https://www.udemy.com/course/estad
   + [Tema 4 Contraste Hipótesis Taller1: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller1.pdf),[Tema 4 Contraste Hipótesis Taller1: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller1_SOLUCIONES.pdf)
   + [Tema 4 Contraste Hipótesis Taller2: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller2.pdf),[Tema 4 Contraste Hipótesis Taller2: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller2_SOLUCIONES.pdf)
   + [Tema 4 Contraste Hipótesis Taller3: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/tema4_Contraste_hip%C3%B3tesis_taller3.pdf),[Tema 4 Contraste Hipótesis Taller3: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema4_Contraste_hipótesis_taller3_SOLUCIONES.pdf)
-  + [Tema 5 Bondad de Ajuste Taller1: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema5_Bondad_de_Ajuste_taller1.pdf),[Tema 5 Bondad de Ajuste Taller1: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/Tema5_Bondad_de_Ajuste_taller1_SOLUCIONES.pdf)
-
+  + [Tema 5 Bondad de Ajuste Taller1: Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema5_Bondad_de_Ajuste_taller1.pdf),[Tema 5 Bondad de Ajuste Taller1: Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema5_Bondad_Ajuste_SOLUCIONES.pdf)
 
 
 
