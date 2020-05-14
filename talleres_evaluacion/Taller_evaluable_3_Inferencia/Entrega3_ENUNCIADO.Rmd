@@ -3,13 +3,13 @@ title: "Entrega 3 Problemas y Talleres MATII Estadística grado informática 201
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  pdf_document:
-    number_sections: yes
+  html_document:
+    df_print: paged
     toc: yes
   word_document:
     toc: yes
-  html_document:
-    df_print: paged
+  pdf_document:
+    number_sections: yes
     toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
