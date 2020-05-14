@@ -62,6 +62,7 @@ media.muestra2=mean(G2,na.rm=TRUE)
 desv.tip.muestra1=sd(G1,na.rm=TRUE)
 desv.tip.muestra2=sd(G2,na.rm=TRUE)
 ```
+
 Calculamos las medias y las desviaciones típicas muestrales de los tiempos empleados para cada muestra. Los datos obtenidos se resumen en la siguiente tabla:
 
 
@@ -74,7 +75,7 @@ n_1&=`r n1`, & n_2&=`r n1`\\
 $$
 Se pide:
 
-1. Comentad brevemente el código de R explicando que hace cada instrucción. (*0.5 puntos*)
+1. Comentad brevemente el código de R explicando que hace cada instrucción.
 2. Contrastad si hay evidencia de que las notas medias son distintas entre los dos grupos. En dos casos considerando las varianzas desconocidas pero iguales o desconocidas pero distintas. Tenéis que hacer el contraste de forma manual y con funciones de  `R` y resolver el contrate con el $p$-valor. 
 3. Calculad e interpretar los intervalos de confianza para la diferencia de medias asociados a  los dos test anteriores. 
 4. Comprobad con el test de Fisher y el de Levene si las varianza de las dos muestras son iguales contra que son distintas. Tenéis que resolver el test de Fisher con `R` y de forma manual y el test de Levene con `R`  y decidir utilizando el $p$-valor. 
@@ -168,14 +169,14 @@ $$P(X=x)=\log_{10} \left(1+\frac{1}{x}\right)\mbox{ para } x\in \left\{1,2,3,4,5
 Concretamente lo podemos hacer así
 
 
-```{r benford1,echo=FALSE,results='asis'}
+```{r benford1,echo=TRUE,warning=FALSE}
 prob=log10(1+1/c(1:9))
 prob
 MM=rbind(c(1:9),prob)
 df=data.frame(rbind(prob))
-colnames(df)=paste("Dígito",c(1:9),sep =" ")
-library(knitr)
-kable(df,format ='markdown')
+# Y hacemos una bonita tabla
+colnames(df)=paste("Díg.",c(1:9),sep =" ")
+knitr::kable(df,format ='markdown')
 ```
 
 En general esta distribución se suele encontrar en tablas de datos de resultados de observaciones  de funciones científicas, contabilidades, cocientes de algunas distribuciones ... 
@@ -186,20 +187,20 @@ Por ejemplo se dice que las potencias de números enteros siguen esa distribuci�
 
 ```{r benford2}
 # R pasa los enteros  muy grande a reales. Para nuestros propósitos 
-# es sufiente para extraer los tres primeros dígitos.
-muestra_pot_2=as.character(2^c(1:1000))
-head(muestra_pot_2)
-#los pasamos a character
-muestra_pot_2=as.character(muestra_pot_2)
-head(muestra_pot_2)
-#sustituimos los . por nada y extraemos los ters primeros dígitos
-aux=gsub("[.]","",muestra_pot_2)
+# es suficiente para extraer los tres primeros dígitos.
+muestra_pot_2_3digitos=str_sub(as.character(2^c(1:1000)),1,3)
+head(muestra_pot_2_3digitos)
+tail(muestra_pot_2_3digitos)
 #Construimos un data frame con tres columnas que nos dan el primer, 
-#segudo y tercer dígito respectivamente.
-df_digitos=data.frame(muestra_pot_2,primer_digito=as.integer(substring(aux, 1, 1)),
-                      segundo_digito=as.integer(substring(aux, 2, 2)),
-                      tercer_digito=as.integer(substring(aux, 3, 3)))
-head(df_digitos,10)
+#segundo y tercer dígito respectivamente.
+df_digitos=data.frame(muestra_pot_2_3digitos,
+                      primer_digito=as.integer(
+                        substring(muestra_pot_2_3digitos, 1, 1)),
+                      segundo_digito=as.integer(
+                        substring(muestra_pot_2_3digitos, 2, 2)),
+                      tercer_digito=as.integer(
+                        substring(muestra_pot_2_3digitos, 3, 3)))
+head(df_digitos)
 ```
 
 Notad que los NA  en el segundo y el tercer dígito corresponden a número con  uno o dos dígitos.
@@ -264,16 +265,18 @@ Se pide
 
 ## Problema `r cuenta()` : Comparación de las tasas de interés  para la compra de coches  entre seis ciudades.
 
-Consideremos el  `data set` [newcar.dat]("https://www.itl.nist.gov/div898/education/anova/newcar.dat") de *Hoaglin, D., Mosteller, F., and Tukey, J. (1991). Fundamentals of Exploratory Analysis of Variance. Wiley, New York, page 71.* 
+Consideremos el  `data set` `newcar` accesible desde https://www.itl.nist.gov/div898/education/anova/newcar.dat de *Hoaglin, D., Mosteller, F., and Tukey, J. (1991). Fundamentals of Exploratory Analysis of Variance. Wiley, New York, page 71.* 
 
 Este data set contiene dos columnas:
 
-* Rate (interes): tasa de interés en la compra de coches a crédito 
+* Rate (interés): tasa de interés en la compra de coches a crédito 
 * City (ciudad) : la ciudad en la que se observó la tasa de interés para distintos concesionarios (codificada a enteros). Tenemos observaciones de  6 ciudades. 
 
 ```{r}
-datos_interes=read.table("https://www.itl.nist.gov/div898/education/anova/newcar.dat",
-                         skip=25)
+datos_interes=read.table(
+  "https://www.itl.nist.gov/div898/education/anova/newcar.dat",
+  skip=25)
+# salto las 25 primeras líneas del fichero,son un preámbulo qiue explica los datos.
 names(datos_interes)=c("interes","ciudad")
 str(datos_interes)
 boxplot(interes~ciudad,data=datos_interes)
@@ -281,7 +284,7 @@ boxplot(interes~ciudad,data=datos_interes)
 
 Se pide:
 
-1. Comentad el código y  el diagrama de caja. (*0.5 puntos*)
+1. Comentad el código y  el diagrama de caja.
 2. Se trata de contrastar si hay evidencia de  que  la tasas medias de interés por ciudades son distintas. Definid el ANOVA que contrasta esta hipótesis y especificar qué condiciones deben cumplir las muestras para poder aplicar el ANOVA.  
 3. Comprobad las condiciones del ANOVA  con un test KS y un test de Levene (con código de `R`).  Justificad las conclusiones.  
 4. Realizad el contraste de ANOVA (se cumplan las condiciones o no) y redactar adecuadamente la conclusión. Tenéis que hacedlo con  funciones de `R`.  
