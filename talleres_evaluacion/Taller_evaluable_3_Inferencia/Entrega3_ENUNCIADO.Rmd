@@ -1,15 +1,15 @@
 ---
-title: "Entrega 3 Problemas y Talleres MATII Estadística grado informática 2019-2020"
+title: "Entrega 3 Problemas y Talleres MATIII Estadística grado informática 2019-2020"
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
   html_document:
     df_print: paged
     toc: yes
   word_document:
-    toc: yes
-  pdf_document:
-    number_sections: yes
     toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
@@ -27,7 +27,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 options(scipen=999)
 contador=0
-cuenta=function(x=contador) {contador<<- contador+1;return(contador)} 
+cuenta=function(x=contador) {contador<<- contador+1;return(contador)}
+set.seed(2020)
 ```
 
 
@@ -88,6 +89,7 @@ Simulamos dos muestras con las funciones siguientes
 
 
 ```{r generacionmuestras100}
+set.seed(2020)
 x1=rnorm(100,mean = 10,sd=2)
 x2=rnorm(100,mean = 8,sd=4)
 ```
@@ -178,13 +180,9 @@ Se pide:
 
 Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.
 
-```{r, echo=FALSE}
-set.seed(2018)
-```
-
 
 ```{r notas_calculos}
-
+set.seed(2020)
 nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
             labels=c("S","A","N","E"))
 tecnologia=rep(c("Mathematica","R","Python"),each=50)
@@ -219,7 +217,7 @@ Se pide
 El siguiente código nos da las notas numéricas (variable `nota`) de los mismos ejercicios para tres tecnologías en tres muestra independientes de estudiantes  de estas tres tecnologías diferentes
 
 ```{r semilla2, echo=FALSE}
-set.seed(2018)
+set.seed(2020)
 nota=rnorm(150,mean=70,sd=25)
 ```
 
