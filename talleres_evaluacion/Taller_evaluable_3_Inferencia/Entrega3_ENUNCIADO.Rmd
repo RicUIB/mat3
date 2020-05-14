@@ -118,46 +118,6 @@ Se pide
 4. Para el test del apartado anterior dad las hipótesis nula y alternativa y redactar la conclusión del contraste. 
 
 
-## Problema `r cuenta()` : Bondad de ajuste
-
-Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.
-
-```{r, echo=FALSE}
-set.seed(2018)
-```
-
-
-```{r notas_calculos}
-
-nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
-            labels=c("S","A","N","E"))
-tecnologia=rep(c("Mathematica","R","Python"),each=50)
-frec=table(nota,tecnologia)
-frec
-col_frec=colSums(frec)
-col_frec
-row_frec=rowSums(frec)
-row_frec
-N=sum(frec)
-teoricas=row_frec%*%t(col_frec)/N
-teoricas
-dim(frec)
-dim(teoricas)
-sum((frec-teoricas)^2/teoricas)
-```
-
-```{r chi_notas}
-chisq.test(table(nota,tecnologia))
-```
-
-Se pide
-
-1. Discutid si hacemos un contraste de independencia o de homogeneidad de las distribuciones de las notas por tecnología. Escribid las hipótesis del contraste. 
-2. Interpretad la función `chisq.test` y resolved el contraste. 
-3. Interpretad `teoricas=row_frec%*%t(col_frec)/N` reproducid manualmente el segundo resultado de la primera fila. 
-
-
-
 ## Problema `r cuenta()` : Bondad de ajuste. La ley de Benford 
 
 La ley de Benford es  una distribución discreta que siguen las frecuencias de los primero dígitos significativos (de 1 a 9)  de algunas series de datos curiosas.
@@ -212,9 +172,49 @@ Se pide:
 3. Contrastad con un test $\chi^2$ que el tercer dígito sigue una ley de uniforme discreta. Notad que ahora si puede ser  0. Resolved con  manualmente calculado las frecuencias esperadas y observadas, el estadístico de contraste y el $p$-valor utilizando  `R`. Comprobad que vuestros resultados coinciden con los de la función de `R` que calcula este contraste.  
 4. Dibujad con `R`  para los apartados 1 y 2 los diagramas de frecuencias esperados y observados. Comentad estos gráficos
  
+ 
+ 
+## Problema `r cuenta()` : Homegeneidad e independencia
+
+Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.
+
+```{r, echo=FALSE}
+set.seed(2018)
+```
 
 
-## Problema `r cuenta()` : ANOVA
+```{r notas_calculos}
+
+nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
+            labels=c("S","A","N","E"))
+tecnologia=rep(c("Mathematica","R","Python"),each=50)
+frec=table(nota,tecnologia)
+frec
+col_frec=colSums(frec)
+col_frec
+row_frec=rowSums(frec)
+row_frec
+N=sum(frec)
+teoricas=row_frec%*%t(col_frec)/N
+teoricas
+dim(frec)
+dim(teoricas)
+sum((frec-teoricas)^2/teoricas)
+```
+
+```{r chi_notas}
+chisq.test(table(nota,tecnologia))
+```
+
+Se pide
+
+1. Discutid si hacemos un contraste de independencia o de homogeneidad de las distribuciones de las notas por tecnología. Escribid las hipótesis del contraste. 
+2. Interpretad la función `chisq.test` y resolved el contraste. 
+3. Interpretad `teoricas=row_frec%*%t(col_frec)/N` reproducid manualmente el segundo resultado de la primera fila. 
+
+
+
+## Problema `r cuenta()` : ANOVA notas numéricas de tres grupos.
 
 El siguiente código nos da las notas numéricas (variable `nota`) de los mismos ejercicios para tres tecnologías en tres muestra independientes de estudiantes  de estas tres tecnologías diferentes
 
@@ -261,9 +261,7 @@ Se pide
 4. ¿Qué contrates realiza la función `pairwise.t.test`?  Utilizando los resultados anteriores aplicad e interpretad los contrates del apartado anterior utilizando el ajuste de Holm. 
 
 
-
-
-## Problema `r cuenta()` : Comparación de las tasas de interés  para la compra de coches  entre seis ciudades.
+## Problema `r cuenta()` : ANOVA Comparación de las tasas de interés  para la compra de coches  entre seis ciudades.
 
 Consideremos el  `data set` `newcar` accesible desde https://www.itl.nist.gov/div898/education/anova/newcar.dat de *Hoaglin, D., Mosteller, F., and Tukey, J. (1991). Fundamentals of Exploratory Analysis of Variance. Wiley, New York, page 71.* 
 
