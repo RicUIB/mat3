@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "14 mayo, 2020"
+date: "18 mayo, 2020"
 output:
   html_document: 
     keep_md: yes
@@ -87,7 +87,7 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
 
 ### **Semana 13 del  18 de mayo  al 24 de mayo**
 
-**Provisional: Independencia y Homogeneidad. ANOVA 1 VIA y y post-hoc**
+**Independencia y Homogeneidad. ANOVA 1 VIA y  análisis post-hoc**
 
 
 * Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos en clase y para fijar los contenidos y hacer problemas. 
