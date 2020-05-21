@@ -63,8 +63,8 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
 
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008).
 **Sección 11: Regresión Lineal ** [Sección 1: desde la clase 175: El problema de la regresión lineal simple](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [195: EL resumen de toda la regresión lineal](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17494662#overview).
-  + [Tema 8 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html), y  también  [Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1 y 7.2](https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
-  + [Tema 8 presentaciones Contrastes de independencia y homogeneidad: transparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1), y  también [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 100](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
+  + [Tema 6 del libro :Contrastes de independencia y homogeneidad](https://joanby.github.io/bookdown-estadistica-inferencial/contrastes-de-independencia-y-homogeneidad.html), y  también  [Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1 y 7.2](https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
+  + [Tema 6 presentaciones Contrastes de independencia y homogeneidad: transparencias 1 a la 98](https://joanby.github.io/estadistica-inferencial/Tema-6---IndepHomog#1), y  también [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 100](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
 
 
 
@@ -72,7 +72,7 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
 
 
 * Nuevos problemas propuestos y resueltos  el Tema 8:
-  + [Tema 8 Contrastes de independencia y homogeneidad. Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema6_Independencia_y_Homogeneidad_taller1.pdf), y las soluciones [Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema6_Independencia_SOLUCIONES.pdf)
+  + [Tema 6 Contrastes de independencia y homogeneidad. Enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema6_Independencia_y_Homogeneidad_taller1.pdf), y las soluciones [Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema6_Independencia_SOLUCIONES.pdf)
   + [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Enunciados 1 y 2](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema7_Analisis_Varianza_taller1.pdf), y las soluciones [Tema 7 ANOVA  sólo secciones 7.1 y 7.2. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema7_ANOVA_SOLUCIONES.pdf)
   
   
