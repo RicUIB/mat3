@@ -3,13 +3,13 @@ title: "Entrega 3 Problemas y Talleres MATIII Estadística grado informática 20
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  pdf_document:
-    number_sections: yes
+  word_document:
     toc: yes
   html_document:
     df_print: paged
     toc: yes
-  word_document:
+  pdf_document:
+    number_sections: yes
     toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
@@ -176,7 +176,7 @@ Se pide:
  
  
  
-## Problema `r cuenta()` : Homegeneidad e independencia
+## Problema `r cuenta()` : Homogeneidad e independencia
 
 Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.
 
@@ -185,7 +185,7 @@ Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello
 set.seed(2020)
 nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
             labels=c("S","A","N","E"))
-tecnologia=rep(c("Mathematica","R","Python"),each=50)
+tecnologia=as.factor(rep(c("Mathematica","R","Python"),each=50))
 frec=table(nota,tecnologia)
 frec
 col_frec=colSums(frec)
@@ -241,8 +241,8 @@ Del `summary(sol_aov)` os damos la salida a falta de algunos de los valores
 ```
 > summary(sol_aov)
              Df Sum Sq Mean Sq F value Pr(>F)
-tecnologia   --    674  -----   -----  0.592
-Residuals   ---  94142  -----               
+tecnologia  ---    837   418.7   ---  ---
+Residuals   --- 123445   ----              
 
 ```
 

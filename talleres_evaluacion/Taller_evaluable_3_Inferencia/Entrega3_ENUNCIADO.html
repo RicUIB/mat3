@@ -1645,7 +1645,7 @@ summary {
 <li><a href="#problema-1-contraste-de-parámetros-de-dos-muestras.">Problema 1: Contraste de parámetros de dos muestras.</a></li>
 <li><a href="#problema-2-contraste-dos-muestras">Problema 2 : Contraste dos muestras</a></li>
 <li><a href="#problema-3-bondad-de-ajuste.-la-ley-de-benford">Problema 3 : Bondad de ajuste. La ley de Benford</a></li>
-<li><a href="#problema-4-homegeneidad-e-independencia">Problema 4 : Homegeneidad e independencia</a></li>
+<li><a href="#problema-4-homogeneidad-e-independencia">Problema 4 : Homogeneidad e independencia</a></li>
 <li><a href="#problema-5-anova-notas-numéricas-de-tres-grupos.">Problema 5 : ANOVA notas numéricas de tres grupos.</a></li>
 <li><a href="#problema-6-anova-comparación-de-las-tasas-de-interés-para-la-compra-de-coches-entre-seis-ciudades.">Problema 6 : ANOVA Comparación de las tasas de interés para la compra de coches entre seis ciudades.</a></li>
 <li><a href="#problema-7-cuestiones-cortas">Problema 7: Cuestiones cortas</a></li>
@@ -1851,13 +1851,13 @@ head(df_digitos)</code></pre>
 <li>Dibujad con <code>R</code> para los apartados 1 y 2 los diagramas de frecuencias esperados y observados. Comentad estos gráficos</li>
 </ol>
 </div>
-<div id="problema-4-homegeneidad-e-independencia" class="section level2">
-<h2>Problema 4 : Homegeneidad e independencia</h2>
+<div id="problema-4-homogeneidad-e-independencia" class="section level2">
+<h2>Problema 4 : Homogeneidad e independencia</h2>
 <p>Queremos analiza los resultados de aprendizaje con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.</p>
 <pre class="r"><code>set.seed(2020)
 nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
             labels=c(&quot;S&quot;,&quot;A&quot;,&quot;N&quot;,&quot;E&quot;))
-tecnologia=rep(c(&quot;Mathematica&quot;,&quot;R&quot;,&quot;Python&quot;),each=50)
+tecnologia=as.factor(rep(c(&quot;Mathematica&quot;,&quot;R&quot;,&quot;Python&quot;),each=50))
 frec=table(nota,tecnologia)
 frec</code></pre>
 <pre><code>##     tecnologia
@@ -1939,8 +1939,6 @@ lillie.test(nota[tecnologia==&quot;Mathematica&quot;])</code></pre>
 ## Bartlett&#39;s K-squared = 0.50309, df = 2, p-value = 0.7776</code></pre>
 <pre class="r"><code>library(car)
 leveneTest(nota~tecnologia)</code></pre>
-<pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
-## factor.</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0.3881426","3":"0.6790087","_rn_":"group"},{"1":"147","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1950,8 +1948,8 @@ leveneTest(nota~tecnologia)</code></pre>
 <p>Del <code>summary(sol_aov)</code> os damos la salida a falta de algunos de los valores</p>
 <pre><code>&gt; summary(sol_aov)
              Df Sum Sq Mean Sq F value Pr(&gt;F)
-tecnologia   --    674  -----   -----  0.592
-Residuals   ---  94142  -----               
+tecnologia  ---    837   418.7   ---  ---
+Residuals   --- 123445   ----              
 </code></pre>
 <pre class="r"><code>pairwise.t.test(nota,tecnologia,p.adjust.method = &quot;none&quot;)</code></pre>
 <pre><code>## 
