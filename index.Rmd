@@ -64,7 +64,7 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008).
 **Sección 11: Regresión Lineal** [Sección 1: desde la clase 175: El problema de la regresión lineal simple](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [195: EL resumen de toda la regresión lineal](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17494662#overview).
   + [Tema 8 del libro; Regresión linealsimple secciones 8.1 y   la 8.3](https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.html#regresi%C3%B3n-lineal-simple)[Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1, 7.2 y 7.3](https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
-  + Acabar (comprobación hipçotesis ANOVA) [Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 114](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
+  + Acabar (comprobación hipçotesis ANOVA)[Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 114](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
 
 
 
@@ -72,7 +72,7 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
 
 
 * Nuevos problemas propuestos y resueltos  el Tema 8:
-  + [Tema 8 Regressión lineal, enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema8_Regresion_Lineal_taller1.pdf), y las soluciones [Tema 6 Contrastes de independencia y homogeneidad. Soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema8_Regresion_SOLUCIONES.pdf). Los Rmd [enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema8_Regresion_Lineal_taller1.Rmd) y [soluciones(https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema8_Regresion_SOLUCIONES.Rmd)]
+  + [Tema 8 Regressión lineal, enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema8_Regresion_Lineal_taller1.pdf), y las [soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema8_Regresion_SOLUCIONES.pdf). Los Rmd [enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema8_Regresion_Lineal_taller1.Rmd) y [soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema8_Regresion_SOLUCIONES.Rmd)]
  
   
 
