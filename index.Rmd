@@ -34,7 +34,7 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
 
 ### **Semana 15 del  1 de junio  al  7 de junio**
 
-**Provisional: Regresión lineal simple y múltiple (la múltiple es opcional)**
+Semana final . Repaso  general. Opcional Complementos de Regresión lineal múltiple y clustering
 
 
 * Lecciones de la **Sección 11 de curso de estadística Inferencial** [Clase 148: El problema de la regresión lineal simple ](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17482878#overview)  hasta la clase 
@@ -50,7 +50,7 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
 
 ### **Semana 14 del  25 de mayo  al  31  de mayo**
 
-**Provisional: Acabar problemas tema 7 ANOVA de una vía y comenzar tema 8 Regresión**
+**Provisional: Acabar problemas tema 7 ANOVA de una vía y tema 8 Regresión lineal simple**
 
 
 * Clases: Grupo Grande COLLABORATE Y DISCORD:  Quedaremos en clase y para fijar los contenidos y hacer problemas. 
@@ -62,16 +62,16 @@ https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.
  
 
   + [Enlace a  los vídeos en Udemy](https://www.udemy.com/course/estadisticainferencial/learn/lecture/16492008).
-**Sección 11: Regresión Lineal** [Sección 1: desde la clase 175: El problema de la regresión lineal simple](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [195: EL resumen de toda la regresión lineal](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17494662#overview).
+**Sección 11: Regresión Lineal** [Sección 1: desde la clase 175: El problema de la regresión lineal simple](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17422338#overview) hasta   la clase [195: EL resumen de toda la regresión lineal simple](https://www.udemy.com/course/estadisticainferencial/learn/lecture/17494662#overview).
   + [Tema 8 del libro; Regresión linealsimple secciones 8.1 y   la 8.3](https://joanby.github.io/bookdown-estadistica-inferencial/regresi%C3%B3n-lineal.html#regresi%C3%B3n-lineal-simple)[Tema 7 del libro :ANOVA SOLO introducción y secciones 7.1, 7.2 y 7.3](https://joanby.github.io/bookdown-estadistica-inferencial/an%C3%A1lisis-de-la-varianza.html#anova-de-un-factor)
-  + Acabar (comprobación hipçotesis ANOVA)[Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 114](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
+  + Acabar (comprobación hipotesis ANOVA)[Tema 7 Análisis de la Varianza:  solo hasta LA TRANS 114](https://joanby.github.io/estadistica-inferencial/Tema-7---ANOVA#1)
 
 
 
 
 
 
-* Nuevos problemas propuestos y resueltos  el Tema 8:
+* Nuevos problemas propuestos y resueltos  del Tema 8:
   + [Tema 8 Regressión lineal, enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema8_Regresion_Lineal_taller1.pdf), y las [soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema8_Regresion_SOLUCIONES.pdf). Los Rmd [enunciados](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/enunciados/Tema8_Regresion_Lineal_taller1.Rmd) y [soluciones](https://github.com/joanby/estadistica-inferencial/blob/master/ejercicios/talleres%20propuestos/soluciones/tema8_Regresion_SOLUCIONES.Rmd)]
  
   

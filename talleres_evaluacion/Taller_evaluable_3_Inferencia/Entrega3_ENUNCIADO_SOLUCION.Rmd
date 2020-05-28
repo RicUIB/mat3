@@ -83,6 +83,27 @@ Se pide:
 
 
 
+
+### Presolución
+
+
+
+```{r}
+var.test(G1,G2)
+```
+
+
+
+```{r}
+library(car)
+notas=c(G1,G2)
+grupo=as.factor(c(rep(1,length(G1)),rep(2,length(G1))))
+leveneTest(notas~grupo)
+```
+
+
+
+
 ## Problema `r cuenta()` : Contraste dos muestras
 
 Simulamos dos muestras con las funciones siguientes 
@@ -284,6 +305,7 @@ bartlett.test(nota~tecnologia)
 library(car)
 leveneTest(nota~as.factor(tecnologia))
 sol_aov=aov(nota~as.factor(tecnologia))
+sol_aov
 ```
 
 
@@ -353,6 +375,45 @@ Fest
 1-pf(Fest,5,48)
 pf(Fest,5,48,lower.tail = FALSE)
 ```
+
+
+
+
+```{r}
+library(nortest)
+
+lillie.test(datos_interes$interes[datos_interes$ciudad==1])
+# hacerlo para todos
+lillie.test(datos_interes$interes[datos_interes$ciudad==2])
+lillie.test(datos_interes$interes[datos_interes$ciudad==6])
+
+# pasar otros test si se rechaza
+ad.test(datos_interes$interes[datos_interes$ciudad==6])
+```
+
+
+
+```{r}
+library(car)
+print(leveneTest(datos_interes$interes~as.factor(datos_interes$ciudad)))
+```
+
+
+```{r}
+bartlett.test(datos_interes$interes,as.factor(datos_interes$ciudad))
+```
+
+
+
+$$
+\left\{
+\begin{array}{ll}
+H_0: &  \sigma^2_1=\sigma^2_2=\sigma^2_3=\sigma^2_4=\sigma^2_5=\sigma^2_6\\
+H_1: & \mbox{ no  todas las varianzas son iguales}.
+\end{array}
+\right.
+$$
+
 
 
 
