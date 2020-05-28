@@ -3,11 +3,11 @@ title: "Entrega 3 Problemas y Talleres MATIII Estadística grado informática 20
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  pdf_document:
-    number_sections: yes
-    toc: yes
   html_document:
     df_print: paged
+    toc: yes
+  pdf_document:
+    number_sections: yes
     toc: yes
   word_document:
     toc: yes
@@ -163,6 +163,7 @@ df_digitos=data.frame(muestra_pot_2_3digitos,
                       tercer_digito=as.integer(
                         substring(muestra_pot_2_3digitos, 3, 3)))
 head(df_digitos)
+
 ```
 
 Notad que los NA  en el segundo y el tercer dígito corresponden a número con  uno o dos dígitos.
@@ -174,6 +175,56 @@ Se pide:
 3. Contrastad con un test $\chi^2$ que el tercer dígito sigue una ley de uniforme discreta. Notad que ahora si puede ser  0. Resolved con  manualmente calculado las frecuencias esperadas y observadas, el estadístico de contraste y el $p$-valor utilizando  `R`. Comprobad que vuestros resultados coinciden con los de la función de `R` que calcula este contraste.  
 4. Dibujad con `R`  para los apartados 1 y 2 los diagramas de frecuencias esperados y observados. Comentad estos gráficos
  
+ 
+ 
+### Pre Solución
+
+```{r}
+prob=log10(1+1/(1:9))
+prob_benford=prob
+n=1000
+frec_esp_benford=n*prob_benford
+frec_esp_benford
+frec_obs_primer=table(df_digitos$primer_digito)
+frec_obs_primer
+chi2_est=sum((frec_obs_primer-frec_esp_benford)^2/frec_esp_benford)
+chi2_est
+
+chisq.test(frec_obs_primer,p=prob_benford)
+```
+
+Una gráfica comparando las frecuencias
+
+```{r}
+barplot(rbind(frec_esp_benford,frec_obs_primer),beside=TRUE,col=c("red","blue"))
+# añadir legend
+```
+
+ 
+ 
+```{r}
+prob_unif=rep(1/10,10)
+prob_unif
+
+segundo_digito=na.omit(df_digitos$segundo_digito)
+n=length(segundo_digito) 
+n
+frec_esp_uniforme=n*prob_unif
+frec_esp_uniforme 
+frec_obs_segundo=table(segundo_digito)
+frec_obs_segundo
+chi2_est=sum((frec_obs_segundo-frec_esp_uniforme)^2/frec_esp_uniforme)
+chi2_est
+1-pchisq(chi2_est,10-1)
+pchisq(chi2_est,10-1,lower.tail = FALSE)
+chisq.test(frec_obs_segundo,p=prob_unif)
+```
+ 
+ 
+```{r}
+barplot(rbind(frec_esp_uniforme,frec_obs_segundo),beside=TRUE,col=c("red","blue"))
+# añadir legend
+```
  
  
 ## Problema `r cuenta()` : Homegeneidad e independencia
