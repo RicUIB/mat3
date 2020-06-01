@@ -1643,7 +1643,7 @@ summary {
 <ul>
 <li><a href="#entregas-3-problemas-estadística-inferencial-1">Entregas 3 Problemas: Estadística Inferencial 1</a><ul>
 <li><a href="#problema-1-contraste-de-parámetros-de-dos-muestras.">Problema 1: Contraste de parámetros de dos muestras.</a><ul>
-<li><a href="#presolución">Presolución</a></li>
+<li><a href="#solución">Solución</a></li>
 </ul></li>
 <li><a href="#problema-2-contraste-dos-muestras">Problema 2 : Contraste dos muestras</a></li>
 <li><a href="#problema-3-bondad-de-ajuste.-la-ley-de-benford">Problema 3 : Bondad de ajuste. La ley de Benford</a><ul>
@@ -1652,7 +1652,7 @@ summary {
 <li><a href="#problema-4-homegeneidad-e-independencia">Problema 4 : Homegeneidad e independencia</a></li>
 <li><a href="#problema-5-anova-notas-numéricas-de-tres-grupos.">Problema 5 : ANOVA notas numéricas de tres grupos.</a></li>
 <li><a href="#problema-6-anova-comparación-de-las-tasas-de-interés-para-la-compra-de-coches-entre-seis-ciudades.">Problema 6 : ANOVA Comparación de las tasas de interés para la compra de coches entre seis ciudades.</a><ul>
-<li><a href="#solución">Solución</a></li>
+<li><a href="#solución-1">Solución</a></li>
 </ul></li>
 <li><a href="#problema-7-cuestiones-cortas">Problema 7: Cuestiones cortas</a></li>
 </ul></li>
@@ -1691,8 +1691,38 @@ n_1&amp;=50, &amp; n_2&amp;=50\\
 <li>Calculad e interpretar los intervalos de confianza para la diferencia de medias asociados a los dos test anteriores.</li>
 <li>Comprobad con el test de Fisher y el de Levene si las varianza de las dos muestras son iguales contra que son distintas. Tenéis que resolver el test de Fisher con <code>R</code> y de forma manual y el test de Levene con <code>R</code> y decidir utilizando el <span class="math inline">\(p\)</span>-valor.</li>
 </ol>
-<div id="presolución" class="section level3">
-<h3>Presolución</h3>
+<div id="solución" class="section level3">
+<h3>Solución</h3>
+<p><strong>Apartado 1.</strong> El cógido R carga en la variables G1 y G2 la variables <code>x</code> de dos data frames de un servidor bioinfo.uib.es.</p>
+<p>Luego cácula los estadísticos básicos para realizar las siguientes preguntas. Pra los tamaños muestrales <span class="math inline">\(n_1\)</span> y <span class="math inline">\(n_2\)</span> se omiten los valores <code>NA</code> antes de asignar la <code>length</code> de los arrays. También se calulan las medias y las desviaciones típicas muestrales omitiendo (si es que hay) los valores no disponibles.</p>
+<p><strong>Apartado 2.</strong></p>
+<p>Con funciones de R</p>
+<pre class="r"><code># test para varianzas iguales
+t.test(G1,G2,var.equal = TRUE,alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  G1 and G2
+## t = -6.2159, df = 98, p-value = 0.00000001248
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.251691 -1.161889
+## sample estimates:
+## mean of x mean of y 
+##  9.759293 11.466083</code></pre>
+<pre class="r"><code># test para varianzas distintas
+t.test(G1,G2,var.equal = FALSE,alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  G1 and G2
+## t = -6.2159, df = 89.996, p-value = 0.00000001562
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.252298 -1.161282
+## sample estimates:
+## mean of x mean of y 
+##  9.759293 11.466083</code></pre>
 <pre class="r"><code>var.test(G1,G2)</code></pre>
 <pre><code>## 
 ##  F test to compare two variances
@@ -1724,6 +1754,30 @@ leveneTest(notas~grupo)</code></pre>
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1.802894","3":"0.1824648","_rn_":"group"},{"1":"98","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<pre class="r"><code>t.test(G1,G2,var.equal = TRUE)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  G1 and G2
+## t = -6.2159, df = 98, p-value = 0.00000001248
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.251691 -1.161889
+## sample estimates:
+## mean of x mean of y 
+##  9.759293 11.466083</code></pre>
+<pre class="r"><code>t.test(G1,G2,var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  G1 and G2
+## t = -6.2159, df = 89.996, p-value = 0.00000001562
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.252298 -1.161282
+## sample estimates:
+## mean of x mean of y 
+##  9.759293 11.466083</code></pre>
 </div>
 </div>
 <div id="problema-2-contraste-dos-muestras" class="section level2">
@@ -2062,6 +2116,17 @@ Residuals             --- 123445   839.8
 ## R      0.89        0.43  
 ## 
 ## P value adjustment method: none</code></pre>
+<pre class="r"><code>pairwise.t.test(nota,as.factor(tecnologia),p.adjust.method = &quot;bonferroni&quot;)</code></pre>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  nota and as.factor(tecnologia) 
+## 
+##        Mathematica Python
+## Python 1           -     
+## R      1           1     
+## 
+## P value adjustment method: bonferroni</code></pre>
 <p>Se pide</p>
 <ol style="list-style-type: decimal">
 <li>¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas? Sea cual sea la respuesta justificad que parte del código la confirma.</li>
@@ -2100,7 +2165,7 @@ str(datos_interes)</code></pre>
 </li>
 <li>Se acepte o no la igualdad de medias realizar las comparaciones dos a dos con ajustando los <span class="math inline">\(p\)</span>-valor tanto por Bonferroni como por Holm al nivel de significación <span class="math inline">\(\alpha=0.1\)</span>. Redactad las conclusiones que se obtienen de las mismas.</li>
 </ol>
-<div id="solución" class="section level3">
+<div id="solución-1" class="section level3">
 <h3>Solución</h3>
 <pre class="r"><code>summary(aov(datos_interes$interes~as.factor(datos_interes$ciudad)))</code></pre>
 <pre><code>##                                 Df Sum Sq Mean Sq F value  Pr(&gt;F)   

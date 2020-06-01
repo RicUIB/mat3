@@ -3,11 +3,11 @@ title: "Entrega 3 Problemas y Talleres MATIII Estadística grado informática 20
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  pdf_document:
-    number_sections: yes
-    toc: yes
   html_document:
     df_print: paged
+    toc: yes
+  pdf_document:
+    number_sections: yes
     toc: yes
   word_document:
     toc: yes
@@ -84,8 +84,23 @@ Se pide:
 
 
 
-### Presolución
+### Solución
 
+
+**Apartado 1.** El cógido R carga en las variables G1 y G2 la variables `x` de dos data frames de un servidor bioinfo.uib.es.
+
+Luego cácula los estadísticos básicos para  realizar las siguientes preguntas. Pra los tamaños muestrales $n_1$ y $n_2$  se omiten los valores `NA` antes de asignar la `length` de los arrays. También se calulan las medias y las desviaciones típicas muestrales omitiendo (si es que hay)  los valores no disponibles.
+
+**Apartado 2.**
+
+Con funciones de R
+
+```{r}
+# test para varianzas iguales
+t.test(G1,G2,var.equal = TRUE,alternative = "two.sided")
+# test para varianzas distintas
+t.test(G1,G2,var.equal = FALSE,alternative = "two.sided")
+```
 
 
 ```{r}
@@ -101,6 +116,12 @@ grupo=as.factor(c(rep(1,length(G1)),rep(2,length(G1))))
 leveneTest(notas~grupo)
 ```
 
+
+
+```{r}
+t.test(G1,G2,var.equal = TRUE)
+t.test(G1,G2,var.equal = FALSE)
+```
 
 
 
@@ -322,6 +343,7 @@ Residuals             --- 123445   839.8
 
 ```{r poshoc}
 pairwise.t.test(nota,as.factor(tecnologia),p.adjust.method = "none")
+pairwise.t.test(nota,as.factor(tecnologia),p.adjust.method = "bonferroni")
 ```
 
 Se pide
