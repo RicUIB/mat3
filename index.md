@@ -36,10 +36,10 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
 Semana final . Repaso  general. Opcional Complementos de Regresión lineal múltiple y clustering
 
 
-Haremos un repaso general  de problemas tipo examen  y  propondremos la entrega 4 de problemas.
+Haremos un repaso general  de problemas tipo examen  y  propondremos la **ENTREGA 4 de problemas.**
 
 
-* Presentaciones [Tema 8 Regresión lineal múltiple: desde la transparencia 66 hasta el final transparencia 218](https://joanby.github.io/estadistica-inferencial/Tema-8---RegresionLineal#66)
+* Opcional [Tema 8 Regresión lineal múltiple: desde la transparencia 66 hasta el final transparencia 218](https://joanby.github.io/estadistica-inferencial/Tema-8---RegresionLineal#66)
 
 
 * Opcional [Tema 9  de clustering](https://joanby.github.io/estadistica-inferencial/Tema-9---Clustering#1)
