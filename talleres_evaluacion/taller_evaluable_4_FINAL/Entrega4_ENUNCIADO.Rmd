@@ -3,13 +3,13 @@ title: "Entrega 4  y FINAL. Problemas y Talleres MATIII Estadística grado infor
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
   word_document:
     toc: yes
   pdf_document:
     number_sections: yes
+    toc: yes
+  html_document:
+    df_print: paged
     toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
