@@ -5,11 +5,11 @@ date: "13-05-2020"
 output:
   word_document:
     toc: yes
-  pdf_document:
-    number_sections: yes
-    toc: yes
   html_document:
     df_print: paged
+    toc: yes
+  pdf_document:
+    number_sections: yes
     toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
@@ -137,7 +137,7 @@ Se pide:
 
 1. Explicad el modelo de regresión que calcula cada función `lm`
 2. ¿Qué modelo y en función de qué parámetros es el mejor?
-3. Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos (1.5)
+3. Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos.
 
 
 
