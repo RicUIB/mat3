@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{empty}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+\begin{center}
+\textsc{Matemáticas III. GINF. Control Final julio  2018-2019.}
+\end{center}
+
+\setcounter{problemes}{0}
+
+\probl  Consideremos los siguientes sucesos $A$ y $B$ tales que 
+$P(A\cup B)=0.8$, $P(A-B)=0.4$ y $P(B-A)=0.3$. Calcular $P(A\cap B)$, 
+si es  posible.(\textbf{0.5 puntos.}).
+
+\probl  Consideremos los siguientes sucesos $A$, $B$ y $C$ tales que
+$P(A|B)=0.4$, $P(A|C)=0.7$, $P(B)=1-P(C)=0.2$. Calcular $P(A)$ y $P(C|A)$.
+(\textbf{0.5 puntos.}).
+
+\probl Consideremos la siguiente muestra $$4,-1,3,-2,2,1,-3,-4$$ estimar el error estándar de la media muestral (\textbf{0.5 puntos.}).
+
+\probl  Sea $X$ una v.a. gaussiana con $\mu=7$ y $\sigma=3$. Se toma una muestra aleatoria simple de la variable $X$ de tamaño $n=25$. 
+Calcular $P(6<\overline{X}<8)$  (\textbf{0.5 puntos.}).
+
+\probl La probabilidad de que un cierto jugador de baloncesto enceste un tiro libre
+es de $p=0.85$. Si durante un partido este jugador lanza 20 tiros libres,
+contestar a las siguientes preguntas:
+\begin{enumerate}[a)]
+\item Sea $X$ la variable aleatoria que cuenta el número de tiros libres fallados.
+Modelar $X$ con una v.a. de las estudiadas en clase, justificando la decisión.(\textbf{0.5 puntos.})
+\item ¿Cúal es la probabilidad de que no falle ninguno?.(\textbf{0.5 puntos.})
+\item ¿Cúal es la probabilidad de que falle más de 2 y menos de 5?(\textbf{0.5 puntos.})
+\item ¿Cúal es el número esperado de tiros fallados?(\textbf{0.5 puntos.})
+\end{enumerate}
+
+
+\probl
+Durante 120 días una persona observa el número de correos de SPAM recibidos
+cada día. Los resultados se muestran en la siguiente tabla:
+
+
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+Número correos SPAM & 2 o menos & 3 & 4 & 5 & 6 & 7 o más\\ \hline
+Número días & 10 & 20 & 21 & 23 & 20 & 26\\ \hline
+\end{tabular}
+\end{center}
+
+\noindent
+El número medio de correos diarios de SPAM durante este periodo
+fue de 5. Deseamos contrastar la hipótesis nula de que la distribución del número
+diario de mensajes de SPAM sigue una ley de Poisson. Para ello utilizaremos
+un test de bondad de ajuste de $\chi^2$.
+
+Para realizar el test necesitamos conocer las frecuencias observadas y las esperadas.
+Los valores se muestran en la siguiente tabla:
+
+
+\begin{center}
+\begin{tabular}{|c|cccccc|}
+\hline
+Valores & 2 o menos & 3 & 4 & 5 & 6 & 7 o más\\ \hline
+Frec. observada ($o_i$) & 10 & 20 & 21 & 23 & 20 & 26 \\ \hline
+Frec. esperada ($e_i$)& 14.95824 & X & 21.05608 & X & 17.54674 & 28.53798 \\ \hline
+\end{tabular}
+\end{center}
+
+Por otra parte, al realizar el test utilizando R obtenemos el siguiente 
+resultado:
+
+\begin{verbatim}
+	Chi-squared test for given probabilities
+
+data:  freq.obs
+X-squared = 2.9828, df = X, p-value = XXXXX
+\end{verbatim}
+
+Se pide:
+\begin{enumerate}[a)]
+\item Completar los valores que faltan (marcados con X) en la tabla de valores esperados. (\textbf{1 punto.})
+\item Calcular el p-valor del contraste y decidir si se puede aceptar
+o no que los datos observados siguen una distribución de Poisson. (\textbf{1 punto.})
+\end{enumerate}
+
+% > frec.obs=c(10, 20, 21, 23, 20, 26)
+% > probs=c(ppois(2, 5), dpois(3:6, 5), 1-ppois(6, 5))
+% > n=120
+% > frec.esp=n*probs
+% > frec.esp
+% [1] 14.95824 16.84487 21.05608 21.05608 17.54674 28.53798
+% > chi2=sum((frec.obs-frec.esp)^2 / frec.esp)
+% > chi2
+% [1] 2.982816
+% > pvalor=1-pchisq(chi2, 4)
+% > pvalor
+% [1] 0.5607052
+% 
+% > chisq.test(frec.obs, p=probs)
+% 
+% 	Chi-squared test for given probabilities
+% 
+% data:  frec.obs
+% X-squared = 2.9828, df = 5, p-value = 0.7026
+
+
+
+\probl Siguiendo con el ejemplo anterior, supongamos que 
+la persona escoge aleatoriamente 200 de los mensajes recibidos 
+durante un mes y que un $10\%$ de los cuales son SPAM.
+Al cabo de 6 meses vuelve a realizar el estudio, para lo que elige
+aleatoriamente 250 de los mensajes recibidos durante el último
+mes, de los cuales un $15\%$ son SPAM. Consideramos que las dos
+muestras observadas son independientes.
+
+Queremos contrastar la hipótesis de que el porcentaje de SPAM es el mismo en los
+dos periodos de tiempo observados, respecto a de que es diferente:
+
+\begin{enumerate}[a)]
+\item Escribir explícitamente las hipótesis nula y alternativa y calcular el estadístico de contraste adecuado  (\textbf{0.5 puntos.})
+\item Resolver el contraste calculando el $p$-valor.  (\textbf{1 punto.})
+\item Calcular el intervalo de confianza para la diferencia de porcentajes del 95\% asociado al contraste de hipótesis. (\textbf{1 punto.})
+\end{enumerate}
+
+
+\probl Durante 6 días consecutivos se mide el número medio de clicks por hora en los anuncios de una página web.
+Los valores obtenidos (\texttt{data}) son:
+
+\begin{verbatim}
+> data=c(17.62, 18.56, 21.52, 17.69, 20.73, 17.50)
+> mean(data)
+[1] 18.93667
+> sd(data)
+[1] 1.754043
+\end{verbatim}
+
+
+El diseñador de la página web afirma que con su diseño el número medio de clicks es de 20 por hora. ¿Podemos
+aceptar esta afirmación con un nivel de significación del 5\%,
+suponiendo que la distribución de los valores sigue una ley gaussiana?
+(\textbf{1.5 puntos.})
+
+
+
+\end{document}
+

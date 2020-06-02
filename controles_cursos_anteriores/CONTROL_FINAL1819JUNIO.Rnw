@@ -1,0 +1,196 @@
+\documentclass[10pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{empty}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+\begin{center}
+\textsc{Matemáticas III. GINF. Control Final junio  2018-2019.}
+\end{center}
+
+\setcounter{problemes}{0}
+
+\probl  Consideremos los siguientes sucesos $A$, $B$ y $C$, tales que $P(A  \cap B)=0.3$ , $P(A\cup B)=0.9$ y $P(A-B)=0.5$. Calcular $P(A)$ y $P(B)$ si es  posible.(\textbf{0.5 puntos.}).
+
+\probl Consideremos la siguiente muestra $$-3,-2,-1,0,1,2,3$$ estimar el error estándar de la media muestral (\textbf{0.5 puntos.}).
+
+\probl  Sea $X$ una v.a. gaussiana con $\mu=5$ y $\sigma=4$. Se toma una muestra aleatoria simple de la variariable $X$ de tamaño $n=16$. 
+Calcular $P(5<\overline{X}<6)$  (\textbf{0.5 puntos.}).
+
+\probl El departamento de informática de una empresa estima que los intentos de acceso no autorizados a sus servidores  siguen un ritmo de 1 intento cada   10 días.
+
+\begin{enumerate}[a)]
+\item Sea $X_t$ el número de intentos no autorizados de acceso  en t días. Modelad esta variable con una distribución de Poisson.(\textbf{0.5 puntos.})
+\item ¿Cúal es la probabilidad de que no haya ningún intento en un periodo de 5 días?(\textbf{0.5 puntos.})
+\item ¿Cúal es la probabilidad de que en un periodo de 30 días haya más de un  intento de acceso no autorizado?(\textbf{0.5 puntos.})
+\item ¿Cuál es la probabilidad de que entre dos intentos de acceso pasen más de 5 días?(\textbf{0.5 puntos.})
+\end{enumerate}
+
+
+
+\probl
+La siguiente tabla de contingencia se ha obtenido a partir de los datos del juego FIFA 2019
+de EA Sports. En ella se relacionan las variables ``Club'' con ``Nivel''.
+El ``nivel'' de los jugadores se representa por un número entre 0 y 100 y ha sido
+dividido en tres grupos: (0, 50], (50, 65] y (65, 100]. 
+En este ejercicio se trata de decidir si ambas variables son independientes realizando un test de $\chi^2$ sobre los valores de la tabla.
+
+
+
+<<>>=
+data=read.csv("./data.csv",stringsAsFactors = FALSE)
+clubs=c("FC Barcelona", "Real Madrid", "Manchester City","Paris Saint-Germain")
+data2=data[data$Club%in% clubs,c("Club", "Name","Penalties", "Marking", "Interceptions")]
+nivel=cut(data2$Penalties,breaks=c(0,50,65,100))
+tabla_nivel=table(data2$Club,nivel)
+tabla_nivel
+@
+
+La tabla de valores esperados calculada a partir de los valores anteriores es:
+
+\begin{verbatim}
+       (0,50]  (50,65] (65,100]
+[1,]     X    9.720930 9.720930
+[2,] 13.55814     X    9.720930
+[3,] 12.32558 8.837209 8.837209
+[4,] 13.55814 9.720930 9.720930
+\end{verbatim}
+% <<>>=
+% nclub=rowSums(tabla_nivel)
+% npen=colSums(tabla_nivel)
+% n=sum(tabla_nivel)
+% esperadas=nclub%*%t(npen)/n
+% esperadas
+% @
+
+Y el resultado del test de $\chi^2$ es:
+\begin{verbatim}
+	Pearson's Chi-squared test
+
+data:  tabla_nivel
+X-squared = 1.8447, df = X, p-value = XXXXX
+\end{verbatim}
+% <<>>=
+% chisq.test(tabla_nivel)
+% @
+
+
+Se pide:
+\begin{enumerate}[a)]
+\item Completar los valores que faltan (marcados con X) en la tabla de valores esperados. (\textbf{1 punto.})
+\item Calcular el p-valor del contraste y decidir si se puede aceptar
+o no la hipótesis de independencia entre las variables. (\textbf{1 punto.})
+\end{enumerate}
+
+\probl Siguiendo con el ejemplo anterior, supongamos que el ``nivel'' de un futbolista
+se mide al inicio de la pretemporada y se vuelve a medir al finalizarla.
+Para un grupo de 129 futbolistas se calculan las diferencias ($d$) entre ambos niveles y se obtienen los siguientes datos:
+
+\begin{verbatim}
+> mean(d)
+[1] 2.395349
+> sd(d)
+[1] 23.70832
+\end{verbatim}
+
+% <<>>=
+% t.test(data2$Penalties,data2$Marking,paired=TRUE)
+% d=data2$Penalties-data2$Marking
+% mean(d)
+% sd(d)
+% length(d)
+% n=length(d)
+% t=mean(d)/(sd(d)/sqrt(n))
+% t
+% @
+
+
+Queremos contrastar la hipótesis de que las medias de ``nivel'' antes y después de la pretemporada son iguales, frente a la de que son diferentes.:
+
+\begin{enumerate}[a)]
+\item Escribir explícitamente las hipótesis nula y alternativa y calcular el estadístico de contraste adecuado  (\textbf{0.5 puntos.})
+\item Resolver el contraste calculando el $p$-valor.  (\textbf{1 punto.})
+\item Calcular el intervalo de confianza para a diferencia de medias del 95\% asociado al contraste de hipótesis. (\textbf{1 punto.})
+\end{enumerate}
+
+
+\probl Se supone que  los tiempos de compresión de unas imágenes de un sistema de mensajería siguen una ley $U(5,15)$ unidades de tiempo. Se toma una muestra de tamaño 10 de estos tiempos:
+
+<<echo=FALSE,results='hide'>>=
+set.seed(19)
+tiempo=sort(round(runif(10,5,15),1))
+tiempo
+n=length(tiempo)
+Fn=(1:n)/n
+Fn
+Fx=punif(tiempo,5,15)
+Fx
+F1=abs(Fx-c(0,Fn[-10]))
+F2=abs(Fx-Fn)
+max(pmax(F1,F2))
+ks.test(tiempo,"punif",5,15)
+
+tabla_ks=data.frame(i=1:10,tiempo,Fn=Fn,Fx,F1=abs(Fx-c(0,Fn[-10])),F2=abs(Fx-Fn),pmax=pmax(F1,F2))
+knitr::kable(tabla_ks)
+@
+
+<<>>=
+tiempo
+@
+
+Se pide
+
+
+\punt ¿Cuál es y qué parámetros tiene la función de distribución teórica propuesta? Escribir correctamente la función de distribución. (\textbf{0.5 puntos})
+
+\punt   Contrastar la hipótesis del enunciado con el test KS, al nivel de significación $\alpha=0.1$. (\textbf{1.5 puntos})
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
