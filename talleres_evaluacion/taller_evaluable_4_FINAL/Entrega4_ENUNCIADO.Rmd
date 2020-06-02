@@ -101,10 +101,10 @@ summary(lm(y~x))
 1. Calcular manualmente los coeficiente de  la regresión lineal de y sobre x
 2. Calcular los valores $\hat{y}_i=b_0+b_1\cdot x_1$ para los valores de la muestra y el error cometido.
 3. Calcular la estimación de la varianza del error
-4. Resolver manualmente el contraste $$\left\{
-\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\right., $$ calculando el $p$-valor.
+4. Resolver manualmente el contraste 
+$\left\{\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\right.,$ calculando el $p$-valor.
 5. Calcular $SST$, $SSR$ y $SSE$.
-6. Cacular el coeficiente de regresión lineal $r_{xy}$ y el coeficiente de determinación $R^2$. Interpretad el resultado en terminos de la cantida de varianza expliacada por el modelo
+6. Calcular el coeficiente de regresión lineal $r_{xy}$ y el coeficiente de determinación $R^2$. Interpretad el resultado en términos de la cantidad de varianza explicada por el modelo
 7. Comprobar que los resultados son los mismos que los obtenidos con la  función `summary(lm(y~x))`.
 
 
