@@ -87,9 +87,25 @@ Antes de descargarlo, visualizar el fichero desde el navegador, para saber cómo
 4. Haced una comparación de pares  con la función adecuada de R  para la corrección del holm al nivel de significación $\alpha=0.1$. Interpreta el resultado.
 5. Comparar por grupos con  el test de Duncan del paquete `agricolae`. Interpreta el resultado.
 
+## Problema `r cuenta()`: Regresión lineal simple.
 
 
+Consideremos los siguientes  datos
 
+
+```{r}
+x=c(-2,-1,2,0,1,2)
+y=c(-7, -5,  5, -3,  3.0,  4)
+summary(lm(y~x))
+```
+1. Calcular manuelmente los coeficiente de  la regresión lineal de y sobre x
+2. Calcular los valores $\hat{y}_i=b_0+b1\cdot x_1$ para los valores de la muestra y el error cometido.
+3. Calcular la estimación de la varianza del error
+4. Resolver manualmente el contraste $$\left\{
+\begin{matrix}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{matrix}, $$ calculando el $p$-valor.
+5. Calcular $SST$, $SSR$ y $SSE$.
+6. Cacular el coeficiente de regresión lineal $r_{xy}$ y el coeficiente de determinación $R^2$. Interpretad el resultado en terminos de la cantida de varianza expliacada por el modelo
+7. Comprobar que los resultados son los mismos que los obtenidos con la  función `summary(lm(y~x))`.
 ## Problema `r cuenta()`: Distribución de los grados de un grafo de  contactos.
  
 En el artículo de A. Broder et al., [Graph structure in the Web. Computer Networks 33, 309 (2000)](http://snap.stanford.edu/class/cs224w-readings/broder00bowtie.pdf). 
