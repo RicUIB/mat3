@@ -100,7 +100,7 @@ summary(lm(y~x))
 ```
 1. Calcular manualmente los coeficiente de  la regresión lineal de y sobre x
 2. Calcular los valores $\hat{y}_i=b_0+b_1\cdot x_1$ para los valores de la muestra y el error cometido.
-3. Calcular la estimación de la varianza del error
+3. Calcular la estimación de la varianza del error.
 4. Resolver manualmente el contraste 
 $\left\{\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\right.,$ calculando el $p$-valor.
 5. Calcular $SST$, $SSR$ y $SSE$.
