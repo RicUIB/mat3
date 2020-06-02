@@ -1645,7 +1645,8 @@ summary {
 <li><a href="#problema-1-contraste-de-proporciones-de-dos-muestras-independientes.">Problema 1: Contraste de proporciones de dos muestras independientes.</a></li>
 <li><a href="#problema-2-contraste-de-proporciones-de-dos-muestras-emparejadas.">Problema 2 : Contraste de proporciones de dos muestras emparejadas.</a></li>
 <li><a href="#problema-3-anova-comparación-media-puntuaciones-según-fabricante.">Problema 3 : ANOVA comparación media puntuaciones según fabricante.</a></li>
-<li><a href="#problema-4-distribución-de-los-grados-de-un-grafo-de-contactos.">Problema 4: Distribución de los grados de un grafo de contactos.</a></li>
+<li><a href="#problema-4-regresión-lineal-simple.">Problema 4: Regresión lineal simple.</a></li>
+<li><a href="#problema-5-distribución-de-los-grados-de-un-grafo-de-contactos.">Problema 5: Distribución de los grados de un grafo de contactos.</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1659,12 +1660,20 @@ summary {
 <p>Queremos comparar las proporciones de aciertos de dos redes neuronales que detectan tipos si una foto con un móvil de una avispa es una [avispa velutina o asiática] (<a href="https://es.wikipedia.org/wiki/Vespa_velutina" class="uri">https://es.wikipedia.org/wiki/Vespa_velutina</a>). Esta avispa en una especie invasora y peligrosa por el veneno de su picadura. Para ello disponemos de una muestra de 1000 imágenes de insectos etiquetadas como avispa velutina y no velutina.</p>
 <p><a href="http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina">Aquí tenéis el acceso a los datos</a>. Cada uno está en fichero los aciertos están codificados con 1 y los fallos con 0.</p>
 <p>Se pide:</p>
-<p>1.Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra. 2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1 son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste de forma manual y con funciones de <code>R</code> y resolver el contrate con el <span class="math inline">\(p\)</span>-valor.(<strong>vale doble</strong>) 3. Calculad e interpretar los intervalos de confianza para la diferencia de proporciones asociados al test anterior.</p>
+<ol style="list-style-type: decimal">
+<li>Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.</li>
+<li>Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1 son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste de forma manual y con funciones de <code>R</code> y resolver el contrate con el <span class="math inline">\(p\)</span>-valor.(<strong>vale doble</strong>)</li>
+<li>Calculad e interpretar los intervalos de confianza para la diferencia de proporciones asociados al test anterior.</li>
+</ol>
 </div>
 <div id="problema-2-contraste-de-proporciones-de-dos-muestras-emparejadas." class="section level2">
 <h2>Problema 2 : Contraste de proporciones de dos muestras emparejadas.</h2>
 <p>En el problema anterior hemos decidido quedarnos con el mejor de los algoritmos y mejorarlo. Pasamos las mismas 1000 imágenes a la version_beta del algoritmo y a la version_alpha. <a href="http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina2">Aquí tenéis el acceso a los datos en el mismo orden para las 1000 imágenes</a>. Cada uno está en fichero los aciertos están codificados con 1 y los fallos con 0.</p>
-<p>1.Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra. 2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1 son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste de forma manual y con funciones de <code>R</code> y resolver el contrate con el <span class="math inline">\(p\)</span>-valor.(<strong>vale doble</strong>) 3. Calculad e interpretar los intervalos de confianza para la diferencia de proporciones asociados al test anterior.</p>
+<ol style="list-style-type: decimal">
+<li>Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.</li>
+<li>Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1 son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste de forma manual y con funciones de <code>R</code> y resolver el contrate con el <span class="math inline">\(p\)</span>-valor.(<strong>vale doble</strong>)</li>
+<li>Calculad e interpretar los intervalos de confianza para la diferencia de proporciones asociados al test anterior.</li>
+</ol>
 </div>
 <div id="problema-3-anova-comparación-media-puntuaciones-según-fabricante." class="section level2">
 <h2>Problema 3 : ANOVA comparación media puntuaciones según fabricante.</h2>
@@ -1674,10 +1683,51 @@ summary {
 <p>La idea es comprobar si la media de las puntuaciones del algoritmo es la misma para cada uno de los fabricantes.</p>
 <p>Los datos los podéis descargar de esta dirección del <a href="http://bioinfo.uib.es/~recerca/MATIIIGINF/anova_score/">servidor bioinfo.uib.es</a>.</p>
 <p>Antes de descargarlo, visualizar el fichero desde el navegador, para saber cómo descargarlo.</p>
-<p>¿Qué contrates realiza la función 1. ¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas? Sea cual sea la respuesta justificad que parte del código la confirma. 2. Escribid formalmente la hipótesis nula y la alternativa. Calcular la tabla de ANOVA y resuelve el test de forma manual. 3. Calcular la tabla de ANOVA y resuelve el test con la función <code>aov</code> de R. 4. Haced una comparación de pares con la función adecuada de R para la corrección del holm al nivel de significación <span class="math inline">\(\alpha=0.1\)</span>. Interpreta el resultado. 5. Comparar por grupos con el test de Duncan del paquete <code>agricolae</code>. Interpreta el resultado.</p>
+<ol style="list-style-type: decimal">
+<li>¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas? Sea cual sea la respuesta justificad que parte del código la confirma.</li>
+<li>Escribid formalmente la hipótesis nula y la alternativa. Calcular la tabla de ANOVA y resuelve el test de forma manual.</li>
+<li>Calcular la tabla de ANOVA y resuelve el test con la función <code>aov</code> de R.</li>
+<li>Haced una comparación de pares con la función adecuada de R para la corrección del holm al nivel de significación <span class="math inline">\(\alpha=0.1\)</span>. Interpreta el resultado.</li>
+<li>Comparar por grupos con el test de Duncan del paquete <code>agricolae</code>. Interpreta el resultado.</li>
+</ol>
 </div>
-<div id="problema-4-distribución-de-los-grados-de-un-grafo-de-contactos." class="section level2">
-<h2>Problema 4: Distribución de los grados de un grafo de contactos.</h2>
+<div id="problema-4-regresión-lineal-simple." class="section level2">
+<h2>Problema 4: Regresión lineal simple.</h2>
+<p>Consideremos los siguientes datos</p>
+<pre class="r"><code>x=c(-2,-1,2,0,1,2)
+y=c(-7, -5,  5, -3,  3.0,  4)
+summary(lm(y~x))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Residuals:
+##      1      2      3      4      5      6 
+##  0.675 -0.400  0.375 -1.475  1.450 -0.625 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -1.5250     0.4872  -3.130 0.035176 *  
+## x             3.0750     0.3189   9.642 0.000647 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.165 on 4 degrees of freedom
+## Multiple R-squared:  0.9587, Adjusted R-squared:  0.9484 
+## F-statistic: 92.96 on 1 and 4 DF,  p-value: 0.0006472</code></pre>
+<ol style="list-style-type: decimal">
+<li>Calcular manualmente los coeficiente de la regresión lineal de y sobre x</li>
+<li>Calcular los valores <span class="math inline">\(\hat{y}_i=b_0+b_1\cdot x_1\)</span> para los valores de la muestra y el error cometido.</li>
+<li>Calcular la estimación de la varianza del error</li>
+<li>Resolver manualmente el contraste <span class="math display">\[\left\{
+\begin{array}{ll} H_0: &amp; \beta_1=0 \\ H_1: &amp; \beta_1\not=0\end{array}\right., \]</span> calculando el <span class="math inline">\(p\)</span>-valor.</li>
+<li>Calcular <span class="math inline">\(SST\)</span>, <span class="math inline">\(SSR\)</span> y <span class="math inline">\(SSE\)</span>.</li>
+<li>Cacular el coeficiente de regresión lineal <span class="math inline">\(r_{xy}\)</span> y el coeficiente de determinación <span class="math inline">\(R^2\)</span>. Interpretad el resultado en terminos de la cantida de varianza expliacada por el modelo</li>
+<li>Comprobar que los resultados son los mismos que los obtenidos con la función <code>summary(lm(y~x))</code>.</li>
+</ol>
+</div>
+<div id="problema-5-distribución-de-los-grados-de-un-grafo-de-contactos." class="section level2">
+<h2>Problema 5: Distribución de los grados de un grafo de contactos.</h2>
 <p>En el artículo de A. Broder et al., <a href="http://snap.stanford.edu/class/cs224w-readings/broder00bowtie.pdf">Graph structure in the Web. Computer Networks 33, 309 (2000)</a>.</p>
 <p>Se recopiló el número de enlaces a sitios web encontrados en un rastreo web de 1997 de aproximadamente 200 millones de páginas web,</p>
 <p>Con el se construyó una <a href="http://tuvalu.santafe.edu/~aaronc/powerlaws/data/weblinks.hist">tabla</a> con la frecuencia de sitios por número de enlaces. El código siguiente carga del enlace que han puesto los autores del artículo</p>
