@@ -22,14 +22,7 @@ urlcolor: blue
 
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-options(scipen=999)
-contador=0
-cuenta=function(x=contador) {contador<<- contador+1;return(contador)}
-set.seed(2020)
-```
+
 
 
 # Entregas 3  Problemas: Estadística Inferencial 1
@@ -38,7 +31,7 @@ Contestad cada GRUPO de 3  a los siguientes problemas y cuestiones en un fichero
 
 Cambien podéis incluir capturas de problemas hechos en papel. Cada pregunta vale lo mismo y se reparte la nota entre sus apartados.
 
-## Problema `r cuenta()`: Contraste de parámetros de dos muestras.
+## Problema 1: Contraste de parámetros de dos muestras.
 
 Queremos comparar los tiempos de realización de un test entre
 estudiantes de dos grados G1 y G2, y determinar si es verdad
@@ -51,7 +44,8 @@ Los datos están en http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/, e
 ficheros `grado1.txt` y `grado2.txt`.
 
 
-```{r cargadatosoculta}
+
+```r
 G1=read.table("http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/grado1.txt",
               header=TRUE)$x
 G2=read.table("http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/grado2.txt",
@@ -69,9 +63,9 @@ Calculamos las medias y las desviaciones típicas muestrales de los tiempos empl
 
 $$
 \begin{array}{llll}
-n_1&=`r n1`, & n_2&=`r n1`\\
-\overline{x}_1&=`r media.muestra1`, & \overline{x}_2&=`r media.muestra2`\\
-\tilde{s}_1&=`r desv.tip.muestra1`, & \tilde{s}_1&=`r desv.tip.muestra2`
+n_1&=50, & n_2&=50\\
+\overline{x}_1&=9.7592926, & \overline{x}_2&=11.4660825\\
+\tilde{s}_1&=1.1501225, & \tilde{s}_1&=1.5642932
 \end{array}
 $$
 Se pide:
@@ -109,16 +103,45 @@ Estamos en un diseño de comparación de medias de dos grupos con dos muestras  
 
 
 **Varianzas iguales**
-```{r}
+
+```r
 # test para varianzas iguales
 t.test(G1,G2,var.equal = TRUE,alternative = "two.sided")
+```
 
+```
+## 
+## 	Two Sample t-test
+## 
+## data:  G1 and G2
+## t = -6.2159, df = 98, p-value = 0.00000001248
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.251691 -1.161889
+## sample estimates:
+## mean of x mean of y 
+##  9.759293 11.466083
 ```
 **Varianzas distintas**
 
-```{r}
+
+```r
 # test para varianzas distintas
 t.test(G1,G2,var.equal = FALSE,alternative = "two.sided")
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  G1 and G2
+## t = -6.2159, df = 89.996, p-value = 0.00000001562
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.252298 -1.161282
+## sample estimates:
+## mean of x mean of y 
+##  9.759293 11.466083
 ```
 
 El $p$-valor en ambos casos es muy pequeño así que la muestra  no aporta evidencias rechazar la hipótesis nula las medias son iguales contra que son distintas.
@@ -135,27 +158,20 @@ $$
 t0=\frac{\overline{X}_1-\overline{X}_2}
 {\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
 \frac{((n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2)}
-{(n_1+n_2-2)}}}=\frac{`r media.muestra1`-`r media.muestra2`}
-{\sqrt{(\frac1{`r n1`}+\frac1{`r n2`})\cdot 
-\frac{((`r n1`-1) `r desv.tip.muestra1`^2+(`r n2`-1)`r desv.tip.muestra2`^2)}
-{(`r n1`+`r n2`-2)}}}
+{(n_1+n_2-2)}}}=\frac{9.7592926-11.4660825}
+{\sqrt{(\frac1{50}+\frac1{50})\cdot 
+\frac{((50-1) 1.1501225^2+(50-1)1.5642932^2)}
+{(50+50-2)}}}
 $$
 
-```{r estadisticos_ejer1, include=FALSE}
-t0=(media.muestra1-media.muestra2)/sqrt((1/n1+1/n2)* 
-((n1-1) *desv.tip.muestra1^2+(n2-1)*desv.tip.muestra2^2)/(n1+n2-2))
-```
 
 
-operando obtenemos que  $t0=`r t0`.$ y sabemos que  sigue una distribución  $t$-Student $t_{n_1+n_2-2}=t_{`r n1+n2-2`}$. Para este hipótesis alternativa el $p$-valor es 
 
-$2\cdot P(t_{`r n1+n2-2`}>|`r t0`|)$, lo calculamos con R
+operando obtenemos que  $t0=-6.2159314.$ y sabemos que  sigue una distribución  $t$-Student $t_{n_1+n_2-2}=t_{98}$. Para este hipótesis alternativa el $p$-valor es 
 
-```{r estadisticos_ejercico1_2, include=FALSE}
-t0=(media.muestra1-media.muestra2)/sqrt((1/n1+1/n2)* 
-((n1-1) *desv.tip.muestra1^2+(n2-1)*desv.tip.muestra2^2)/(n1+n2-2))
-2*pt(abs(T),50+50-2,lower.tail = FALSE)
-```
+$2\cdot P(t_{98}>|-6.2159314|)$, lo calculamos con R
+
+
 
 
 **Varianzas desconocidas pero distintas, $n_1$ y $n_2$ grande**
@@ -170,26 +186,50 @@ $$
 
 Calculamos el estadístico  y los grados de libertad con R
 
-```{r}
+
+```r
 t0=(media.muestra1-media.muestra2)/sqrt(desv.tip.muestra1^2/n1+desv.tip.muestra2^2/n2)
 #calculo el valor dentro del floor que es el que utiliza R
 
 f1=(desv.tip.muestra1^2/n1+desv.tip.muestra2^2/n2)^2/(
   (1/(n1-1))*(desv.tip.muestra1^2/n1)^2+(1/(n2-1))*(desv.tip.muestra2^2/n2)^2)
 f1
+```
+
+```
+## [1] 89.99613
+```
+
+```r
 # calculo el propuesto en las transparencias que es anticuado
 f=floor(f1)-2  
 f  
 ```
 
+```
+## [1] 87
+```
+
 El $p$ valor es 
 
 
-```{r}
+
+```r
 # el pvañor de la función de R
 2*(pt(abs(t0),f1,lower.tail = FALSE))
+```
+
+```
+## [1] 0.00000001562353
+```
+
+```r
 # el pvalor propuesto en teoría
 2*(pt(abs(t0),f,lower.tail = FALSE))
+```
+
+```
+## [1] 0.00000001713797
 ```
 
 
@@ -199,9 +239,25 @@ El $p$ valor es
 Los intervalos de confianza al nivel del 95% los podemos obtener así
 
 
-```{r}
+
+```r
 t.test(G1,G2,var.equal = TRUE,alternative = "two.sided",conf.level = 0.95)$conf.int
+```
+
+```
+## [1] -2.251691 -1.161889
+## attr(,"conf.level")
+## [1] 0.95
+```
+
+```r
 t.test(G1,G2,var.equal = FALSE,alternative = "two.sided",conf.level = 0.95)$conf.int
+```
+
+```
+## [1] -2.252298 -1.161282
+## attr(,"conf.level")
+## [1] 0.95
 ```
 
 
@@ -219,8 +275,23 @@ H_0: & \sigma_1^2\not=\sigma_2^2\end{array}\right.$$
 
 
 El test de Fisher de igualdad de varianzas
-```{r}
+
+```r
 var.test(G1,G2,alternative ="two.sided" )
+```
+
+```
+## 
+## 	F test to compare two variances
+## 
+## data:  G1 and G2
+## F = 0.54057, num df = 49, denom df = 49, p-value = 0.03354
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.3067606 0.9525862
+## sample estimates:
+## ratio of variances 
+##            0.54057
 ```
 
 Obtenemos un $p$-valor alto no podemos rechazar la igualdad de varianzas.
@@ -229,7 +300,7 @@ Obtenemos un $p$-valor alto no podemos rechazar la igualdad de varianzas.
 De forma manual el estadístico de este test sabemos que es 
 
 
-$$f_0=\frac{\tilde{S_1}^1}{\tilde{S_2}^1}=\frac{`r desv.tip.muestra1^2`}{`r desv.tip.muestra2^2`}=`r desv.tip.muestra1^2/desv.tip.muestra2^2`.$$
+$$f_0=\frac{\tilde{S_1}^1}{\tilde{S_2}^1}=\frac{1.3227818}{2.4470131}=0.54057.$$
 
 Que sigue una ley e Fisher
 y el $p$_valor es $\min\{2\cdot P(F_{n_1-1,+n_2-1}\leq f_0),2\cdot P(F_{n_1-1,+n_2-1}\geq f_0).$
@@ -237,13 +308,39 @@ y el $p$_valor es $\min\{2\cdot P(F_{n_1-1,+n_2-1}\leq f_0),2\cdot P(F_{n_1-1,+n
 que con R es 
 
 
-```{r}
+
+```r
 n1
+```
+
+```
+## [1] 50
+```
+
+```r
 n2
+```
+
+```
+## [1] 50
+```
+
+```r
 f0=desv.tip.muestra1^2/desv.tip.muestra2^2
 f0
+```
+
+```
+## [1] 0.54057
+```
+
+```r
 pvalor=min(2*pf(f0,n1-1,n2-2),2*pf(f0,n1-1,n2-2,lower.tail = FALSE))
 pvalor
+```
+
+```
+## [1] 0.03420609
 ```
 
 
@@ -253,44 +350,143 @@ Obtenemos los mismos resultados que con la función `var.test`.
 
 El test de Levene con R tiene las mismas hipótesis que el anterior
 
-```{r levene1,warning=FALSE}
+
+```r
 library(car,quietly = TRUE)# pogo quietly para que quite avisos
+```
+
+```
+## 
+## Attaching package: 'car'
+```
+
+```
+## The following object is masked from 'package:dplyr':
+## 
+##     recode
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     some
+```
+
+```r
 notas=c(G1,G2)
 grupo=as.factor(c(rep(1,length(G1)),rep(2,length(G1))))
 leveneTest(notas~grupo)
 ```
 
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1.802894","3":"0.1824648","_rn_":"group"},{"1":"98","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
 El $p$-valor obtenido es alto así que el test de levene no aporta evidencias contra la igualdad de varianzas entre las notas de los dos grupos.
 
 
 
-## Problema `r cuenta()` : Contraste dos muestras
+## Problema 2 : Contraste dos muestras
 
 Simulamos dos muestras con las funciones siguientes 
 
 
-```{r generacionmuestras100}
+
+```r
 set.seed(2020)
 x1=rnorm(100,mean = 10,sd=2)
 x2=rnorm(100,mean = 8,sd=4)
 ```
 Dibujamos estos gráficos
 
-```{r}
+
+```r
 boxplot(x1,x2)
+```
+
+<img src="Entrega3_ENUNCIADO_SOLUCION_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+```r
 library(car)
 par(mfrow=c(1,2))
 qqPlot(x1)
+```
+
+```
+## [1] 18 64
+```
+
+```r
 qqPlot(x2)
+```
+
+<img src="Entrega3_ENUNCIADO_SOLUCION_files/figure-html/unnamed-chunk-8-2.png" width="672" />
+
+```
+## [1] 50 39
+```
+
+```r
 par(mfrow=c(1,1))
 ```
 
 Realizamos algunos contrastes de hipótesis de igual de medias entre ambas muestras
 
-```{r test_t_muestras}
+
+```r
 t.test(x1,x2,var.equal = TRUE,alternative = "greater")
+```
+
+```
+## 
+## 	Two Sample t-test
+## 
+## data:  x1 and x2
+## t = 5.3009, df = 198, p-value = 0.0000001531
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  1.844757      Inf
+## sample estimates:
+## mean of x mean of y 
+## 10.217784  7.537402
+```
+
+```r
 t.test(x1,x2,var.equal = FALSE,alternative = "two.sided")
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  x1 and x2
+## t = 5.3009, df = 144.56, p-value = 0.0000004221
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.680966 3.679797
+## sample estimates:
+## mean of x mean of y 
+## 10.217784  7.537402
+```
+
+```r
 t.test(x1,x2,var.equal = TRUE)
+```
+
+```
+## 
+## 	Two Sample t-test
+## 
+## data:  x1 and x2
+## t = 5.3009, df = 198, p-value = 0.0000003061
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.683238 3.677526
+## sample estimates:
+## mean of x mean of y 
+## 10.217784  7.537402
 ```
 
 Se pide
@@ -348,7 +544,7 @@ $$
 
 En los dos últimos test los $p$-valores son muy muy pequeños así que hay evidencias en contra de la igualdad de medias entre las dos muestras.  Además claramente los intervalos de confianza no contienen al cero.
 
-## Problema `r cuenta()` : Bondad de ajuste. La ley de Benford 
+## Problema 3 : Bondad de ajuste. La ley de Benford 
 
 La ley de Benford es  una distribución discreta que siguen las frecuencias de los primero dígitos significativos (de 1 a 9)  de algunas series de datos curiosas.
 
@@ -359,9 +555,18 @@ $$P(X=x)=\log_{10} \left(1+\frac{1}{x}\right)\mbox{ para } x\in \left\{1,2,3,4,5
 Concretamente lo podemos hacer así
 
 
-```{r benford1,echo=TRUE,warning=FALSE}
+
+```r
 prob=log10(1+1/c(1:9))
 prob
+```
+
+```
+## [1] 0.30103000 0.17609126 0.12493874 0.09691001 0.07918125 0.06694679 0.05799195
+## [8] 0.05115252 0.04575749
+```
+
+```r
 MM=rbind(c(1:9),prob)
 df=data.frame(rbind(prob))
 # Y hacemos una bonita tabla
@@ -369,18 +574,39 @@ colnames(df)=paste("Díg.",c(1:9),sep =" ")
 knitr::kable(df,format ='markdown')
 ```
 
+
+
+|     |  Díg. 1|    Díg. 2|    Díg. 3|  Díg. 4|    Díg. 5|    Díg. 6|    Díg. 7|    Díg. 8|    Díg. 9|
+|:----|-------:|---------:|---------:|-------:|---------:|---------:|---------:|---------:|---------:|
+|prob | 0.30103| 0.1760913| 0.1249387| 0.09691| 0.0791812| 0.0669468| 0.0579919| 0.0511525| 0.0457575|
+
 En general esta distribución se suele encontrar en tablas de datos de resultados de observaciones  de funciones científicas, contabilidades, cocientes de algunas distribuciones ... 
 
 Por ejemplo se dice que las potencias de números enteros siguen esa distribución. Probemos con las potencias de 2. El siguiente código calcula las potencias de 2  de 1 a 1000 y extrae los tres primeros dígitos.
 
 
 
-```{r benford2}
+
+```r
 # R pasa los enteros  muy grande a reales. Para nuestros propósitos 
 # es suficiente para extraer los tres primeros dígitos.
 muestra_pot_2_3digitos=str_sub(as.character(2^c(1:1000)),1,3)
 head(muestra_pot_2_3digitos)
+```
+
+```
+## [1] "2"  "4"  "8"  "16" "32" "64"
+```
+
+```r
 tail(muestra_pot_2_3digitos)
+```
+
+```
+## [1] "334" "669" "133" "267" "535" "107"
+```
+
+```r
 #Construimos un data frame con tres columnas que nos dan el primer, 
 #segundo y tercer dígito respectivamente.
 df_digitos=data.frame(muestra_pot_2_3digitos,
@@ -391,8 +617,13 @@ df_digitos=data.frame(muestra_pot_2_3digitos,
                       tercer_digito=as.integer(
                         substring(muestra_pot_2_3digitos, 3, 3)))
 head(df_digitos)
-
 ```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["muestra_pot_2_3digitos"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["primer_digito"],"name":[2],"type":["int"],"align":["right"]},{"label":["segundo_digito"],"name":[3],"type":["int"],"align":["right"]},{"label":["tercer_digito"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"2","2":"2","3":"NA","4":"NA","_rn_":"1"},{"1":"4","2":"4","3":"NA","4":"NA","_rn_":"2"},{"1":"8","2":"8","3":"NA","4":"NA","_rn_":"3"},{"1":"16","2":"1","3":"6","4":"NA","_rn_":"4"},{"1":"32","2":"3","3":"2","4":"NA","_rn_":"5"},{"1":"64","2":"6","3":"4","4":"NA","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 
 Notad que los NA  en el segundo y el tercer dígito corresponden a número con  uno o dos dígitos.
 
@@ -422,22 +653,60 @@ $$
 El siguiente código resuelve el  tes de forma manual calculando el estadístico y el $p$-valor
 
 
-```{r}
+
+```r
 prob=log10(1+1/(1:9))
 prob_benford=prob
 n=1000
 frec_esp_benford=n*prob_benford
 frec_esp_benford
+```
+
+```
+## [1] 301.03000 176.09126 124.93874  96.91001  79.18125  66.94679  57.99195
+## [8]  51.15252  45.75749
+```
+
+```r
 frec_obs_primer=table(df_digitos$primer_digito)
 frec_obs_primer
+```
+
+```
+## 
+##   1   2   3   4   5   6   7   8   9 
+## 301 176 125  97  79  69  56  52  45
+```
+
+```r
 chi2_est=sum((frec_obs_primer-frec_esp_benford)^2/frec_esp_benford)
 chi2_est
+```
+
+```
+## [1] 0.1585506
+```
+
+```r
 pchisq(chi2_est,9-1,lower.tail = FALSE)
+```
+
+```
+## [1] 0.9999985
 ```
 La función de R  que resuelve el test es
 
-```{r}
+
+```r
 chisq.test(frec_obs_primer,p=prob_benford)
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  frec_obs_primer
+## X-squared = 0.15855, df = 8, p-value = 1
 ```
 
 Obtenemos los mismos resultados.  El $p$ valor es muy alto. No podemos rechazar que el primer dígito de las 1000 primeras potencias enteras de 2 siga una ley de distribución de Benford.
@@ -457,28 +726,84 @@ $$
 
 Procedemos de forma similar al caso anterior. De forma manual el cálculo es
  
-```{r}
+
+```r
 prob_unif=rep(1/10,10)
 prob_unif
+```
 
+```
+##  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+```
+
+```r
 segundo_digito=na.omit(df_digitos$segundo_digito)
 n=length(segundo_digito) 
 n
+```
+
+```
+## [1] 997
+```
+
+```r
 frec_esp_uniforme=n*prob_unif
 frec_esp_uniforme 
+```
+
+```
+##  [1] 99.7 99.7 99.7 99.7 99.7 99.7 99.7 99.7 99.7 99.7
+```
+
+```r
 frec_obs_segundo=table(segundo_digito)
 frec_obs_segundo
+```
+
+```
+## segundo_digito
+##   0   1   2   3   4   5   6   7   8   9 
+## 121 112 109 108  98  95  94  91  83  86
+```
+
+```r
 chi2_est=sum((frec_obs_segundo-frec_esp_uniforme)^2/frec_esp_uniforme)
 chi2_est
-1-pchisq(chi2_est,10-1)
-pchisq(chi2_est,10-1,lower.tail = FALSE)
+```
 
+```
+## [1] 13.64193
+```
+
+```r
+1-pchisq(chi2_est,10-1)
+```
+
+```
+## [1] 0.1356449
+```
+
+```r
+pchisq(chi2_est,10-1,lower.tail = FALSE)
+```
+
+```
+## [1] 0.1356449
 ```
  
 Con la función `chisq.test` obtenemos los mismo resultados
 
-```{r}
+
+```r
 chisq.test(frec_obs_segundo,p=prob_unif)
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  frec_obs_segundo
+## X-squared = 13.642, df = 9, p-value = 0.1356
 ```
 
 Para el segundo dígito con un $p$-valor de $0.1356$ no podemos rechazar que el segundo dígito siga una ley uniforme.
@@ -500,28 +825,84 @@ $$
 
 Procedemos de forma similar al caso anterior. De forma manual el cálculo es
  
-```{r}
+
+```r
 prob_unif=rep(1/10,10)
 prob_unif
+```
 
+```
+##  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+```
+
+```r
 tercer_digito=na.omit(df_digitos$tercer_digito)
 n=length(tercer_digito) 
 n
+```
+
+```
+## [1] 994
+```
+
+```r
 frec_esp_uniforme=n*prob_unif
 frec_esp_uniforme 
+```
+
+```
+##  [1] 99.4 99.4 99.4 99.4 99.4 99.4 99.4 99.4 99.4 99.4
+```
+
+```r
 frec_obs_tercer=table(tercer_digito)
 frec_obs_tercer
+```
+
+```
+## tercer_digito
+##   0   1   2   3   4   5   6   7   8   9 
+##  96 101  88 116  97  90 110  92  95 109
+```
+
+```r
 chi2_est=sum((frec_obs_tercer-frec_esp_uniforme)^2/frec_esp_uniforme)
 chi2_est
-1-pchisq(chi2_est,10-1)
-pchisq(chi2_est,10-1,lower.tail = FALSE)
+```
 
+```
+## [1] 7.971831
+```
+
+```r
+1-pchisq(chi2_est,10-1)
+```
+
+```
+## [1] 0.5369875
+```
+
+```r
+pchisq(chi2_est,10-1,lower.tail = FALSE)
+```
+
+```
+## [1] 0.5369875
 ```
  
 Con la función `chisq.test` obtenemos los mismo resultados
 
-```{r}
+
+```r
 chisq.test(frec_obs_tercer,p=prob_unif)
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  frec_obs_tercer
+## X-squared = 7.9718, df = 9, p-value = 0.537
 ```
 
 Para el segundo dígito con un $p$-valor alto $0.537$ no podemos rechazar que el tercer dígito siga una ley uniforme.
@@ -533,7 +914,8 @@ Para el segundo dígito con un $p$-valor alto $0.537$ no podemos rechazar que el
 
 Una gráfica comparando las frecuencias
 
-```{r}
+
+```r
 barplot(rbind(frec_esp_benford,frec_obs_primer),
         beside=TRUE,col=c("red","blue"),
         main="Frecuencias observadas y\n esperadas del primer dígito",
@@ -541,7 +923,11 @@ barplot(rbind(frec_esp_benford,frec_obs_primer),
 legend("topright",legen=c("Frecuencias  observadas",
                           "Frecuencias esperadas ley de Benfor"),pch=19,col=c("red","blue"),
        cex=0.8)
+```
 
+<img src="Entrega3_ENUNCIADO_SOLUCION_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+```r
 barplot(rbind(frec_esp_uniforme,frec_obs_segundo),
         beside=TRUE,col=c("red","blue"),
         main="Frecuencias observadas y\n esperadas del segundo dígito",
@@ -551,35 +937,104 @@ legend("topright",legen=c("Frecuencias  observadas",
        cex=0.6)
 ```
 
+<img src="Entrega3_ENUNCIADO_SOLUCION_files/figure-html/unnamed-chunk-15-2.png" width="672" />
+
  
 
  
-## Problema `r cuenta()` : Homegeneidad e independencia
+## Problema 4 : Homegeneidad e independencia
 
 Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.
 
 
-```{r notas_calculos}
+
+```r
 set.seed(2020)
 nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
             labels=c("S","A","N","E"))
 tecnologia=rep(c("Mathematica","R","Python"),each=50)
 frec=table(nota,tecnologia)
 frec
+```
+
+```
+##     tecnologia
+## nota Mathematica Python  R
+##    S           7      6  2
+##    A          18     15 22
+##    N          15     20 18
+##    E          10      9  8
+```
+
+```r
 col_frec=colSums(frec)
 col_frec
+```
+
+```
+## Mathematica      Python           R 
+##          50          50          50
+```
+
+```r
 row_frec=rowSums(frec)
 row_frec
+```
+
+```
+##  S  A  N  E 
+## 15 55 53 27
+```
+
+```r
 N=sum(frec)
 teoricas=row_frec%*%t(col_frec)/N
 teoricas
+```
+
+```
+##      Mathematica   Python        R
+## [1,]     5.00000  5.00000  5.00000
+## [2,]    18.33333 18.33333 18.33333
+## [3,]    17.66667 17.66667 17.66667
+## [4,]     9.00000  9.00000  9.00000
+```
+
+```r
 dim(frec)
+```
+
+```
+## [1] 4 3
+```
+
+```r
 dim(teoricas)
+```
+
+```
+## [1] 4 3
+```
+
+```r
 sum((frec-teoricas)^2/teoricas)
 ```
 
-```{r chi_notas1}
+```
+## [1] 5.084658
+```
+
+
+```r
 chisq.test(table(nota,tecnologia))
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  table(nota, tecnologia)
+## X-squared = 5.0847, df = 6, p-value = 0.533
 ```
 
 Se pide
@@ -605,9 +1060,30 @@ así que la hipótesis $H_0$: la nota obtenida es independientes ce la tecnolog�
 **Apartado 2**
  Para el contraste de independencia (o el de homogeneidad) hay que pasar una tabla de contingencia a la función `chisq.test` eso es lo que hacemos
 
-```{r chi_notas2}
+
+```r
 table(nota,tecnologia)
+```
+
+```
+##     tecnologia
+## nota Mathematica Python  R
+##    S           7      6  2
+##    A          18     15 22
+##    N          15     20 18
+##    E          10      9  8
+```
+
+```r
 chisq.test(table(nota,tecnologia))
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  table(nota, tecnologia)
+## X-squared = 5.0847, df = 6, p-value = 0.533
 ```
  El $p$-valor obtenido es grande así que no podemos rechazar la hipótesis nula las calificaciones obtenidas no dependen del programa utilizado en el curso.
 
@@ -615,11 +1091,47 @@ chisq.test(table(nota,tecnologia))
 
 La expresión `teoricas=row_frec%*%t(col_frec)/N`
 
-```{r}
+
+```r
 row_frec  
+```
+
+```
+##  S  A  N  E 
+## 15 55 53 27
+```
+
+```r
 col_frec
+```
+
+```
+## Mathematica      Python           R 
+##          50          50          50
+```
+
+```r
 row_frec%*%t(col_frec)
+```
+
+```
+##      Mathematica Python    R
+## [1,]         750    750  750
+## [2,]        2750   2750 2750
+## [3,]        2650   2650 2650
+## [4,]        1350   1350 1350
+```
+
+```r
 row_frec%*%t(col_frec)/N
+```
+
+```
+##      Mathematica   Python        R
+## [1,]     5.00000  5.00000  5.00000
+## [2,]    18.33333 18.33333 18.33333
+## [3,]    17.66667 17.66667 17.66667
+## [4,]     9.00000  9.00000  9.00000
 ```
 
 Así que `row_frec%*%t(col_frec)` calcula  el producto de las frecuencia marginal por filas y  columnas.
@@ -633,28 +1145,110 @@ Por último al dividir por $N=150$ el  tamaño total de las muestra obtenemos la
 
 
 
-## Problema `r cuenta()` : ANOVA notas numéricas de tres grupos.
+## Problema 5 : ANOVA notas numéricas de tres grupos.
 
 El siguiente código nos da las notas numéricas (variable `nota`) de los mismos ejercicios para tres tecnologías en tres muestra independientes de estudiantes  de estas tres tecnologías diferentes
 
-```{r semilla2, echo=FALSE}
-set.seed(2020)
-nota=rnorm(150,mean=70,sd=25)
+
+
+
+
+```r
+head(nota)
 ```
 
+```
+## [1] 79.424303 77.538709 42.549421 41.739852  0.086642 88.014337
+```
 
-```{r anova1}
-head(nota)
+```r
 library(nortest)
 lillie.test(nota[tecnologia=="Mathematica"])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota[tecnologia == "Mathematica"]
+## D = 0.08739, p-value = 0.4436
+```
+
+```r
 lillie.test(nota[tecnologia=="R"])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota[tecnologia == "R"]
+## D = 0.082139, p-value = 0.5449
+```
+
+```r
 lillie.test(nota[tecnologia=="Python"])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota[tecnologia == "Python"]
+## D = 0.089681, p-value = 0.4019
+```
+
+```r
 lillie.test(nota)
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota
+## D = 0.056381, p-value = 0.2885
+```
+
+```r
 bartlett.test(nota~tecnologia)
+```
+
+```
+## 
+## 	Bartlett test of homogeneity of variances
+## 
+## data:  nota by tecnologia
+## Bartlett's K-squared = 0.50309, df = 2, p-value = 0.7776
+```
+
+```r
 library(car)
 leveneTest(nota~as.factor(tecnologia))
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0.3881426","3":"0.6790087","_rn_":"group"},{"1":"147","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+```r
 sol_aov=aov(nota~as.factor(tecnologia))
 sol_aov
+```
+
+```
+## Call:
+##    aov(formula = nota ~ as.factor(tecnologia))
+## 
+## Terms:
+##                 as.factor(tecnologia) Residuals
+## Sum of Squares                 837.39 123445.06
+## Deg. of Freedom                     2       147
+## 
+## Residual standard error: 28.97865
+## Estimated effects may be unbalanced
 ```
 
 
@@ -669,9 +1263,39 @@ Residuals             --- 123445   839.8
 ```
 
 
-```{r poshoc}
+
+```r
 pairwise.t.test(nota,as.factor(tecnologia),p.adjust.method = "none")
+```
+
+```
+## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  nota and as.factor(tecnologia) 
+## 
+##        Mathematica Python
+## Python 0.35        -     
+## R      0.89        0.43  
+## 
+## P value adjustment method: none
+```
+
+```r
 pairwise.t.test(nota,as.factor(tecnologia),p.adjust.method = "bonferroni")
+```
+
+```
+## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  nota and as.factor(tecnologia) 
+## 
+##        Mathematica Python
+## Python 1           -     
+## R      1           1     
+## 
+## P value adjustment method: bonferroni
 ```
 
 Se pide
@@ -689,12 +1313,50 @@ Este código es el que pasa un test de normalidad con la función `lillie.test`
 para la distribución de notas en cada una de las tecnologías
 
 
-```{r anova2}
+
+```r
 head(nota)
+```
+
+```
+## [1] 79.424303 77.538709 42.549421 41.739852  0.086642 88.014337
+```
+
+```r
 library(nortest)
 lillie.test(nota[tecnologia=="Mathematica"])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota[tecnologia == "Mathematica"]
+## D = 0.08739, p-value = 0.4436
+```
+
+```r
 lillie.test(nota[tecnologia=="R"])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota[tecnologia == "R"]
+## D = 0.082139, p-value = 0.5449
+```
+
+```r
 lillie.test(nota[tecnologia=="Python"])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  nota[tecnologia == "Python"]
+## D = 0.089681, p-value = 0.4019
 ```
 
 Como se ve los $p$-valores son altos en el pero de los caso es mayor que $0.4$ no podemos rechazar   de las notas numéricas en cada uno de los tres casos.
@@ -702,11 +1364,29 @@ Como se ve los $p$-valores son altos en el pero de los caso es mayor que $0.4$ n
 
 Para la homogeneidad de las varianzas en las tres poblaciones hacemos un `bartlett.test`o un LeveneTest. 
 
-```{r}
+
+```r
 bartlett.test(nota~tecnologia)
+```
+
+```
+## 
+## 	Bartlett test of homogeneity of variances
+## 
+## data:  nota by tecnologia
+## Bartlett's K-squared = 0.50309, df = 2, p-value = 0.7776
+```
+
+```r
 library(car)
 leveneTest(nota~as.factor(tecnologia))
 ```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["F value"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0.3881426","3":"0.6790087","_rn_":"group"},{"1":"147","2":"NA","3":"NA","_rn_":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 Nos salen $p$-valores del orden de $0.7$ o $0.6$ por lo que no podemos rechazar la homocedasticidad de las tres varianzas.
 
 
@@ -731,10 +1411,33 @@ $$
 
 **Apartado 3**
 
-```{r}
+
+```r
 sol_aov=aov(nota~as.factor(tecnologia))
 sol_aov
+```
+
+```
+## Call:
+##    aov(formula = nota ~ as.factor(tecnologia))
+## 
+## Terms:
+##                 as.factor(tecnologia) Residuals
+## Sum of Squares                 837.39 123445.06
+## Deg. of Freedom                     2       147
+## 
+## Residual standard error: 28.97865
+## Estimated effects may be unbalanced
+```
+
+```r
 summary(sol_aov)
+```
+
+```
+##                        Df Sum Sq Mean Sq F value Pr(>F)
+## as.factor(tecnologia)   2    837   418.7   0.499  0.608
+## Residuals             147 123445   839.8
 ```
 
 
@@ -748,15 +1451,29 @@ La función  `pairwise.t.test` compara las medias dos a dos en este caso hay 4 c
 
 
 
-```{r}
+
+```r
 pairwise.t.test(nota,as.factor(tecnologia),p.adjust.method = "holm")
+```
+
+```
+## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  nota and as.factor(tecnologia) 
+## 
+##        Mathematica Python
+## Python 1           -     
+## R      1           1     
+## 
+## P value adjustment method: holm
 ```
 
 Los tres $p$-valores son  prácticamente son 1 con el ajuste del método de Holm; o podemos rechazar las igual de medias dos a dos. 
 
 
 
-## Problema `r cuenta()` : ANOVA Comparación de las tasas de interés  para la compra de coches  entre seis ciudades.
+## Problema 6 : ANOVA Comparación de las tasas de interés  para la compra de coches  entre seis ciudades.
 
 Consideremos el  `data set` `newcar` accesible desde https://www.itl.nist.gov/div898/education/anova/newcar.dat de *Hoaglin, D., Mosteller, F., and Tukey, J. (1991). Fundamentals of Exploratory Analysis of Variance. Wiley, New York, page 71.* 
 
@@ -765,15 +1482,27 @@ Este data set contiene dos columnas:
 * Rate (interés): tasa de interés en la compra de coches a crédito 
 * City (ciudad) : la ciudad en la que se observó la tasa de interés para distintos concesionarios (codificada a enteros). Tenemos observaciones de  6 ciudades. 
 
-```{r}
+
+```r
 datos_interes=read.table(
   "https://www.itl.nist.gov/div898/education/anova/newcar.dat",
   skip=25)
 # salto las 25 primeras líneas del fichero,son un preámbulo qiue explica los datos.
 names(datos_interes)=c("interes","ciudad")
 str(datos_interes)
+```
+
+```
+## 'data.frame':	54 obs. of  2 variables:
+##  $ interes: num  13.8 13.8 13.5 13.5 13 ...
+##  $ ciudad : int  1 1 1 1 1 1 1 1 1 2 ...
+```
+
+```r
 boxplot(interes~ciudad,data=datos_interes)
 ```
+
+<img src="Entrega3_ENUNCIADO_SOLUCION_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 Se pide:
 
@@ -818,16 +1547,80 @@ $$
 
 **Apartado 3**
 
-El siguiente código realiza un test KS con corrección de Lillie para la normalidad de la variable Rate en cada una  de la seis ciudades 
+El siguiente código realiza un test KS con corrección de Llillie para la normalidad de la variable Rate en cada una  de la seis ciudades 
 
-```{r}
+
+```r
 library(nortest)
 lillie.test(datos_interes$interes[datos_interes$ciudad==1])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  datos_interes$interes[datos_interes$ciudad == 1]
+## D = 0.22384, p-value = 0.2163
+```
+
+```r
 lillie.test(datos_interes$interes[datos_interes$ciudad==2])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  datos_interes$interes[datos_interes$ciudad == 2]
+## D = 0.22884, p-value = 0.1903
+```
+
+```r
 lillie.test(datos_interes$interes[datos_interes$ciudad==3])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  datos_interes$interes[datos_interes$ciudad == 3]
+## D = 0.19145, p-value = 0.4459
+```
+
+```r
 lillie.test(datos_interes$interes[datos_interes$ciudad==4])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  datos_interes$interes[datos_interes$ciudad == 4]
+## D = 0.11264, p-value = 0.9852
+```
+
+```r
 lillie.test(datos_interes$interes[datos_interes$ciudad==5])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  datos_interes$interes[datos_interes$ciudad == 5]
+## D = 0.20021, p-value = 0.3743
+```
+
+```r
 lillie.test(datos_interes$interes[datos_interes$ciudad==6])
+```
+
+```
+## 
+## 	Lilliefors (Kolmogorov-Smirnov) normality test
+## 
+## data:  datos_interes$interes[datos_interes$ciudad == 6]
+## D = 0.3494, p-value = 0.002236
 ```
 
 No podemos rechazar la normalidad con el lillie.test en las 5 primeras ciudades, pero parece que la última está lejos de ser normal.
@@ -846,9 +1639,17 @@ $$
 
 con el test de Levene (o el de Bartlett)
 
-```{r}
+
+```r
 library(car)
 print(leveneTest(datos_interes$interes~as.factor(datos_interes$ciudad)))
+```
+
+```
+## Levene's Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(>F)
+## group  5  1.2797 0.2882
+##       48
 ```
 El test de levene nos da un $p$-valor superior a 0.28 aceptamos la igualdad de varianzas
 
@@ -856,19 +1657,47 @@ El test de levene nos da un $p$-valor superior a 0.28 aceptamos la igualdad de v
 
 Resolvemos el ANOVA con el código siguiente
 
-```{r}
+
+```r
 summary(aov(datos_interes$interes~as.factor(datos_interes$ciudad)))
+```
+
+```
+##                                 Df Sum Sq Mean Sq F value  Pr(>F)   
+## as.factor(datos_interes$ciudad)  5  10.95  2.1891   4.829 0.00117 **
+## Residuals                       48  21.76  0.4533                   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 El $p$-valor es muy bajo 0.00117 rechazamos la igualdad de las seis medias, al menos hay dos distintas.
 
 Comprobamos por gusto el $p$-valor a partir de  los datos del summary
 
-```{r}
+
+```r
 Fest=2.1891/0.4533
 Fest
+```
+
+```
+## [1] 4.829252
+```
+
+```r
 1-pf(Fest,5,48)
+```
+
+```
+## [1] 0.001174782
+```
+
+```r
 pf(Fest,5,48,lower.tail = FALSE)
+```
+
+```
+## [1] 0.001174782
 ```
 
 
@@ -877,8 +1706,25 @@ pf(Fest,5,48,lower.tail = FALSE)
 Comparemos las medias dos a dos son 15 comparaciones
 
 
-```{r}
+
+```r
 pairwise.t.test(datos_interes$interes,as.factor(datos_interes$ciudad),p.adjust.method = "holm")
+```
+
+```
+## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  datos_interes$interes and as.factor(datos_interes$ciudad) 
+## 
+##   1      2      3      4      5     
+## 2 0.5781 -      -      -      -     
+## 3 1.0000 0.3330 -      -      -     
+## 4 1.0000 0.4651 1.0000 -      -     
+## 5 1.0000 0.0926 1.0000 1.0000 -     
+## 6 0.0353 1.0000 0.0148 0.0244 0.0028
+## 
+## P value adjustment method: holm
 ```
 
 
@@ -894,7 +1740,7 @@ Tenemos que rechazar la igualdad de medias entre la  ciudad  2 con la 5  y la de
 
 
 
-## Problema `r cuenta()`: Cuestiones cortas
+## Problema 7: Cuestiones cortas
 
 * Cuestión 1: Supongamos que conocemos el $p$-valor de un contraste. Para que valores de nivel de significación $\alpha$ RECHAZAMOS la hipótesis nula.
 * Cuestión 2: Hemos realizado un ANOVA de un factor con 3 niveles, y hemos obtenido un $p$-valor de 0.001.
@@ -925,25 +1771,35 @@ $D=\left(\begin{array}{cc} 1  &  1.2\\1.2  &  1\end{array}\right)$.
 
 **Cuestion 3**:   pues son 
 
-```{r}
+
+```r
 probs=c(1/6,1/6,1/6,1/6,1/6,1/6)
 frec.esp=300*probs
 frec.esp
 ```
 
+```
+## [1] 50 50 50 50 50 50
+```
+
 **Cuestion 4**
-$SS_E=SS_{Total}-SS-{Tr}=256.6-60.3=`r 256.6-60.3`. 
+$SS_E=SS_{Total}-SS-{Tr}=256.6-60.3=196.3. 
 
 El número de observaciones totales  es $N=11\cdot 6=66$ y el número de niveles del factor es $k=6$.
 
- El estimador de la varianza conjunto $\sigma^2$ es $MS_E=\frac{SS_e}{N-k}=\frac{196.3}{66-6}=`r 196.3/11`.$
+ El estimador de la varianza conjunto $\sigma^2$ es $MS_E=\frac{SS_e}{N-k}=\frac{196.3}{66-6}=17.8454545.$
  
  ***Cuestión 5** 
  
-```{r}
+
+```r
 x=c(1,3,4,4)
 y=c(2,4,12,6)
 cor(x,y)
+```
+
+```
+## [1] 0.7637626
 ```
 
 

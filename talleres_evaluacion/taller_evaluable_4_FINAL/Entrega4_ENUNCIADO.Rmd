@@ -3,11 +3,11 @@ title: "Entrega 4  y FINAL. Problemas y Talleres MATIII Estadística grado infor
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
   pdf_document:
     number_sections: yes
+    toc: yes
+  html_document:
+    df_print: paged
     toc: yes
   word_document:
     toc: yes
@@ -81,7 +81,7 @@ Antes de descargarlo, visualizar el fichero desde el navegador, para saber cómo
 
 
 
-1. ¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas?  Sea cual sea la respuesta justificad que parte del código la confirma. 
+1. ¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas? Justificar la respuesta con el correspondiente código en R comentado.
 2. Escribid  formalmente la hipótesis nula y la alternativa. Calcular la tabla de ANOVA y resuelve el test de forma manual. 
 3. Calcular la tabla de ANOVA y resuelve el test con la función `aov` de R.
 4. Haced una comparación de pares  con la función adecuada de R  para la corrección del holm al nivel de significación $\alpha=0.1$. Interpreta el resultado.
