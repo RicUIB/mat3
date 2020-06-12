@@ -1,0 +1,70 @@
+---
+title: "Comentarios finales MATIII"
+output: 
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+
+
+
+# Comentarios finales MATIII
+
+
+
+##  Fase 3 final Proyecto 
+
+* LA FASE FINAL DEL PROYECTO se  entrega UNA sola vez. O bien el día 12  de junio o el 10 de julio (fechas de los controles de junio y el de recuperación de julio)
+* SOLO SE ENTREGA UNA VEZ  (no es recuperable) y la nota no varía.
+* Los que entreguen en junio y aprueben el examen en junio  tendrán la calificación final  en junio. EL resto se esperará a después del 10 de julio para saber la nota final.
+
+
+
+## Control final   12 de junio y recuperación 10 de julio
+
+
+Pistas generales 
+
+* Son unos  6 o 7 problemas cortos.
+* Se puntúa sobre 10 y  hay que obtener un 4 para que promedie  con las otras notas.
+* Si no se obtiene un 4 en junio se puede recuperar en julio.
+* Si se suspende por no obtener u 4 en el control la nota final es el mínimo entre de la nota promedio y 4.5.
+* Hay  de 3 a 4 puntos de preguntas de la parte de probabilidad y variables aleatorias y de 6 a 7 puntos de la parte de inferencia.
+* Los problemas son muy parecidos a los de los talleres y ejemplos resueltos. Hay bastante de código e interpretación de código.
+* Se puede contestar (o se debe) en un Rmd y compilar a pdf o html. También si la pregunta lo  propicia (por ejemplo resolver una integral) se puede hacer manualmente en un folio y escanear o fotografiar.
+* El examen dura 3 horas,
+
+
+# Observaciones sobre el control final debidas a la COVID19
+
+Estimados alumnos, en referencia al próximo examen final de la asignatura, que se realizará en la modalidad no presencial,
+queríamos informaros de lo siguiente:
+
+- El examen consistirá en la resolución de una serie de problemas, de manera individual y sin ayuda externa.
+
+- Se permitirá el uso del material de la asignatura disponible en  Aula Digital.
+
+- Los ejercicios deberán resolverse a mano y se fotografiarán o escanearán para subirlos a una Tarea (Tasca) de Aula Digital.
+
+- Para aquellos ejercicios en los que se solicite código R, éste deberá adjuntarse en formato Rmarkdown (fichero .Rmd) y también en formato .html.
+
+- Los profesores se reservan el derecho a utilizar la herramienta Turnitin para detectar plagios entre los ejercicios entregados por los alumnos.
+
+- No se permite la realización del examen en grupo. Los profesores verificarán que las entregas se realizan desde direcciones IP diferentes.
+
+- Si se tienen indicios de copia, siguiendo el reglamento académico, se suspenderá la asignatura a todos los alumnos implicados
+
+- La duración del examen será de 3 horas. Este tiempo incluye la entrega de los ejercicios a través de Aula Digital.
+
+
+
+- Durante el examen se abrirá un chat o un BBCollaborate en Aula Digital en el que se resolverán las dudas de los alumnos y se harán aclaraciones sobre el enunciado. Todos los alumnos deberán estar conectados al chat mientras dure del examen.
+
+
+
+Los profesores de la asignatura,
+Ricardo Alberich
+José Luis Lisani
+
+
+

@@ -1,13 +1,13 @@
 ---
-title: "Entrega 4  y FINAL. Problemas y Talleres MATIII Estadística grado informática 2019-2020"
+title: "Soluciones PRELIMINARES: Entrega 4  y FINAL. Problemas y Talleres MATIII Estadística grado informática 2019-2020"
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  pdf_document: 
+  html_document: 
     number_sections: yes
     toc: yes
     toc_depth: 4
-  html_document: 
+  pdf_document: 
     number_sections: yes
     toc: yes
     toc_depth: 4
@@ -22,7 +22,7 @@ urlcolor: blue
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,warning=FALSE,message = FALSE)
 library(tidyverse)
 options(scipen=999)
 contador=0
@@ -39,7 +39,7 @@ Cambien podéis incluir capturas de problemas hechos en papel. Cada pregunta val
 
 ## Problema `r cuenta()`: Contraste de proporciones de dos muestras independientes.
 
-Queremos comparar las proporciones de aciertos de dos redes neuronales que detectan tipos si una foto con un móvil de una avispa es una [avispa velutina o asiática] (https://es.wikipedia.org/wiki/Vespa_velutina). Esta avispa en una especie invasora y peligrosa por el veneno de su picadura.
+Queremos comparar las proporciones de aciertos de dos redes neuronales que detectan tipos si una foto con un móvil de una avispa es una [avispa velutina o asiática](https://es.wikipedia.org/wiki/Vespa_velutina). Esta avispa en una especie invasora y peligrosa por el veneno de su picadura.
 Para ello disponemos de una muestra de 1000 imágenes de insectos etiquetadas como avispa velutina y no velutina.
 
 [Aquí tenéis el acceso a los datos](http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina). Cada uno está en fichero los aciertos están codificados  con 1 y los fallos con 0.
@@ -48,11 +48,11 @@ Para ello disponemos de una muestra de 1000 imágenes de insectos etiquetadas co
 Se pide:
 
 1. Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.
-2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1  son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.(**vale doble**)
+2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1  son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.
 3. Calculad e interpretar los intervalos de confianza para la diferencia de proporciones asociados al test anterior, con funciones de R. 
 
 
-### Pre Solución
+### Solución
 
 
 ```{r}
@@ -70,43 +70,60 @@ n1=length(algoritmo1$V1)
 n1
 n2=length(algoritmo2$V1)
 n2
-aciertos_absolutos_algorimo1=table(algoritmo1)["1"]
-aciertos_absolutos_algorimo1
+aciertos_absolutos_algoritmo1=table(algoritmo1)["1"]
+aciertos_absolutos_algoritmo1
 p1=prop.table(table(algoritmo1))["1"]
 p1
 
-aciertos_absolutos_algorimo2=table(algoritmo2)["1"]
-aciertos_absolutos_algorimo2
+aciertos_absolutos_algoritmo2=table(algoritmo2)["1"]
+aciertos_absolutos_algoritmo2
 p2=prop.table(table(algoritmo2))["1"]
 p2
 ```
 
+Después de los cálculos preliminares  si denotamos las proporciones poblacionales de aciertos de cada algoritmo por $p_1$  y $p_2$ respectivamentes,  el  contraste que nos piden es  
+
+
+$$
+\left\{
+\begin{array}{ll}
+H_0: & p_1=p_2\\
+H_1: & p_1>p_2\\
+\end{array}
+\right.
+$$
+
+
+estamos ante un diseño de comparación de proporciones con muestras independientes. Con R lo podemos resolver con el `fisher.test` o con el `prop.test`
+
 ```{r}
-x=matrix(c(aciertos_absolutos_algorimo1,n1-aciertos_absolutos_algorimo1,aciertos_absolutos_algorimo2,n2-aciertos_absolutos_algorimo2),ncol=2,byrow=FALSE)
+x=matrix(c(aciertos_absolutos_algoritmo1,n1-aciertos_absolutos_algoritmo1,
+           aciertos_absolutos_algoritmo2,n2-aciertos_absolutos_algoritmo2),
+         ncol=2,byrow=FALSE)
 x
-```
-
-
-
-```{r}
 fisher.test(x,alternative="greater",conf.level=0.95)
 ```
 
 
 
 ```{r}
-prop.test(c(aciertos_absolutos_algorimo1,aciertos_absolutos_algorimo2), c(n1,n2),alternative="greater",conf.level=0.95)
+c(aciertos_absolutos_algoritmo1,aciertos_absolutos_algoritmo2)
+c(n1,n2)
+prop.test(c(aciertos_absolutos_algoritmo1,aciertos_absolutos_algoritmo2), c(n1,n2),alternative="greater",conf.level=0.95)
 ```
 
 
+Con ambos test obtenemos $p$ valores altos (el más pequeño es el de fisher y es mayor que $0.4$, así que no podemos rechazar  que las proporciones de aciertos de los dos algoritmos sean  iguales contra que la proporción de aciertos del algoritmo 1 es mejor  que la del 2.
+
+
+El intervalo  de confianza asociado a este test  es 
 
 ```{r}
-fisher.test(x,alternative="greater",conf.level=0.95)$conf.int
-prop.test(c(aciertos_absolutos_algorimo1,aciertos_absolutos_algorimo2), c(n1,n2),alternative="greater",conf.level=0.95)$conf.int
+prop.test(c(aciertos_absolutos_algoritmo1,aciertos_absolutos_algoritmo2), c(n1,n2),alternative="greater",conf.level=0.95)$conf.int
 ```
 
 
-
+luego con una probabilidad del 95\% la $p_1-p_2> -1$  contiene el 0 y no podemos despreciar que sean iguales contra que $p_1>p_2.$
 
 ## Problema `r cuenta()` : Contraste de proporciones de dos muestras emparejadas.
 
@@ -115,13 +132,13 @@ En el problema anterior hemos decidido quedarnos con el mejor de los algoritmos 
 
 
 1. Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.
-2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmoalfa  son iguales que las del algoritmo beta. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.
+2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo alfa  son iguales que las del algoritmo beta. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.
 
 
 
-### Pre Solución
+### Solución
 
-
+Cargamos los datos y hacemos los cálculos preliminares
 
 ```{r}
 algoritmoalfa=read.table("http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina2/algoritmo_alpha.csv")
@@ -130,12 +147,28 @@ algoritmobeta=read.table("http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina2/al
 
 
 
+El test que nos piden es 
+
+$$
+\left\{
+\begin{array}{ll}
+H_0: & p_{\alpha}=p_{\beta}\\
+H_1: & p_{\alpha}\not=p_{\beta}\\
+\end{array}
+\right.
+$$
+
+Es un diseño de muestras emparejadas y tenemos que utilizar el `mcnear.test`:
+
+
 ```{r}
 X=table(algoritmoalfa$V1,algoritmobeta$V1)
 X
 mcnemar.test(X)
 ```
 
+
+El $p$-valor es 0.1356 no podemos rechazar la igualdad de la proporción de aciertos.
 
 ## Problema `r cuenta()` : ANOVA comparación media puntuaciones según fabricante.
 
@@ -165,7 +198,7 @@ Antes de descargarlo, visualizar el fichero desde el navegador, para saber cómo
 
 
 
-### Pre solución
+### Solución
 
 
 ```{r}
@@ -178,19 +211,60 @@ df$manufacturer=as.factor(df$manufacturer)
 table(df$manufacturer)
 ```
 
+
+
+Tenemos que comprobar la normalidad de la distribución de  la muestra para cada nivel del factor $i=1,2,3,4,5,6$; el test es 
+
+
+
+$$
+\left\{
+\begin{array}{ll}
+H_0: & \mbox{la distribución de los datos  en el nivel $F_i$ es normal,}\\
+H_1: & \mbox{la distribución de los datos en el nivel $F_i$ no es normal,}\\
+\end{array}
+\right.
+$$
+
+
 ```{r}
 library(nortest)
-lillie.test(df$score[df$manufacturer=="F1"])
+# El test KS_Lillie para en nivel "F1"
+#lillie.test(df$score[df$manufacturer=="F1"])
+sapply(levels(df$manufacturer), FUN=function(x) {print(lillie.test(df$score[df$manufacturer==x]))})
+# También podemos hacer un bucle clásico
+#for(Fabricante in levels(df$manufacturer)){
+#print(lillie.test(df$score[df$manufacturer==Fabricante]))
+#}
+```
 
-for(Fabricante in levels(df$manufacturer)){
-print(lillie.test(df$score[df$manufacturer==Fabricante]))
-}
-  
+El nivel "F1" y "F6" dan valores pequeños no podemos asegurar la normalidad  en estos casos.
 
-sapply(levels(df$manufacturer), FUN=function(x) {lillie.test(df$score[df$manufacturer==x])})
+Nos aseguramos con el ómnibus test de D'Agostino
+
+```{r}
+library(fBasics)
+dagoTest(df$score[df$manufacturer=="F1"])
+
+dagoTest(df$score[df$manufacturer=="F6"])
 
 
 ```
+Parece que no podemos rechazar la normalidad para los casos dudosos.
+
+
+Ahora realizamos el test de comparación de medias  $\mu_i$ para $i=1,2,3,4,5,6$ son las medias para cada nivel del factor.
+
+
+
+$$
+\left\{
+\begin{array}{ll}
+H_0: & \mu_1=\mu_2=\mu_3=\mu_4=\mu_5=\mu_6\\
+H_1: & \mbox{no todas la medias son iguales,}\\
+\end{array}
+\right.
+$$
 
 
 
@@ -199,17 +273,38 @@ sapply(levels(df$manufacturer), FUN=function(x) {lillie.test(df$score[df$manufac
 summary(aov(df$score~df$manufacturer))
 ```
 
+Como el $p$-valor es  muy pequeño NO podemos aceptar que las 6 medias sean iguales
+
+
+
+
+
+Ahora tenemos que contrastar que pares de medias dos a dos  son iguales y ajustar  los $p$-valores con el ajuste del $p$-valor por el método de Holm
 
 ```{r}
 pairwise.t.test(df$score,df$manufacturer,p.adjust.method = "holm")
 ```
 
 
+
+Comparamos los $p$-valores con $0.05$ y aceptamos que las medias  de los niveles $F_4$, $F_6$ y $F_5$ son iguales dos a dos,  también son iguales la media del $F_1$ con el $F_2$, y la media del nivel $F_2$ con el $F_3$. EL resto de comparaciones  tienen $p$-valores bajos así que no podemos aceptar la igualdad de medias.
+
+
+
+
+Ahora comparamos las medias  por grupos de igualdades  con el test de Duncan
+
 ```{r}
 library(agricolae)
 resultado.anova=aov(df$score~df$manufacturer)
 duncan.test(resultado.anova,"df$manufacturer",group=TRUE)$group
 ```
+
+
+
+Obtenemos tres grupos el a dice la media de $\mu_3=mu_2$ el b dice que $\mu_2=\mu_1$ y el c dice que $\mu_6=\mu_4=\mu_5$. Obtenemos conclusiones similares al test de comparación de medias.
+
+
 
 
 ## Problema `r cuenta()`: Regresión lineal simple.
@@ -235,13 +330,14 @@ $\left\{\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\ri
 
 
 
-### Pre solución
+### Solución
 
+Faltan añadir los NECESARIOS COMENTARIOS.
 
 ```{r}
 x=c(-2,-1,2,0,1,2)
 y=c(-7, -5,  5, -3,  3.0,  4)
-sol_lm=(lm(y~x))
+sol_lm=lm(y~x)
 summary(sol_lm)
 ```
 
@@ -257,6 +353,7 @@ b1=sxy/sdx^2
 b1
 b0=mediay-b1*mediax
 b0
+sol_lm$coefficients
 c(b0,b1)==sol_lm$coefficients# dan distintos errores de redondeo
 near(c(b0,b1),sol_lm$coefficients)# opcional
 ```
@@ -264,17 +361,21 @@ near(c(b0,b1),sol_lm$coefficients)# opcional
 
 
 ```{r}
+sol_lm$fitted.values
 recta=function(x) b0+b1*x
 y_est=recta(x)
-predict(sol_lm,newdata = data.frame(x))
+y_est
+predict(sol_lm,newdata = data.frame(x=x))
 ```
 
 
 ```{r}
+y
+y_est
 e=y-y_est
 e
 sol_lm$residuals
-mean(e) # es cero, pero por eerror de redondeo no da exacto.
+mean(e) # es cero, pero por error de redondeo no da exacto.
 SSE=sum(e^2)
 SSE
 n=length(x)
@@ -283,7 +384,7 @@ S2=SSE/(n-2)#estimacion_var_error
 S2
 S=sqrt(S2)# Residual standard error: 1.165
 S
-
+round(S,3) # con los mismos decimales da lo mismo
 ```
 
 
@@ -305,10 +406,19 @@ x             3.0750     0.3189   9.642 0.000647 ***
 ```
 
 
+```{r out.width = "400px"}
+knitr::include_graphics("formulas_regre.PNG")
+```
+
+
+
+
 ```{r}
 SST=sum((y-mean(y))^2)
 SST
-mean(y_est)==mean(y)#media estimados regresion igual a media y
+mean(y_est)
+mean(y)#media estimados regresion igual a media variable y
+
 SSR=sum((y_est-mean(y))^2)
 SSR
 SSE# ya lo había a calculado
@@ -375,4 +485,7 @@ Se pide:
 3. Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos.
 
 
+### Solución
+
+Pendiente.
 
