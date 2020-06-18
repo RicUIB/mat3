@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.5)  18 JUN 2020 20:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.6.5)  18 JUN 2020 20:29
 entering extended mode
 **./Entrega4_ENUNCIADO_SOLUCIONES.tex
 (Entrega4_ENUNCIADO_SOLUCIONES.tex
@@ -435,21 +435,170 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 114.
 LaTeX Info: Redefining \pageref on input line 114.
 LaTeX Info: Redefining \nameref on input line 114.
-! I can't write on file `Entrega4_ENUNCIADO_SOLUCIONES.pdf'.
-Please type another file name for output
-! Emergency stop.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+16.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+16.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+116.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+116.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 116.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 116.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 116.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 116
+.
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (C:\Users\t169\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 116
+.
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (C:\Users\t169\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+\tf@toc=\write4
+\openout4 = `Entrega4_ENUNCIADO_SOLUCIONES.toc'.
+
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+59.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 160.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 160.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 160.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 171.
+[1
+
+{C:/Users/t169/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+309.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [2]
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 350--350
+[]\T1/lmtt/m/n/10 ## data:  c(aciertos_absolutos_algoritmo1, aciertos_absolutos
+_algoritmo2) out of c(n1, n2)[] 
+ []
+
+[3] [4] [5] [6] [7] [8] [9] [10]
+<formulas_regre.png, id=102, 695.09688pt x 155.58125pt>
+File: formulas_regre.png Graphic file (type png)
+<use formulas_regre.png>
+Package pdftex.def Info: formulas_regre.png  used on input line 1141.
+(pdftex.def)             Requested size: 401.50189pt x 89.86684pt.
+[11 <./formulas_regre.png>]
+Overfull \hbox (112.99329pt too wide) in paragraph at lines 1279--1279
+[]\T1/lmtt/m/n/10 ##  $ frequency: int  35159835 106649769 40711748 22648832 12
+617832 8188854 6438634 4690068 4954649 3731928 ...[] 
+ []
+
+[12] [13]
+<Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-1.pdf, id=12
+3, 469.755pt x 325.215pt>
+File: Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-1.pdf G
+raphic file (type pdf)
+<use Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-1.pdf>
+Package pdftex.def Info: Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnam
+ed-chunk-26-1.pdf  used on input line 1412.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[14]
+<Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-2.pdf, id=12
+8, 469.755pt x 325.215pt>
+File: Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-2.pdf G
+raphic file (type pdf)
+<use Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-2.pdf>
+Package pdftex.def Info: Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnam
+ed-chunk-26-2.pdf  used on input line 1421.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[15 <./Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-1.pdf>
+]
+<Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-3.pdf, id=13
+9, 469.755pt x 325.215pt>
+File: Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-3.pdf G
+raphic file (type pdf)
+<use Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-3.pdf>
+Package pdftex.def Info: Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnam
+ed-chunk-26-3.pdf  used on input line 1430.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[16 <./Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-2.pdf>
+] [17 <./Entrega4_ENUNCIADO_SOLUCIONES_files/figure-latex/unnamed-chunk-26-3.pd
+f>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+542.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+! Missing { inserted.
 <to be read again> 
-                   \edef 
-l.114 \begin{document}
-                       
+                   \mathop 
+l.1547   \(10^\log
+                  _{10}(frequency)=10^{b_0}\cdot 10^{b_1\cdot degree}\) 
 Here is how much of TeX's memory you used:
- 13142 strings out of 480795
- 192436 string characters out of 2905361
- 500490 words of memory out of 3000000
- 28983 multiletter control sequences out of 15000+200000
- 535494 words of font info for 27 fonts, out of 3000000 for 9000
+ 13650 strings out of 480795
+ 202169 string characters out of 2905361
+ 510490 words of memory out of 3000000
+ 29285 multiletter control sequences out of 15000+200000
+ 586672 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,1n,42p,830b,271s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,42p,830b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 !  ==> Fatal error occurred, no output PDF file produced!
 

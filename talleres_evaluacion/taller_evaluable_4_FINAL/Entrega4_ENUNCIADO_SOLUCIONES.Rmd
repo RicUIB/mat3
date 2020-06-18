@@ -3,8 +3,6 @@ title: "Soluciones PRELIMINARES: Entrega 4  y FINAL. Problemas y Talleres MATIII
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
-  word_document:
-    toc: yes
   html_document: 
     number_sections: yes
     toc: yes
@@ -13,6 +11,8 @@ output:
     number_sections: yes
     toc: yes
     toc_depth: 4
+  word_document:
+    toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
 citecolor: blue
