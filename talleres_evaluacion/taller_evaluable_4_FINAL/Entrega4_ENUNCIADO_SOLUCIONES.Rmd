@@ -3,6 +3,8 @@ title: "Soluciones PRELIMINARES: Entrega 4  y FINAL. Problemas y Talleres MATIII
 author: "Ricardo Alberich"
 date: "13-05-2020"
 output:
+  word_document:
+    toc: yes
   html_document: 
     number_sections: yes
     toc: yes
@@ -11,8 +13,6 @@ output:
     number_sections: yes
     toc: yes
     toc_depth: 4
-  word_document:
-    toc: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
 citecolor: blue
@@ -487,5 +487,82 @@ Se pide:
 
 ### Solución
 
-Pendiente.
+**Apartado 1**
+
+Los modelos son 
+
+```{r}
+sol1=lm(frequency~ degree,data=data_links_central)
+summary(sol1)
+sol2=lm(log10(frequency)~ degree,data=data_links_central)
+summary(sol2)
+sol3=lm(log10(frequency)~ log10(degree),data=data_links_central)
+summary(sol3)
+```
+
+Así que 
+
+* el primero es $frequency = b_0+b_1\cdot degree$ que el el modelo LINEAL que resuelve la fución `lm`.
+* el segundo es $\log_{10}(frequency) = b_0+b_1\cdot degree$ que operando adecuadamente es $10^\log_{10}(frequency)=10^{b_0}\cdot 10^{b_1\cdot degree}$ operando obtenemos que 
+el modelo final es un modelo EXPONENCIAL $frequency=10^{b_0}\cdot \left(10^{b_1}\right)^{degree}$.
+* el tercer modelo es $\log_{10}(frequency) = b_0+b_1\cdot \log_{10}(degree)$ que despejando es $10^\log_{10}(frequency)=10^{b_0}\cdot \left(10^\left(\log_{10}(degree)\righ)\right)^{b_1}$ operando obtenemos que 
+el modelo final es un modelo POTENCIAL $frequency=10^{b_0}\cdot degree^{b_1}.$
+
+
+Los dibujos con el título adecuado son
+
+```{r}
+plot(data_links_central,main="Modelo lineal")
+abline(sol1,col="red")
+plot(data_links_central,main="Modelo exponencial",log="y")
+abline(sol2,col="red")
+plot(data_links_central,main="Modelo potencial",log="xy")
+abline(sol3,col="red")
+```
+
+
+Con lo que hemos visto el modelo con mejor $R^2$ es el mejor
+
+
+```{r}
+summary(sol1)$r.squared
+summary(sol2)$r.squared
+summary(sol3)$r.squared
+```
+
+Así  que  el mejor modelo es el tercero el pontecial pues su $R^2$ es  muy alto
+
+**Apartado 3**
+
+Calcularemos la ecuación del modelo para las unidades originales sin transformaciones logarítmicas.
+
+Recordemos el  resultado de la `sol3`
+
+```{r}
+summary(sol3)
+```
+
+Los estimadores son $b_0=8.722036$ y $b_1=-2.170129$ el modelo es $frequency=10^{b_0}\cdot degree^{b_1}$. Sustitutendo los valores el modelo obtenemos $frequency=10^{8.722036}\cdot degree^{-2.170129}$, finalmente operando 
+
+$$frequency=`r 10^(8.722036)`\cdot degree^{-2.170129}.$$
+
+
+
+
+
+No se pedía en el ejercicio pero hacemos el dibujo de los datos y la ecuación en las unidades originales
+
+
+
+
+```{r}
+frequency=data_links_central$frequency
+degree=data_links_central$degree
+potencial=function(x) 10^(8.722036)*x^(-2.170129)
+plot(degree,frequency,main="Modelo potencial",xlab="degree",ylab="frequency")
+curve(potencial,xlim=c(0,1000),ylim=c(0,3731928),col="red",add=TRUE)
+```
+
+
+
 
