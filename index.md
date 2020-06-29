@@ -1,7 +1,7 @@
 ---
 title: "Planificación Semanal MAT3 2019-2020"
 author: "Ricardo"
-date: "01 junio, 2020"
+date: "29 junio, 2020"
 output:
   html_document: 
     keep_md: yes
@@ -25,10 +25,8 @@ Iré informando sobre la marcha en  Aula digital de la UIB o en otros foros que 
 ### ENTREGAS Y CONTROLES PENDIENTES
 
 * CONTROL FINAL día 12 de junio  a las 17:00 (duración aproximada 3 horas) por Aula Digital.
-* CONTROL FINAL RECUPERACIÓN día 10 de julio  a las 9:00 (duración aproximada 3 horas ) por Aula Digital.
-*  ENTREGA proyecto FINAL  o bien el día día 12 de junio  y  o el día  10 de julio.
-
-* (PROVISONAL) Entrega de problemas 4 (y última) día 11 de junio.
+* CONTROL FINAL RECUPERACIÓN día 17 de julio  a las 9:00 (duración aproximada 3 horas ) por Aula Digital.
+* ENTREGA proyecto FINAL  o bien el día día 12 de junio  y  o el día  17 de julio alas 23:55.
 
 
 ### **Semana 15 del  1 de junio  al  7 de junio**
