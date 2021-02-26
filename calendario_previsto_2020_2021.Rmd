@@ -42,7 +42,8 @@ Problemas propuestos:
 * Prerrequisitos [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%200%20-%20Combinatoria.Rmd), [Pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0---Combinatoria.pdf). Soluciones [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0%20-%20Combinatoria_SOLUCIONES.Rmd), [Pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0%20-%20Combinatoria_SOLUCIONES.pdf), [html](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0%20-%20Combinatoria_SOLUCIONES.html)
 * Probabilidad [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%201%20-%20Probabilidad.Rmd), [Pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-1---Probabilidad.pdf). Soluciones no hay.
 
-* Trabajo en casa: Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
+* Trabajo en casa: 
+  + Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
   + [Logística de R](https://aprender-uib.github.io/AprendeR1/chap-0.html)
   + [La calculadora](https://aprender-uib.github.io/AprendeR1/chap-calc.html)
   + [Un aperitivo: Introducción a la regresión lineal](https://aprender-uib.github.io/AprendeR1/chap-lm.html)
