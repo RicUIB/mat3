@@ -4,10 +4,10 @@ title: Taller 2 entrega problemas  - Probabilidad, Variables aleatoria , distrib
 author: "SOLUCIONES DEL TALLER 2"
 date: ''
 output:
-  word_document:
-    toc: yes
   pdf_document:
     number_sections: yes
+    toc: yes
+  word_document:
     toc: yes
   html_document:
     linkcolor: red
@@ -86,7 +86,7 @@ Hay que comprobar que:
 La densidad es la derivada de la distribución 
 
 $$
-f_x(t)=(F_X(t))'=
+f_X(t)=(F_X(t))'=
 \left\{
 \begin{array}{ll}
 0, & \mbox{si } t<-1,\\
@@ -111,7 +111,7 @@ Nos piden esta probabilidad
 $$
 \begin{array}{rl}
 P\left(-\frac{1}{2}\leq X\leq \frac{1}{2}\right)&=
-P\left(\frac{1}{2}\leq X\right)- P\left(X < -\frac{1}{2}\right)=
+P\left(X\leq \frac{1}{2}\right)- P\left(X < -\frac{1}{2}\right)=
 F_X\left(\frac{1}{2}\right)-F_X\left(-\frac{1}{2}\right)\\
 &=\frac{\frac{1}{2}+1}{2}-
 \frac{-\frac{1}{2}+1}{2}=
