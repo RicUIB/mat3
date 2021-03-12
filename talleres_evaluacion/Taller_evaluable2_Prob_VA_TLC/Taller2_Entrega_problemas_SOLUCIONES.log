@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.8)  12 MAR 2021 13:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.8)  12 MAR 2021 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,32 +602,43 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
 {c:/Users/t169/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
-.map}] [2]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 395.
-
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-00.
+.map}]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+69.
 (c:/Users/t169/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 401.
-[3] [4] [5] [6] [7] (./Taller2_Entrega_problemas_SOLUCIONES.aux)
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 270.
+<Taller2_Entrega_problemas_SOLUCIONES_files/figure-latex/unnamed-chunk-1-1.pdf,
+ id=78, 469.755pt x 325.215pt>
+File: Taller2_Entrega_problemas_SOLUCIONES_files/figure-latex/unnamed-chunk-1-1
+.pdf Graphic file (type pdf)
+<use Taller2_Entrega_problemas_SOLUCIONES_files/figure-latex/unnamed-chunk-1-1.
+pdf>
+Package pdftex.def Info: Taller2_Entrega_problemas_SOLUCIONES_files/figure-late
+x/unnamed-chunk-1-1.pdf  used on input line 284.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[2] [3 <./Taller2_Entrega_problemas_SOLUCIONES_files/figure-latex/unnamed-chunk
+-1-1.pdf>]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 416.
+
+[4] [5] [6] [7] [8] (./Taller2_Entrega_problemas_SOLUCIONES.aux)
 Package rerunfilecheck Info: File `Taller2_Entrega_problemas_SOLUCIONES.out' ha
 s not changed.
 (rerunfilecheck)             Checksum: FC6462B5582E24290AFAF2BF8CE587AB;1249.
  ) 
 Here is how much of TeX's memory you used:
- 12580 strings out of 480930
- 190745 string characters out of 5904275
- 559946 words of memory out of 5000000
- 29432 multiletter control sequences out of 15000+600000
- 454004 words of font info for 119 fonts, out of 8000000 for 9000
+ 12585 strings out of 480930
+ 191247 string characters out of 5904275
+ 556946 words of memory out of 5000000
+ 29439 multiletter control sequences out of 15000+600000
+ 454074 words of font info for 117 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,8n,74p,541b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,8n,74p,541b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/t169/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathi
 t.enc}{c:/Users/t169/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
 c.enc}{c:/Users/t169/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
@@ -649,12 +660,13 @@ TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/t169/AppData/Roamin
 g/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/t169/AppData/Ro
 aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/t169/AppData
 /Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/t169/App
-Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Taller2_Entrega_problemas_SOLUCIONES.pdf (7 pages, 286321 byt
+Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/t169
+/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on Taller2_Entrega_problemas_SOLUCIONES.pdf (8 pages, 311102 byt
 es).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
- 28753 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 28758 words of extra memory for PDF output out of 29859 (max. 10000000)
 

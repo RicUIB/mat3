@@ -136,6 +136,23 @@ Hallar la función de distribución $F_Y(t)$.
 ###  Solución
 
 
+Hagamos el dibujo con R
+
+```{r}
+fY=function(y) { sapply(y, FUN=
+                          function(x) {
+                            if(x>0 & x<1){2*(1-x)} else {0}
+                            }
+                        )}
+
+### cuiidado curve pide que la función tenga la variable de nombre x
+curve(fY(x),xlim=c(-0.25,1.25),xlab="y",
+      ylab=expression("f_Y(y)"), 
+      main="Gráfico de la  función de\n  densidad de la variable Y",
+      col="blue")
+```
+
+
 La punción de distribución es $F_Y(t)=P(Y\leq t)=\int_{-\infty}^t f_Y(y) dy.$
 
 Haremos tres casos 
@@ -183,7 +200,7 @@ impar de intentos sea $0.5$?
 ###  Solución
 
 
-La variable $X=$ numero de intentos PARA conseguir la primera cara sigue una ley $Ge(p)$ pero empezando en 1 pues contamos el intento en el que se obtiene cara. Entonces sabemos que su función de probabilidad es $P_x(x)=P(X=x) (1-p)^{x-1}\cdot p$ para $x=1,2,3,\ldots$ y cero en el resto de casos.
+La variable $X=$ numero de intentos PARA conseguir la primera cara sigue una ley $Ge(p)$ pero empezando en 1 pues contamos el intento en el que se obtiene cara. Entonces sabemos que su función de probabilidad es $P_x(x)=P(X=x)(1-p)^{x-1}\cdot p$ para $x=1,2,3,\ldots$ y cero en el resto de casos.
 
 
 
@@ -191,8 +208,9 @@ En el apartado a) nos piden la probabilidad de lanzamientos impares que es
 
 
 $$
+\displaystyle
 \begin{array}{rl}
-P(X \mbox{ impar})&=\sum_{k=0}^{\infty}P_X(X=2\cdot k+1)=
+P(X \mbox{ impar})&=\displaystyle\sum_{k=0}^{\infty}P_X(X=2\cdot k+1)=
 \sum_{k=0}^{\infty} (1-p)^{(2\cdot k+1)-1}\cdot p\\
 &= p\cdot \sum_{k=0}^{\infty} \left((1-p)^2\right)^{k}=
 p\cdot\frac{1}{1-(1-p)^2}=\frac{p}{1-q^2}\\
@@ -219,7 +237,7 @@ nacido al menos 2 pelirrojos.
 
 ###  Solución
 
-Con los datos del problema sabemnos que $P(\mbox{Pelirrojo})=\frac{1}{1000}$. Suponiendo independencia entre el color del pelo de los  5000 nacimientos la variable 
+Con los datos del problema sabemos que $P(\mbox{Pelirrojo})=\frac{1}{1000}$. Suponiendo independencia entre el color del pelo de los  5000 nacimientos la variable 
 $X=$ número de pelirrojos entre 5000 nacimientos sigue una distribución binomial  $B(n=5000,p=\frac{1}{10000})$. Esta distribución se puede aproximar por una $Po\left(\lambda=n\cdot p=\frac{1}{2}=0.5\right)$.
 
 Aproximando por una Poisson tenemos que  
@@ -450,10 +468,10 @@ Tenemos una muestra  aleatoria simple   $X_1,\ldots X_{n=48}$  de una v.a. $X$ c
 $\sigma^2_X=\frac{(0-a)^2}{12}=\frac{a^2}{12}$ por lo tanto $\sigma^2_x=\frac{a^2}{12}=
 \frac{a}{\sqrt{12}}$.
 
-Entonces $E\left(\sum_{i=1}^{48} X_i\right)=48\cdot \frac{a}{2}=24\cdot a$ , $\sigma^2_{\sum_{i=1}^{48}X_i}=48\cdot \frac{a^2}{12}=4\cdot a^2$ y por lo tanto la deviación típica de la suma es $\sigma_{\sum_{i=1}^{48}X_i}=+\sqrt{\sigma^2_{\sum_{i=1}^{48} X_i}}=\sqrt{4\cdot a^2}=2\cdot a.$
+Entonces $E\left(\sum_{i=1}^{48} X_i\right)=48\cdot \frac{a}{2}=24\cdot a$ , $\sigma^2_{\sum_{i=1}^{48}X_i}=48\cdot \frac{a^2}{12}=4\cdot a^2$ y por lo tanto la desviación típica de la suma es $\sigma_{\sum_{i=1}^{48}X_i}=+\sqrt{\sigma^2_{\sum_{i=1}^{48} X_i}}=\sqrt{4\cdot a^2}=2\cdot a.$
 
 Límite sabemos que 
-Bajo estas condiciones y por el Teorema Central del Límite sabemo  que 
+Bajo estas condiciones y por el Teorema Central del Límite sabemos  que 
 $\sum_{i=1}^{48} X_i$ sigue aproximadamente una distribución $N(24\cdot a, 2\cdot a).$
 
 
