@@ -2,8 +2,8 @@
 title: "Taller Evaluable 1 2020, FIFA 2019"
 date: "3/12/2020"
 output:
-  word_document: default
   html_document: default
+  word_document: default
   pdf_document: default
 ---
 
@@ -19,16 +19,13 @@ Las siguientes preguntas son relativas al data set `players_20.csv`.
 
 Hay que contestar con código R explicar muy brevemente cada salida. Subid a la activada el Rmd y el html. 
 
-Este grupo  de entrega será el  mismo grupo de 3 que el proyecto final.
 
 Rellenad estos datos:
 
-**PONED NOMBRE DEL GRUPO**
+**PONED NOMBRE**
 
 
-*  Apellidos, Nombre Alumno 1
-*  Apellidos, Nombre Alumno 2
-*  Apellidos, Nombre Alumno 3
+*  Apellidos, Nombre Alumno 
 
 ## Pregunta 0
 
