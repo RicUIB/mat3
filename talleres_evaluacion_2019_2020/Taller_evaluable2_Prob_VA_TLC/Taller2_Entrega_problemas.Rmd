@@ -1,0 +1,131 @@
+---
+title: Taller 2 entrega problemas  - Probabilidad, Variables aleatoris , distribuciones
+  notables y Teorema Central del Límite
+author: "PONED LOS NOMBRES"
+date: ''
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#  Taller 2 evaluable. Entrega de problemas
+
+Taller en grupo entregad las soluciones en Rmd y html o pdf. o si lo hacea mano  escaneado ...
+
+## Problema 1
+
+Encuentra un ejemplo de tres sucesos $A,B,C$ tales que $A$ y $B$ sean independientes, pero en cambio no sean condicionalmente independientes dado $C$.
+
+
+###  Solución
+
+
+## Problema 2 
+
+Verificar que:
+
+$$
+F_X (t)=
+\left\{\begin{array}{ll}
+0, & \mbox{si } t<-1,
+ \\
+\frac{t+1}{2}, & \mbox{si } -1\leq
+t\leq 1,
+ \\
+1, & \mbox{si } t> 1,
+\end{array}\right.
+$$
+es una función de distribución y hallar la función de densidad para $X$. Calcular también $P\left(-{1\over 2}\leq X\leq {1\over 2}\right)$.
+
+###  Solución
+
+
+## Problema 3 
+
+Sea $Y$ una variable continua con función de densidad:
+
+$$
+f_Y(y)=
+\left\{\begin{array}{ll}
+2\cdot (1-y), & \mbox{si } 0<y<1,\\ 0, & \mbox{en los otros casos}.
+\end{array}\right.
+$$
+Hallar la función de distribución $F_Y(t)$.
+
+
+###  Solución
+
+
+## Problema 4
+
+Se lanza una moneda al aire hasta que sale  cara. Supongamos que cada  tirada es independiente  de las otras y que la probabilidad de que salga  cara cada vez es $p$. 
+
+* a) Demostrar que la probabilidad de que hagan falta un número impar de lanzamientos (cuenta  el de la cara) es ${p\over 1-q^2}$ donde $q=1-p$. 
+* b) Encontrar  el valor de $p$ tal que la probabilidad de que  necesitemos un número impar de intentos sea $0.6$.
+* c) ¿Existe un valor de $p$ tal que la probabilidad de que haga falta un nombre
+impar de intentos sea $0.5$?
+
+###  Solución
+
+
+## Problema 5
+
+La proporción de niños pelirrojos es 1  cada 10.000. En una gran ciudad  se produjeron 5.000
+nacimientos en 2020, aproximar por la distribución de Poisson la probabilidad
+que ninguno  de los nacidos ese año sea pelirrojo. Aproximar la probabilidad de que nazca  exactamente 1 niño pelirrojo y  la de que hayan
+nacido al menos 2 pelirrojos.
+
+###  Solución
+
+
+## Problema 6
+
+ Las peticiones a un servidor informático llegan a un ritmo de medio de 15 peticiones por segundo.
+Sabemos que el nombre de peticiones que llegan en un segundo es una variable
+aleatoria de Poisson.
+
+* a) Calcular la probabilidad que no lleguen peticiones  en un segundo.
+* b) Calcular la probabilidad que lleguen más de  10 peticiones en un segundo.
+
+
+###  Solución
+
+
+## Problema 7
+
+Tenemos que elegir entre  dos tarjetas gráficas (TG1 y TG2) para entrenar su red neuronal. El tiempo  de vida del la  TG1 se ha modelado según una 
+$N(\mu_1=120000, \sigma_1=140000)$ (la probabilidad de un tiempo de vida negativo es despreciable) y en TG2 según una $N(\mu_2=22000, \sigma_2=1000)$. 
+
+* a) ¿Qué tarjeta elegimos si el tiempo de duración objetivo del sistemas es de  20000 horas? 
+* b) ¿Y si es   de 24000 horas?
+
+
+
+
+## Problema 8
+
+La probabilidad de que un jugador de básquet enceste es $p$.
+¿Cuántos lanzamientos tiene que hacer como mínimo (aproximadamente) para que la probabilidad de
+que la media de aciertos esté a distancia 0.01 de $p$ sea de 0.99?
+
+###  Solución
+
+## Problema 9
+
+Sea $X_1,\ldots,X_n$ con $n = 48$, una muestra aleatoria simple de una variable
+aleatoria uniforme en el intervalo $(0,a)$. Aplicando el Teorema Central del Límite, hallar la probabilidad aproximada de que
+$\sum\limits_{i=1}^n X_i >a$.
+
+
+
+
+
+
+

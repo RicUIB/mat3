@@ -1,0 +1,74 @@
+---
+title: "Datos alumnos, grupos y talleres"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Enunciad: aporta tus datos
+
+Hay que subir el Rmd y el fichero .Robj generado.
+
+Se trata de que incorporéis  vuestros datos (voluntarios) en la  siguiente chunk y luego compiléis para generar un fichero con vuestro nombre y extensión .Robj que contiene la información.
+
+
+**Ayuda  para obtener coordenadas**
+
+[Cómo buscar o ingresar coordenadas de latitud y longitud](https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DAndroid&hl=es-419)
+
+Las podremos en DD (*Decimal Degrees*) por ejemplo el edificio Anselm Turmeda de la UIB tiene coordenadas  39.637346, 2.644849
+
+```{r}
+Apellido1="primer_apellido"
+Apellido2="segundo_apellido"
+Nombre="nombre"
+Nombre_grupo_practicas="Guapos_numero"# poned el nombre inventado del grupo y un código de 4 dígitos para evitar repeticiones 
+nombre_discord="no tengo"
+Residencia="Palma" # cambia a tu lugar de residencia
+DD=c(39.637346, 2.644849) # ejemplo Anselm Turmeda en grados decimales DD
+Numero_hermanos=0 # pon cuantos hermanos tienes: es para hacer un data set
+```
+
+
+#  Guardamos los datos
+
+
+Creamos un data frame con los datos
+
+```{r}
+df_aux=data.frame(Apellido1,Apellido2, Nombre,nombre_discord,Nombre_grupo_practicas,Residencia,Latitud=DD[1],Longitud=DD[2],Numero_hermanos)
+df_aux
+```
+
+
+Los guardamos en un objeto R con nuestro nombre (concatenando apellidos y nombre)
+
+```{r}
+file_name=paste0(c(Apellido1,Apellido2,Nombre,".Robj"),collapse="_")
+file_name
+save(df_aux,file = file_name)
+```
+
+Borramos `df_aux`
+
+```{r}
+rm(list = "df_aux")
+```
+
+Cargamos el `.Robj
+
+
+```{r}
+dir()
+load(file_name)
+```
+
+Volvemos a disponer del objeto 
+
+```{r}
+df_aux
+```
+
