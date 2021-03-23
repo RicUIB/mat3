@@ -1,13 +1,13 @@
 ---
-title:  Engrega 1 problemas MAT3 (estadística) GIN2 2020-2021  - Probabilidad, Variables Aleatorias, Distribuciones
+title:  Taller 1 problemas. MAT3 (estadística) GIN2 2020-2021  - Probabilidad, Variables Aleatorias, Distribuciones
   Notables.
 author: "PONED LOS NOMBRES de grupo de autores"
 date: ''
 output:
-  pdf_document: default
-  word_document: default
   html_document:
     df_print: paged
+  word_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #  Taller1 evaluable. Entrega de problemas
 
-Taller en grupo entregad las soluciones en Rmd y html o pdf. o si lo hacedlas  de forma manual y escanear el resultado, en un solo fichero.
+Taller en grupo entregad las soluciones en ,Rmd y .html o .pdf. o si lo hacedlas  de forma manual y escanear el resultado, en un solo fichero.
 
 ## Problema 1
 
@@ -70,10 +70,10 @@ $$
 
 ## Problema 4
 
-Tenemos un dado, bien balenaceao,  de doce caras numeradas del 1 al 12  ([dodecaedro  dados  de rol](https://es.wikipedia.org/wiki/Dados_de_rol)).
+Tenemos un dado, bien equilibrado,  de doce caras numeradas del 1 al 12  ([dodecaedro  dados  de rol](https://es.wikipedia.org/wiki/Dados_de_rol)).
 
-* a) Calcular la función de probabilidad de la variables $X=$ número de la cara superior del dado en un lanzamiento, cacular E(X) y $Var(X)$.
-* b) Calcular la función de distribución de $X$ y el cunatil $0.4$.
+* a) Calcular la función de probabilidad de la variables $X=$ número de la cara superior del dado en un lanzamiento, calcular E(X) y $Var(X)$.
+* b) Calcular la función de distribución de $X$ y el cuantil $0.4$.
 * c) Si $Y$ es al v.a.que cuenta el número de veces que tiramos el dado hasta obtener el primer $5$ calcular la función de distribución de $Y$
 *  ¿Qué valor tienen $E(X) $ y $Var(X)$.
 
@@ -82,8 +82,8 @@ Tenemos un dado, bien balenaceao,  de doce caras numeradas del 1 al 12  ([dodeca
 
 ## Problema 5
 
-La proporción de niños pelirrojos es 1  cada 100. En  una ciudad   se produjeron 500  nacimientos (indodependientes)
-nacimientos en 2020, modelizad mediante una distribución binomila la variable $X$ = número de niños pelirrrojos nacidos entre los 500 niños. 
+La proporción de niños pelirrojos es 1  cada 100. En  una ciudad   se produjeron 500  nacimientos (independientes)
+nacimientos en 2020, modelad mediante una distribución binomial la variable $X$ = número de niños pelirrojos nacidos entre los 500 niños. 
 Utilizad R para calcular de forma exacta 
 
 * a) La probabilidad de que ninguno  de los nacidos ese año sea pelirrojo.
@@ -121,7 +121,7 @@ $N(\mu_1=100, \sigma_1=300)$ (la probabilidad de un tiempo de ejecución negativ
 ## Problema 8
  En la NBA el [https://es.wikipedia.org/wiki/Jos%C3%A9_Manuel_Calder%C3%B3n](José Calderón) fue en  la temporada  [2008-09 el jugador de baloncesto](https://es.wikipedia.org/wiki/L%C3%ADderes_en_porcentaje_de_tiros_libres_de_la_NBA)  [com mejor porcentaje tiros libres anotados un 98.05\%.
  
-Justificar los calculos con notación matemática y haced el cáculo final   con R
+Justificar los cálculos con notación matemática y haced el cálculo final   con R
 
 * a) ¿Cual  es el valor esperando y la varianza del número tiros hasta aceptar los 10 tiros libres?
 * b) ¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.

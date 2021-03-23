@@ -3,10 +3,10 @@ title: "Proyecto asignatura  Estadística (MAT3) GIN2 Grupos 1 y 3: PARTE 1 y PA
 author: 'Poned los nombres de los autores '
 date: ''
 output:
-  pdf_document: 
+  html_document: 
     toc: yes
     number_sections: yes
-  html_document: 
+  pdf_document: 
     toc: yes
     number_sections: yes
 urlcolor: blue
