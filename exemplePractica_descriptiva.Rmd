@@ -1,0 +1,331 @@
+---
+title: "Exemple Pràctica Estadística"
+author: "José Luis Lisani"
+date: ""
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Dades Airbnb, ciutat: Austin (Texas, USA)
+
+Font: http://insideairbnb.com/get-the-data.html
+
+```{r} 
+library(knitr)
+
+setwd("~/Dropbox/STATIC/Docencia/EstadisticaGINF/curs2019-2020/practicaOrdinador")
+rawdata=read.csv("listingsAustin.csv", stringsAsFactors=FALSE)
+
+
+
+```
+
+<!-- No usar: bloquea ordinador -->
+<!-- ```{r} -->
+<!-- knitr::kable(rawdata,digits = 2,aling="c", -->
+<!--              caption="Dades Airbnb Austin (Texas, USA) Feb. 2020") -->
+<!-- ``` -->
+
+```{r}
+#str(rawdata) 
+```
+
+```{r}
+#head(rawdata) 
+```
+
+Extracció de dades relevants a partir de les dades brutes.
+Per als preus, utilitzar el valor numèric (sense el símbol de $ of €).
+
+```{r}
+data=data.frame(rawdata$neighbourhood, rawdata$property_type, rawdata$accommodates, rawdata$beds, rawdata$bedrooms, rawdata$bathrooms, rawdata$price, rawdata$security_deposit, rawdata$minimum_nights, rawdata$review_scores_rating, rawdata$number_of_reviews, rawdata$host_response_time)
+
+data$rawdata.price = as.numeric(gsub("\\$", "", data$rawdata.price))
+data$rawdata.security_deposit = as.numeric(gsub("\\$", "", data$rawdata.security_deposit))
+
+#data$rawdata.price = as.numeric(gsub(",", "", gsub("\\$", "", data$rawdata.price)))
+#data$rawdata.security_deposit = as.numeric(gsub(",", "", gsub("\\$", "", data$rawdata.security_deposit)))
+
+str(data)
+
+head(data)
+```
+
+
+Renombrar columnes: "Barri", "Tipus", "Capacitat", "Nombre llits", "Nombre habitacions", "Nombre de banys", "Preu", "Dipòsit", "Mínim nombre de nits", "Valoració mitjana", "Nombre de valoracions", "Resposta propietari(a)"
+
+```{r}
+names(data)=c("Barri", "Tipus", "Capacitat", "Nombre llits", "Nombre habitacions", "Nombre de banys", "Preu", "Dipòsit", "Mínim nombre de nits", "Valoració mitjana", "Nombre de valoracions", "Resposta propietari(a)")
+
+head(data)
+```
+
+
+Estadístics:
+
+- per a les variables numèriques: quantitat valors no vàlids, mínim, màxim, mitjana, variància, quartils, mediana
+- per a les variables no numèriques: taules amb quantitat de cada tipus de valors
+
+```{r}
+summary(data)
+```
+
+```{r}
+# variables numèriques
+varnum=c("Capacitat", "Nombre llits", "Nombre habitacions", "Nombre de banys", "Preu", "Dipòsit", "Mínim nombre de nits", "Valoració mitjana", "Nombre de valoracions")
+
+# data frame només amb variables numèriques
+datanum=data[varnum]
+
+```
+
+```{r}
+
+# variable no numèriques
+varnonum=c("Barri", "Tipus", "Resposta propietari(a)")
+
+# data frame només amb variables numèriques
+datanonum=data[varnonum]
+
+```
+
+```{r}
+
+estadistics_varnum=function(x) 
+{
+  N=as.numeric(table(!is.na(x))["TRUE"])
+  NAs=length(x)-N
+
+  return(c(N=N,NAs=NAs,mitjana=mean(x, na.rm=TRUE),variancia=var(x, na.rm=TRUE),
+           des_tip=sd(x, na.rm=TRUE),
+           Q1=quantile(x,0.25, na.rm=TRUE),Q3=quantile(x,0.75, na.rm=TRUE),mediana=median(x, na.rm=TRUE),
+           Max=max(x, na.rm=TRUE),Min=min(x, na.rm=TRUE)))
+}
+
+aux=apply(datanum,2,estadistics_varnum)
+
+knitr::kable(t(round(aux,2)),digits = 2,aling="c",caption="Estadístics bàsics per a les variables numèriques")
+
+```
+
+```{r}
+
+#no funciona
+# for(i in 1:ncol(datanonum)) {
+#   table(datanonum[i])
+# }
+
+table(datanonum[1])
+
+table(datanonum[2])
+
+table(datanonum[3])
+
+
+```
+
+
+
+
+Boxplots i histogrames de totes les variables numèriques, mostrant un mínim de 2 boxplots per fila. Ajustar l'altura dels gràfics perquè no quedin massa petits.
+
+```{r}
+#Aquesta instrucció mostra tots els boxplots en el mateix gràfic, amb la mateixa escala i amb etiquetes 
+#en vertical
+#boxplot(data[varnum], las=2)
+
+#si volem mostrar cada boxplot en la seva escala:
+par(mfrow=c(1,3)) #mostra 3 boxplots per fila
+
+#si volem controlar el tamany de cada boxplot individual:
+# https://www.datamentor.io/r-programming/subplot/
+
+# versió 1
+# for(i in 1:ncol(data)) {
+#   if (names(data)[i] %in% varnum) {
+#     boxplot(data[,i], main = names(data)[i])
+#   }
+# }
+for(i in 1:ncol(datanum)) 
+  boxplot(datanum[,i], main = names(datanum)[i])
+
+#histogrames
+par(mfrow=c(1,3)) #mostra 2 histogrames per fila
+#versió 1
+# for(i in 1:ncol(data)) {
+#   if (names(data)[i] %in% varnum) {
+#     hist(data[,i], main = names(data)[i])
+#   }
+# }
+for(i in 1:ncol(datanum)) 
+  hist(datanum[,i], main = names(datanum)[i])
+
+```
+
+
+Diagrama de tarta dels tipus de vivendes, agrupant com a "Altres" els tipus que representin un 
+percentatge inferior a l'1% del total
+```{r}
+#pie(table(data$Tipus), main = "Tipus de vivenda")
+
+selected=table(data$Tipus)[100*prop.table(table(data$Tipus)) > 1]
+numothers=sum(table(data$Tipus))-sum(selected)
+dtaux=rbind(data.frame(selected), data.frame(Var1="Others", Freq=numothers))
+pie(dtaux$Freq, labels=dtaux$Var1)
+
+```
+
+
+Preu mitjà segons el barri, de menor a major i sense tenir en compte
+noms de Barri incorrectes ("" o "N/A").
+```{r}
+
+#aggregate(Preu~Barri, data=data, FUN=mean, na.rm=TRUE)
+
+#create data frame containing only valid rows (with Barri != N/A or empty string)
+datavalid=data[data$Barri != "" & data$Barri != "N/A", ]
+
+#compute average Preu, for each Barri
+result=aggregate(Preu~Barri, data=datavalid, FUN=mean, na.rm=TRUE)
+#sort the results in increasing value
+result[order(result$Preu), ]
+
+```
+
+Preu mitjà segons la capacitat de la vivenda, de menor a major.
+
+```{r}
+
+result=aggregate(Preu~Capacitat, data=data, FUN=mean, na.rm=TRUE)
+result[order(result$Preu), ]
+
+```
+
+
+
+Boxplot de la variable 'Preu', per als 5 barris més cars (preu mitjà més alt)
+i els 5 barris més barats (preu mitjà més baix), en un mateix diagrama.
+Els boxplots han d'indicar també el valor mitjà de les dades.
+
+```{r}
+
+#boxplot(Preu~Barri, data=data, ylab="Preu ($)", las=2)
+
+#create data frame containing only valid rows (with Barri != N/A or empty string)
+datavalid=data[data$Barri != "" & data$Barri != "N/A", ]
+
+#compute average Preu, for each Barri
+result=aggregate(Preu~Barri, data=datavalid, FUN=mean, na.rm=TRUE)
+#sort the results in increasing value
+sorted=result[order(result$Preu), ]
+
+#create new data frame containing only the selected rows (Barris in top 5 or bottom 5, sorted by average Preu)
+dtaux=data[data$Barri == sorted[1,1], ]
+for(i in 2:5) 
+  dtaux=rbind(dtaux, data[data$Barri == sorted[i,1], ])
+
+nvalues=nrow(sorted)
+for(i in (nvalues-4):nvalues) 
+  dtaux=rbind(dtaux, data[data$Barri == sorted[i,1], ])
+
+#remove unused levels
+dtaux=droplevels(dtaux)
+
+medias=aggregate(Preu~Barri, data=dtaux, FUN=mean)
+
+#reorder factor levels depending on average of Preu
+dtaux2=dtaux
+dtaux2$Barri=factor(dtaux2$Barri, levels=medias[order(medias$Preu),]$Barri)
+
+#boxplot(Preu~Barri, data=dtaux, ylab="Preu ($)", las=2)
+#points(medias, col="red", pch=18)
+
+medias2=aggregate(Preu~Barri, data=dtaux2, FUN=mean)
+boxplot(Preu~Barri, data=dtaux2, ylab="Preu ($)", las=2)
+points(medias2, col="red", pch=18)
+
+```
+
+
+
+Diagrames de dispersió dos a dos de les variables 
+"Capacitat", "Nombre de banys", "Preu" i "Valoració mitjana",
+amb colors diferents per a cada barri.
+
+
+```{r}
+# variables numèriques
+varsel=c("Barri", "Capacitat", "Nombre de banys", "Preu", "Valoració mitjana")
+
+# data frame només amb variables numèriques
+datasel=data[varsel]
+
+plot(datasel[, 2:5], col=as.numeric(datasel$Barri))
+```
+
+
+Coeficients de correlació dos a dos de les variables 
+"Capacitat", "Nombre de banys", "Preu" i "Valoració mitjana", sense tenir en compte els valors NA.
+Comentau els resultats.
+
+
+```{r}
+# variables numèriques
+varsel=c("Capacitat", "Nombre de banys", "Preu", "Valoració mitjana")
+
+# data frame només amb variables numèriques
+datasel=data[varsel]
+
+cor(datasel,  use="pairwise.complete.obs")
+```
+
+
+Organitzau les variables "Preu" i "Valoració mitjana" en una taula de contingència
+per intervals, amb un màxim de 5 intervals per a cada variable. Dibuixau el diagrama de mosaic associat a la taula.
+
+```{r}
+
+#data frame without rows containing NaNs in Preu or Valoracio
+noNAs=is.na(data$Preu)!=TRUE & is.na(data$`Valoració mitjana`)!=TRUE 
+datavalid=data[noNAs, ]
+
+#table(datavalid$Preu, datavalid$`Valoració mitjana`)
+
+n=nrow(datavalid)
+data1=datavalid$Preu
+data2=datavalid$`Valoració mitjana`
+
+k1=3
+# Triam intervals de la mateixa amplada
+A1=diff(range(data1))/k1
+# organitzam dades en intervals tancats per l'esquerra i oberts per la dreta,
+# excepte el darrer que també és tancat per la dreta
+binnedPreu=cut(data1, breaks=min(data1) + A1*(0:k1), right=FALSE, include.lowest=TRUE)
+
+k2=3
+# Triam intervals de la mateixa amplada
+A2=diff(range(data2))/k2
+# organitzam dades en intervals tancats per l'esquerra i oberts per la dreta,
+# excepte el darrer que també és tancat per la dreta
+binnedVal=cut(data2, breaks=min(data2) + A2*(0:k2), right=FALSE, include.lowest=TRUE)
+
+table(binnedPreu, binnedVal)
+
+
+plot(table(binnedPreu, binnedVal), main="Preu-Valoració")
+
+```
+
+
+
+
+
+
+
+

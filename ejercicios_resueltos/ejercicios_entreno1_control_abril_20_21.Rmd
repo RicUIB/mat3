@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE)
 options(digits=4)
 prob=0
 ```
-# Matemáticas III. Algunos EJERCICIOS para ENTRENAR el examen de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables
+# Matemáticas III. Algunos EJERCICIOS para ENTRENAR el examen de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables.
 
 ## Ejercicio `r prob=prob+1; prob`
 Sean $A$ y $B$ dos sucesos tales que $P(A\cap B^c)=P(B\cap A^c)=P(A\cap B)=0.2$  ¿Qué vale $P(A\cup B)$?
@@ -401,72 +401,6 @@ Con  R
 ```{r}
 2*pnorm(-0.2)
 ```
-
-## Ejercicio `r prob=prob+1; prob`
-
-En una muestra aleatoria simple de tamaño $100$ de la población de internautas  se obtuvo que el 80\% tenían cuenta en al menos dos redes sociales. Calcular el error estándar de la proporción $p$ de internautas que tienen  cuenta el al menos dos redes sociales.
-
-### Solución:
-
-```{r proporcioninternautas,results='hide',echo=FALSE}
-phat=0.8
-n=100
-error.estandar=sqrt(phat*(1-phat)/n)
-```
-
-Tenemos una muestra aleatoria simple de tamaño $n=100$ en la que la proporción muestral es $\hat{p}=0.8$. Bajo estas condiciones el error estándar del estadístico $\hat{p}$ es 
-
-$$\sqrt{\frac{\hat{p}\cdot (1- \hat{p})}{n}}=\sqrt{\frac{`r phat`\cdot (`r 1-phat`)}{ n}}=`r error.estandar`.$$
-
-## Ejercicio `r prob=prob+1; prob`
-
-Consideremos la siguiente muestra aleatoria simple de  una cierta variable aleatoria $X$.
-$$-3,-2,-1,1,2,3$$
-Calculad la desviación típica muestral.(*0.5 puntos*)
-
-### Solución:
-
-La media es $\overline{x}=\frac{\sum_{i=1}^n x_i}{n}=\frac{-3-2-1+1+2+3}{6}=0.$
-
-$\tilde{S}=\sqrt{\frac{n}{n-1}\cdot \left(\frac{\sum_{i=1}^n x_i^2}{n}-\overline{x}^2\right)}=
-\sqrt{\frac{6}{6-1}\cdot \left(\frac{(-3)^2+(-2)^2+(-1)^2+(1)^2+(2)^2+(3)^2}{6}-0^2\right)}=
-\sqrt{\frac{6}{5}\cdot \frac{28}{6}}=\sqrt{\frac{28}{5}}= `r round(sqrt(28/5),4)`.$
- 
-Con R obtenemos el mismo resultado 
-
-```{r}
-x=c(-3,-2,-1,1,2,3)
-n=length(x)
-n
-sqrt((sum(x^2)/n-(sum(x)/n)^2) *(n/(n-1)))
-sd(x)
-```
-## Ejercicio `r prob=prob+1; prob`
-
-Consideremos una muestra aleatoria simple  de tamaño $n=100$ de una variable aleatoria $X$ Bernoulli de parámetro $p$.
-¿Cuál es el valor  esperado y el error estándar de la media aritmética de la muestra? (*0.5 puntos*)
-
-### Solución
-
-El valor esperado es $E(\overline{X}) =E(X)= 100\cdot p$  y el error estándar $\sigma_{\overline{X}} =\sigma_{X}=\sqrt{\frac{p\cdot(1-p)}{100}}.$
-
-
-## Ejercicio `r prob=prob+1; prob`
-
-Consideremos  una v.a. $X$ normal de media $\mu=20$ y $\sigma=50$. Tomamos una muestra aleatoria simple de tamaño $n=100$. Calculad
-$P(20< \overline{X}<25 /\overline{X}>20)$ (*0.5 puntos*)
-
-
-![](normal1examen.jpg)
-
-
-### Solución:
-
-$\begin{aligned}
-P(20< \overline{X}<25 /\overline{X}>20)&=\frac{P(20< \overline{X}<25\cap \overline{X}>20)}{1-P( \overline{X}\leq 20))}\\
-&=\frac{F_Z\left(\frac{25-20}{\frac{50}{\sqrt{100}}}\right)-F_Z\left(\frac{20-20}{\frac{50}{\sqrt{100}}}\right)}{1-F_Z\left(\frac{20-20}{\frac{50}{\sqrt{100}}}\right)}=
-\frac{F_Z(1)-F_Z(0)}{F_Z(0)}.
-\end{aligned}$ 
 
 ## Ejercicio `r prob=prob+1; prob`
 

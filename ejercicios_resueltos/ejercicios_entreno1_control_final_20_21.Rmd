@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE)
 options(digits=4)
 prob=0
 ```
-# Matemáticas III. Algunos EJERCICIOS para ENTRENAR el examen de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables
+# Matemáticas III. Algunos EJERCICIOS para ENTRENAR el examen de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables.
 
 ## Ejercicio `r prob=prob+1; prob`
 Sean $A$ y $B$ dos sucesos tales que $P(A\cap B^c)=P(B\cap A^c)=P(A\cap B)=0.2$  ¿Qué vale $P(A\cup B)$?
@@ -387,10 +387,10 @@ Var(X)&=&E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displ
 
 
 ## Ejercicio `r prob=prob+1; prob`
-Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=`r  pnorm(-0.2)`. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
+Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)`=`r  pnorm(-0.2)`. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
 
 ### Solución:
-Por simetŕia de la normal estándar sabemos que 
+Por simetría de la normal estándar sabemos que 
 $P(Z>0.2)=p(Z<-0.2)$ por lo tanto 
 
 $$P(|Z|\geq 0.2)=P(Z>0.2)+p(Z<-0.2)=2\cdot P(Z<-0.2)=2\cdot `r  pnorm(-0.2)`=
