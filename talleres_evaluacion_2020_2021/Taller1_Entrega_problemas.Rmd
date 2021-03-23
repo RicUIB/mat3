@@ -1,0 +1,137 @@
+---
+title:  Engrega 1 problemas MAT3 (estadística) GIN2 2020-2021  - Probabilidad, Variables Aleatorias, Distribuciones
+  Notables.
+author: "PONED LOS NOMBRES de grupo de autores"
+date: ''
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#  Taller1 evaluable. Entrega de problemas
+
+Taller en grupo entregad las soluciones en Rmd y html o pdf. o si lo hacedlas  de forma manual y escanear el resultado, en un solo fichero.
+
+## Problema 1
+
+Encuentra un ejemplo de tres sucesos $A,B,C$ tales que $A$ y $B$ sean independientes, pero en cambio no sean condicionalmente independientes dado $C$.
+
+
+###  Solución
+
+
+## Problema 2 
+
+Consideremos la v.a.   continua $X$ que  tiene por función de densidad para a alguna constante $\alpha\in \mathbb{R}$:
+
+$$
+f_X (t)=
+\left\{\begin{array}{ll}
+\alpha \cdot t^4, & \mbox{si } -1 < t <1,
+ \\
+0 & \mbox{ en otro caso}.
+\end{array}\right.
+$$
+
+1. Calculad $\alpha$ para que $f_X$ sea densidad y especificad su dominio $D_X$.
+2. Calculad la función de  distribución de la v.a. $X$; $F_X(x)=P(X\leq x)$.
+3. Calculad $E(X)$ y $Var(X)$.
+4. Calcula en cuantil $0.9$ de $X$.
+
+###  Solución
+
+
+## Problema 3 
+
+Sea $Y$ una variable discreta con función de  probabilidad :
+
+$$
+P_Y(y)=
+\left\{\begin{array}{ll}
+\alpha\cdot\frac{1}{x^2} & \mbox{,si } x=2,-1,0,1,2,
+ \\
+0 & \mbox{ en otro caso}.
+\end{array}\right. 
+$$
+
+1. Hallad la función de distribución $F_Y(y)=P(Y\leq Y)$.
+2. Calculad $E(Y)$ y $Var(Y)$
+3. Calculad el cuantil 0.5 de de $Y$
+
+###  Solución
+
+
+## Problema 4
+
+Tenemos un dado, bien balenaceao,  de doce caras numeradas del 1 al 12  ([dodecaedro  dados  de rol](https://es.wikipedia.org/wiki/Dados_de_rol)).
+
+* a) Calcular la función de probabilidad de la variables $X=$ número de la cara superior del dado en un lanzamiento, cacular E(X) y $Var(X)$.
+* b) Calcular la función de distribución de $X$ y el cunatil $0.4$.
+* c) Si $Y$ es al v.a.que cuenta el número de veces que tiramos el dado hasta obtener el primer $5$ calcular la función de distribución de $Y$
+*  ¿Qué valor tienen $E(X) $ y $Var(X)$.
+
+###  Solución
+
+
+## Problema 5
+
+La proporción de niños pelirrojos es 1  cada 100. En  una ciudad   se produjeron 500  nacimientos (indodependientes)
+nacimientos en 2020, modelizad mediante una distribución binomila la variable $X$ = número de niños pelirrrojos nacidos entre los 500 niños. 
+Utilizad R para calcular de forma exacta 
+
+* a) La probabilidad de que ninguno  de los nacidos ese año sea pelirrojo.
+* b) La probabilidad de que nazcan más de 2 niños pelirrojos
+* c) Repetir los´cálculos con R utilizando una aproximación Poisson
+
+###  Solución
+
+
+## Problema 6
+
+Las consultas a una base dato  llegan a un ritmo de medio  $\lambda=5$ peticiones por segundo.
+Sabemos que el nombre de peticiones que llegan en un segundo es una variable
+aleatoria que aproximadamente tienen una distribución de Poisson.
+
+* a) Calcular la probabilidad que lleguen más de  10 peticiones en un 3 segundos.
+* b) Calcular que entre una consulta y la siguiente pasen $0.5$ segundos.
+* c) Calcular el cuantil 0.5 de $X_{t=10}$ numero de peticiones en 10 segundos utilizad R
+
+
+###  Solución
+
+
+## Problema 7
+
+Tenemos que elegir entre  dos  programas (Prog1 y Prog2), el objetivo es elegir el programa más rápido en tiempo  de respuesta en nuestro cluster de ordenadores. El tiempo   de ejecución del   Prog1 se ha modelado según una 
+$N(\mu_1=100, \sigma_1=300)$ (la probabilidad de un tiempo de ejecución negativo es despreciable) y en Prog2 según una $N(\mu_2=90, \sigma_2=300)$. Utilizad R para el cálculo final de las probabilidades de la normal.
+
+* a) ¿Qué Programa  elegimos si queremos que el el 90\% de los casos el tiempo de respuesta sea menor ? 
+* b) Calcular la probabilidad de que el tiempo de ejecución sea  mayor que 130 para cada algoritmos.
+
+
+
+
+## Problema 8
+ En la NBA el [https://es.wikipedia.org/wiki/Jos%C3%A9_Manuel_Calder%C3%B3n](José Calderón) fue en  la temporada  [2008-09 el jugador de baloncesto](https://es.wikipedia.org/wiki/L%C3%ADderes_en_porcentaje_de_tiros_libres_de_la_NBA)  [com mejor porcentaje tiros libres anotados un 98.05\%.
+ 
+Justificar los calculos con notación matemática y haced el cáculo final   con R
+
+* a) ¿Cual  es el valor esperando y la varianza del número tiros hasta aceptar los 10 tiros libres?
+* b) ¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.
+* c) ¿Cuál es la probabilidad de que haga una serie de 100 tiros  hasta obtener el tercer fallo?
+
+
+
+
+
+
+
+
+
