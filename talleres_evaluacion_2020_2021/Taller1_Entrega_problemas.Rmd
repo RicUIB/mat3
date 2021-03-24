@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #  Taller1 evaluable. Entrega de problemas
 
-Taller en grupo entregad las soluciones en ,Rmd y .html o .pdf. o si lo hacedlas  de forma manual y escanear el resultado, en un solo fichero.
+Taller en grupo entregad las soluciones en .Rmd y .html o .pdf. o si lo escribidlas de forma manual y escanear el resultado, en un solo fichero.
 
 ## Problema 1
 
@@ -128,7 +128,7 @@ $N(\mu_1=100, \sigma_1=300)$ (la probabilidad de un tiempo de ejecución negativ
 Justificar los cálculos con notación matemática y haced el cálculo final  con R.
 
 1. ¿Cual  es el valor esperando y la varianza del número tiros hasta aceptar los 10 tiros libres?
-2.¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.
+2. ¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.
 3. ¿Cuál es la probabilidad de que haga una serie de 100 tiros  hasta obtener el tercer fallo?
 
 

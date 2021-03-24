@@ -65,14 +65,14 @@ Así que $P( \mbox{La suma es } 7)=\frac{\mbox{Casos Favorables}}{\mbox{Casos Po
 
 ## Ejercicio `r prob=prob+1; prob`
 
-Sea $X$ una variable aleatoria que  cuenta el número de \textbf{CARAS} de una moneda trucada una distribución $B(n=100,p=\frac{1}{4})$.  Sabemos que $P(X\leq 40)=0.8962$ ¿Cuál es la probabilidad de obtener  $59$ **CRUCES** o menos? (Indicación construid la variable $Y=100-X$ que cuenta el número de **CRUCES**.)
+Sea $X$ una variable aleatoria que  cuenta el número de \textbf{CARAS} de una moneda trucada una distribución $B(n=100,p=\frac{1}{4})$.  Sabemos que $P(X\leq 40)=`r pbinom(40,size=100,prob=1/4)`$ ¿Cuál es la probabilidad de obtener  $59$ **CRUCES** o menos? (Indicación construid la variable $Y=100-X$ que cuenta el número de **CRUCES**.)
 
 ### Solución:
 
 Sea $Y$ la variable que cuenta el número de cruces en el mismo experimento. Obviamente tenemos que $Y=100-X$. 
 Así que 
 
-$$P(Y=59)= P(100-X\leq 59) = P(X\geq 41)= 1-P(X < 41)=1-P(X\leq 40)=1-0.8962=`r 1-0.8962`.$$
+$$P(Y\leq 59)= P(100-X\leq 59) = P(X\geq 41)= 1-P(X < 41)=1-P(X\leq 40)=1-`r pbinom(40,size=100,prob=1/4)`=`r 1-pbinom(40,size=100,prob=1/4)`.$$
 
 ## Ejercicio `r prob=prob+1; prob`
 
@@ -157,7 +157,7 @@ c).  Puntuando como decidáis en el apartado anterior ¿Cuál es la varianza de 
 
 ### Solución:
 
-Sea $X$ el número de preguntas que acierta el estudiante que contesta al azar. Tiene como probabilidad de acertar $p=\frac{1}{4}$. Como contesta al azar y de forma independiente cada pregunta $X$ sigue una distribución $B(n=10,p=\frac{1}{k})$.
+Sea $X$ el número de preguntas que acierta el estudiante que contesta al azar. Tiene como probabilidad de acertar $p=\frac{1}{k}$. Como contesta al azar y de forma independiente cada pregunta $X$ sigue una distribución $B(n=10,p=\frac{1}{k})$.
 
 La nota es $N=1\cdot X$. Así que el valor esperado es $E(N)=E(X)=n\cdot p=\frac{10}{k}.$
 
@@ -168,7 +168,7 @@ $$E(N)=E((1-c) X+10\cdot  c)=(1-c) E(X)+10\cdot c=(1-c)\frac{10}{k}+10\cdot c.$$
 
 Así que  el  valor $c$ que hace la esperanza cero debe cumplir
 
-$$0=E(X)=(1-c)\frac{10}{k}+10\cdot c$$ 
+$$0=E(N)=(1-c)\frac{10}{k}+10\cdot c$$ 
 
 de donde  obtenemos que $c=-\frac{1}{k-1}$.
 
