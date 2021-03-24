@@ -4,10 +4,10 @@ title:  Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
+  pdf_document: default
+  word_document: default
   html_document:
     df_print: paged
-  word_document: default
-  pdf_document: default
 urlcolor: blue
 toccolor: blue
 header-includes:
