@@ -1,13 +1,17 @@
 ---
-title:  Taller 1 problemas. MAT3 (estadística) GIN2 2020-2021  - Probabilidad, Variables Aleatorias, Distribuciones
+title:  Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  - Probabilidad, Variables Aleatorias, Distribuciones
   Notables.
-author: "PONED LOS NOMBRES de grupo de autores"
+author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
   html_document:
     df_print: paged
   word_document: default
   pdf_document: default
+urlcolor: blue
+toccolor: blue
+header-includes:
+  \renewcommand{\contentsname}{Contenidos}
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +25,7 @@ Taller en grupo entregad las soluciones en ,Rmd y .html o .pdf. o si lo hacedlas
 
 ## Problema 1
 
-Encuentra un ejemplo de tres sucesos $A,B,C$ tales que $A$ y $B$ sean independientes, pero en cambio no sean condicionalmente independientes dado $C$.
+Sean $A$ , $B$ y $C$ tres sucesos tales que $P(A)=0.4$, $P(B)=0.4$ y $P(A\cup B)=0.6$. Calcular $P(A\cap B)$.
 
 
 ###  Solución
@@ -72,10 +76,10 @@ $$
 
 Tenemos un dado, bien equilibrado,  de doce caras numeradas del 1 al 12  ([dodecaedro  dados  de rol](https://es.wikipedia.org/wiki/Dados_de_rol)).
 
-* a) Calcular la función de probabilidad de la variables $X=$ número de la cara superior del dado en un lanzamiento, calcular E(X) y $Var(X)$.
-* b) Calcular la función de distribución de $X$ y el cuantil $0.4$.
-* c) Si $Y$ es al v.a.que cuenta el número de veces que tiramos el dado hasta obtener el primer $5$ calcular la función de distribución de $Y$
-*  ¿Qué valor tienen $E(X) $ y $Var(X)$.
+1. Calcular la función de probabilidad de la variables $X=$ número de la cara superior del dado en un lanzamiento, calcular E(X) y $Var(X)$.
+2. Calcular la función de distribución de $X$ y el cuantil $0.4$.
+3. Si $Y$ es al v.a.que cuenta el número de veces que tiramos el dado hasta obtener el primer $5$ calcular la función de distribución de $Y$
+4. ¿Qué valor tienen $E(X)$ y $Var(X)$.
 
 ###  Solución
 
@@ -86,9 +90,9 @@ La proporción de niños pelirrojos es 1  cada 100. En  una ciudad   se produjer
 nacimientos en 2020, modelad mediante una distribución binomial la variable $X$ = número de niños pelirrojos nacidos entre los 500 niños. 
 Utilizad R para calcular de forma exacta 
 
-* a) La probabilidad de que ninguno  de los nacidos ese año sea pelirrojo.
-* b) La probabilidad de que nazcan más de 2 niños pelirrojos
-* c) Repetir los´cálculos con R utilizando una aproximación Poisson
+1. La probabilidad de que ninguno  de los nacidos ese año sea pelirrojo.
+2.  La probabilidad de que nazcan más de 2 niños pelirrojos
+3.  Repetir los´cálculos con R utilizando una aproximación Poisson
 
 ###  Solución
 
@@ -99,9 +103,9 @@ Las consultas a una base dato  llegan a un ritmo de medio  $\lambda=5$ peticione
 Sabemos que el nombre de peticiones que llegan en un segundo es una variable
 aleatoria que aproximadamente tienen una distribución de Poisson.
 
-* a) Calcular la probabilidad que lleguen más de  10 peticiones en un 3 segundos.
-* b) Calcular que entre una consulta y la siguiente pasen $0.5$ segundos.
-* c) Calcular el cuantil 0.5 de $X_{t=10}$ numero de peticiones en 10 segundos utilizad R
+1. Calcular la probabilidad que lleguen más de  10 peticiones en un 3 segundos.
+2. Calcular que entre una consulta y la siguiente pasen $0.5$ segundos.
+3. Calcular el cuantil 0.5 de $X_{t=10}$ numero de peticiones en 10 segundos utilizad R
 
 
 ###  Solución
@@ -112,20 +116,20 @@ aleatoria que aproximadamente tienen una distribución de Poisson.
 Tenemos que elegir entre  dos  programas (Prog1 y Prog2), el objetivo es elegir el programa más rápido en tiempo  de respuesta en nuestro cluster de ordenadores. El tiempo   de ejecución del   Prog1 se ha modelado según una 
 $N(\mu_1=100, \sigma_1=300)$ (la probabilidad de un tiempo de ejecución negativo es despreciable) y en Prog2 según una $N(\mu_2=90, \sigma_2=300)$. Utilizad R para el cálculo final de las probabilidades de la normal.
 
-* a) ¿Qué Programa  elegimos si queremos que el el 90\% de los casos el tiempo de respuesta sea menor ? 
-* b) Calcular la probabilidad de que el tiempo de ejecución sea  mayor que 130 para cada algoritmos.
+1. ¿Qué Programa  elegimos si queremos que el el 90\% de los casos el tiempo de respuesta sea menor ? 
+2. Calcular la probabilidad de que el tiempo de ejecución sea  mayor que 130 para cada algoritmos.
 
 
 
 
 ## Problema 8
- En la NBA el [https://es.wikipedia.org/wiki/Jos%C3%A9_Manuel_Calder%C3%B3n](José Calderón) fue en  la temporada  [2008-09 el jugador de baloncesto](https://es.wikipedia.org/wiki/L%C3%ADderes_en_porcentaje_de_tiros_libres_de_la_NBA)  [com mejor porcentaje tiros libres anotados un 98.05\%.
+ En la NBA el [José Calderón](https://es.wikipedia.org/wiki/Jos%C3%A9_Manuel_Calder%C3%B3n) fue en  la temporada  [2008-09 el jugador de baloncesto](https://es.wikipedia.org/wiki/L%C3%ADderes_en_porcentaje_de_tiros_libres_de_la_NBA)  con mejor porcentaje tiros libres anotados un 98.05\%.
  
-Justificar los cálculos con notación matemática y haced el cálculo final   con R
+Justificar los cálculos con notación matemática y haced el cálculo final  con R.
 
-* a) ¿Cual  es el valor esperando y la varianza del número tiros hasta aceptar los 10 tiros libres?
-* b) ¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.
-* c) ¿Cuál es la probabilidad de que haga una serie de 100 tiros  hasta obtener el tercer fallo?
+1. ¿Cual  es el valor esperando y la varianza del número tiros hasta aceptar los 10 tiros libres?
+2.¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.
+3. ¿Cuál es la probabilidad de que haga una serie de 100 tiros  hasta obtener el tercer fallo?
 
 
 
