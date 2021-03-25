@@ -342,15 +342,15 @@ $$
 
 La variable $Y$ tendrá por dominio $D_Y=(0,1)$.
 
-Sea $y\in(0,1)$ entonces $F_Y(y)=P(Y\leq y)=P(\log(X)\leq y)=P(X\leq 10^y)=\frac{10^y-1}{9}$ ya que  como $0<y<1$ entonces
+Sea $y\in(0,1)$ entonces $F_Y(y)=P(Y\leq y)=P(\log_{10}(X)\leq y)=P(X\leq 10^y)=\frac{10^y-1}{9}$ ya que  como $0<y<1$ entonces
 $0< 10^y < 10$.  Así que la función de distribución es 
 
 $$
 F_Y(y)=\left\{\begin{array}{ll} 
-0 & \mbox{si} x\leq 0\\
-\frac{10^y-1}{9} & \mbox{si} 0< y < 1\\
-1 & \mbox{si} y\geq 1\\
-\end{array}\right.
+0 & \mbox{si } x\leq 0\\
+\frac{10^y-1}{9} & \mbox{si } 0< y < 1\\
+1 & \mbox{si } y\geq 1\\
+\end{array}\right.,
 $$
 
  su densidad es 
@@ -358,7 +358,7 @@ $$
 
 $$
 f_y(y)=F'_Y(y)=\left\{\begin{array}{ll} 
-\frac{10^y\cdot log_e(10)}{9} & \mbox{si} 0< y < 1\\
+\frac{10^y\cdot \log_{e}(10)}{9} & \mbox{si } 0< y < 1\\
 0 & \mbox{en cualquier otro caso}\\
 \end{array}\right.
 $$
@@ -366,9 +366,9 @@ $$
 
 El cuantil $0.95$ es el valor $y_0$ tal que $F_y(y_0)=P(Y\leq y_0)=0.95$. Por lo tanto 
 
-$$F_y(y_0)=\frac{10^{y_0}-1}{9}=0.95$$
+$$F_y(y_0)=\frac{10^{y_0}log_{e}(10)-1}{9}=0.95$$
 
-así que $10^{y_0}=9\cdot 0.95+1=`r 9*0.95+1`$, de donde $y_0=\log_{10}(`r 9*0.95+1`)=`r log10(9*0.95+1)`.$
+así que $10^{y_0}=\frac{9\cdot 0.95+1}{\log_{e}(10)}=`r (9*0.95+1)/log(10)`$, de donde $y_0=\log_{10}\left(\frac{9\cdot 0.95+1}{\log_{e}(10)}\right)=\log_{10}(`r (9*0.95+1)/log(10)`)=`r log10((9*0.95+1)/log10(10))`.$
 
 
 ## Ejercicio `r prob=prob+1; prob`

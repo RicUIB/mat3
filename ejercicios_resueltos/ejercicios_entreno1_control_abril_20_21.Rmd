@@ -334,22 +334,22 @@ Recordemos que
 $$
 F_X(x)=\left\{
 \begin{array}{ll} 
-0 & \mbox{si } x\leq 0\\
-\frac{x-1}{9} & \mbox{si } 0< x < 10\\
+0 & \mbox{si } x\leq 1\\
+\frac{x-1}{9} & \mbox{si } 1< x < 10\\
 1 & \mbox{si } x\geq 10
 \end{array}\right.
 $$
 
 La variable $Y$ tendrá por dominio $D_Y=(0,1)$.
 
-Sea $y\in(0,1)$ entonces $F_Y(y)=P(Y\leq y)=P(\log(X)\leq y)=P(X\leq 10^y)=\frac{10^y-1}{9}$ ya que  como $0<y<1$ entonces
-$0< 10^y < 10$.  Así que la función de distribución es 
+Sea $y\in(0,1)$ entonces $F_Y(y)=P(Y\leq y)=P(\log_{10}(X)\leq y)=P(X\leq 10^y)=\frac{10^y-1}{9}$ ya que  como $0<y<1$ entonces
+$1=10^0< 10^y < 10^1= 10$.  Así que la función de distribución es 
 
 $$
 F_Y(y)=\left\{\begin{array}{ll} 
-0 & \mbox{si} x\leq 0\\
-\frac{10^y-1}{9} & \mbox{si} 0< y < 1\\
-1 & \mbox{si} y\geq 1\\
+0 & \mbox{si } x\leq 0\\
+\frac{10^y-1}{9} & \mbox{si } 0< y < 1\\
+1 & \mbox{si } y\geq 1\\
 \end{array}\right.
 $$
 
@@ -358,8 +358,8 @@ $$
 
 $$
 f_y(y)=F'_Y(y)=\left\{\begin{array}{ll} 
-\frac{10^y\cdot log_e(10)}{9} & \mbox{si} 0< y < 1\\
-0 & \mbox{en cualquier otro caso}\\
+\frac{10^y\cdot log_e(10)}{9} & \mbox{si } 0< y < 1\\
+0 & \mbox{en cualquier otro caso}.
 \end{array}\right.
 $$
 
@@ -381,7 +381,7 @@ Obviamente $p=\frac{1}{5}.$
 
 \begin{eqnarray*}
 Var(X)&=&E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displaystyle\sum_{x=-2}^2 x\cdot P(X=x)\right)^2\\
-&=& (-2)^2\cdot p+(-1)^2\cdot p+0^2\cdot p+1^2\cdot p+(-2)^2\cdot p-\left(-2\cdot p -1\cdot p+0\cdot p+1\cdot p +2\cdot p\right)^2\\
+&=& (-2)^2\cdot p+(-1)^2\cdot p+0^2\cdot p+1^2\cdot p+(2)^2\cdot p-\left(-2\cdot p -1\cdot p+0\cdot p+1\cdot p +2\cdot p\right)^2\\
 &=& 10\cdot p+0^2=10\cdot p=10\cdot \frac{1}{5}=2.
 \end{eqnarray*}
 
