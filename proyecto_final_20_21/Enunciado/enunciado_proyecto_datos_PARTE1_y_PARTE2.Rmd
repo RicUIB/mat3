@@ -3,10 +3,10 @@ title: "Proyecto asignatura  Estadística (MAT3) GIN2 Grupos 1 y 3: PARTE 1 y PA
 author: 'Poned los nombres de los autores '
 date: ''
 output:
-  pdf_document: 
+  html_document: 
     toc: yes
     number_sections: yes
-  html_document: 
+  pdf_document: 
     toc: yes
     number_sections: yes
 urlcolor: blue
@@ -75,8 +75,8 @@ de las dos variables y dibuja el diagrama de mosaico asociado a la mesa.
 
 
 
-Se valorará la claridad y los comentarios de los resultados obtenidos. Si se detectan ** trabajos copiados **
-quedarán ** suspendidos todos los alumnos implicados **.
+Se valorará la claridad y los comentarios de los resultados obtenidos. Si se detectan **trabajos copiados**
+quedarán **suspendidos todos los alumnos implicados**.
 Todas las preguntas se pueden contestar a partir de la información de los manuales de [AprendeR1](https://aprender-uib.github.io/AprendeR1/), [AprendeR2](https://aprender-uib.github.io/AprendeR2/) y concretamente [AprendeR2 tema 8](https://aprender-uib.github.io/AprendeR2/chap-estmult.html), a parte de los enlaces proporcionados en este documento, y, en general, haciendo búsquedas en internet.
 También puede basar su informe en los ejemplos publicados en la web de la asignatura,
 Además, puede consultar dudas con el resto de los compañeros de curso a través del Foro de la asignatura a Aula Digital o en discord.
