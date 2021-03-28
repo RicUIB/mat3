@@ -4,9 +4,9 @@ title:  Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
+  word_document: default
   html_document:
     df_print: paged
-  word_document: default
   pdf_document: default
 urlcolor: blue
 toccolor: blue
@@ -127,7 +127,7 @@ $N(\mu_1=100, \sigma_1=300)$ (la probabilidad de un tiempo de ejecución negativ
  
 Justificar los cálculos con notación matemática y haced el cálculo final  con R.
 
-1. ¿Cual  es el valor esperando y la varianza del número tiros hasta aceptar los 10 tiros libres?
+1. ¿Cual  es el valor esperando y la varianza del número tiros hasta acertar 10 tiros libres?
 2. ¿Cuál es la probabilidad de que acierte al menos 40 tiros libres  de forma consecutiva.
 3. ¿Cuál es la probabilidad de que haga una serie de 100 tiros  hasta obtener el tercer fallo?
 
