@@ -12,7 +12,7 @@
 <meta name="author" content="nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;…" />
 
 
-<title>Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021 - Probabilidad, Variables Aleatorias, Distribuciones Notables.</title>
+<title>Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021 - Probabilidad, Variables Aleatorias, Distribuciones Notables 28-03-2020.</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1632,7 +1632,7 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021 - Probabilidad, Variables Aleatorias, Distribuciones Notables.</h1>
+<h1 class="title toc-ignore">Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021 - Probabilidad, Variables Aleatorias, Distribuciones Notables 28-03-2020.</h1>
 <h4 class="author">nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;…</h4>
 
 </div>
@@ -1643,7 +1643,7 @@ pre code {
 <p>Taller en grupo entregad las soluciones en .Rmd y .html o .pdf. o si lo escribidlas de forma manual y escanear el resultado, en un solo fichero.</p>
 <div id="problema-1" class="section level2">
 <h2>Problema 1</h2>
-<p>Sean <span class="math inline">\(A\)</span> , <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> tres sucesos tales que <span class="math inline">\(P(A)=0.4\)</span>, <span class="math inline">\(P(B)=0.4\)</span> y <span class="math inline">\(P(A\cup B)=0.6\)</span>. Calcular <span class="math inline">\(P(A\cap B)\)</span>.</p>
+<p>Sean <span class="math inline">\(A\)</span> , <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> tres sucesos tales que <span class="math inline">\(P(A)=0.4\)</span>, <span class="math inline">\(P(B)=0.4\)</span> y <span class="math inline">\(P(A\cup B)=0.9\)</span>. Calcular <span class="math inline">\(P(A\cap B)\)</span>.</p>
 <div id="solución" class="section level3">
 <h3>Solución</h3>
 </div>
@@ -1675,16 +1675,11 @@ f_X (t)=
 <p><span class="math display">\[
 P_Y(y)=
 \left\{\begin{array}{ll}
-\alpha\cdot\frac{1}{x^2} &amp; \mbox{,si } x=2,-1,0,1,2,
+\alpha\cdot\frac{1}{x^2} &amp; \mbox{,si } x=-2,-1,1,2,
  \\
 0 &amp; \mbox{ en otro caso}.
 \end{array}\right. 
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li>Hallad la función de distribución <span class="math inline">\(F_Y(y)=P(Y\leq Y)\)</span>.</li>
-<li>Calculad <span class="math inline">\(E(Y)\)</span> y <span class="math inline">\(Var(Y)\)</span></li>
-<li>Calculad el cuantil 0.5 de de <span class="math inline">\(Y\)</span></li>
-</ol>
+\]</span> 1. Hallad <span class="math inline">\(\alpha\)</span> para que <span class="math inline">\(P_Y\)</span> se función de probabilidad. 1. Hallad la función de distribución <span class="math inline">\(F_Y(y)=P(Y\leq Y)\)</span>. 2. Calculad <span class="math inline">\(E(Y)\)</span> y <span class="math inline">\(Var(Y)\)</span> 3. Calculad el cuantil 0.5 de de <span class="math inline">\(Y\)</span></p>
 <div id="solución-2" class="section level3">
 <h3>Solución</h3>
 </div>
@@ -1708,7 +1703,7 @@ P_Y(y)=
 <ol style="list-style-type: decimal">
 <li>La probabilidad de que ninguno de los nacidos ese año sea pelirrojo.</li>
 <li>La probabilidad de que nazcan más de 2 niños pelirrojos</li>
-<li>Repetir los´cálculos con R utilizando una aproximación Poisson</li>
+<li>Repetir los cálculos con R utilizando una aproximación Poisson</li>
 </ol>
 <div id="solución-4" class="section level3">
 <h3>Solución</h3>
@@ -1716,11 +1711,11 @@ P_Y(y)=
 </div>
 <div id="problema-6" class="section level2">
 <h2>Problema 6</h2>
-<p>Las consultas a una base dato llegan a un ritmo de medio <span class="math inline">\(\lambda=5\)</span> peticiones por segundo. Sabemos que el nombre de peticiones que llegan en un segundo es una variable aleatoria que aproximadamente tienen una distribución de Poisson.</p>
+<p>Las consultas a una base datos llegan a un ritmo de medio <span class="math inline">\(\lambda=5\)</span> peticiones por segundo. Sabemos que el nombre de peticiones que llegan en un segundo es una variable aleatoria que aproximadamente tienen una distribución de Poisson.</p>
 <ol style="list-style-type: decimal">
-<li>Calcular la probabilidad que lleguen más de 10 peticiones en un 3 segundos.</li>
-<li>Calcular que entre una consulta y la siguiente pasen <span class="math inline">\(0.5\)</span> segundos.</li>
-<li>Calcular el cuantil 0.5 de <span class="math inline">\(X_{t=10}\)</span> numero de peticiones en 10 segundos utilizad R</li>
+<li>Calcular la probabilidad que lleguen más de 10 peticiones en 3 segundos utilizad R.</li>
+<li>Calcular que entre una consulta y la siguiente pasen más de <span class="math inline">\(0.5\)</span> segundos.</li>
+<li>Calcular el cuantil 0.5 de <span class="math inline">\(X_{t=10}\)</span> numero de peticiones en 10 segundos utilizad R.</li>
 </ol>
 <div id="solución-5" class="section level3">
 <h3>Solución</h3>
@@ -1728,10 +1723,10 @@ P_Y(y)=
 </div>
 <div id="problema-7" class="section level2">
 <h2>Problema 7</h2>
-<p>Tenemos que elegir entre dos programas (Prog1 y Prog2), el objetivo es elegir el programa más rápido en tiempo de respuesta en nuestro cluster de ordenadores. El tiempo de ejecución del Prog1 se ha modelado según una <span class="math inline">\(N(\mu_1=100, \sigma_1=300)\)</span> (la probabilidad de un tiempo de ejecución negativo es despreciable) y en Prog2 según una <span class="math inline">\(N(\mu_2=90, \sigma_2=300)\)</span>. Utilizad R para el cálculo final de las probabilidades de la normal.</p>
+<p>Tenemos que elegir entre dos programas (Prog1 y Prog2), el objetivo es elegir el programa más rápido en tiempo de respuesta en nuestro cluster de ordenadores. El tiempo de ejecución del Prog1 se ha modelado según una <span class="math inline">\(N(\mu_1=100, \sigma_1=300)\)</span> (la probabilidad de un tiempo de ejecución negativo es despreciable) y en Prog2 según una <span class="math inline">\(N(\mu_2=90, \sigma_2=300)\)</span>. Utilizad R para el cálculo final de las probabilidades de la normal. (Utilizad R para el cálculo final)</p>
 <ol style="list-style-type: decimal">
 <li>¿Qué Programa elegimos si queremos que el el 90% de los casos el tiempo de respuesta sea menor ?</li>
-<li>Calcular la probabilidad de que el tiempo de ejecución sea mayor que 130 para cada algoritmos.</li>
+<li>Calcular la probabilidad de que el tiempo de ejecución sea mayor que 130 para cada algoritmo.</li>
 </ol>
 </div>
 <div id="problema-8" class="section level2">
