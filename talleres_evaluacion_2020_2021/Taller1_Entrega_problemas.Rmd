@@ -4,8 +4,8 @@ title:  Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
   html_document:
     df_print: paged
 urlcolor: blue
@@ -25,7 +25,7 @@ Taller en grupo entregad las soluciones en .Rmd y .html o .pdf. o  escribidlas d
 
 ## Problema 1
 
-Sean $A$ , $B$ y $C$ tres sucesos tales que $P(A)=0.4$, $P(B)=0.4$ y $P(A\cup B)=0.9$. Calcular $P(A\cap B)$.
+Sean $A$ , $B$ y $C$ tres sucesos tales que $P(A)=0.4$, $P(B)=0.4$ y $P(A\cup B)=0.6$. Calcular $P(A\cap B)$.
 
 
 ###  Solución
