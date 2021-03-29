@@ -1,0 +1,156 @@
+---
+title: "FIFA2019"
+author: "Ricardo Alberich"
+date: "18 de marzo de 2019"
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+header-includes:
+  - \usepackage[spanish]{babel}
+---
+
+# Ejemplos datos jugadores FIFA 2019
+
+En [FIFA 19 complete player dataset 18k+ FIFA 19 players, ~90 attributes extracted from the latest FIFA database](https://www.kaggle.com/karangadiya/fifa19#data.csv)
+
+Tenemos acceso al data set de los jugadores del videojuego FIFA 2019. La información que aporta la página es la siguiente (para más información acudid a la página):
+
+*About this file*
+
+ *data.csv includes lastest edition FIFA 2019 players attributes like Age, Nationality, Overall, Potential, Club, Value, Wage, Preferred Foot, International Reputation, Weak Foot, Skill Moves, Work Rate, Position, Jersey Number, Joined, Loaned From, Contract Valid Until, Height, Weight, LS, ST, RS, LW, LF, CF, RF, RW, LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB, Crossing, Finishing, Heading, Accuracy, ShortPassing, Volleys, Dribbling, Curve, FKAccuracy, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Reactions, Balance, ShotPower, Jumping, Stamina, Strength, LongShots, Aggression, Interceptions, Positioning, Vision, Penalties, Composure, Marking, StandingTackle, SlidingTackle, GKDiving, GKHandling, GKKicking, GKPositioning, GKReflexes, and Release Clause.*
+
+
+## Carga de los datos
+
+Cragamos los datos y los visualizamos
+```{r}
+data=read.csv("data.csv",stringsAsFactors = FALSE)
+#data$Nationality=as.factor(data$Nationality)
+head(data)
+str(data)
+```
+
+## Algunos estadísticos por nacionalidad
+
+Calculamos la media de la  edad de los jugadores por nacionalidad. Como hay muchas nacionalidades ordenamos y visualizamos las o nacionalidades más abundantes. 
+
+```{r}
+head(aggregate(Age~Nationality,data=data,FUN=mean))
+head(sort(table(data$Nationality),decreasing = TRUE))
+boxplot(data$Age)
+points(mean(data$Age),pch=24,bg="blue")
+```
+
+Dibujamos todos las frecuencias de la nacionalidades. Seleccionando las 10 más frecuentes
+
+```{r}
+nationality_freq=sort(table(data$Nationality),decreasing=TRUE)
+plot(nationality_freq)# no se ve seleccionemos  top 10
+
+selected_nationalities=names(nationality_freq)[1:10]
+selected_nationalities
+selected_data=data[data$Nationality %in% selected_nationalities,]
+```
+
+Para las 10 nacionalidades más frecuentes dibujamos el diagrama de cajas de  las edades
+
+```{r}
+nationality_freq=sort(table(selected_data$Nationality),decreasing=TRUE)
+barplot(nationality_freq,las=2,cex.names=0.7,horiz=TRUE)# alerat cex.names
+boxplot(selected_data$Age~selected_data$Nationality,horizontal=TRUE,las=2,cex.axis=0.7)# alerta cex.names
+```
+
+
+# Preguntas 
+
+##  Pregunta 1
+¿Que proporción de jugadores su Overall  es igual a su Potencial?
+
+##  Pregunta 2
+Crea una data frame llamado `data4`  a partir de `data` con solo los  jugadores de los equipos "FC Barcelona", "Juventus","Paris Saint-Germain" "Manchester United".
+
+```{r}
+data4=data[data$Club %in% c("FC Barcelona", "Juventus","Paris Saint-Germain", "Manchester United"),]
+head(data4)
+```
+## Pregunta 3
+Discretiza a un factor ordenado llamado `Overall_Level` en 5 niveles 
+"Low","Regular","Best","Very Best","Ace", el Overall de los jugadores de `data4`.
+
+```{r}
+Overall_Level=ordered(cut(data4$Overall,breaks=5),
+                      labels=c("Low","Regular","Best","Very Best","Ace"))
+Overall_Level
+```
+
+## Pregunta 4
+Dibuja un diagrama de mosaico de las proporciones  globales de Overall_Level por los 4 clubes.
+
+```{r}
+mosaicplot(prop.table(table(data4$Club,Overall_Level)),
+           main="Diagram de mosaico de proporciones del Overal_level y Club",
+           color = rainbow(5))
+```
+
+
+##  Pregunta 5
+Calcula los porcentajes  de `Overall_Level` por club. ¿Qué club tiene un mayor porcentaje de jugadores Ace?.
+
+```{r}
+prop.table(table(Overall_Level,data4$Club),margin=2)
+```
+
+
+##  Pregunta 6
+Del total de Ace entre los 4 clubes ¿qué club tiene el menor porcentaje?
+
+```{r}
+prop.table(table(Overall_Level,data4$Club),margin=1)
+```
+
+## Pregunta 7
+
+Calcula un diagrama de tarta de la proporción  de Aces entre los 4 clubes
+
+```{r}
+pie(prop.table(table(Overall_Level,data4$Club),margin=2)[4,],main="Propociones de Ace entre los 4 clubes")
+```
+
+## Pregunta 8
+
+
+  * a) Calcula  overall medio y la desviación tipica para cada uno de los 4 clubs
+  * b) Dibuja en un mismo gráfico. los diagrama de caja de Overall  para cada uno de los 4 clubs. Añade a cada diagram de caja el valor medio de Overall en forma de rombo del color de cada club.
+
+
+
+
+```{r}
+aggregate(Overall~Club,data=data4,FUN= function(x) {c(media=mean(x),sd=sd(x))})
+```
+
+
+
+
+```{r}
+medias=medias=aggregate(Overall~Club,FUN=mean,data = data4)
+medias
+boxplot(Overall~Club,data=data4,las=2)
+points(medias,pch=24,col=rainbow(4),bg=rainbow(4))
+```
+## Pregunta 9
+Hay un club  con un dato atípico. Averiguar quién es, es decir da su nombre.
+
+
+```{r}
+x=which.min(data4$Overall[data4$Club=="Juventus"])
+x
+data4[x,"Name"]
+```
+## Pregunta 10
+
+Se puntua la presentación.
