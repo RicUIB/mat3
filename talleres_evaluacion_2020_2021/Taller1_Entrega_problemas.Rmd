@@ -4,8 +4,8 @@ title:  Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
   html_document:
     df_print: paged
 urlcolor: blue
@@ -79,7 +79,7 @@ Tenemos un dado, bien equilibrado,  de doce caras numeradas del 1 al 12  ([dodec
 1. Calcular la función de probabilidad de la variables $X=$ número de la cara superior del dado en un lanzamiento, calcular E(X) y $Var(X)$.
 2. Calcular la función de distribución de $X$ y el cuantil $0.4$.
 3. Si $Y$ es al v.a.que cuenta el número de veces que tiramos el dado hasta obtener el primer $5$ calcular la función de distribución de $Y$
-4. ¿Qué valor tienen $E(X)$ y $Var(X)$.
+
 
 ###  Solución
 
