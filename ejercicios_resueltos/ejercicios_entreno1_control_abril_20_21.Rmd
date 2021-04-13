@@ -1,19 +1,21 @@
 ---
 title: "Matemáticas III. Ejercicios resueltos"
-author: Ricardo Alberich
+author: "Ricardo Alberich"
 output:
-  pdf_document: 
+  word_document:
+    toc: yes
+    toc_depth: '4'
+  pdf_document:
     number_sections: yes
     toc: yes
     toc_depth: 4
-  html_document: 
+  html_document:
     keep_md: yes
     number_sections: yes
     toc: yes
 urlcolor: blue
 toccolor: blue
-header-includes:
-  \renewcommand{\contentsname}{Contenidos}
+header-includes: \renewcommand{\contentsname}{Contenidos}
 ---
 
 
@@ -87,7 +89,7 @@ $$P(X>8/X>4)=P(X> 4+4/X>4)=P(X>4)=0.5.$$
 
 ## Ejercicio `r prob=prob+1; prob`
 
-Cuatro personas con cuatro gorras diferentes las lanzan al aire para celebrar la victoria de su equipo. Cuando caen las recogen al azar. Estudiar la distribución de la variable que nos da  el número de gorras que se quedan con su dueño (**1 punto**).
+Cuatro personas con cuatro gorras diferentes las lanzan al aire para celebrar la victoria de su equipo. Cuando caen las recogen al azar. Estudiar la distribución de la variable que nos da  el número de gorras que se quedan con su dueño.
 
 ### Solución:
 
@@ -148,11 +150,11 @@ $Var(X)=E(X^2)-E(X)^2=2-1^2=1$.
 Diseñamos un examen tipo test de $n=10$ preguntas con $k>2$ opciones cada una de la que sólo una es correcta.
 Cada pregunta vale un punto. Supongamos que un estudiante contesta todas las preguntas al azar. Se pide
 
-a). Si cada pregunta vale un punto y cada fallo 0 puntos  ¿Cuál es el valor esperado de la nota del estudiante en función de $k$? (**0.5 puntos**).
+a). Si cada pregunta vale un punto y cada fallo 0 puntos  ¿Cuál es el valor esperado de la nota del estudiante en función de $k$?.
 
-b). En función de $k$ ¿cuál es la el valor que tenemos que asignar a cada respuesta incorrecta para que la nota esperada del estudiante que contesta al azar sea $0$? (**0.5 puntos**) 
+b). En función de $k$ ¿cuál es la el valor que tenemos que asignar a cada respuesta incorrecta para que la nota esperada del estudiante que contesta al azar sea $0$? 
 
-c).  Puntuando como decidáis en el apartado anterior ¿Cuál es la varianza de la nota de un estudiante que contesta al azar?(**0.5 puntos**)
+c).  Puntuando como decidáis en el apartado anterior ¿Cuál es la varianza de la nota de un estudiante que contesta al azar?
 
 
 ### Solución:
@@ -195,11 +197,11 @@ $$
 
 Se pide
 
-a). Calcular $k$. (**0.5 puntos**)
+a). Calcular $k$
 
-b). Calcular la función de  distribución de $X$. (**0.5 puntos**)
+b). Calcular la función de  distribución de $X$.
 
-c). Calcular $Var(X)$. (**0.5 puntos**)
+c). Calcular $Var(X)$.
 
 
 ### Solución:
@@ -218,7 +220,7 @@ Por lo tanto $k=1$
 
 Así que la función de densidad es 
 $$f(x)=\left\{
-\begin{array}{cr}
+\begin{array}{ll}
 |x| & \mbox{ si }  -1<x<1\\
 0 & \mbox{ en cualquier otro caso}
 \end{array}
@@ -228,12 +230,12 @@ Calculemos su función de distribución
 
 
 
-$$F(X)=P(X\leq x)=\left\{
-\begin{array}{lr}
+$$F_X(x)=P(X\leq x)=\left\{
+\begin{array}{ll}
 0 & \mbox{ si }  x\leq -1\\
 \int_{-1}^x |t| dt=\int_{-1}^x -t dt=\left[-\frac{t^2}{2}\right]_{t=-1}^x= \frac{-x^2}{2}-\frac{-1}{2}=\frac{1-x^2}{2}   & \mbox{ si }  -1< x <0\\
 \int_{-1}^x |t| dt=\int_{-1}^{0} -t dt +\int_{0}^x t dt=\frac{1}{2}+\left[\frac{t^2}{2}\right]_{t=0}^x= \frac{1}{2}+\frac{x^2}{2}-0=\frac{x^2+1}{2}   & \mbox{ si }  0\leq x\leq 1\\
-\qquad 1 & \mbox{si } x \geq 1
+\qquad 1 & \mbox{ si } x \geq 1
 \end{array}
 \right.
 .$$
@@ -241,26 +243,26 @@ $$F(X)=P(X\leq x)=\left\{
 En definitiva la función de distribución es 
 
 $$
-F(X)=P(X\leq x)=\left\{
-\begin{array}{lr}
+F_X(x)=P(X\leq x)=\left\{
+\begin{array}{ll}
 0 & \mbox{ si }  x\leq -1\\
-\frac{x^2-1}{2}   & \mbox{ si }  -1< x <0\\
+\frac{1-x^2}{2}   & \mbox{ si }  -1< x <0\\
 \frac{x^2+1}{2}   & \mbox{ si }  0 \leq x\leq 1\\
-1 & \mbox{si } x \geq 1
+1 & \mbox{ si } x \geq 1-
 \end{array}
 \right.
-.
 $$
 
 El valor esperado es 
 
-$$E(X)=\int_{-1}^{0} x\cdot (-x) dx+\int_{0}^{1} x\cdot x dx= \left[-\frac{x^3}{3}\right]_{x=-1}^0+
+$$
+E(X)=\int_{-1}^{0} x\cdot (-x) dx+\int_{0}^{1} x\cdot x dx= \left[-\frac{x^3}{3}\right]_{x=-1}^0+
 \left[\frac{x^3}{3}\right]_ {x=0}^1=0.
 $$
 
 y la varianza
 
-$$Var(X)=E(X^2)-E(X)^2=\int_{-1}^{0} x^2\cdot (-x) dx+\int_{0}^{1} x^2\cdot x dx-0=
+$$Var(X)=E(X^2)-E(X)^2=\int_{-1}^{0} x^2\cdot (-x) dx+\int_{0}^{1} x^2\cdot x dx-0^2=
 \left[-\frac{x^4}{4}\right]_{x=-1}^0+\left[\frac{x^4}{4}\right]_{x=0}^1=0-\frac{-1}{4}+\frac{1}{4}-0=\frac{1}{2}.$$
 
 
@@ -303,13 +305,13 @@ De notemos los sucesos elementales por $C$= cara $+$=cruz así el espacio muestr
 
 $$\begin{aligned}\Omega=\{&CC,C+C,+CC,++CC,+C+C,C++C,+++CC,++C+C,+C++C,C+++C,\\ & +++++,C++++,+C+++,++C++,+++C+,++++C\}\end{aligned}.$$
 
-Si $X=$  es l número de tiradas  su dominio queda determinado por $D_X=\{2,3,4,5\}.$
+Si $X=$  es el número de tiradas  su dominio queda determinado por $D_X=\{2,3,4,5\}.$
 
 Calculemos los valores de su función de probabilidad
 
 $P(X=2)=\left(\frac{1}{2}\right)^2, P(X=3)=2\cdot\left(\frac{1}{2}\right)^3,P(X=4)=3\cdot\left(\frac{1}{2}\right)^4,P(X=5)=10\cdot \left(\frac{1}{2}\right)^5.$
 
-$$f_x(x)=P(X=x)= \left\{\begin{array}{ll} 
+$$P_X(x)=P(X=x)= \left\{\begin{array}{ll} 
 (x-1)\cdot \left(\frac{1}{2}\right)^x & \mbox{ si } x=2,3,4\\
 \frac{10}{32}& \mbox{ si } x=5\\
 0 & \mbox{ en el resto de casos.}
@@ -387,10 +389,10 @@ Var(X)&=&E(X^2)-E(X)^2=\displaystyle\sum_{x=-2}^{2} x^2\cdot P(X=x)-\left(\displ
 
 
 ## Ejercicio `r prob=prob+1; prob`
-Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=`r  pnorm(-0.2)`. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
+Sea $Z$ una variable aleatoria normal estándar.  Tenemos que `pnorm(-0.2)=``r  pnorm(-0.2)`. Calculad $P(|Z|\geq 0.2)$. (**0.5 puntos**) 
 
 ### Solución:
-Por simetŕia de la normal estándar sabemos que 
+Por simetría de la normal estándar sabemos que 
 $P(Z>0.2)=p(Z<-0.2)$ por lo tanto 
 
 $$P(|Z|\geq 0.2)=P(Z>0.2)+p(Z<-0.2)=2\cdot P(Z<-0.2)=2\cdot `r  pnorm(-0.2)`=
