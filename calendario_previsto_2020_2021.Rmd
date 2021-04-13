@@ -1,0 +1,156 @@
+---
+title: "Matemàtiques III-Estadística (20305). 2020/2021. Grup 01 y 03."
+author: " "
+date: " "
+output: html_document
+---
+
+# Calendario por semanas
+
+Aproximadamente  la estrucctura semanal es
+
+
+*Lunes y martes  **22/02 y 23/02 (1h presencial Lunes GG11 y GG31 y martes GG12 y GG32).** Presentació. R i RStudio. AprendeR1.
+
+* Jueves **25/02 (2h  Vídeos teoría GG1 y GG2 no hay zoom).** Repàs conceptes bàsics d'estadística descriptiva.
+
+* **25/02 (1h online  para cada grupo GG1 y GG2 por zomm).**
+
+### **Semana 1 del 17 del Febrero al 23 de Febrero** [Enlaces al material](https://ricuib.github.io/Enlaces/).
+
+* Grupo grande: Hemos mostrado el acceso al material del curso. Instalación R, Rstudio y  otro software
+*  Grupo medianos:  Taller de dos horas: Acabar instalación y ejercicios de [AprendeR1](https://aprender-uib.github.io/AprendeR1/) . 
+* Trabajo en casa: Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
+  + [Logística de R](https://aprender-uib.github.io/AprendeR1/chap-0.html)
+  + [La calculadora](https://aprender-uib.github.io/AprendeR1/chap-calc.html)
+  + [Un aperitivo: Introducción a la regresión lineal](https://aprender-uib.github.io/AprendeR1/chap-lm.html)
+  + [Vectores y otros tipos de listas](https://aprender-uib.github.io/AprendeR1/chap-vect.html)
+
+
+
+## *Semana del 22 de febrero al 28 de febrero*.
+
+* Lunes y martes **GRUPOS MEDIANOS (1h presencial).** Presentación. R y RStudio. Material de la asignatura. Traed portatil con R instalado
+* Jueves **GRUPOS GRANDES 25/02 (2h  Vídeos teoría)**
+    + [Prerrequisitos bookdown Prob. ](https://joanby.github.io/probabilidad/pre-requisitos-teor%C3%ADa-de-conjuntos-y-combinatoria.html) (Tema 0 Prob. pags en el pdf 7 a 16 ), [Prerrequisitos presentaciones prob.](https://joanby.github.io/probabilidad/Tema_0_Prerequisitos#1). Ejercicios
+    + [Probabilidad bookdown Prob.](https://joanby.github.io/probabilidad/probabilidad.html), (Tema 1 Prob. pags en el pdf 17 a 36 ).  [Probabilidad presentaciones prob.](https://joanby.github.io/probabilidad/Tema_1_Probabilidad#1)
+* Viernes **25/02  GRUPOS GRANDES (1h online  para cada grupo GG1 y GG2).** Probabilitat: conjunts, combinatòria (apunts Pre-requisitos), conceptes bàsics de probabilitat, combinatòria
+
+
+Problemas propuestos:
+
+* Prerrequisitos [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%200%20-%20Combinatoria.Rmd), [Pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0---Combinatoria.pdf). Soluciones [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0%20-%20Combinatoria_SOLUCIONES.Rmd), [Pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0%20-%20Combinatoria_SOLUCIONES.pdf), [html](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-0%20-%20Combinatoria_SOLUCIONES.html)
+* Probabilidad [Rmd](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema%201%20-%20Probabilidad.Rmd), [Pdf](https://github.com/joanby/probabilidad/blob/master/ejercicios/Tema-1---Probabilidad.pdf). Soluciones no hay.
+
+* Trabajo en casa: 
+  + Estudiar los siguientes temas de AprendeR1 y hacer los cuestionarios y problemas propuestos:
+  + [Logística de R](https://aprender-uib.github.io/AprendeR1/chap-0.html)
+  + [La calculadora](https://aprender-uib.github.io/AprendeR1/chap-calc.html)
+  + [Un aperitivo: Introducción a la regresión lineal](https://aprender-uib.github.io/AprendeR1/chap-lm.html)
+  + [Vectores y otros tipos de listas](https://aprender-uib.github.io/AprendeR1/chap-vect.html)
+
+
+* **02/03 (1h presencial).** Probabilitat condicionada, independència. 
+
+[comment]: <> (19-53 apunts Probabilitat)
+
+* **03/03 (1h online directe).** Probabilitat: Bayes. 
+
+[comment]: <> (54-68 apunts Probabilitat)
+
+* **04/03 (2h online diferit).** Exemples Estadística Descriptiva amb R. Edició amb Markdown.
+
+* **09/03 (1h presencial).** Exercicis probabilitat i combinatòria.
+
+* **10/03 (1h online directe).** Exemple probabilitat amb R (problema fiabilitat motors).  
+
+* **11/03 (2h online diferit).** Variables aleatòries. Exemples càlcul funció probabilitat i distribució.
+
+[comment]: <> (1-38, 49-54 apunts Variables aleatòries)
+
+* **16/03 (1h presencial).** Exemples càlcul esperança i variància. 
+
+[comment]: <> (40-45 apunts Variables aleatòries, fòrmules suma progressions geomètriques)
+[comment]: <> (exemples X=num. cares llançament 2 monedes, i X=num. llançaments moneda fins cara)
+
+* **17/03 (1h online directe).** Variables aleatòries: Exemple test 5 preguntes amb 3 opcions per pregunta. Exercicis 1 i 2  variables aleatòries. 
+
+[comment]: <> (56-57 apunts Variables aleatòries)
+[comment]: <> (Exemple test 5 preguntes amb 3 opcions per pregunta: E(preguntes correctes), E(nota si no llevam punts), E(nota si llevam punts). Comentari funcions de v.a. i esperança i variància de aX+b) 
+
+* **18/03 (2h online diferit).** Variables aleatòries discretes notables: binomial, geomètrica, Poisson, binomial negativa i hipergeomètrica.
+
+[comment]: <> (apunts Variables aleatòries discretes notables)
+
+* **23/03 (1h presencial).** Exercicis v.a. discretes notables
+
+* **24/03 (1h online directe).**  V.a. contínues. Exercicis.
+
+[comment]: <> (apunts Variables aleatòries contínues)
+
+* **25/03 (2h online diferit).**  Variables aleatòries contínues notables: uniforme, normal, exponencial.
+
+[comment]: <> (apunts Variables aleatòries contínues i Variables aleatòries contínues notables)
+
+* **30/03 (1h presencial).** Exercicis v.a. contínues notables
+
+* **31/03 (1h online directe).** Presentació de la primera part de la pràctica d'ordinador (estadística descriptiva) i del taller avaluable 1 (probabilitat i variables aleatòries)
+
+--- SETMANA SANTA ---
+
+* **13/04 (1h presencial).** V.a. bidimensionals.
+
+[comment]: <> (apunts Variables aleatòries bidimensionals)
+
+* **14/04 (1h online directe).** Exercicis v.a. bidimensionals.
+
+[comment]: <> (exercicis Variables aleatòries bidimensionals)
+
+* **15/04 (2h online diferit).** Estadística inferencial: Teorema Central del Límit. Mostreig. Estimació puntual.
+
+* **20/04 (1h presencial).** **Control 1**: probabilitat i variables aleatòries
+
+* **21/04 (1h online directe).** Estimació puntual (continuació).
+
+* **22/04 (2h online diferit).** Exercicis d'estimació puntual. Intervals de confiança.
+
+* **28/04 (1h presencial).** Intervals de confiança (continuació).
+
+* **29/04 (1h online directe).** Exercicis d'intervals de confiança.
+
+* **30/04 (2h online diferit).** Exercicis d'intervals de confiança (continuació). Introducció al contrast d'hipòtesis.
+
+* **04/05 (1h presencial).** Introducció al contrast d'hipòtesis (continuació). 
+
+* **05/05 (1h online directe).**  Contrast d'hipòtesis (1 mostra). 
+
+* **06/05 (2h online diferit).**  Contrast d'hipòtesis (1 mostra) (continuació). Contrast d'hipòtesis (2 mostres). 
+
+* **11/05 (1h presencial).** Contrast d'hipòtesis (2 mostres) (continuació). 
+
+* **12/05 (1h online directe).** Presentació de la segona part de la pràctica d'ordinador (estadística inferencial) i del taller avaluable 2 (estimació puntual, intervals de confiança i contrast d'hipòtesis).
+
+* **13/05 (2h online diferit).** Exercicis contrast d'hipòtesis. 
+
+* **18/05 (1h presencial).** **Control 2**: estimació puntual, intervals de confiança i contrast d'hipòtesis.
+
+* **19/05 (1h online directe).** Resolució control 2.
+
+* **20/05 (2h online diferit).** Bondat d'ajustament. 
+
+* **25/05 (1h presencial).** Tests d'independència.
+
+* **26/05 (1h online directe).** Tests d'independència (continuació).
+
+* **27/05 (2h online diferit).** ANOVA de 1 factor.
+
+* **01/06 (1h presencial).** Prova tipus examen.
+
+* **02/06 (1h online directe).** Resolució de dubtes.
+
+* **03/06 (2h online diferit).** Regressió lineal simple. Clustering.  
+
+
+
+
+

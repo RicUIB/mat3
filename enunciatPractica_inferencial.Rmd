@@ -1,0 +1,71 @@
+---
+title: "Enunciat Pràctica Assignatura Estadística"
+author: ''
+date: ''
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Part 2: Estadística Inferencial
+
+Considerem que les dades de la ciutat que teniu assignada corresponen a una mostra 
+aleatòria simple de totes les vivendes que es podrien llogar a la ciutat. 
+A partir d'aquesta mostra es demana:
+
+1. Calculau una estimació puntual de la mitjana per a la variable 'price' i l'error estàndar de l'estimador.
+
+2. Calculau un interval de confiança, al nivell de confiança del 95%, per a la variable 'price'.
+
+3. Calculau un interval de confiança, al nivell de confiança del 99%, per a la 
+proporció de vivendes que tenen un 'review_scores_rating' inferior a 95.
+
+4. Suposem que un responsable d'Airbnb assegura que la mitjana dels valors de 'review_scores_rating'
+de les vivendes del seu portal és superior a 95. Contrastau aquesta hipòtesi.
+
+5. Calculau l'interval de confiança, amb un nivell de confiança del 95%, associat al contrast de l'exercici anterior.
+
+6. Considerau ara les dades de 'price' per a la ciutat de New York del mes de febrer de 2020 (les trobareu a http://insideairbnb.com/get-the-data.html, i heu de pitjar a 'show archived data'). Compararem els valors d'aquesta variable amb els corresponents a la ciutat que teniu assignada.
+Feu un contrast d'hipòtesis per decidir si les desviacions típiques dels preus de les dues ciutats són iguals o diferents. Considerau que les distribucions dels valors de preu en les poblacions són normals.
+
+7. A partir dels resultats de l'apartat anterior contrastau la hipòtesi de que els preus mitjans a les dues ciutats són iguals.
+
+8. Utilitzau el test de Kolmogorov-Smirnov-Lilliefors per confirmar o rebutjar la hipòtesi de que la distribució dels valors de la variable 'price' és normal, amb un nivell de significació $\alpha=0.05$.
+
+9. Analitzau la dependència entre les variables
+'price' i 'review_scores_rating' de la ciutat que teniu assignada.
+Per fer-ho, seguiu les següents passes:
+
+    * Seleccionau del data frame les mostres que tenen valors diferents de NA per les dues
+variables.
+
+    * A continuació agrupau els valors de  cada variable utilitzant els intervals següents: [*min*, Q1), [Q1, Q2), [Q2, Q3) i [Q3, *max*].
+Els valors *min* i *max* són el mínim i el màxim de la variable, respectivament. Q1, Q2 i Q3 representen els quartils primer, segon (mediana) i tercer.
+Si els valor mínim i màxim d'algun interval són iguals, eliminau aquest interval.
+
+    * Organitzau les dades agrupades en intervals en una taula de contingència.
+  
+    * A partir d'aquesta taula feu un test $\chi^2$ d’independència per determinar si les dues variables  són independents, amb un nivell de significació del 0.05.
+
+
+<!-- 10.  Considerau ara les dades de 'price' per a la ciutat de Paris del mes de febrer de 2020 (les trobareu a http://insideairbnb.com/get-the-data.html, i heu de pitjar a 'show archived data'). -->
+<!-- Dibuixau en un mateix boxplot els valors de 'price' de la ciutat que teniu assignada, de New York i de Paris. Feu un test ANOVA per determinar si les mitjanes de preu a les tres ciutats són iguals. Aplicau també el test de Bonferroni. -->
+
+
+
+
+Comentaris: 
+
+* Per fer els càlculs demanats als apartats anterior s'han d'eliminar els valors no vàlids (NA) de les variables.
+
+* Sempre que sigui possible s'han d'utilitzar les funcions de R explicades a classe per resoldre els exercicis.
+
+* Heu de redactar un document utilitzant Rmarkdown amb les respostes a aquestes preguntes i que inclogui el codi R utilitzat. També heu de generar (Knit) una versió HTML del document.
+
+
+
+El document, en format .Rmd i .html, s'ha d'**entregar a Aula Digital abans del 15 de juny**.
+
+
+
+

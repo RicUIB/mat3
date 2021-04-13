@@ -1,0 +1,311 @@
+---
+title: "Entrega 3 Problemas y Talleres MATIII Estadística grado informática 2019-2020"
+author: "Ricardo Alberich"
+date: "13-05-2020"
+output:
+  word_document:
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+linkcolor: red
+header-includes: \renewcommand{\contentsname}{Contenidos}
+citecolor: blue
+toccolor: blue
+urlcolor: blue
+---
+
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+options(scipen=999)
+contador=0
+cuenta=function(x=contador) {contador<<- contador+1;return(contador)}
+set.seed(2020)
+```
+
+
+# Entregas 3  Problemas: Estadística Inferencial 1
+
+Contestad cada GRUPO de 3  a los siguientes problemas y cuestiones en un fichero Rmd y su  salida en html o pdf.
+
+Cambien podéis incluir capturas de problemas hechos en papel. Cada pregunta vale lo mismo y se reparte la nota entre sus apartados.
+
+## Problema `r cuenta()`: Contraste de parámetros de dos muestras.
+
+Queremos comparar los tiempos de realización de un test entre
+estudiantes de dos grados G1 y G2, y determinar si es verdad
+que los estudiantes de G1 emplean menos tiempo que los de
+G2. No conocemos $\sigma_1$ y $\sigma_2$.
+Disponemos de dos muestras independientes de cuestionarios
+realizados por estudiantes de cada grado, $n_1=n_2=50$.
+
+Los datos están en http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/, en dos 
+ficheros `grado1.txt` y `grado2.txt`.
+
+
+```{r cargadatosoculta}
+G1=read.table("http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/grado1.txt",
+              header=TRUE)$x
+G2=read.table("http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/grado2.txt",
+              header=TRUE)$x
+n1=length(na.omit(G1))
+n2=length(na.omit(G2))
+media.muestra1=mean(G1,na.rm=TRUE)
+media.muestra2=mean(G2,na.rm=TRUE)
+desv.tip.muestra1=sd(G1,na.rm=TRUE)
+desv.tip.muestra2=sd(G2,na.rm=TRUE)
+```
+
+Calculamos las medias y las desviaciones típicas muestrales de los tiempos empleados para cada muestra. Los datos obtenidos se resumen en la siguiente tabla:
+
+
+$$
+\begin{array}{llll}
+n_1&=`r n1`, & n_2&=`r n1`\\
+\overline{x}_1&=`r media.muestra1`, & \overline{x}_2&=`r media.muestra2`\\
+\tilde{s}_1&=`r desv.tip.muestra1`, & \tilde{s}_1&=`r desv.tip.muestra2`
+\end{array}
+$$
+Se pide:
+
+1. Comentad brevemente el código de R explicando que hace cada instrucción.
+2. Contrastad si hay evidencia de que las notas medias son distintas entre los dos grupos. En dos casos considerando las varianzas desconocidas pero iguales o desconocidas pero distintas. Tenéis que hacer el contraste de forma manual y con funciones de  `R` y resolver el contrate con el $p$-valor. 
+3. Calculad e interpretar los intervalos de confianza para la diferencia de medias asociados a  los dos test anteriores. 
+4. Comprobad con el test de Fisher y el de Levene si las varianza de las dos muestras son iguales contra que son distintas. Tenéis que resolver el test de Fisher con `R` y de forma manual y el test de Levene con `R`  y decidir utilizando el $p$-valor. 
+
+
+
+## Problema `r cuenta()` : Contraste dos muestras
+
+Simulamos dos muestras con las funciones siguientes 
+
+
+```{r generacionmuestras100}
+set.seed(2020)
+x1=rnorm(100,mean = 10,sd=2)
+x2=rnorm(100,mean = 8,sd=4)
+```
+Dibujamos estos gráficos
+
+```{r}
+boxplot(x1,x2)
+library(car)
+par(mfrow=c(1,2))
+qqPlot(x1)
+qqPlot(x2)
+par(mfrow=c(1,1))
+```
+
+Realizamos algunos contrastes de hipótesis de igual de medias entre ambas muestras
+
+```{r test_t_muestras}
+t.test(x1,x2,var.equal = TRUE,alternative = "greater")
+t.test(x1,x2,var.equal = FALSE,alternative = "two.sided")
+t.test(x1,x2,var.equal = TRUE)
+```
+
+Se pide
+
+1. ¿Cuál es la distribución  y los parámetros de las muestras generadas? 
+2. ¿Qué muestran y cuál es  la interpretación de los gráficos? 
+3. ¿Qué test contrasta si hay evidencia a favor de que las medias poblacionales de las notas en cada grupo sean distintas? Di qué código de los anteriores resuelve este test. 
+4. Para el test del apartado anterior dad las hipótesis nula y alternativa y redactar la conclusión del contraste. 
+
+
+## Problema `r cuenta()` : Bondad de ajuste. La ley de Benford 
+
+La ley de Benford es  una distribución discreta que siguen las frecuencias de los primero dígitos significativos (de 1 a 9)  de algunas series de datos curiosas.
+
+Sea una v.a. X con dominio $D_X=\left\{1,2,3,4,5,6,7,8,9\right\}$ diremos que sigue una ley de Benford  si 
+
+$$P(X=x)=\log_{10} \left(1+\frac{1}{x}\right)\mbox{ para } x\in \left\{1,2,3,4,5,6,7,8,9\right\}.$$
+
+Concretamente lo podemos hacer así
+
+
+```{r benford1,echo=TRUE,warning=FALSE}
+prob=log10(1+1/c(1:9))
+prob
+MM=rbind(c(1:9),prob)
+df=data.frame(rbind(prob))
+# Y hacemos una bonita tabla
+colnames(df)=paste("Díg.",c(1:9),sep =" ")
+knitr::kable(df,format ='markdown')
+```
+
+En general esta distribución se suele encontrar en tablas de datos de resultados de observaciones  de funciones científicas, contabilidades, cocientes de algunas distribuciones ... 
+
+Por ejemplo se dice que las potencias de números enteros siguen esa distribución. Probemos con las potencias de 2. El siguiente código calcula las potencias de 2  de 1 a 1000 y extrae los tres primeros dígitos.
+
+
+
+```{r benford2}
+# R pasa los enteros  muy grande a reales. Para nuestros propósitos 
+# es suficiente para extraer los tres primeros dígitos.
+muestra_pot_2_3digitos=str_sub(as.character(2^c(1:1000)),1,3)
+head(muestra_pot_2_3digitos)
+tail(muestra_pot_2_3digitos)
+#Construimos un data frame con tres columnas que nos dan el primer, 
+#segundo y tercer dígito respectivamente.
+df_digitos=data.frame(muestra_pot_2_3digitos,
+                      primer_digito=as.integer(
+                        substring(muestra_pot_2_3digitos, 1, 1)),
+                      segundo_digito=as.integer(
+                        substring(muestra_pot_2_3digitos, 2, 2)),
+                      tercer_digito=as.integer(
+                        substring(muestra_pot_2_3digitos, 3, 3)))
+head(df_digitos)
+```
+
+Notad que los NA  en el segundo y el tercer dígito corresponden a número con  uno o dos dígitos.
+
+Se pide:
+
+1. Contrastad con un test $\chi^2$ que el primer dígito sigue una ley de Benford. Notad que el primer dígito no puede ser 0. Resolved manualmente y con una función de  `R`.  
+2. Contrastad con un test $\chi^2$ que el segundo dígito sigue una ley de uniforme discreta. Notad que ahora si puede ser  0. Resolved con  funciones de `R`.  
+3. Contrastad con un test $\chi^2$ que el tercer dígito sigue una ley de uniforme discreta. Notad que ahora si puede ser  0. Resolved con  manualmente calculado las frecuencias esperadas y observadas, el estadístico de contraste y el $p$-valor utilizando  `R`. Comprobad que vuestros resultados coinciden con los de la función de `R` que calcula este contraste.  
+4. Dibujad con `R`  para los apartados 1 y 2 los diagramas de frecuencias esperados y observados. Comentad estos gráficos
+ 
+ 
+ 
+## Problema `r cuenta()` : Homogeneidad e independencia
+
+Queremos analiza los resultados de aprendizaje  con tres tecnologías. Para ello se seleccionan 3 muestras de 50 estudiantes y se les somete a evaluación después de un curso.
+
+
+```{r notas_calculos}
+set.seed(2020)
+nota=factor(sample(c(1,2,3,4),p=c(0.1,0.4,0.3,0.2),replace=TRUE,size=150),
+            labels=c("S","A","N","E"))
+tecnologia=as.factor(rep(c("Mathematica","R","Python"),each=50))
+frec=table(nota,tecnologia)
+frec
+col_frec=colSums(frec)
+col_frec
+row_frec=rowSums(frec)
+row_frec
+N=sum(frec)
+teoricas=row_frec%*%t(col_frec)/N
+teoricas
+dim(frec)
+dim(teoricas)
+sum((frec-teoricas)^2/teoricas)
+```
+
+```{r chi_notas}
+chisq.test(table(nota,tecnologia))
+```
+
+Se pide
+
+1. Discutid si hacemos un contraste de independencia o de homogeneidad de las distribuciones de las notas por tecnología. Escribid las hipótesis del contraste. 
+2. Interpretad la función `chisq.test` y resolved el contraste. 
+3. Interpretad `teoricas=row_frec%*%t(col_frec)/N` reproducid manualmente el segundo resultado de la primera fila. 
+
+
+
+## Problema `r cuenta()` : ANOVA notas numéricas de tres grupos.
+
+El siguiente código nos da las notas numéricas (variable `nota`) de los mismos ejercicios para tres tecnologías en tres muestra independientes de estudiantes  de estas tres tecnologías diferentes
+
+```{r semilla2, echo=FALSE}
+set.seed(2020)
+nota=rnorm(150,mean=70,sd=25)
+```
+
+
+```{r anova1}
+head(nota)
+library(nortest)
+lillie.test(nota[tecnologia=="Mathematica"])
+lillie.test(nota[tecnologia=="R"])
+lillie.test(nota[tecnologia=="Python"])
+lillie.test(nota)
+bartlett.test(nota~tecnologia)
+library(car)
+leveneTest(nota~tecnologia)
+sol_aov=aov(nota~tecnologia)
+```
+
+
+Del `summary(sol_aov)` os damos la salida a falta de algunos de los valores
+
+```
+> summary(sol_aov)
+             Df Sum Sq Mean Sq F value Pr(>F)
+tecnologia  ---    837   418.7   ---  ---
+Residuals   --- 123445   ----              
+
+```
+
+
+```{r poshoc}
+pairwise.t.test(nota,tecnologia,p.adjust.method = "none")
+```
+
+Se pide
+
+1. ¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas?  Sea cual sea la respuesta justificad que parte del código la confirma. 
+2. La función `aov` que test calcula. Escribid  formalmente la hipótesis nula y la alternativa. 
+3. Calcula la tabla de ANOVA y resuelve el test. 
+4. ¿Qué contrates realiza la función `pairwise.t.test`?  Utilizando los resultados anteriores aplicad e interpretad los contrates del apartado anterior utilizando el ajuste de Holm. 
+
+
+## Problema `r cuenta()` : ANOVA Comparación de las tasas de interés  para la compra de coches  entre seis ciudades.
+
+Consideremos el  `data set` `newcar` accesible desde https://www.itl.nist.gov/div898/education/anova/newcar.dat de *Hoaglin, D., Mosteller, F., and Tukey, J. (1991). Fundamentals of Exploratory Analysis of Variance. Wiley, New York, page 71.* 
+
+Este data set contiene dos columnas:
+
+* Rate (interés): tasa de interés en la compra de coches a crédito 
+* City (ciudad) : la ciudad en la que se observó la tasa de interés para distintos concesionarios (codificada a enteros). Tenemos observaciones de  6 ciudades. 
+
+```{r}
+datos_interes=read.table(
+  "https://www.itl.nist.gov/div898/education/anova/newcar.dat",
+  skip=25)
+# salto las 25 primeras líneas del fichero,son un preámbulo qiue explica los datos.
+names(datos_interes)=c("interes","ciudad")
+str(datos_interes)
+boxplot(interes~ciudad,data=datos_interes)
+```
+
+Se pide:
+
+1. Comentad el código y  el diagrama de caja.
+2. Se trata de contrastar si hay evidencia de  que  la tasas medias de interés por ciudades son distintas. Definid el ANOVA que contrasta esta hipótesis y especificar qué condiciones deben cumplir las muestras para poder aplicar el ANOVA.  
+3. Comprobad las condiciones del ANOVA  con un test KS y un test de Levene (con código de `R`).  Justificad las conclusiones.  
+4. Realizad el contraste de ANOVA (se cumplan las condiciones o no) y redactar adecuadamente la conclusión. Tenéis que hacedlo con  funciones de `R`.  
+5. Se acepte o no la igualdad de medias realizar las comparaciones dos a dos con ajustando los $p$-valor tanto por  Bonferroni como por Holm al nivel de significación $\alpha=0.1$. Redactad las conclusiones que se obtienen de las mismas.  
+
+
+
+## Problema `r cuenta()`: Cuestiones cortas
+
+* Cuestión 1: Supongamos que conocemos el $p$-valor de un contraste. Para que valores de nivel de significación $\alpha$ RECHAZAMOS la hipótesis nula.
+* Cuestión 2: Hemos realizado un ANOVA de un factor con 3 niveles, y hemos obtenido un $p$-valor de 0.001.
+Suponiendo que las poblaciones satisfacen las condiciones para que el ANOVA tenga sentido, ¿podemos
+afirmar con un nivel de significación $\alpha= 0.05$ que las medias de los tres niveles son diferentes dos a dos? Justificad la respuesta.
+* Cuestión 3: Lanzamos 300 veces un dado de  6 caras de parchís, queremos contrastar que los resultados son
+equiprobables. ¿Cuáles serian las frecuencias esperadas o teóricas del contraste?
+* Cuestión 4: En un ANOVA de una vía, queremos contrastar si los 6 niveles de un factor definen poblaciones 
+con la misma media. Sabemos que estas seis poblaciones son normales con
+la misma varianza $\sigma=2$. Estudiamos a 11 individuos de cada nivel y obtenemos que
+$SS_{Total}=256.6$ y $SS_{Tr}=60.3$. ¿Qué vale
+$SS_E$. ¿Qué valor estimamos que tiene $\sigma^2$?
+* Cuestión 6: Calculad la correlación entre los vectores de datos $x=(1,3,4,4)$, $y=(2,4,12,6)$.
+* Cuestión 7: De estas cuatro matrices, indicad cuáles pueden ser matrices de correlaciones, y explicad por qué.
+
+$A=\left(\begin{array}{cc} 1  &  0.8\\-0.8 &  1\end{array}\right)$,
+$B=\left(\begin{array}{cc} 0.8  &  0.6\\0.6  &  0.8\end{array}\right)$,
+$C=\left(\begin{array}{cc} 1  &  0\\0  &  1\end{array}\right)$,
+$D=\left(\begin{array}{cc} 1  &  1.2\\1.2  &  1\end{array}\right)$.
+

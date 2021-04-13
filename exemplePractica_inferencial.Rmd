@@ -1,0 +1,296 @@
+---
+title: "Enunciat Pràctica Assignatura Estadística"
+author: ''
+date: ''
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+
+# Part 2: Estadística Inferencial
+
+Considerem que les dades de la ciutat que teniu assignada corresponen a una mostra 
+aleatòria simple de totes les vivendes que es podrien llogar a la ciutat. 
+
+```{r} 
+
+setwd("~/Dropbox/STATIC/Docencia/EstadisticaGINF/curs2019-2020/practicaOrdinador")
+rawdata=read.csv("listingsAustin.csv", stringsAsFactors=FALSE)
+
+```
+
+
+A partir d'aquesta mostra es demana:
+
+1. Calculau una estimació puntual de la mitjana per a la variable 'price' i l'error estàndar de l'estimador.
+
+```{r} 
+priceAustin = as.numeric(gsub(",", "", gsub("\\$", "", rawdata$price)))
+
+summary(priceAustin)
+
+n=length(priceAustin)
+n
+
+m=mean(priceAustin)
+m
+
+s=sd(priceAustin)
+s
+
+e=s/sqrt(n)
+e
+```
+
+El tamany mostral és: ```r n```
+
+La mitjana mostral (estimador de la mitjana poblacional) és: ```r m```
+
+La desviació típica mostral és: ```r s```
+
+L'error estàndar de l'estimador és: ```r e```
+
+
+
+2. Calculau un interval de confiança, al nivell de confiança del 95%, per a la variable 'price'.
+
+```{r}
+
+ICprice=c(m-qnorm(1-0.05/2)*e, m+qnorm(1-0.05/2)*e)
+ICprice
+
+t.test(priceAustin, alternative="two.sided", conf.level=0.95)
+
+```
+
+
+3. Calculau un interval de confiança, al nivell de confiança del 99%, per a la 
+proporció de vivendes que tenen un 'review_scores_rating' inferior a 95.
+
+```{r}
+
+reviews=rawdata$review_scores_rating
+summary(reviews)
+
+reviews2=reviews[!is.na(reviews)]
+summary(reviews2)
+n=length(reviews2)
+n
+
+reviewslow=reviews2[reviews2 < 95]
+summary(reviewslow)
+cf=length(reviewslow)
+cf
+
+p=cf/n
+p
+
+e=sqrt(p*(1-p)/n)
+
+ICp=c(p-qnorm(1-0.01/2)*e, p+qnorm(1-0.01/2)*e)
+ICp
+
+prop.test(cf, n, alternative="two.sided", conf.level=0.99, correct=FALSE)
+
+library(epitools)
+binom.exact(cf, n, conf.level=0.99)
+```
+
+
+4. Suposem que un responsable d'Airbnb assegura que la mitjana dels valors de 'review_scores_rating'
+de les vivendes del seu portal és superior a 95. Contrastau aquesta hipòtesi.
+
+Feim el contrast:
+$$
+H_0: \mu=95 \\
+H_1: \mu > 95
+$$
+Cas IX Taula Contrasts 1 mostra:
+
+
+```{r}
+mu0=95
+m=mean(reviews2)
+s=sd(reviews2)
+n=length(reviews2)
+
+z=(m-mu0)/(s/sqrt(n))
+z
+
+pvalor=1-pnorm(z)
+pvalor
+
+
+t.test(reviews2, mu=95, alternative="greater", conf.level=0.95)
+
+```
+
+El pvalor és pràcticament 0 (molt significatiu), per tant rebutjam la hipòtesi nul.la i acceptam que la mitjana dels reviews és superior a 95.
+
+5. Calculau l'interval de confiança, amb un nivell de confiança del 95%, associat al contrast de l'exercici anterior.
+
+```{r}
+
+ICmu_min=m-qnorm(1-0.05)*s/sqrt(n)
+
+```
+
+IC=(```r ICmu_min```, $\infty$)
+
+
+6. Considerau ara les dades de 'price' per a la ciutat de New York del mes de febrer de 2020 (les trobareu a http://insideairbnb.com/get-the-data.html, i heu de pitjar a 'show archived data'). Compararem els valors d'aquesta variable amb els corresponents a la ciutat que teniu assignada.
+Feu un contrast d'hipòtesis per decidir si les desviacions típiques dels preus de les dues ciutats són iguals o diferents. Considerau que les distribucions dels valors de preu en les poblacions són normals.
+
+```{r}
+rawdata2=read.csv("listingsNY.csv.gz", stringsAsFactors=FALSE)
+
+priceNY = as.numeric(gsub(",", "", gsub("\\$", "", rawdata2$price)))
+
+summary(priceNY)
+
+```
+
+Hem de fer el contrast següent, considerant que les mostres són independents
+ja que venen de ciutats diferents
+$$
+H_0: \sigma_1=\sigma_2 \\
+H_1: \sigma_1 \neq \sigma_2
+$$
+
+```{r}
+var.test(priceAustin, priceNY, alternative="two.sided", conf.level=0.95)
+```
+
+Com el p-valor és molt petit (pràcticament zero) rebutjam la hipòtesi nul.la
+i consideram que les desviacions típiques poblacionals dels preus de les dues ciutats són diferents.
+
+
+7. A partir dels resultats de l'apartat anterior contrastau la hipòtesi de que els preus mitjans a les dues ciutats són iguals.
+
+Feim el contrast:
+$$
+H_0: \mu_1=\mu_2 \\
+H_1: \mu_1 \neq \mu_2
+$$
+Com que a l'apartat anterior hem vist que $\sigma_1 \neq \sigma_2$ llavors estam en el cas VII de la Taula de Contrastos de dues mostres.
+
+```{r}
+t.test(priceAustin, priceNY, alternative="two.sided", conf.level=0.95, paired=FALSE, var.equal=FALSE)
+```
+
+Com el p-valor és molt petit (pràcticament zero) rebutjam la hipòtesi nul.la
+i consideram que les mitjanes poblacionals dels preus de les dues ciutats són diferents.
+
+8. Utilitzau el test de Kolmogorov-Smirnov-Lilliefors per confirmar o rebutjar la hipòtesi de que la distribució dels valors de la variable 'price' és normal, amb un nivell de significació $\alpha=0.05$.
+
+En el test de Kolmogorov-Smirnov-Lilliefors la hipòtesi nul.la és que la distribució dels 
+valors és Gaussiana.
+```{r}
+#install.packages("nortest",dep=TRUE)
+library(nortest)
+lillie.test(priceAustin)
+```
+
+Com el p-valor és molt petit la conclusió és que la distribució dels valors no és Gaussiana.
+
+9. Analitzau la dependència entre les variables
+'price' i 'review_scores_rating' de la ciutat que teniu assignada.
+Per fer-ho, seguiu les següents passes:
+
+    * Seleccionau del data frame les mostres que tenen valors diferents de NA per les dues
+variables.
+
+    * A continuació agrupau els valors de  cada variable utilitzant els intervals següents: [*min*, Q1), [Q1, Q2), [Q2, Q3) i [Q3, *max*].
+Els valors *min* i *max* són el mínim i el màxim de la variable, respectivament. Q1, Q2 i Q3 representen els quartils primer, segon (mediana) i tercer.
+Si els valor mínim i màxim d'algun interval són iguals, eliminau aquest interval.
+
+    * Organitzau les dades agrupades en intervals en una taula de contingència.
+  
+    * A partir d'aquesta taula feu un test $\chi^2$ d’independència per determinar si les dues variables  són independents, amb un nivell de significació del 0.05.
+
+```{r}
+data=data.frame(rawdata$price, rawdata$review_scores_rating)
+names(data)=c('Preu', 'Review')
+data$Preu = as.numeric(gsub(",", "", gsub("\\$", "", data$Preu)))
+
+data=data[!is.na(data$Review) & !is.na(data$Preu), ]
+
+summary(data$Preu)
+
+summary(data$Review)
+```
+
+
+```{r}
+quantile(data$Preu)
+```
+
+```{r}
+binnedPrice=cut(data$Preu, breaks=as.numeric(quantile(data$Preu)), right=FALSE, include.lowest=TRUE)
+```
+
+```{r}
+quantile(data$Review)
+```
+
+```{r}
+binnedReviews=cut(data$Review, breaks=c(20, 95, 98, 100), right=FALSE, include.lowest=TRUE)
+#binnedReviews=cut(data$Review, breaks=as.numeric(quantile(data$Review)), right=FALSE, include.lowest=TRUE)
+```
+
+```{r}
+data=table(binnedPrice, binnedReviews)
+data
+
+sum(data)
+```
+
+```{r}
+chisq.test(data)
+```
+
+El p-valor és molt petit i per tant rebutjam la hipòtesi nul.la de que les dues variables són independents.
+
+<!-- 10.  Considerau ara les dades de 'price' per a la ciutat de Paris del mes de febrer de 2020 (les trobareu a http://insideairbnb.com/get-the-data.html, i heu de pitjar a 'show archived data'). -->
+<!-- Dibuixau en un mateix diagrama els boxplots dels valors de 'price' de la ciutat que teniu assignada, de New York i de Paris. Feu un test ANOVA per determinar si les mitjanes de preu a les tres ciutats són iguals. Aplicau també el test de Bonferroni. -->
+
+<!-- ```{r} -->
+<!-- rawdata3=read.csv("listingsParis.csv.gz", stringsAsFactors=FALSE) -->
+
+<!-- priceParis = as.numeric(gsub(",", "", gsub("\\$", "", rawdata3$price))) -->
+
+<!-- summary(priceParis) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- dataAustin=data.frame(Preu=priceAustin, Ciutat=rep("Austin", length(priceAustin))) -->
+<!-- dataNY=data.frame(Preu=priceNY, Ciutat=rep("New York", length(priceNY))) -->
+<!-- dataParis=data.frame(Preu=priceParis, Ciutat=rep("Paris", length(priceParis))) -->
+
+<!-- dataAll=rbind(dataAustin, dataNY) -->
+<!-- dataAll=rbind(dataAll, dataParis) -->
+
+<!-- str(dataAll) -->
+
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- boxplot(Preu~Ciutat, data=dataAll) -->
+
+<!-- summary(aov(dataAll$Preu~dataAll$Ciutat)) -->
+
+<!-- ``` -->
+
+<!-- El p-valor és molt petit i per tant rebutjam la hipòtesi nul.la de que les mitjanes de preu de les tres ciutats són iguals. -->
+
+<!-- ```{r} -->
+<!-- pairwise.t.test(dataAll$Preu,dataAll$Ciutat,p.adjust.method = "bonferroni") -->
+<!-- ``` -->
+<!-- Tots els p-valors són molts petits per tant podem concloure que per tots els parells de ciutats  -->
+<!-- considerats les mitjanes de preus són diferents. -->
+
+
+
+
+

@@ -1,0 +1,480 @@
+---
+title: "Datos notas alumnos PROVISIONAL"
+author: "Juan Gabriel Gomila & Ricardo Alberich"
+date: "02/05/2019"
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+# Datos notas alumnos
+
+Hemos preguntado a varios alumnos de  MATIII algunos datos sobre sus notas. 
+
+## Librerías necesarias
+Lo primero es cargar  las librerías necesarias para este ejercicio
+
+```{r} 
+library(knitr)
+#path="pon tu path"
+#path="~/Documentos/docencia/docencia1819/MATIIIMaterial/Estadística/Talleres_MatIII_GINF/ContrastesNotas/IntervalosMatesII.tar.gz"
+#install.packages(path, repos = NULL, type = "source")
+library(IntervalosMatesII)
+#help(package="IntervalosMatesII")
+```
+
+
+## Lectura de datos de Google Drive
+En primer lugar vamos a leer los  datos que vosotros mismos  (u otros alumnos de otros años) habéis ido rellenando en  Google Drive. Si queréis añadir vuestros datos, lo podéis hacer antes de realizar vuestro propio análisis [aquí](https://docs.google.com/forms/d/e/1FAIpQLSfHaH-h-JljDQTZopYaVg8Y9pHPO3NcmcrN2tEZQUdM7vptBw/viewform?usp=sf_link#responses). Para hacerlo, leeremos un CSV y, le cambiaremos las comas decimales que utiliza la hoja de cálculo por el punto decimal estándar de **R** y  así  tendremos datos numéricos. 
+
+```{r setup}
+myurl ="https://docs.google.com/spreadsheets/d/1PWWLkVNkHFec5ubwDffVYq_3Cs6Ek-QDp22gCyycu0s/pub?gid=373122346&single=true&output=csv"
+rawdata = read.csv(url(myurl),dec=",", stringsAsFactors=FALSE)
+knitr::kable(rawdata,digits = 2,aling="c",
+             caption="Valores originales de la encuesta del alumnado de Mates III")
+```
+
+
+## Creación de funciones
+
+Declararemos las funciones que nos serán útiles durante todo el ejercicio.
+  
+
+```{r}
+estadisticos=function(x) 
+{
+  N=as.numeric(table(!is.na(x))["TRUE"])
+  NAs=length(x)-N
+
+  confInt = 0
+  
+  if(N<40){
+    confInt = ICT.exact(x,na.rm=TRUE)
+  } else {
+    confInt = ICZ.approx(x,na.rm=TRUE)
+  }
+
+  return(c(N=N,NAs=NAs,media=mean(x),Varianza=var(x),Des_tip=sd(x),
+           Q1=quantile(x,0.25),Q3=quantile(x,0.75),mediana=median(x),
+           Max=max(x),Min=min(x), icLower = confInt$lower,
+           ucUpper = confInt$upper))
+}
+```
+
+1. Explicad el código anterior
+2. Aplicad la función `estadisticos` a la variable `studyingHours`. 
+
+**Soluciones**
+
+```{r}
+estadisticos(rawdata$studyingHours)
+```
+
+## Análisis preliminar y estadística descriptiva
+En primer lugar haremos un análisis preliminar, veremos un resumen de qué datos han aportado los estudiantes, y haremos  también algunos gráficos histogramas, boxplots, pie charts... 
+
+
+
+```{r}
+aux=apply(rawdata[,3:10],2,estadisticos)
+
+knitr::kable(t(round(aux,2)),digits = 2,aling="c",caption="Estadísticos básicos toda la muestra")
+```
+
+```{r}
+pie(table(rawdata$gender), main = "Clasificación por género")
+par(mfrow=c(2,4))
+for(i in 3:10)
+  hist(rawdata[,i], main = names(rawdata)[i])
+
+for(i in 3:10)
+  boxplot(rawdata[,i], main = names(rawdata)[i])
+
+```
+
+## Estimación puntual
+
+
+1. Calculad los estimadores de la media de les notas  del dataset  y el  error estándar de los mismos.
+2. Calculad los estimadores de las proporciones  de aprobados en cada una  de las asignaturas y su error estándar.
+
+**Solución**
+
+```{r}
+notas=rawdata[,c(6:9)]
+head(notas)
+apply(notas,2,mean)
+apply(notas,2,FUN=function(x)(sd(x)/sqrt(length(x))))
+```
+
+
+## Intervalos de confianza
+
+1. Calculad los intervalos de confianza con las estimaciones puntuales del apartado anterior. Podéis emplear las funciones de la librería de *IntervalosMatesII* que consideréis oportunas.
+2. Cuando sea  posible repetid el cálculo manualmente.
+
+**Solución**
+
+```{r}
+ICT.exact(notas$bachellorMark)
+ICZ.approx(notas$bachellorMark)
+```
+
+
+$$\left(\overline{x}-t_{n-1,1-\alpha/2} \frac{\tilde{s}}{\sqrt{n}},\overline{x}+t_{n-1,1-\alpha/2} \frac{\tilde{s}}{\sqrt{n}}\right)$$
+```{r}
+media=mean(notas$bachellorMark)
+media
+sdn=sd(notas$bachellorMark)
+sdn
+n=length(notas$bachellorMark)
+sdn
+alpha=0.05
+cuantil_t=qt(1-alpha/2,n-1)
+cuantil_t
+c(media-cuantil_t*sdn/sqrt(n),media+cuantil_t*sdn/sqrt(n))
+media+c(-1,1)*cuantil_t*sdn/sqrt(n)
+```
+
+$$\left(\overline{x}-z_{1-\alpha/2} \frac{\tilde{s}}{\sqrt{n}},\overline{x}+z_{1-\alpha/2} \frac{\tilde{s}}{\sqrt{n}}\right)$$
+```{r}
+cuantil_z=qnorm(1-alpha/2)
+media+c(-1,1)*cuantil_z*sdn/sqrt(n)
+```
+
+
+## Contrastes de hipótesis de una muestra
+
+1. Contrastad  que la nota media de mates en la selectividad es superior o igual 8 contra que es menor.
+2. Contrastad que les horas medias de estudio estadística son inferiores o iguales a les 4 horas semanal  contra que no.
+3. Contrastad que el porcentaje de aprobados a discreta es inferior o igual al 30 por cent contra que no.
+4. Calculad intervalos de confianza  asociados a los contrastes anteriores al nivel de confianza del 95%.
+5. Cuando sea posible repetir los cálculos manualmente.
+
+**Solución**
+
+El contraste de la pregunta 1 es 
+
+$$\left\{
+\begin{matrix}
+H_0: &\mu\geq 8 \\
+H_1: &\mu <8  
+\end{matrix}
+\right.
+$$
+```{r}
+media=mean(notas$selectivityMark)
+media
+n=length(notas$selectivityMark)
+n
+sds=sd(notas$selectivityMark)
+sds
+mu0=8
+z=(media-8)/(sds/sqrt(n))
+z
+qnorm(0.05)
+z<qnorm(0.05)
+```
+No conocemos la distribución de la población y la varianza es desconocida, bajo estas condiciones el estadístico de contraste es
+
+$$Z=\frac{\overline{X}-8}{\frac{\tilde{S}}{\sqrt{n}}}$$
+
+el valor del  estadístico de contraste es
+
+$$z=\frac{`r media`-8}{\frac{`r sds`}{\sqrt{`r n`}}}=
+`r z`.
+$$
+
+
+Rechazamos $H_0$ si $z< z_{0.05}=`r qnorm(0.05)`$. Como no es así no podemos rechazar  que  la media de la nota de selectividad sea mayor o igual a 8.
+
+Calculemos el $p$-valor es $P(Z\leq z=`r z`)=`r pnorm(z)`.$ Es un $p$-valor muy grande no podemos rechazar $H_0$ contra $H_1$.
+
+El intervalo de confianza es 
+
+$$\left]-\infty,\overline{X}-z_{\alpha}\cdot \frac{\tilde{S}}{\sqrt{n}}\right).$$
+
+
+Si suponemos que la distribución de la nota es normal normal entonces podemos aplicar un $t$-test  con R es 
+
+```{r}
+t.test(rawdata$selectivityMark,mu=8,alternative = "less",conf.level = 0.95)
+```
+
+Manualmente el estadístico de contraste es 
+
+$$T=\frac{\overline{X}-8}{\frac{\tilde{S}}{\sqrt{n}}}$$
+
+
+el valor del  estadístico de contraste es
+
+```{r}
+media =mean(rawdata$selectivityMark)
+media
+sds=sd(rawdata$selectivityMark)
+sds
+mu0
+n=length(rawdata$selectivityMark)
+n
+T=(media-mu0)/(sds/sqrt(n))
+T
+pvalor=pt(T,n-1)
+pvalor
+```
+
+
+
+$$t=\frac{`r media`-8}{\frac{`r sds`}{\sqrt{`r n`}}}= `r T`.$$
+que sigue una distribución $t_{n-1}=t_{31-1}=t_{30}.$
+
+El $p$-valor del contraste es $P(t_{30}\leq `r T`)=`r pt(T,30)`$ que es un valor muy alto por lo que no podemos rechazar  la hipótesis nula.
+
+Para media de las horas de estudio 
+
+$$\left\{
+\begin{matrix}
+H_0: &\mu_h\leq 4 \\
+H_1: &\mu_h >4  
+\end{matrix}
+\right.
+$$
+```{r}
+t.test(rawdata$studyingHours,mu=4,alternative = "great")
+```
+
+Sea $p=$proporción aprobados en discreta nos piden  si 
+
+$$\left\{
+\begin{matrix}
+H_0: &p \leq 0.3 \\
+H_1: &p > 0.3 
+\end{matrix}
+\right.
+$$
+
+```{r}
+summary(rawdata$discreteMark)
+aprobados=rawdata$discreteMark>=5
+table(aprobados)
+numaprobados=table(aprobados)[2]
+numaprobados
+N=length(rawdata$discreteMark)
+N
+table(aprobados)[2]
+phat=table(aprobados)[2]/N
+phat
+prop.table(table(aprobados))[2]
+Z=(phat-0.3)/(sqrt(0.3*(1-0.3)/(n)))
+Z
+Z^2
+```
+
+```{r}
+prop.test(22,31,p=0.30,alternative = "great",correct=TRUE)
+
+# Es el mismo test de los resúmenes lo que pasa  es que hace un X^2 en lugar de un Z
+sqrt(prop.test(22,31,p=0.30,alternative = "great",correct=FALSE)$statistic)
+
+Z
+pvalorZ=1-pnorm(Z)
+pvalorZ
+pvalorX2=1-pchisq(Z^2,1)
+pvalorX2
+```
+
+$$\left\{
+\begin{matrix}
+H_0: &\mu\geq 8 \\
+H_1: &\mu <8  
+\end{matrix}
+\right.
+$$
+
+
+
+## Contrastes de hipótesis de dos muestras
+
+1. Contrastad  que la nota media de mates en la selectividad es igual entre les poblaciones de hombres  y  mujeres.
+2. Contrastad que la media de horas de estudio de estadística son  iguales entre les poblaciones de hombres y mujeres.
+3. Contrastad que el porcentaje de aprobados de  discreta  es mayor en la población de homes que en la de mujeres.
+4. Calculad los intervalos de confianza asociados a los contrastes anteriores al nivel de confianza del 95%.
+5. Cuando sea posible repetid los cálculos manualmente.
+
+**Solución:**
+
+1. Con código:
+
+Tenemos dos muestras la nota de selectividad de la pobalción de hombres (muestra 1)  y la de mujeres (muestra 2). El contraste que nos piden
+
+$$
+\left\{
+\begin{matrix}
+H_0: &\sigma^2_1=\sigma^2_2 \\
+H_1: &\sigma^2_1\not=\sigma^2_2  
+\end{matrix}
+\right.
+$$
+
+Primero seleccionamos los dos muestras 
+
+```{r}
+nota_sel_h=rawdata$selectivityMark[rawdata$gender=="Hombre"]
+nota_sel_m=rawdata$selectivityMark[rawdata$gender=="Mujer"]
+n1=length(nota_sel_h)
+n2=length(nota_sel_m)
+m1=mean(nota_sel_h)
+m2=mean(nota_sel_m)
+s1=sd(nota_sel_h)
+s2=sd(nota_sel_m)
+n1
+n2
+m1
+m2
+s1
+s2
+
+s12=sqrt(((n1-1)*s1^2+(n2-1)*s2^2)/(n1+n2-2)*(1/n1+1/n2))
+s12
+T=(m1-m2)/s12
+T
+
+#pvalor
+2*(1-pt(abs(T),29))
+```
+
+Supondremos normalidad de cada población, ya que los tamaños de las muestras no son muy grandes. Bajo estas condiciones los test que podemos hacer  son  los de varianzas iguales o varianzas distintas. Con **R** el código es
+
+```{r}
+t.test(nota_sel_h,nota_sel_m,alternative = "two.sided",paired=FALSE,var.equal = TRUE,conf.level = 0.95)
+t.test(nota_sel_h,nota_sel_m,alternative = "two.sided",paired=FALSE,var.equal = FALSE,conf.level = 0.95)
+```
+
+
+Para saber que test tenemos que utilizar si el de varianzas iguales o distinta y suponiendo normalidad en las muestras planteamos el test  dónde la muestra 1 es la de hombres y la 2 la de mujeres
+
+$$
+\left\{
+\begin{matrix}
+H_0: &\sigma^2_1=\sigma^2_2 \\
+H_1: &\sigma^2_1\not=\sigma^2_2  
+\end{matrix}
+\right.
+$$
+
+Con **R** el test es
+
+```{r}
+sol_var_test=var.test(nota_sel_h,nota_sel_m,alternative = "two.sided")
+sol_var_test
+```
+
+
+Si lo resolvemos de forma manual el estadístico de contraste es 
+
+$F=\frac{\tilde{S}^2_1}{\tilde{S}^2_2}$ que sigue una distribución $F_{n_1-1,n_2-1}$.
+
+Hagamos de forma manual los cálculos.
+
+```{r}
+nota_sel_h=rawdata$selectivityMark[rawdata$gender=="Hombre"]
+nota_sel_m=rawdata$selectivityMark[rawdata$gender=="Mujer"]
+n1=length(nota_sel_h)
+n2=length(nota_sel_m)
+s1=sd(nota_sel_h)
+s2=sd(nota_sel_m)
+n1
+n2
+m1
+m2
+s1
+F=s1^2/s2^2
+F
+sol_var_test$statistic
+pf(F,n1-1,n2-1)
+p_valor=2*min(c(pf(F,n1-1,n2-1),1-pf(F,n1-1,n2-1)))
+p_valor
+sol_var_test$p.value
+```
+
+Como conclusión consideraremos las varianzas iguales. Así que la manera corta y práctica de resolver el problema es
+
+```{r}
+nota_sel_h=rawdata$selectivityMark[rawdata$gender=="Hombre"]
+nota_sel_m=rawdata$selectivityMark[rawdata$gender=="Mujer"]
+var.test(nota_sel_h,nota_sel_m,alternative = "two.sided")
+t.test(nota_sel_h,nota_sel_m,alternative = "two.sided",paired=FALSE,var.equal = TRUE,conf.level = 0.95)
+```
+
+
+Comparar proporciones discreta
+
+```{r}
+notas_discreta_h=rawdata$discreteMark[rawdata$gender=="Hombre"]
+n1=length(notas_discreta_h)
+n1
+notas_discreta_h
+notas_discreta_h>=5
+sum(notas_discreta_h>=5)
+p1=sum(notas_discreta_h>=5)/20
+p1
+table(notas_discreta_h>=5)["TRUE"]
+table(notas_discreta_h>=5)[2]
+
+notas_discreta_m=rawdata$discreteMark[rawdata$gender=="Mujer"]
+n2=length(notas_discreta_m)
+n2
+notas_discreta_m
+notas_discreta_m>=5
+p2=sum(notas_discreta_m>=5)/n2
+p2
+
+```
+$$
+\left\{
+\begin{matrix}
+H_0: &p_1=p_2 \\
+H_1: &p_1<p_2  
+\end{matrix}
+\right.
+$$
+
+Es el caso XX de las tablas.
+
+Estadístico de contraste
+
+$$Z=\frac{\hat{p}_1-\hat{p_2}}{\sqrt{\hat{p}\cdot \hat{q}\cdot \left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}\approx N(0,1)$$
+
+donde 
+$$\hat{p}=\frac{n1\cdot \hat{p}_1+n_2\cdot \hat{p_2}}{n1+n2}=\frac{ `r n1` \cdot `r p1`+ `r n2`\cdot `r p2`}{`r n1`+ `r n2`}=`r (n1*  p1+ n2 * p2)/(n1+n2)`$$
+```{r}
+p=(n1*p1+n2*p2)/(n1+n2)
+p
+```
+
+
+El valor del estadístico es $Z_0=\frac{\hat{p}_1-\hat{p_2}}{\sqrt{\hat{p}\cdot \hat{q}\cdot \left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}=`r (p1-p2)/sqrt((p*(1-p)*(1/n1+1/n2)))`$
+
+```{r}
+Z0=(p1-p2)/sqrt((p*(1-p)*(1/n1+1/n2)))
+Z0
+```
+
+
+EL $p$-valor de este contraste es $P(Z< Z0)=`r pnorm(Z0)`$.
+
+No podemos rechazar que la porporcion de aprobados de matemática discreta sea igual enlas poblaciones de hombres y mujeres contra que es menor  en la población de hombres.
+
+
+```{r}
+exitos_h=sum(notas_discreta_h>=5)
+exitos_h
+exitos_m=sum(notas_discreta_m>=5)
+exitos_m
+sol_test=prop.test(c(exitos_h,exitos_m),c(n1,n2),alternative = "less")
+sol_test
+sol_test$p.value
+sol_test$statistic
+```
+
+
+

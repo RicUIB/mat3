@@ -1,0 +1,66 @@
+---
+title: "Enunciat Pràctica Assignatura Estadística"
+author: ''
+date: ''
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Part 1: Estadística Descriptiva
+
+La pràctica es farà en **grups de 2 persones o de manera individual**. Cada grup té assignat un **nom de ciutat** 
+que podreu consultar a la pàgina de l'assignatura a Aula Digital.
+La pràctica consisteix en obtenir les dades de la ciutat assignada, corresponents a **febrer de 2020**, de la **web de Airbnb** (http://insideairbnb.com/get-the-data.html) i redactar un informe amb Rmarkdown contestant les següents preguntes. 
+
+1. Llegiu en format de dataframe les dades del fitxer **'listings.csv'** (descomprimit a partir de **'listings.csv.gz'**).
+Aquestes dades contenen informació de moltes variables (*neighbourhood*, *property_type*, *accommodates*, *beds*, *bedrooms*, *bathrooms*, *price*, *security_deposit*, *minimum_nights*, *review_scores_rating*, *number_of_reviews*, *host_response_time*, *requires_license*, *review_scores_cleanliness*, *cleaning_fee*, etc).
+Heu de crear un nou dataframe que contengui
+només la informació relativa a un mínim de 3 variables no numèriques i 7 variables numèriques.
+Les variables triades han d'incloure les variables 'neighbourhood' i 'price'.
+Les variables relatives a preus (per exemple, 'price' i 'security_deposit') se consideren numèriques,
+però primer s'han de convertir
+a valors numèrics eliminant els símbols $ o € (mirau aquest enllaç per saber com fer-ho: https://www.rforexcelusers.com/remove-currency-dollar-sign-r/).
+
+2. Renombrau les columnes del dataframe amb noms en castellà o català.
+
+3. Per a les variables numèriques, calculau els següents estadístics i mostrau-los en una taula: quantitat de valors no vàlids, mínim, màxim, mitjana, variància, quartils i mediana.
+
+4. Per a les variables no numèriques, generau les taules de freqüencies absolutes de cada un dels seus valors. 
+
+5. Dibuixau boxplots i histogrames de totes les variables numèriques, mostrant un mínim de 2 boxplots per fila. Ajustau l'altura dels gràfics perquè no quedin massa petits.
+
+6. Dibuixau un diagrama de tarta per a una de les variables no numèriques 
+agrupant com a "Altres" els valors que representin un percentatge inferior a l'1% del total.
+
+7. Calculau el valor mitjà d'alguna de les variables numèriques segons el barri, de menor a major i sense tenir en compte noms de Barri incorrectes ("" o "N/A").
+
+10. Dibuixau un boxplot de la variable Preu, per als 5 barris més cars (preu mitjà més alt) i els 5 barris més barats (preu mitjà més baix), en un mateix diagrama.
+Els boxplots han d'indicar també el valor mitjà de les dades.
+
+11. Per 4 de les variables numèriques dibuixau els diagrames de dispersió dos a dos, 
+amb colors diferents per a cada barri ("neighbourhood").
+
+12. Per les mateixes variables triades a l'apartat anterior calculau els coeficients de correlació 
+dos a dos de les variables, sense tenir en compte els valors NA. 
+
+13. Seleccionau dues variables numèriques, i per a cada una d'elles organitzau els seus valors 
+en un màxim de 5 intervals. 
+
+14. A partir de les dades en intervals obtingudes a l'apartat anterior construïu una taula de contingència
+de les dues variables i dibuixau el diagrama de mosaic associat a la taula.
+
+
+
+Es valorarà la claretat i els comentaris dels resultats obtinguts. Si es detecten **treballs copiats**
+quedaran **suspesos tots els alumnes implicats**. 
+Totes les preguntes es poden contestar a partir de l'informació dels manuals de AprendeR1 i AprendeR2 (tema 8), a part dels enllaços proporcionats en aquest document, i, en general, fent cerques a internet.
+També podeu basar el vostre informe en els exemples publicats a la web de l'assignatura,
+en particular els exemples del Taller 1 de la secció 'Activitats' i els Informes 1 i 2 de la secció 'Continguts'.
+A més, podeu consultar dubtes amb la resta dels companys de curs a través del Fòrum de l'assignatura a Aula Digital.
+
+El document en format .Rmd s'ha d'**entregar a Aula Digital abans del 21 d'abril**.
+
+
+
+

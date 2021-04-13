@@ -1,0 +1,170 @@
+---
+title: "Entrega 4  y FINAL. Problemas y Talleres MATIII Estadística grado informática 2019-2020"
+author: "Ricardo Alberich"
+date: "13-05-2020"
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  pdf_document: 
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  word_document:
+    toc: yes
+linkcolor: red
+header-includes: \renewcommand{\contentsname}{Contenidos}
+citecolor: blue
+toccolor: blue
+urlcolor: blue
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+options(scipen=999)
+contador=0
+cuenta=function(x=contador) {contador<<- contador+1;return(contador)}
+set.seed(2020)
+```
+
+
+# Entrega 4 Problemas: Estadística Inferencial 2 
+
+Contestad en GRUPOS  del proyecto a los siguientes problemas y cuestiones en un fichero Rmd y su  salida en html o pdf.
+
+Cambien podéis incluir capturas de problemas hechos en papel. Cada pregunta vale lo mismo y se reparte la nota entre sus apartados.
+
+## Problema `r cuenta()`: Contraste de proporciones de dos muestras independientes.
+
+Queremos comparar las proporciones de aciertos de dos redes neuronales que detectan tipos si una foto con un móvil de una avispa es una [avispa velutina o asiática] (https://es.wikipedia.org/wiki/Vespa_velutina). Esta avispa en una especie invasora y peligrosa por el veneno de su picadura.
+Para ello disponemos de una muestra de 1000 imágenes de insectos etiquetadas como avispa velutina y no velutina.
+
+[Aquí tenéis el acceso a los datos](http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina). Cada uno está en fichero los aciertos están codificados  con 1 y los fallos con 0.
+
+
+Se pide:
+
+1. Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.
+2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1  son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.
+3. Calculad e interpretar los intervalos de confianza para la diferencia de proporciones asociados al test anterior, con funciones de R. 
+
+
+
+
+
+## Problema `r cuenta()` : Contraste de proporciones de dos muestras emparejadas.
+
+En el problema anterior hemos decidido quedarnos con el mejor de los algoritmos y mejorarlo. Pasamos las mismas 1000 imágenes a la version_beta del algoritmo y a la version_alpha.
+[Aquí tenéis el acceso a los datos en el mismo orden para las 1000 imágenes](http://bioinfo.uib.es/~recerca/MATIIIGINF/velutina2). Cada uno está en fichero los aciertos están codificados  con 1 y los fallos con 0.
+
+
+1. Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.
+2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmoalfa  son iguales que las del algoritmo beta. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.
+
+
+
+## Problema `r cuenta()` : ANOVA comparación media puntuaciones según fabricante.
+
+Una vez mejorado nuestro algoritmo queremos saber su  comportamiento bajo distintos tipos de móviles.
+
+Seleccionamos 6 móviles de la misma gama de calidad de 
+6 fabricantes distintos. A los fabricantes los denotamos por F1, F2, F3, F4, F5 y F6.
+
+Vamos a jugar no con la clasificación sino con el score que produce el algoritmo. Para ello seleccionamos 4 muestra aleatorias de fotos de insectos enviadas por los usuarios y la puntuación (*score*)  que nos da el algoritmo que es una variable aleatoria continua de  con rango de 0 a 100.
+
+La idea es comprobar si la media de las puntuaciones del algoritmo es la misma para cada uno de los fabricantes.
+
+
+
+Los datos los podéis descargar de esta dirección del  [servidor bioinfo.uib.es](http://bioinfo.uib.es/~recerca/MATIIIGINF/anova_score/).
+
+
+Antes de descargarlo, visualizar el fichero desde el navegador, para saber cómo descargarlo.
+
+
+
+1. ¿Podemos asegurar que la muestras son normales en cada grupo? ¿y son homocedásticas? Justificar la respuesta con el correspondiente código en R comentado.
+2. Escribid  formalmente la hipótesis nula y la alternativa. Calcular la tabla de ANOVA y resuelve el test de forma manual. 
+3. Calcular la tabla de ANOVA y resuelve el test con la función `aov` de R.
+4. Haced una comparación de pares  con la función adecuada de R  para la corrección del holm al nivel de significación $\alpha=0.1$. Interpreta el resultado.
+5. Comparar por grupos con  el test de Duncan del paquete `agricolae`. Interpreta el resultado.
+
+
+## Problema `r cuenta()`: Regresión lineal simple.
+
+
+Consideremos los siguientes  datos
+
+
+```{r}
+x=c(-2,-1,2,0,1,2)
+y=c(-7, -5,  5, -3,  3.0,  4)
+summary(lm(y~x))
+```
+1. Calcular manualmente los coeficiente de  la regresión lineal de y sobre x
+2. Calcular los valores $\hat{y}_i=b_0+b_1\cdot x_1$ para los valores de la muestra y el error cometido.
+3. Calcular la estimación de la varianza del error.
+4. Resolver manualmente el contraste 
+$\left\{\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\right.,$ calculando el $p$-valor.
+5. Calcular $SST$, $SSR$ y $SSE$.
+6. Calcular el coeficiente de regresión lineal $r_{xy}$ y el coeficiente de determinación $R^2$. Interpretad el resultado en términos de la cantidad de varianza explicada por el modelo
+7. Comprobar que los resultados son los mismos que los obtenidos con la  función `summary(lm(y~x))`.
+
+
+
+
+
+## Problema `r cuenta()`: Distribución de los grados de un grafo de  contactos.
+ 
+En el artículo de A. Broder et al., [Graph structure in the Web. Computer Networks 33, 309 (2000)](http://snap.stanford.edu/class/cs224w-readings/broder00bowtie.pdf). 
+
+Se recopiló el número de enlaces a sitios web encontrados en un rastreo web de 1997 de aproximadamente 200 millones de páginas web, 
+
+Con el se construyó una [tabla](http://tuvalu.santafe.edu/~aaronc/powerlaws/data/weblinks.hist) con  la frecuencia de sitios  por número de enlaces. El código siguiente carga del enlace que han puesto los autores del artículo
+
+```{r}
+data_links=read.table("http://tuvalu.santafe.edu/~aaronc/powerlaws/data/weblinks.hist",header=TRUE)
+head(data_links)
+str(data_links)
+# eliminamos la páginas con menos de 8 enlaces  enlaces y las de más de 1000 enlaces
+data_links_central=data_links[data_links$degree>8&data_links$degree<10^3,]
+head(data_links_central)
+tail(data_links_central)
+```
+
+El siguiente código calcula las regresiones exponecial, potencial y lineal (en algún orden) de las frecuencias (`frequency`) contra los enlaces (`degree`).
+
+```{r}
+sol1=lm(frequency~ degree,data=data_links_central)
+summary(sol1)
+sol2=lm(log10(frequency)~ degree,data=data_links_central)
+summary(sol2)
+sol3=lm(log10(frequency)~ log10(degree),data=data_links_central)
+summary(sol3)
+
+```
+
+Ahora dibujamos los gráficos adecuados a cada modelo
+
+```{r}
+plot(data_links_central,main="Modelo ..........")
+abline(sol1,col="red")
+plot(data_links_central,main="Modelo ..........",log="y")
+abline(sol2,col="red")
+plot(data_links_central,main="Modelo ..........",log="xy")
+abline(sol3,col="red")
+```
+
+
+
+Se pide:
+
+1. Explicad el modelo de regresión que calcula cada función `lm`
+2. ¿Qué modelo y en función de qué parámetros es el mejor?
+3. Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos.
+
+
+

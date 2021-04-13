@@ -11,7 +11,7 @@ output:
     number_sections: yes
     toc: yes
 urlcolor: blue
-toccolor: red
+toccolor: blue
 header-includes:
   \renewcommand{\contentsname}{Contenidos}
 ---
@@ -23,7 +23,7 @@ options(digits=4)
 prob=1
 pr=function(x=prob) {prob=prob+1; return (prob)}
 ```
-# Matemáticas III. Algunos EJERCICIOS para ENTRENAR tipo examen; de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables
+# Matemáticas III. Algunos EJERCICIOS para ENTRENAR el examen de los temas de: Probabilidad, Variables Aleatorias y Distribuciones Notables
 
 ## Ejercicio `r pr(x=prob); prob`
 Sean $A$ y $B$ dos sucesos tales que $P(A\cap B^c)=P(B\cap A^c)=P(A\cap B)=0.2$  ¿Qué vale $P(A\cup B)$?
