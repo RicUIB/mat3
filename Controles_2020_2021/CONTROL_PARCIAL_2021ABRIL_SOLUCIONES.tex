@@ -107,7 +107,7 @@ $P(A|B)=0.4$, $P(A|B^c)=0.7$, $P(B^c)=0.2$. Calcular $P(A)$ y $P(B|A)$.
 
 $$P(A)=P(A|B)\cdot P(B)+P(A|B^c)\cdot P(B^c)=0.4\cdot (1-0.2)+ 0.7\cdot 0.2=0.46.$$
 
-$$P(B|A)=\frac{P(A|B)\cdot P(B)}{P(A)}=\frac{0.4\cdot (1-0.2)}{0.46}=0.173913.$$
+$$P(B|A)=\frac{P(A|B)\cdot P(B)}{P(A)}=\frac{0.4\cdot (1-0.2)}{0.46}=0.6956522.$$
 
 
 \probl \textbf{\textsc{PUNTO EXTRA EN ESTE EXAMEN}}. Tiramos 10 dados de parchís hasta obtener exactamente 5 cincos incluido ese último lanzamiento.
@@ -171,17 +171,17 @@ La variable $X$= número de clientes que NO visitan el anuncio es una $B(n=20,p_
 
 
 
-$$P(\mbox{ningún cliente entre los 20 vea el anuncio})=P(X=0)=0.0031712.$$
+$$P(\mbox{ningún cliente entre los 20 vea el anuncio})=P(Y=0)=\ensuremath{9.094947\times 10^{-13}}.$$
 
 lo hemos calculado con R
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{1}\hlopt{-}\hlnum{0.75}\hlstd{)}
+\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.003171212
+## [1] 9.094947e-13
 \end{verbatim}
 \end{kframe}
 \end{knitrout}

@@ -53,7 +53,7 @@ $P(A|B)=0.4$, $P(A|B^c)=0.7$, $P(B^c)=0.2$. Calcular $P(A)$ y $P(B|A)$.
 \textbf{Solución:}
 <<sol1, echo=FALSE>>=
 r1=0.4*(1-0.2)+0.7*0.2
-r2=0.4*0.2/r1
+r2=0.4*(1-0.2)/r1
 @
 
 
@@ -113,17 +113,17 @@ La variable $X$= número de clientes que NO visitan el anuncio es una $B(n=20,p_
 
 
 <<p31,echo=FALSE>>=
-r1=dbinom(0,size=20,prob=1-0.75)
+r1=dbinom(0,size=20,prob=0.75)
 r2=pbinom(2,size=20,prob=0.75)
 r3=pbinom(4,size=20,prob=0.75)
 @
 
-$$P(\mbox{ningún cliente entre los 20 vea el anuncio})=P(X=0)=\Sexpr{ r1}.$$
+$$P(\mbox{ningún cliente entre los 20 vea el anuncio})=P(Y=0)=\Sexpr{ r1}.$$
 
 lo hemos calculado con R
 
 <<p31_2>>=
-dbinom(0,size=20,prob=1-0.75)
+dbinom(0,size=20,prob=0.75)
 @
 
 $$P(\mbox{vean el anuncio  más de 2 clientes  y menos de 5})=P(Y=3)+P(Y=4),$$
