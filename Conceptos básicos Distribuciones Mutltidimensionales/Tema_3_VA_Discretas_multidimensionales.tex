@@ -1,0 +1,813 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[ignorenonframetext,]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Tema 3 - Variables Aleatorias discretas multidimensionales},
+            pdfauthor={Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\newif\ifbibliography
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Tema 3 - Variables Aleatorias discretas multidimensionales}
+\author{Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\hypertarget{variables-aleatorias-bidimensionales-discretas}{%
+\section{Variables aleatorias bidimensionales
+discretas}\label{variables-aleatorias-bidimensionales-discretas}}
+
+\begin{frame}{Variables aleatorias bidimensionales discretas.
+Introducción}
+\protect\hypertarget{variables-aleatorias-bidimensionales-discretas.-introducciuxf3n}{}
+
+ Definición de variable aleatoria bidimensional.
+
+Sea \(\Omega\) es espacio muestral de un experimento. Diremos que
+\((X,Y)\) es una \textbf{variable aleatoria bidimensional} cuando tanto
+\(X\) como \(Y\) toman valores reales para cada elemento del espacio
+\(\Omega\).
+
+Diremos que es \textbf{discreta} cuando su conjunto de valores en
+\(\mathbb{R}^2\), \((X,Y)(\Omega)\) es un conjunto finito o numerable.
+
+Diremos que es \textbf{continua} cuando su conjunto de valores en
+\(\mathbb{R}^2\), \((X,Y)(\Omega)\) es un producto de intervalos.
+
+Diremos que es \textbf{heterogénea} cuando \(X\) e \(Y\) no compartan
+ser continuas o discretas.
+
+\end{frame}
+
+\begin{frame}{Función de probabilidad conjunta}
+\protect\hypertarget{funciuxf3n-de-probabilidad-conjunta}{}
+
+Definición de función de probabilidad conjunta: Dada una
+\textbf{variable aleatoria bidimensional discreta} \((X,Y)\)
+
+definimos la función de \textbf{probabilidad discreta bidimensional}
+como
+
+\[
+\begin{array}{rl}
+P_{XY}: \mathbb{R}^2 & \longrightarrow [0,1]\\
+(x,y) & \longrightarrow P_{XY}(x,y)=P(X= x,\ Y= y).
+\end{array}
+\]
+
+Llamaremos dominio de la variable conjunta a
+\[D_{XY}=\{(x,y)\in \mathbb{R}^2 | P_{XY}(x,y)=P(X= x,\ Y= y)>0\}.\]
+
+Es decir es el conjunto de valores posibles que toma la v.a. \((X,Y)\).
+
+\end{frame}
+
+\begin{frame}{Función de probabilidad conjunta}
+\protect\hypertarget{funciuxf3n-de-probabilidad-conjunta-1}{}
+
+Por tanto, de cara a calcular \(P_{XY}\) basta calcular
+\(P_{XY}(x_i,y_j)\) para \((x_i,y_j)\in D_{XY}\):
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\(X/Y\) & \(y_1\) & \(y_2\) & \(\ldots\) & \(y_N\)\tabularnewline
+\midrule
+\endhead
+\(x_1\) & \(P_{XY}(x_1,y_1)\) & \(P_{XY}(x_1,y_2)\) & \(\ldots\) &
+\(P_{XY}(x_1,y_N)\)\tabularnewline
+\(x_2\) & \(P_{XY}(x_2,y_1)\) & \(P_{XY}(x_2,y_2)\) & \(\ldots\) &
+\(P_{XY}(x_2,y_N)\)\tabularnewline
+\(\vdots\) & \(\vdots\) & \(\vdots\) & \(\vdots\) &
+\(\vdots\)\tabularnewline
+\(x_M\) & \(P_{XY}(x_M,y_1)\) & \(P_{XY}(x_M,y_2)\) & \(\ldots\) &
+\(P_{XY}(x_M,y_N)\)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+\begin{frame}{Propiedades de la función de probabilidad conjunta}
+\protect\hypertarget{propiedades-de-la-funciuxf3n-de-probabilidad-conjunta}{}
+
+Sea \((X,Y)\) una \textbf{variable aleatoria bidimensional discreta} con
+dominio \(D_{XY}=\{(x_i,y_j)\, i=1,2,\ldots,\ j=1,2,\ldots\}\).
+
+Su \textbf{función de probabilidad conjunta} verifica las siguientes
+propiedades:
+
+La suma de todos los valores de la \textbf{función de probabilidad
+conjunta} sobre el conjunto de valores siempre vale 1:
+\[\sum_{i}\sum_j P_{XY}(x_i,y_j)=1.\]
+
+\end{frame}
+
+\begin{frame}{Propiedades de la función de probabilidad conjunta}
+\protect\hypertarget{propiedades-de-la-funciuxf3n-de-probabilidad-conjunta-1}{}
+
+Sea \(B\) un subconjunto cualquiera del dominio \(D_{XY}\). El valor de
+la probabilidad \(P((X,Y)\in B)\) se puede calcular de la forma
+siguiente: \[
+P((X,Y)\in B) =\sum_{(x_i,y_j)\in B} P_{XY}(x_i,y_j).
+\] Es decir, la probabilidad de que la variable bidimensional tome
+valores en \(B\) es igual a la suma de todos aquellos valores de la
+función de probabilidad conjunta que están en \(B\).
+
+\end{frame}
+
+\begin{frame}{Función de distribución acumulada}
+\protect\hypertarget{funciuxf3n-de-distribuciuxf3n-acumulada}{}
+
+ Definición función de distribución conjunta
+
+La función de distribución acumulada conjunto o simplemente distribución
+conjunta se define como
+
+\[F_{XY}(x,y)=P(X\leq x,Y\leq y).\]
+
+ Propiedad
+
+La \textbf{función de distribución conjunta} se puede obtener conociendo
+la \textbf{función de probabilidad conjunta}
+
+\[
+F_{XY}(x,y)=\sum_{x_i\leq x, y_j\leq y} P_{XY}(x_i,y_j).
+\]
+
+\end{frame}
+
+\hypertarget{distribuciones-marginales}{%
+\section{Distribuciones marginales}\label{distribuciones-marginales}}
+
+\begin{frame}{Variables aleatorias marginales y su distribución}
+\protect\hypertarget{variables-aleatorias-marginales-y-su-distribuciuxf3n}{}
+
+Consideremos una variable aleatoria \textbf{bidimensional discreta
+\((X,Y)\)} con \textbf{función de probabilidad conjunta}
+\(P_{XY}(x_i,y_j)\), para cada \((x_i,y_j)\in D_{XY}\).
+
+La tabla de la \textbf{función de probabilidad conjunta} contiene
+suficiente información para obtener las \textbf{funciones de
+probabilidad} de las variables \(X\) e \(Y\).
+
+Dichas variables \(X\) e \(Y\) se denominan \textbf{variables
+marginales} y sus correspondientes \textbf{funciones de probabilidad},
+\textbf{funciones de probabilidad marginales} \(P_X\) de la variable
+\(X\) y \(P_Y\) de la variable \(Y\).
+
+Veamos cómo obtener \(P_X\) y \(P_Y\) a partir de la tabla \(P_{XY}\).
+
+\end{frame}
+
+\begin{frame}{Funciones de probabilidad marginales}
+\protect\hypertarget{funciones-de-probabilidad-marginales}{}
+
+Proposición. Cálculo de las funciones de probabilidad marginales.
+
+Sea \((X,Y)\) una variable aleatoria \textbf{bidimensional discreta} con
+\textbf{función de probabilidad conjunta} \(P_{XY}(x_i,y_j)\), con
+\((x_i,y_j)\in D_{XY}\).
+
+Las \textbf{funciones de probabilidad marginales} \(P_X(x_i)\) y
+\(P_Y(y_j)\) se calculan usando las expresiones siguientes: \[
+\displaystyle
+\begin{array}{rl}
+P_X(x_i)  & = \displaystyle\sum_{j} P_{XY}(x_i,y_j),\  i=1,2,\ldots,\\ P_Y(y_j) &  = \displaystyle\sum_{i} P_{XY}(x_i,y_j),\ \ j=1,2,\ldots
+\end{array}
+\]
+
+\end{frame}
+
+\begin{frame}{Variables aleatorias marginales}
+\protect\hypertarget{variables-aleatorias-marginales}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Podemos representar \(P_{XY}\) como una tabla bidimensional en la
+  primera fila están los valores de la variable \(Y\)
+  (\(y_1,y_2,\ldots\)) y en la primera columna están los valores de la
+  variable \(X\) (\(x_1,x_2,\ldots\))
+\item
+  Para obtener la \textbf{función de probabilidad marginal} de la
+  variable \(X\) en el valor \(x_i\), \(P_X(x_i)\), hay que sumar todos
+  los valores de \(P_{XY}(x_i,y_j)\) correspondientes a la fila
+  \(i\)-ésima
+\item
+  De forma análoga para obtener la \textbf{función de probabilidad
+  marginal} de la variable \(Y\) en el valor \(y_j\), \(P_Y(y_j)\), hay
+  que sumar todos los valores de \(P_{XY}(x_i,y_j)\) correspondientes a
+  la columna \(j\)-ésima.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Variables aleatorias marginales}
+\protect\hypertarget{variables-aleatorias-marginales-1}{}
+
+\begin{longtable}[]{@{}lrrrrc@{}}
+\toprule
+\begin{minipage}[b]{0.11\columnwidth}\raggedright
+\(X\backslash Y\)\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedleft
+\(y_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedleft
+\(y_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedleft
+\(\ldots\)\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedleft
+\(y_N\)\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
+\(P_X(x_i)=\displaystyle\sum_j P_{XY}(x_i,y_j)\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.11\columnwidth}\raggedright
+\(x_1\qquad\qquad\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_1,y_1)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_1,y_2)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\ldots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_1,y_N)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+\(P_X(x_1)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.11\columnwidth}\raggedright
+\(x_2\qquad\qquad\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_2,y_1)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_2,y_2)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\ldots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_2,y_N)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+\(P_X(x_2)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.11\columnwidth}\raggedright
+\(\vdots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\vdots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\vdots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\vdots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\vdots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.11\columnwidth}\raggedright
+\(x_M\qquad\qquad\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_M,y_1)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_M,y_2)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\ldots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_{XY}(x_M,y_N)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+\(P_X(x_M)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.11\columnwidth}\raggedright
+\(P_Y(y_j)=\displaystyle\sum_i P_{XY}(x_i,y_j)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_Y(y_1)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_Y(y_2)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(\ldots\ldots\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedleft
+\(P_Y(y_N)\)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+1\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+\begin{frame}{Independencia de variables aleatorias discretas}
+\protect\hypertarget{independencia-de-variables-aleatorias-discretas}{}
+
+Recordemos que dos sucesos \(A\) y \(B\) son independientes si
+
+\[P(A\cap B)=P(A)\cdot P(B).\]
+
+¿Cómo trasladar dicho concepto al caso de variables aleatorias?
+
+Dada una variable aleatoria bidimensional discreta \((X,Y)\) con
+\(D_{XY}=\{(x_i,y_j),\ i=1,2,\ldots,j=1,2,\ldots\}\)
+
+Así que al menos todos los sucesos de la forma \(\{X=x_i,\  Y=y_j\}\)
+deberán ser independientes.
+
+\end{frame}
+
+\begin{frame}{Independencia de variables aleatorias discretas}
+\protect\hypertarget{independencia-de-variables-aleatorias-discretas-1}{}
+
+Definición de independencia para variables aleatorias bidimensionales
+discretas.
+
+Dada \((X,Y)\) una \textbf{variable aleatoria bidimensional discreta}
+con \textbf{función de probabilidad} \(P_{XY}\) y \textbf{funciones de
+probabilidad marginales} \(P_X\) y \(P_Y\).
+
+Diremos que \(X\) e \(Y\) son independientes si: \[
+P_{XY}(x_i,y_j)=P_X(x_i)\cdot P_Y(y_j),\ i=1,2,\ldots,j=1,2,\ldots
+\] o dicho de otra forma: \[
+P(X=x_i,\ Y=y_j)=P(X=x_i)\cdot P(Y=y_j),\ i=1,2,\ldots,j=1,2,\ldots
+\]
+
+ Propiedad
+
+Las v.a. \(X\) e \(Y\) son independientes si y solo si
+\(F_{XY}(x,y)=F_X(x) \cdot F_Y(y).\)
+
+\end{frame}
+
+\begin{frame}{Esperanza y varianza de las distribuciones marginales}
+\protect\hypertarget{esperanza-y-varianza-de-las-distribuciones-marginales}{}
+
+\begin{itemize}
+\tightlist
+\item
+  \(E(X)=\displaystyle \sum_{x\in D_X} x\cdot P_X(x)=\sum_{x\in D_X} x\cdot P(X=x).\)
+\item
+  \(E(Y)=\displaystyle\sum_{y\in D_Y} y\cdot P_Y(y)=\sum_{y\in D_Y} y\cdot P(Y=y).\)
+\item
+  \(\sigma_X^2=Var(X)=E(X-E(X))=E(X)-E(X)^2.\)
+\item
+  \(\sigma_Y^2=Var(Y)=E(Y-E(Y))=E(Y)-E(Y)^2.\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Distibuciones condicionales}
+\protect\hypertarget{distibuciones-condicionales}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Dado un valor fijo \(y\in D_Y\) definimos la distribución condicional
+  de la v.a. \(X\) condicionada a que \(Y=y\) como
+\end{itemize}
+
+\[P(X=x|Y=y)=\frac{P_{XY}(x,y)}{P_Y(y)}=\frac{P(X=x,Y=y)}{P(Y=y)},\mbox{  para todo } x\in D_X.\]
+
+\begin{itemize}
+\tightlist
+\item
+  Dado un valor fijo \(y\in D_Y\) definimos la distribución condicional
+  de la v.a. \(Y\) condicionada a que \(X=x\) como
+\end{itemize}
+
+\[P(Y=y|X=x)=\frac{P_{XY}(x,y)}{P_X(x)}=\frac{P(X=x,Y=y)}{P(X=x)},\mbox{  para todo } y\in D_Y.\]
+
+\end{frame}
+
+\begin{frame}{Distibuciones condicionales e independencia}
+\protect\hypertarget{distibuciones-condicionales-e-independencia}{}
+
+ Propiedad
+
+Si las variables \(X\) e \(Y\) son independientes se cumple que
+
+\begin{enumerate}
+\tightlist
+\item
+  \(P(X=x|Y=y)=P(X=x)\)
+\item
+  \(P(Y=y|X=x)=P(Y=y)\).
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Esperanzas condicionales}
+\protect\hypertarget{esperanzas-condicionales}{}
+
+\[E(X|Y=y)=\sum_{x\in D_X} x\cdot P(X=x|Y=y)\]
+
+\[E(Y|X=x)=\sum_{y\in D_Y} y\cdot P(Y=y|X=x)\]
+
+ Propiedad
+
+Si las variables \(X\) e \(Y\) son independientes se cumple que
+
+\begin{enumerate}
+\tightlist
+\item
+  \(E(X|Y=y)=E(X)\)
+\item
+  \(E(Y|X=x)=E(Y)\)
+\end{enumerate}
+
+\end{frame}
+
+\hypertarget{esperanzas-de-funciones-de-v.a.-discretas-bidimensionales.-covarianza-y-correlaciuxf3n}{%
+\section{Esperanzas de funciones de v.a. discretas bidimensionales.
+Covarianza y
+correlación}\label{esperanzas-de-funciones-de-v.a.-discretas-bidimensionales.-covarianza-y-correlaciuxf3n}}
+
+\begin{frame}{Esperanzas de funciones de v.a. discretas bidimensionales}
+\protect\hypertarget{esperanzas-de-funciones-de-v.a.-discretas-bidimensionales}{}
+
+ Definición:
+
+Sea \((X,Y)\) una variable aleatoria bidimensional discreta y \(g(X,Y)\)
+una función de esa variable bidimensional entonces
+\(E(g(X,Y))=\sum_i\sum_j g(x_i,y_j) \cdot P(X=x_i,Y=y_j)\).
+
+En particular:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\scriptsize{\displaystyle E(X+Y)=\sum_i\sum_j (x_i+y_j) \cdot P(X=x_i,Y=y_j)}=\mu_X+\mu_Y.\)
+\item
+  \(\scriptsize{\displaystyle Var(X+Y)=E\left(\left(X+Y-E(X+Y)\right)^2\right)=\sum_i\sum_j (x_i+y_j-(\mu_X+\mu_Y))^2\cdot P(X=x_i,Y=y_j).}\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Esperanzas de funciones de v.a. discretas bidimensionales}
+\protect\hypertarget{esperanzas-de-funciones-de-v.a.-discretas-bidimensionales-1}{}
+
+ Propiedad: Sea \((X,Y)\) una variable aleatoria bidimensional entonces
+se cumple que:
+
+\begin{itemize}
+\tightlist
+\item
+  \(E(X+Y)=E(X)+E(Y)=\mu_X+ \mu_y\)
+\item
+  Si \(X\) e \(Y\) son independientes entonces
+  \(E(X\cdot Y)=E(X)\cdot E(Y)=\mu_X\cdot \mu_y\)
+\item
+  Si \(X\) e \(Y\) son independientes entonces
+  \(Var(X+Y)=Var(X)+ Var(Y)=\sigma_X^2+ \sigma_y^2\)
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{covarianza-y-correlaciuxf3n}{%
+\section{Covarianza y correlación}\label{covarianza-y-correlaciuxf3n}}
+
+\begin{frame}{Medida de la variación conjunta: covarianza}
+\protect\hypertarget{medida-de-la-variaciuxf3n-conjunta-covarianza}{}
+
+El \textbf{momento conjunto centrado en las medias para \(k=1\) y
+\(l=1\)} se denomina \textbf{covarianza} entre las variables \(X\) e
+\(Y\): \[
+\sigma_{XY}=Cov(X,Y)=E((X-\mu_X)(Y-\mu_Y)).
+\] La covarianza puede calcularse también con: \[
+Cov(X,Y)=E(X\cdot Y)-E(X)\cdot E(Y)=E(X\cdot Y)-\mu_X\cdot \mu_Y,
+\]
+
+Propiedad. Si las variables \(X\) e \(Y\) son \textbf{independientes},
+entonces \(Cov(X,Y)=0\).
+
+Es una consecuencia de que si \(X\) e \(Y\) son independientes entonces
+que vimos que \(E(X\cdot Y)=E(X)\cdot E(Y) =\mu_X\cdot \mu_y\).
+
+\end{frame}
+
+\begin{frame}{Covarianza entre las variables}
+\protect\hypertarget{covarianza-entre-las-variables}{}
+
+La \textbf{covarianza} es una medida de lo relacionadas están las
+variables \(X\) e \(Y\):
+
+\begin{itemize}
+\item
+  Si cuando \(X\geq \mu_X\), también ocurre que \(Y\geq \mu_Y\) o
+  viceversa, cuando \(X\leq \mu_X\), también ocurre que \(Y\leq \mu_Y\),
+  el valor \((X-\mu_X)(Y-\mu_Y)\) será positivo y la \textbf{covarianza}
+  será positiva.
+\item
+  Si por el contrario, cuando \(X\geq \mu_X\), también ocurre que
+  \(Y\leq \mu_Y\) o viceversa, cuando \(X\leq \mu_X\), también ocurre
+  que \(Y\geq \mu_Y\), el valor \((X-\mu_X)(Y-\mu_Y)\) será negativo y
+  la \textbf{covarianza} será negativa.
+\item
+  En cambio, si a veces ocurre una cosa y a veces ocurre otra, la
+  \textbf{covarianza} va cambiando de signo y puede tener un valor
+  cercano a 0.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Propiedades de la covarianza}
+\protect\hypertarget{propiedades-de-la-covarianza}{}
+
+\begin{itemize}
+\item
+  Sea \((X,Y)\) una variable aleatoria bidimensional. Entonces la
+  \textbf{varianza de la suma/resta} se calcula usando la expresión
+  siguiente: \[
+  Var(X\pm Y)=Var(X)+Var(Y)\pm 2\cdot Cov(X,Y).
+  \]
+\item
+  Sea \((X,Y)\) una variable aleatoria bidimensional donde las variables
+  \(X\) e \(Y\) son \textbf{independientes}. Entonces: \[
+  Var(X+Y)=Var(X)+Var(Y).
+  \]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Coeficiente de correlación}
+\protect\hypertarget{coeficiente-de-correlaciuxf3n}{}
+
+La \textbf{covarianza} depende de las unidades en las que se midan las
+variables \(X\) e \(Y\) ya que si \(a>0\) y \(b>0\), entonces: \[
+Cov(a\cdot X,b\cdot Y)=a\cdot b\cdot Cov(X,Y).
+\] Por tanto, si queremos ``medir'' la relación que existe entre las
+variables \(X\) e \(Y\) tendremos que ``normalizar'' la
+\textbf{covarianza} definiendo el \textbf{coeficiente de correlación}
+entre las variables \(X\) e \(Y\):
+
+\end{frame}
+
+\begin{frame}{Coeficiente de correlación entre las variables}
+\protect\hypertarget{coeficiente-de-correlaciuxf3n-entre-las-variables}{}
+
+Definición del coeficiente de correlación. Sea \((X,Y)\) una variable
+aleatoria bidimensional. Se define el \textbf{coeficiente de
+correlación} entre las variables \(X\) e \(Y\) como: \[
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{Var(X)}\cdot\sqrt{Var(Y)}}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{E\left(X^2\right)-\mu_X^2}\cdot \sqrt{E\left(Y^2\right)-\mu_Y^2}}.
+\]
+
+\end{frame}
+
+\begin{frame}{Coeficiente de correlación entre las variables}
+\protect\hypertarget{coeficiente-de-correlaciuxf3n-entre-las-variables-1}{}
+
+Observación. Si las variables \(X\) e \(Y\) son \textbf{independientes},
+su \textbf{coeficiente de correlación} \(\rho_{XY}=0\) es nulo ya que su
+\textbf{covarianza} lo es.
+
+Notemos también que la \textbf{correlación} no tiene unidades y es
+invariante a cambios de escala.
+
+Además, la \textbf{covarianza} de las \textbf{variables tipificadas}
+\(\frac{X-\mu_X}{\sigma_X}\) y \(\frac{Y-\mu_Y}{\sigma_Y}\) coincide con
+la \textbf{correlación} de \(X\) e \(Y\).
+
+El \textbf{coeficiente de correlación} es un valor normalizado ya que
+siempre está entre -1 y 1: \(-1\leq\rho_{XY}\leq 1\).
+
+\end{frame}
+
+\begin{frame}{Coeficiente de correlación entre las variables}
+\protect\hypertarget{coeficiente-de-correlaciuxf3n-entre-las-variables-2}{}
+
+Observación. Si las variables \(X\) e \(Y\) tiene dependencia lineal,
+por ejemplo si \(Y=a\cdot X+b\) para algunas constantes
+\(a,b\in\mathbb{R}\), entonces su \textbf{coeficiente de correlación}
+\(\rho_{XY}=\pm 1\), es decir toma el valor \(1\) si la pendiente
+\(a>0\) y \(-1\) si \(a<0\).
+
+De forma similar:
+
+\begin{itemize}
+\tightlist
+\item
+  si \(Cor(X,Y)=+1\) \(X\) e \(Y\) tienen relación lineal con pendiente
+  positiva.
+\item
+  si \(Cor(X,Y)=-1\) \(X\) e \(Y\) tienen relación lineal con pendiente
+  negativa.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Matriz de varianzas-covarianzas y matriz de correlaciones}
+\protect\hypertarget{matriz-de-varianzas-covarianzas-y-matriz-de-correlaciones}{}
+
+Sea \((X,Y)\) una variable bidimensional Notemos que
+
+\begin{itemize}
+\tightlist
+\item
+  \(Cov(X,X)=\sigma_{X X}=\sigma_{X}^2.\)
+\item
+  \(Cov(Y,Y)=\sigma_{Y Y}=\sigma_{Y}^2.\)
+\item
+  \(\sigma_{X Y}= Cov(X,Y)=Cov(Y,X)= \sigma_{Y X}.\)
+\end{itemize}
+
+Se denomina matriz de varianzas-covarianzas y se suele denotar como
+\(\Sigma\) a
+
+\[\Sigma=\pmatrix{Cov(X,X) &  Cov(X,Y)\\Cov(Y,X) & Cov(Y,Y)}=\pmatrix{\sigma_{XX} &  \sigma_{XY}\\ \sigma_{YX} & \sigma_{YY}}=
+\pmatrix{\sigma_{X}^2 &  \sigma_{XY}\\ \sigma_{Y X} & \sigma_{Y}^2}\]
+
+\end{frame}
+
+\begin{frame}{Matriz de varianzas-covarianzas y matriz de correlaciones}
+\protect\hypertarget{matriz-de-varianzas-covarianzas-y-matriz-de-correlaciones-1}{}
+
+Sea \((X,Y)\) una variable bidimensional Notemos que
+
+\begin{itemize}
+\tightlist
+\item
+  \(Cor(X,X)=\rho_{X X}=1.\)
+\item
+  \(Cor(Y,Y)=\rho_{Y Y}=1.\)
+\item
+  \(\rho_{X Y}= Cor(X,Y)=Cor(Y,X)= \rho_{Y X}.\)
+\end{itemize}
+
+Se denomina matriz de correlaciones a
+
+\[R=\pmatrix{Cor(X,X) &  Cor(X,Y)\\Cor(Y,X) & Cor(Y,Y)}=\pmatrix{1 &  \rho_{XY}\\ \rho_{Y X} & 1}=
+\pmatrix{1 &  \rho_{XY}\\ \rho_{X Y} & 1}.\]
+
+\end{frame}
+
+\hypertarget{distribuciones-multidimensionales}{%
+\section{Distribuciones
+multidimensionales}\label{distribuciones-multidimensionales}}
+
+\begin{frame}{Conceptos básicos. Función de probabilidad y de
+distribución.}
+\protect\hypertarget{conceptos-buxe1sicos.-funciuxf3n-de-probabilidad-y-de-distribuciuxf3n.}{}
+
+Consideremos un vector compuesto de \(n\) variables aleatorias discretas
+\((X_1,X_2,\ldots,X_n)\)
+
+Su \textbf{función de probabilidad} es
+
+\[\begin{aligned} P_{X_1,X_2,\ldots, X_n}(x_1,x_2,\ldots,x_n) &= P\Big((X_1,X_2,\ldots,X_n)=(x_1,x_2,\ldots,x_n)\Big)\\
+&=P(X_1=x_1,X_2=x_2,\ldots,X_n=x_n).\end{aligned}\]
+
+Su función de \textbf{distribución de probabilidad} es
+
+\[F_{X_1,X_2,\ldots, X_n}(x_1,x_2,\ldots,x_n)=P(X_1\leq x_1,X_2\leq x_2,\ldots,X_n\leq x_n).\]
+
+\end{frame}
+
+\begin{frame}{Independencia}
+\protect\hypertarget{independencia}{}
+
+Definición independencia
+
+Diremos que la variables \(X_1,X_2,\ldots, X_n\) son
+\textbf{INDEPENDIENTES} cuando
+\[P_{X_1,X_2,\ldots, X_n}(x_1,x_2,\ldots,x_n) =P_{X_1}(x_1)\cdot P_{X_2}(x_2)\cdot  \ldots \cdot  P_{X_n}(x_n).\]
+
+Propiedad
+
+Las variables \(X_1,X_2,\ldots, X_n\) son \textbf{INDEPENDIENTES} si y
+solo si
+\[F_{X_1,X_2,\ldots, X_n}(x_1,x_2,\ldots,x_n)=F_{X_1}(x_1)\cdot F_{X_2}(x_2)\cdot  \ldots \cdot  F_{X_n}(x_n).\]
+
+\end{frame}
+
+\begin{frame}{Conceptos básicos}
+\protect\hypertarget{conceptos-buxe1sicos}{}
+
+ Vector de medias
+
+Si denotamos \(E(X_i)=\mu_i\) para \(i=1,2,\ldots,n\) el \textbf{vector
+de medias} es
+\[E(X_1,X_2,\ldots,X_n)=(E(X_1),E(X_2),\ldots,E(X_n))=(\mu_1,\mu_2,\ldots,\mu_n).\]
+
+ Covarianza y varianzas
+
+Si denotamos \(\sigma_{ij}=Cov(X_i,X_j)\) para todo \(i,j\) en
+\(1,2,\ldots n\) entonces tenemos que
+
+\begin{itemize}
+\tightlist
+\item
+  \(\sigma_{ii}=Cov(X_i,X_i)=\sigma_{ii}=\sigma_i^2.\)
+\item
+  \(\sigma_{ij}=Cov(X_i,X_j)=Cov(X_j,X_i)=\sigma_{ji}.\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Conceptos básicos}
+\protect\hypertarget{conceptos-buxe1sicos-1}{}
+
+Si denotamos \(\rho_{ij}=Cor(X_i,X_j)\) para todo \(i,j\) en
+\(1,2,\ldots n\) entonces tenemos que
+
+\begin{itemize}
+\tightlist
+\item
+  \(\rho_{ii}=Cor(X_i,X_i)=1.\)
+\item
+  \(\rho_{ij}=Cor(X_i,X_j)=Cor(X_j,X_i)=\rho_{ji}.\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Matrices de varianzas-covarianzas y de correlaciones}
+\protect\hypertarget{matrices-de-varianzas-covarianzas-y-de-correlaciones}{}
+
+\[\Sigma=\pmatrix{ \sigma_{1}^2 & \sigma_{12} & \ldots & \sigma_{1n}\\
+ \sigma_{21} & \sigma_{2}^2 & \ldots & \sigma_{2n}\\
+ \vdots & \vdots & \ddots& \vdots\\
+ \sigma_{n1} & \sigma_{n2} & \ldots & \sigma_{n}^2
+ }, \qquad R=\pmatrix{ 1 & \rho_{12} & \ldots & \rho_{1n}\\
+ \rho_{21} & 1 & \ldots & \rho_{2n}\\
+ \vdots & \vdots & \ddots& \vdots\\
+ \rho_{n1} & \rho_{n2} & \ldots & 1
+ }.\]
+
+\end{frame}
+
+\end{document}

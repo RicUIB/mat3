@@ -1,0 +1,276 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{plain}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+\begin{center}
+\textsc{Matemáticas III. GIN2. Control Parcial abril  2020-2021.}
+\end{center}
+
+\setcounter{problemes}{0}
+
+\probl  Consideremos los siguientes sucesos $A$, $B$ tales que
+$P(A|B)=0.4$, $P(A|B^c)=0.7$, $P(B^c)=0.2$. Calcular $P(A)$ y $P(B|A)$.
+(\textbf{1 punto}).
+
+\textbf{Solución:}
+<<sol1, echo=FALSE>>=
+r1=0.4*(1-0.2)+0.7*0.2
+r2=0.4*0.2/r1
+@
+
+
+
+$$P(A)=P(A|B)\cdot P(B)+P(A|B^c)\cdot P(B^c)=0.4\cdot (1-0.2)+ 0.5\cdot 0.2=\Sexpr{r1}.$$
+
+$$P(B|A)=\frac{P(A|B)\cdot P(B)}{P(A)}=\frac{0.4\cdot (1-0.2)}{\Sexpr{ r1}}=\Sexpr{r2}.$$
+
+
+\probl \textbf{\textsc{PUNTO EXTRA EN ESTE EXAMEN}}. Tiramos 10 dados de parchís hasta obtener exactamente 5 cincos incluido ese último lanzamiento.
+Sea $X$  el número de tiradas necesarias ¿Cuál es la distribución de $X$ su valor esperado y su varianza? (\textbf{1 punto}).
+
+\textbf{Solución:}
+
+Sea $Y$ el número de cincos obtenidos al tirar $n=10$ dados de 6 caras cop probabilidad de 5 $p_5=\frac{1}{6}$, samemos que $Y$ sigue una ley $B(n=10,p=p_5=\frac{1}{6})$.  Con R la probabilidad de obtener exactamente 5 cincos, es decir  $P(Y=5)$, es:
+
+<<>>=
+dbinom(5,size=10,prob=1/6)
+@
+
+O tambien haciendo 
+
+$$P(Y=5)=\frac{\mbox{Casos Favorables}}{\mbox{Casos Posibles}}
+= \frac{{10 \choose 5}\cdot 5^5}{6^{10}},$$
+
+con R
+<<>>=
+choose(10,5)*5^5/6^10
+@
+
+Ahora $X$ número de veces que hay que tirar los 10 dados hasta obtenr una tirada con exactamente 5 cincos ("éxito")  claramente es la repetición de un experimento $Ber(p=\Sexpr{ dbinom(5,size=10,prob=1/6)})$  luego $X$ sigue una ley $Ge(p=P(Y=5)=\Sexpr{ dbinom(5,size=10,prob=1/6)}).$
+
+
+
+\probl La probabilidad de que un cierto anunció de una página web reciba un \textsl{clic}  de un usuario y lo vea  es de $p=0.75$ por cada acceso a la página web. Su pongamos que   20 personas, de forma independiente,  visitan esa página con ese anuncio,
+contestar a las siguientes preguntas (\textbf{\textsc{UTILIZAD EL CÓDIGO DE LA PÁGINA SIGUIENTE}}):
+\begin{enumerate}[a)]
+\item Sea $X$ la variable aleatoria que cuenta el número de  clientes que no  visitan el anuncio  e $Y$ la de clientes que sí visitan el anuncio ¿Cuáles son las distribuciones de $X$ y  de $Y$? (\textbf{1.25 punto}).
+\item ¿Cuál es la probabilidad de que ningún cliente vea el anuncio?.(\textbf{1.25 punto}).
+\item ¿Cuál es la probabilidad de que vean el anuncio  más de 2 clientes  y menos de 5?(\textbf{1 punto.})
+\item ¿Cuál es el número esperado de visualizaciones?(\textbf{1 punto}).
+\end{enumerate}
+
+\textbf{Solución:}
+
+Bajo estas condiciones 
+
+La variable $X$= número de clientes que NO visitan el anuncio es una $B(n=20,p_{\mbox{no}}=1-p=0.25)$ y la del número de clientes que SÍ lo visitan $Y$ sigue una distribución $B(n=20,p_{\mbox{sí}}=p=0.75)$.
+
+
+<<p31,echo=FALSE>>=
+r1=dbinom(0,size=20,prob=1-0.75)
+r2=pbinom(2,size=20,prob=0.75)
+r3=pbinom(4,size=20,prob=0.75)
+@
+
+$$P(\mbox{ningún cliente entre los 20 vea el anuncio})=P(X=0)=\Sexpr{ r1}.$$
+
+lo hemos calculado con R
+
+<<p31_2>>=
+dbinom(0,size=20,prob=1-0.75)
+@
+
+$$P(\mbox{vean el anuncio  más de 2 clientes  y menos de 5})=P(Y=3)+P(Y=4),$$
+
+utilizando el código adjunto de la hoja 2 del examen
+<<>>=
+dbinom(0:4,size=20,p=0.75)
+@
+
+tenemos que 
+
+
+$$
+P(Y=3)+P(Y=4)=2.799425\times 10^{-8}+ 3.569266\times 10^{-7}=
+\Sexpr{2.799425*10^(-8)+ 3.569266* 10^(-7)}.
+$$
+
+
+También se podía calcular  de esta otra forma
+
+\begin{eqnarray*}
+P(\mbox{vean el anuncio más de 2 clientes y menos de 5})&=& P(2<Y<5)
+\\ &=&
+P(2<Y\leq 4)= P(Y\leq 4)-P(Y\leq 2)\\
+&=& \Sexpr{ r3}- \Sexpr{ r2}
+\\ 
+&=&
+\Sexpr{ r3-r2},
+\end{eqnarray*}
+
+con el código  siguiente:
+
+<<p31_3>>=
+pbinom(2,size=20,prob=0.75)
+pbinom(4,size=20,prob=0.75)
+pbinom(4,size=20,prob=0.75)-pbinom(2,size=20,prob=0.75)
+@
+
+El número esperado de visualizaciones es 
+$$E(Y)=20\cdot 0.75=\Sexpr{20*0.75}.$$
+
+\probl Una variable aleatoria sigue una ley   de distribución  en el intervalo $(0,1]$ si función de densidad es, para algún número real $\alpha>0$:
+
+$$
+f_X(x)=\left\{
+\begin{array}{ll}
+\alpha \cdot (1-x)  & \mbox{ si } 0 < x < 1 \\
+0 & \mbox{ en otro caso.}
+\end{array}
+\right.
+$$
+
+\begin{enumerate}[a)]
+\item Calcular $\alpha$ para que $X$ sea densidad (\textbf{1.25 punto.})
+\item Calcular su función de distribución (\textbf{1.25 punto.}).
+\item Calcular $E(X)$ y $E\left(\frac{X-1}{2}\right)$(\textbf{1 punto.}).
+\item Calcular el cuantil $x_{0.5}$ (\textbf{1 punto}).
+\end{enumerate}
+
+\textbf{Solución:}
+
+
+
+\begin{eqnarray*}
+1 &=&\displaystyle \int_{-\infty}^{+\infty} f_X(x) dx=\int_{0}^1 \alpha\cdot (1-x) dx\\
+&=& \left[\alpha\cdot \left(x-\frac{x^2}{2}\right)\right]_{x=0}^{x=1}= \alpha\cdot \left(\left(1-\frac{1^2}{2}\right)-\left(0-\frac{0^2}{2}\right)\right)=\frac{\alpha}{2}.
+\end{eqnarray*}
+
+Luego $\frac{\alpha}{2}=1$ y entonces $\alpha=2.$ La función de densidad es:
+
+$$
+f_X(x)=\left\{
+\begin{array}{ll}
+2 \cdot (1-x)  & \mbox{ si } 0 < x < 1 \\
+0 & \mbox{ en otro caso.}
+\end{array}
+\right.
+$$
+
+
+La función de distribución es $F_X(x)=\inf_{-\infty}^c f_X(t) dt$ tenemos tres casos:
+
+
+
+$$
+F_X(x)=P(X\leq x)=\left\{
+\begin{array}{ll}
+0 & \mbox{, si } x\leq 0 \\
+\int_{0}^{x} 2\cdot(1-t) dt =\left[2\cdot \left(t-\frac{t^2}{2}\right)\right]_{t=0}^{t=x}
+= 2\cdot \left(x-\frac{x^2}{2}\right) & \mbox{, si } 0<x<1 \\
+1 & \mbox{, si } x\geq 1 .\\
+\end{array}
+\right.
+$$
+
+
+\begin{eqnarray*}
+E(X)&=&\int_{-\infty}^{+\infty} x\cdot f_X(x) dx=\int_{0}^{1} x\cdot 2\cdot (1-x) dx=
+\int_{0}^{1} 2\cdot (x-x^2) dx\\
+&=& \left[2\cdot \left(\frac{x^2}{2}-\frac{x^3}{3}\right) \right]_{x=0}^{x=1}= 2\cdot \left(\frac{1^2}{2}-\frac{1^3}{3}\right)=2\cdot \left(\frac{3-2}{6}\right)=\frac13.
+\end{eqnarray*}
+
+
+Nos piden el cuantil $0.5$ $x_0.5$ es el valor tal que 
+
+$$0.5=F_X(x_{0.5})=2\cdot \left(x_{0.5}-\frac{_{0.5}^2}{2}\right)$$
+
+Operando obtenemos la ecuación de segundo grado 
+
+$$x_{0.5}^2-2\cdot x_{0.5}+0.5=0,$$
+
+sus soluciones son 
+
+$$
+x_{0.5}=\frac{-(-2) \pm\sqrt{(-2)^2 -4\cdot 1\cdot 0.5}}{2\cdot 1}=
+\frac{2 \pm\sqrt{2}}{2}=
+\left\{\begin{array}{l}
+\Sexpr{(2+sqrt(2))/2}\\
+\Sexpr{(2-sqrt(2))/2}
+\end{array} \right.,
+$$
+
+
+luego $x_{0.5}=\Sexpr{(2-sqrt(2))/2}$ pues la otra solución es mayor que $1$ y  no está en el dominio de $X$.
+
+
+
+
+
+\newpage
+
+\textbf{Código problema 2}
+
+
+
+<<prob_2,size="scriptsize">>=
+choose(100,5)*5^5
+6^10
+dbinom(5,size=10,prob=1/6)
+@
+
+
+\textbf{Código problema 3:}
+
+<<prob_3,size="scriptsize">>=
+dbinom(0:4,size=20,prob=0.75)
+1-dbinom(0:4,size=20,prob=0.75)
+dbinom(0:4,size=20,prob=1-0.75)
+1-dbinom(0:4,size=20,prob=1-0.75)
+pbinom(1,size=20,prob=0.75,lower.tail = FALSE)
+pbinom(3,size=20,prob=0.75,lower.tail = FALSE)
+pbinom(4,size=20,prob=0.75,lower.tail = TRUE)
+pbinom(5,size=20,prob=0.75,lower.tail = TRUE)
+pbinom(4,size=20,prob=0.75)
+pbinom(5,size=20,prob=0.75)
+@
+\end{document}
+

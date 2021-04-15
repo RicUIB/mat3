@@ -577,7 +577,7 @@ P_X(x)=P(X=x)=\left\{\begin{array}{ll}
 </ol>
 <div id="solución-4" class="section level3">
 <h3>Solución</h3>
-<p>La propbabilidad de pelirrojo es <span class="math inline">\(p=\frac{1}{100}\)</span>, tener un hijo con el pelo pelirrojo se puede interperetar como un experimento Bernouilli <span class="math inline">\(Ber(p=0.01)\)</span>, en el que el éxito es que el niño sea pelirrojo. Si consideramos los nacimienro sucesos inpedendientes del mimo experimento <span class="math inline">\(Ber(p=0.01)\)</span> tenemos que <span class="math inline">\(X=\)</span> número de niños pelirrojos entre <span class="math inline">\(n=500\)</span> nacimientos seguirá una ley de distribución <span class="math inline">\(B(n=500,p=0.01)\)</span>.</p>
+<p>La probabilidad de pelirrojo es <span class="math inline">\(p=\frac{1}{100}\)</span>, tener un hijo con el pelo pelirrojo se puede interpretar como un experimento Bernouilli <span class="math inline">\(Ber(p=0.01)\)</span>, en el que el éxito es que el niño sea pelirrojo. Si consideramos los nacimientos sucesos independientes del mimo experimento <span class="math inline">\(Ber(p=0.01)\)</span> tenemos que <span class="math inline">\(X=\)</span> número de niños pelirrojos entre <span class="math inline">\(n=500\)</span> nacimientos seguirá una ley de distribución <span class="math inline">\(B(n=500,p=0.01)\)</span>.</p>
 <p>Nos piden la probabilidad de ningún pelirrojo entre 500</p>
 <p><span class="math display">\[P(X=0)={500\choose 0}0.01^0\cdot (1-0.01)^{500}\approx0.00657.\]</span></p>
 <p>Con R hacemos</p>
@@ -623,7 +623,7 @@ p=0.01
 <p>Tenemos que <span class="math inline">\(\lambda=5\)</span> es el rimo de peticiones <strong>por segundo</strong>. Así en <span class="math inline">\(t&gt;0\)</span> segundos el número de peticiones en el intervalo <span class="math inline">\((0,t]\)</span> tendrá un ritmo <span class="math inline">\(\lambda\cdot t=5\cdot t\)</span> peticiones.</p>
 <p>En general <span class="math inline">\(X_t=\)</span> número de peticiones en el intervalo <span class="math inline">\((0,t]\)</span> seguirá una ley <span class="math inline">\(Po(\lambda\cdot t=5\cdot t)\)</span>.</p>
 <p>Apartado 1. Aquí nos piden <span class="math inline">\(P(X_{3}&gt;10)\)</span> donde <span class="math inline">\(X_3\)</span> sigue una ley <span class="math inline">\(Po(5\cdot 3=15)\)</span>, <span class="math inline">\(P(X_3&gt;10)=1-P(X_3\leq 10)=1-0.1184644=0.8815356\)</span>.</p>
-<p>Para el cálculo final hemo utilizado R</p>
+<p>Para el cálculo final hemos utilizado R</p>
 <pre class="r"><code>ppois(10,lambda=15)# P(X&lt;=10)</code></pre>
 <pre><code>## [1] 0.1184644</code></pre>
 <pre class="r"><code>1-ppois(10,lambda=15) # 1-P(X&lt;=10) por complementario</code></pre>
@@ -722,7 +722,7 @@ Var(X)=n\cdot \frac{1-p}{p^2}=10\cdot \frac{1-0.9805}{0.9805^2}=
 \]</span></p>
 <p>Si hacemos la varianza del número de tiros es <span class="math display">\[Var(10+X)=Var(X)=0.2038735.\]</span></p>
 <p><strong>Apartado 2</strong></p>
-<p>En este caso la v.a. <span class="math inline">\(X=\)</span> número de tiros acertados hasta el primer fallo sigue una distribución geimétrica <span class="math inline">\(Ge(1-0.9805)\)</span> que cuenta el número de aciertos (“fracasos”) antes del primer fallo (“éxito” con probabilidad <span class="math inline">\(1-0.9805=0.0195\)</span>).</p>
+<p>En este caso la v.a. <span class="math inline">\(X=\)</span> número de tiros acertados hasta el primer fallo sigue una distribución geométrica <span class="math inline">\(Ge(1-0.9805)\)</span> que cuenta el número de aciertos (“fracasos”) antes del primer fallo (“éxito” con probabilidad <span class="math inline">\(1-0.9805=0.0195\)</span>).</p>
 <p>Bajo estas condiciones sabemos que</p>
 <p><span class="math display">\[P(X\leq x)=1-(1-0.195)^{x+1}=1-(0.9805)^{x+1}\]</span></p>
 <p>si <span class="math inline">\(x=0,1,2,3,\ldots\)</span> (no contamos el fallo).</p>

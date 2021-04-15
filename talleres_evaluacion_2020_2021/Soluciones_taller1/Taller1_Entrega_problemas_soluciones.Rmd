@@ -4,12 +4,12 @@ title:  Taller 1 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
-  word_document: default
-  html_document: 
-    toc: yes
   pdf_document: 
     toc: yes
     number_sections: yes
+  html_document: 
+    toc: yes
+  word_document: default
 urlcolor: blue
 toccolor: blue
 header-includes:
@@ -239,7 +239,7 @@ Utilizad R para calcular de forma exacta
 
 ###  Solución
 
-La propbabilidad de pelirrojo es $p=\frac{1}{100}$, tener un hijo  con el pelo pelirrojo se puede  interperetar como un experimento Bernouilli  $Ber(p=0.01)$, en el que el éxito es que el niño sea pelirrojo. Si consideramos los nacimienro sucesos inpedendientes del mimo experimento $Ber(p=0.01)$ tenemos que $X=$ número de niños pelirrojos entre $n=500$  nacimientos  seguirá una ley de distribución $B(n=500,p=0.01)$.
+La probabilidad de pelirrojo es $p=\frac{1}{100}$, tener un hijo  con el pelo pelirrojo se puede  interpretar como un experimento Bernouilli  $Ber(p=0.01)$, en el que el éxito es que el niño sea pelirrojo. Si consideramos los nacimientos sucesos independientes del mimo experimento $Ber(p=0.01)$ tenemos que $X=$ número de niños pelirrojos entre $n=500$  nacimientos  seguirá una ley de distribución $B(n=500,p=0.01)$.
 
 
 Nos piden la probabilidad de ningún pelirrojo entre 500
@@ -305,7 +305,7 @@ En general $X_t=$ número de peticiones en el intervalo $(0,t]$ seguirá una ley
 
 Apartado 1.  Aquí nos piden $P(X_{3}>10)$ donde $X_3$ sigue una ley $Po(5\cdot 3=15)$, $P(X_3>10)=1-P(X_3\leq 10)=1-`r ppois(10,lambda=15)`=`r 1-ppois(10,lambda=15)`$.
 
-Para el cálculo final hemo utilizado R
+Para el cálculo final hemos utilizado R
 
 
 ```{r}
@@ -450,7 +450,7 @@ Si hacemos la varianza del número de tiros es $$Var(10+X)=Var(X)=`r 10*(1-0.980
   
 **Apartado 2**
 
-En este caso la v.a. $X=$ número de tiros acertados hasta el primer fallo sigue una distribución geimétrica $Ge(1-0.9805)$ que  cuenta el número de aciertos ("fracasos") antes del primer  fallo ("éxito" con probabilidad $1-0.9805=0.0195$).
+En este caso la v.a. $X=$ número de tiros acertados hasta el primer fallo sigue una distribución geométrica $Ge(1-0.9805)$ que  cuenta el número de aciertos ("fracasos") antes del primer  fallo ("éxito" con probabilidad $1-0.9805=0.0195$).
 
 Bajo estas condiciones sabemos que 
 

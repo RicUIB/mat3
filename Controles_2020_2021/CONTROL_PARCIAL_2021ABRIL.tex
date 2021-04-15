@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{empty}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+\begin{center}
+\textsc{Matemáticas III. GIN2. Control Parcial abril  2020-2021.}
+\end{center}
+
+\setcounter{problemes}{0}
+
+\probl  Consideremos los siguientes sucesos $A$, $B$ tales que
+$P(A|B)=0.4$, $P(A|B^c)=0.7$, $P(B^c)=0.2$. Calcular $P(A)$ y $P(B|A)$.
+(\textbf{1 punto}).
+
+
+\probl \textbf{\textsc{PUNTO EXTRA EN ESTE EXAMEN}}. Tiramos 10 dados de parchís hasta obtener exactamente 5 cincos incluido ese último lanzamiento.
+Sea $X$  el número de tiradas necesarias ¿Cuál es la distribución de $X$ su valor esperado y su varianza? (\textbf{1 punto}).
+
+\probl La probabilidad de que un cierto anunció de una página web reciba un \textsl{clic}  de un usuario y lo vea  es de $p=0.75$ por cada acceso a la página web. Su pongamos que   20 personas, de forma independiente,  visitan esa página con ese anuncio,
+contestar a las siguientes preguntas (\textbf{\textsc{UTILIZAD EL CÓDIGO DE LA PÁGINA SIGUIENTE}}):
+\begin{enumerate}[a)]
+\item Sea $X$ la variable aleatoria que cuenta el número de  clientes que no  visitan el anuncio  e $Y$ la de clientes que sí visitan el anuncio ¿Cuáles son las distribuciones de $X$ y  de $Y$? (\textbf{1.25 punto}).
+\item ¿Cuál es la probabilidad de que ningún cliente vea el anuncio?.(\textbf{1.25 punto}).
+\item ¿Cuál es la probabilidad de que vean el anuncio  más de 2 clientes  y menos de 5?(\textbf{1 punto.})
+\item ¿Cuál es el número esperado de visualizaciones?(\textbf{1 punto}).
+\end{enumerate}
+
+
+\probl Una variable aleatoria sigue una ley   de distribución  en el intervalo $(0,1]$ si función de densidad es, para algún número real $\alpha>0$:
+
+$$
+f(x)=\left\{
+\begin{array}{ll}
+\alpha \cdot (1-x)  & \mbox{ si } 0 < x < 1 \\
+0 & \mbox{ en otro caso.}
+\end{array}
+\right.
+$$
+
+\begin{enumerate}[a)]
+\item Calcular $\alpha$ para que $X$ sea densidad (\textbf{1.25 punto.})
+\item Calcular su función de distribución (\textbf{1.25 punto.}).
+\item Calcular $E(X)$ y $E\left(\frac{X-1}{2}\right)$(\textbf{1 punto.}).
+\item Calcular el cuantil $x_{0.5}$ (\textbf{1 punto}).
+\end{enumerate}
+
+
+\newpage
+
+\textbf{Código problema 2}
+
+
+
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{choose}\hlstd{(}\hlnum{100}\hlstd{,}\hlnum{5}\hlstd{)}\hlopt{*}\hlnum{5}\hlopt{^}\hlnum{5}
+\end{alltt}
+\begin{verbatim}
+## [1] 235273500000
+\end{verbatim}
+\begin{alltt}
+\hlnum{6}\hlopt{^}\hlnum{10}
+\end{alltt}
+\begin{verbatim}
+## [1] 60466176
+\end{verbatim}
+\begin{alltt}
+\hlkwd{dbinom}\hlstd{(}\hlnum{5}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{1}\hlopt{/}\hlnum{6}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.01302381
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\textbf{Código problema 3:}
+
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{4}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 9.094947e-13 5.456968e-11 1.555236e-09 2.799425e-08 3.569266e-07
+\end{verbatim}
+\begin{alltt}
+\hlnum{1}\hlopt{-}\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{4}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 1.0000000 1.0000000 1.0000000 1.0000000 0.9999996
+\end{verbatim}
+\begin{alltt}
+\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{4}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{1}\hlopt{-}\hlnum{0.75}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.003171212 0.021141413 0.066947808 0.133895615 0.189685455
+\end{verbatim}
+\begin{alltt}
+\hlnum{1}\hlopt{-}\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{4}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{1}\hlopt{-}\hlnum{0.75}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.9968288 0.9788586 0.9330522 0.8661044 0.8103145
+\end{verbatim}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{,}\hlkwc{lower.tail} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{3}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{,}\hlkwc{lower.tail} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{4}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{,}\hlkwc{lower.tail} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 3.865316e-07
+\end{verbatim}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{5}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{,}\hlkwc{lower.tail} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 3.813027e-06
+\end{verbatim}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{4}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 3.865316e-07
+\end{verbatim}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{5}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.75}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 3.813027e-06
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+
+
+
+
+\end{document}
+

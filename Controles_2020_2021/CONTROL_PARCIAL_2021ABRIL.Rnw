@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{empty}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+\begin{center}
+\textsc{Matemáticas III. GIN2. Control Parcial abril  2020-2021.}
+\end{center}
+
+\setcounter{problemes}{0}
+
+\probl  Consideremos los siguientes sucesos $A$, $B$ tales que
+$P(A|B)=0.4$, $P(A|B^c)=0.7$, $P(B^c)=0.2$. Calcular $P(A)$ y $P(B|A)$.
+(\textbf{1 punto}).
+
+
+\probl \textbf{\textsc{PUNTO EXTRA EN ESTE EXAMEN}}. Tiramos 10 dados de parchís hasta obtener exactamente 5 cincos incluido ese último lanzamiento.
+Sea $X$  el número de tiradas necesarias ¿Cuál es la distribución de $X$ su valor esperado y su varianza? (\textbf{1 punto}).
+
+\probl La probabilidad de que un cierto anunció de una página web reciba un \textsl{clic}  de un usuario y lo vea  es de $p=0.75$ por cada acceso a la página web. Su pongamos que   20 personas, de forma independiente,  visitan esa página con ese anuncio,
+contestar a las siguientes preguntas (\textbf{\textsc{UTILIZAD EL CÓDIGO DE LA PÁGINA SIGUIENTE}}):
+\begin{enumerate}[a)]
+\item Sea $X$ la variable aleatoria que cuenta el número de  clientes que no  visitan el anuncio  e $Y$ la de clientes que sí visitan el anuncio ¿Cuáles son las distribuciones de $X$ y  de $Y$? (\textbf{1.25 punto}).
+\item ¿Cuál es la probabilidad de que ningún cliente vea el anuncio?.(\textbf{1.25 punto}).
+\item ¿Cuál es la probabilidad de que vean el anuncio  más de 2 clientes  y menos de 5?(\textbf{1 punto.})
+\item ¿Cuál es el número esperado de visualizaciones?(\textbf{1 punto}).
+\end{enumerate}
+
+
+\probl Una variable aleatoria sigue una ley   de distribución  en el intervalo $(0,1]$ si función de densidad es, para algún número real $\alpha>0$:
+
+$$
+f(x)=\left\{
+\begin{array}{ll}
+\alpha \cdot (1-x)  & \mbox{ si } 0 < x < 1 \\
+0 & \mbox{ en otro caso.}
+\end{array}
+\right.
+$$
+
+\begin{enumerate}[a)]
+\item Calcular $\alpha$ para que $X$ sea densidad (\textbf{1.25 punto.})
+\item Calcular su función de distribución (\textbf{1.25 punto.}).
+\item Calcular $E(X)$ y $E\left(\frac{X-1}{2}\right)$(\textbf{1 punto.}).
+\item Calcular el cuantil $x_{0.5}$ (\textbf{1 punto}).
+\end{enumerate}
+
+
+\newpage
+
+\textbf{Código problema 2}
+
+
+
+<<prob_2,size="scriptsize">>=
+choose(100,5)*5^5
+6^10
+dbinom(5,size=10,prob=1/6)
+@
+
+
+\textbf{Código problema 3:}
+
+<<prob_3,size="scriptsize">>=
+dbinom(0:4,size=20,prob=0.75)
+1-dbinom(0:4,size=20,prob=0.75)
+dbinom(0:4,size=20,prob=1-0.75)
+1-dbinom(0:4,size=20,prob=1-0.75)
+pbinom(1,size=20,prob=0.75,lower.tail = FALSE)
+pbinom(3,size=20,prob=0.75,lower.tail = FALSE)
+pbinom(4,size=20,prob=0.75,lower.tail = TRUE)
+pbinom(5,size=20,prob=0.75,lower.tail = TRUE)
+pbinom(4,size=20,prob=0.75)
+pbinom(5,size=20,prob=0.75)
+@
+
+
+
+
+
+
+\end{document}
+
