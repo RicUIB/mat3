@@ -83,10 +83,18 @@ con R
 <<>>=
 choose(10,5)*5^5/6^10
 @
+<<dd, echo=FALSE>>=
+p=choose(10,5)*5^5/6^10
+m=(1-p)/p
+v=(1-p)/p^2
+@
 
-Ahora $X$ número de veces que hay que tirar los 10 dados hasta obtenr una tirada con exactamente 5 cincos ("éxito")  claramente es la repetición de un experimento $Ber(p=\Sexpr{ dbinom(5,size=10,prob=1/6)})$  luego $X$ sigue una ley $Ge(p=P(Y=5)=\Sexpr{ dbinom(5,size=10,prob=1/6)}).$
 
 
+Ahora $X$ número de veces que hay que tirar los 10 dados hasta obtener una tirada con exactamente 5 cincos ("éxito")  claramente es la repetición de un experimento $Ber(p=\Sexpr{ dbinom(5,size=10,prob=1/6)})$  luego $X$ sigue una ley $Ge(p=P(Y=5)=\Sexpr{ dbinom(5,size=10,prob=1/6)}).$
+
+Sabemos que en este caso $E(X)=\frac{1-p}{p}=
+\frac{1-\Sexpr{p}}{\Sexpr{p}}=\Sexpr{m}$ y  $Var(X)=\frac{1-\Sexpr{p}}{\Sexpr{p}^2}=\Sexpr{v}.$
 
 \probl La probabilidad de que un cierto anunció de una página web reciba un \textsl{clic}  de un usuario y lo vea  es de $p=0.75$ por cada acceso a la página web. Su pongamos que   20 personas, de forma independiente,  visitan esa página con ese anuncio,
 contestar a las siguientes preguntas (\textbf{\textsc{UTILIZAD EL CÓDIGO DE LA PÁGINA SIGUIENTE}}):
