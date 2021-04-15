@@ -58,7 +58,7 @@ r2=0.4*0.2/r1
 
 
 
-$$P(A)=P(A|B)\cdot P(B)+P(A|B^c)\cdot P(B^c)=0.4\cdot (1-0.2)+ 0.5\cdot 0.2=\Sexpr{r1}.$$
+$$P(A)=P(A|B)\cdot P(B)+P(A|B^c)\cdot P(B^c)=0.4\cdot (1-0.2)+ 0.7\cdot 0.2=\Sexpr{r1}.$$
 
 $$P(B|A)=\frac{P(A|B)\cdot P(B)}{P(A)}=\frac{0.4\cdot (1-0.2)}{\Sexpr{ r1}}=\Sexpr{r2}.$$
 
