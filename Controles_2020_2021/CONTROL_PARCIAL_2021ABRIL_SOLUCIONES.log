@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  15 APR 2021 17:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  15 APR 2021 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -280,10 +280,10 @@ Package color Info: Redefining color shadecolor on input line 175.
 Package color Info: Redefining color shadecolor on input line 189.
 Package color Info: Redefining color shadecolor on input line 223.
  [2] [3] [4]
-Package color Info: Redefining color shadecolor on input line 343.
+Package color Info: Redefining color shadecolor on input line 347.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 345.
-Package color Info: Redefining color shadecolor on input line 369.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 349.
+Package color Info: Redefining color shadecolor on input line 373.
  [5]
 (./CONTROL_PARCIAL_2021ABRIL_SOLUCIONES.aux
 LaTeX Info: Redefining \. on input line 7.
@@ -313,7 +313,7 @@ ic/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200
 mf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1200.
 pfb>
-Output written on CONTROL_PARCIAL_2021ABRIL_SOLUCIONES.pdf (5 pages, 238543 byt
+Output written on CONTROL_PARCIAL_2021ABRIL_SOLUCIONES.pdf (5 pages, 238815 byt
 es).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
