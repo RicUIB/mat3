@@ -43,7 +43,7 @@ Esta tabla de datos  contiene datos sobre muchas variables:
 Construid un nuevo `data frame` que contenga solo la información relativa a como mínimo 3 variables no numéricas y 7 variables numéricas.
 Hay que **escoger forma obligatoria las variables** `neighbourhood` y `price`.
 Las variables relativas a precioso (por ejemplo, `price` y `security_deposit`) se consideran numéricas,
-pero primero deben convertirse a valores numéricos eliminando los símbolos `$` o `€`; por ejemplo utilizando  la función ` gsub("pattern=[\\$]",replacement="",x="$10,000")`; haced (`help(gsub)`)
+pero primero deben convertirse a valores numéricos eliminando los símbolos `$` o `€`; por ejemplo utilizando  la función ` gsub(pattern="[\\$]|[,]",replacement="",x="$10,000")`; haced (`help(gsub)`)
 
 2. Renombrar las columnas del `dataframe` con nombres en castellano o catalán.
 
@@ -68,7 +68,7 @@ con colores diferentes para cada barrio ( "neighbourhood").
 dos a dos de las variables, sin tener en cuenta los valores `NA`.
 
 13. Selecciona dos variables numéricas, y para cada una de ellas organiza sus valores
-en un máximo de 5 intervalos con ala función `cut`.
+en un máximo de 5 intervalos con la función `cut`.
 
 14. A partir de los datos en intervalos obtenidos en el apartado anterior construid  una tabla de contingencia
 de las dos variables y dibuja el diagrama de mosaico asociado a la mesa.

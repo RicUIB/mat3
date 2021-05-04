@@ -83,6 +83,7 @@ con R
 <<>>=
 choose(10,5)*5^5/6^10
 @
+
 <<dd, echo=FALSE>>=
 p=choose(10,5)*5^5/6^10
 m=(1-p)/p
@@ -107,7 +108,7 @@ contestar a las siguientes preguntas (\textbf{\textsc{UTILIZAD EL CÓDIGO DE LA 
 
 \textbf{Solución:}
 
-Bajo estas condiciones 
+Las condiciones son que  $p=P(\mbox{Visitar aununcio})=0.75$,  e indpendencia entre cada una de las $n=20$ visitas.
 
 La variable $X$= número de clientes que NO visitan el anuncio es una $B(n=20,p_{\mbox{no}}=1-p=0.25)$ y la del número de clientes que SÍ lo visitan $Y$ sigue una distribución $B(n=20,p_{\mbox{sí}}=p=0.75)$.
 
