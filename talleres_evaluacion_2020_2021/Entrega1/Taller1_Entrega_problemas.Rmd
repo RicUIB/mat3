@@ -132,10 +132,3 @@ Justificar los cálculos con notación matemática y haced el cálculo final  co
 3. ¿Cuál es la probabilidad de que haga una serie de 100 tiros  hasta obtener el tercer fallo?
 
 
-
-
-
-
-
-
-
