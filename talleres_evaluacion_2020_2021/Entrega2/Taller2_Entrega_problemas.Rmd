@@ -1,0 +1,196 @@
+---
+title:  Taller 2 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  -  Estadística inferencial mayo 2921.
+author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
+date: ''
+output:
+  pdf_document: 
+    toc: yes
+    number_sections: yes
+  html_document: 
+    toc: yes
+    number_sections: yes
+  word_document: 
+    toc: yes
+urlcolor: blue
+toccolor: blue
+header-includes:
+  \renewcommand{\contentsname}{Contenidos}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,cache=TRUE)
+library(tidyverse)
+options(scipen=999)
+contador=0
+cuenta=function(x=contador) {
+  contador<<- contador+1;return(contador)}
+set.seed(2020)
+```
+
+
+#  Taller 2  evaluable. Entrega de problemas
+
+Taller en grupo entregad las soluciones en .Rmd y .html o .pdf. o  escribirlas de forma manual y escanear el resultado, en un solo fichero. Cada apartado vale 1 punto en total hay 15 puntos y se pondera la 10 puntos.
+
+## Problema 1
+
+a.   Consideremos la siguiente muestra aleatoria simple  de una v.a. continua  $X$: $-3,-2,-1,0,0,1,2,3,4$ de tamaño $n=9$.
+Calcular, en esta muestra, el error estándar de  estadístico media aritmética de la muestra.
+b.  Consideremos la siguiente muestra aleatoria simple  de tamaño $n=10$ de una v.a. $X$ con distribución $Ber(p)$: $1,0,1,0,1,1,1,1,1,0$
+Calcular, en esta muestra, el estadístico proporción muestral y su  error estándar.
+d. Suponiendo que la población es normal calcular  un intervalo de confianza del $95\%$ para $\mu_X$.
+e. Suponiendo que la población es normal calcular  un intervalo de confianza del $95\%$ para $\sigma^2_X$.
+
+Ayuda de R, acabad vosotros los cálculos
+
+```{r}
+muestra1=c(-3,-2,-1,0,0,1,2,3,4)
+mean(muestra1)
+sum(muestra1)
+sum(muestra1^2)
+n=length(muestra1)
+n
+muestra2=c(1,0,1,0,1,1,1,1,1,0)
+table(muestra2)
+length(muestra2)
+```
+
+
+
+
+###  Solución
+
+
+## Problema 2 
+
+
+Queremos comparar los rendimientos medidos en consumo de CPU  de dos  configuraciones (C1 y C2)  de un servidor de datos   tienen una media similar,de hecho queremos tener evidencia contra que el rendimiento medio del  servidor C1 es superior al del servidor C2. No conocemos $\sigma_1$ y $\sigma_2$.
+Disponemos de dos muestras independientes  de consumo por hora
+realizados para cada configuración C1 y C2, de tamaños  $n_1=n_2=100$, respectivamente.
+
+Para bajarlos utilizad la dirección del los ficheros `raw`  que se muestran en el siguiente código
+
+
+```{r cargadatosoculta,size="tiny"}
+C1=read.csv(
+  "https://raw.githubusercontent.com/joanby/estadistica-inferencial/master/datasets/C1.csv",
+            header=TRUE)$time
+C2=read.csv(
+  "https://raw.githubusercontent.com/joanby/estadistica-inferencial/master/datasets/C2.csv",
+  header=TRUE)$time
+
+n1=length(na.omit(C1))
+n1
+n2=length(na.omit(C2))
+n2
+media.muestra1=mean(C1,na.rm=TRUE)
+media.muestra1
+media.muestra2=mean(C2,na.rm=TRUE)
+media.muestra2
+desv.tip.muestra1=sd(C1,na.rm=TRUE)
+desv.tip.muestra1
+desv.tip.muestra2=sd(C2,na.rm=TRUE)
+desv.tip.muestra2
+```
+
+Calculamos las medias y las desviaciones típicas muestrales de los tiempos empleados para cada muestra. Los datos obtenidos se resumen en la siguiente tabla:
+
+
+$$
+\begin{array}{llll}
+n_1&=`r n1`, & n_2&=`r n2`\\
+\overline{x}_1&=`r media.muestra1`, & \overline{x}_2&=`r media.muestra2`\\
+\tilde{s}_1&=`r desv.tip.muestra1`, & \tilde{s}_2&=`r desv.tip.muestra2`
+\end{array}
+$$
+Se pide:
+
+a. Comentad brevemente el código de R explicando que hace cada instrucción.
+b. Contrastad si hay evidencia de que los rendimientos medios son distintas entre los dos grupos. En dos casos considerando las varianzas desconocidas pero iguales o desconocidas pero distintas. Tenéis que hacer el contraste de forma manual y con funciones de  `R` y resolver el contrate con el $p$-valor. 
+c. Calculad e interpretar los intervalos de confianza BILATERALES al nivel de confianza del $95\%$ para la diferencia de medias de los rendimientos en los casos anteriores. 
+d. Comprobad con el test de Fisher y el de Levene si las varianza de las dos muestras son iguales contra que son distintas. Tenéis que resolver el test de Fisher con `R` y de forma manual y el test de Levene con `R`  y decidir utilizando el $p$-valor. 
+
+
+### Solución
+
+## Problema 3 
+
+Se prueba la misma implementación de una algoritmo para reconocer caras de la base de  datos de una empresa  con dos diferente tipos de cámaras. 
+
+Para ello  $n=100$ trabajadores pasan por cada una de las cámaras 1 vez.
+
+Los resultados se pueden cargar  con el siguiente código.
+
+
+
+
+```{r}
+caras=read.csv(
+  "https://raw.githubusercontent.com/joanby/estadistica-inferencial/master/datasets/caras.csv",
+            header=TRUE)
+str(caras)
+table(caras$aciertoA,caras$aciertoB)
+
+```
+
+Donde `empleadop`  es la variable  el identificador del empleado y `aciertoA` y `aciertoB`  valen 1  si se acierta la identidad y 0 si se falla para  el mismo empleado en cada una de las cámaras.  
+
+
+Se pide:
+
+a. Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.
+b. Contrastad si hay evidencia de que las las proporciones de aciertos con la cámara A  son iguales que las  del algoritmo con la cámara . Definid bien las hipótesis y las condiciones del contraste. Resolver el contraste de forma manual utilizando  `R` solo como calculadora  y resolver el contraste con el $p$-valor (calculado con R).
+c. Resolver el contraste con funciones de  R.
+d. Calcular un intervalo de confianza bilateral para la diferencia de la proporciones al nivel de confianza del $95\%$ con R y de forma manual utilizando R  como calculadora y para calcular los cuantiles.
+
+
+
+###  Solución
+
+
+
+## Problema 4
+
+ 
+ 
+El encargado de calidad piensa que $X=$ número de quejas de clientes  por día en las oficinas de atención al cliente de una determinada zona de una ciudad sigue una ley $Po(\lambda=5)$. Para comprobarlo toma una muestra de $n=100$ días:
+
+
+```{r}
+quejas=read.csv(
+  "https://raw.githubusercontent.com/joanby/estadistica-inferencial/master/datasets/quejas.csv",
+            header=TRUE)
+str(quejas)
+ni=c(0,table(quejas))
+names(ni)[1]="0"
+ni
+n=sum(ni)
+n
+pi=c(dpois(0:10,lambda=5),1-sum(dpois(0:10,lambda=5)))
+names(pi)=c(paste0("Prob(X=",0:10,")"),"Prob(X>=11)")
+pi
+sum(pi)
+ei=n*pi
+ei
+ei>5 
+# no se cumple la condición para el test chi^2
+#hay que agrupar los 3 primeros y los 3 últimos
+# test chi^2 sin agrupar...
+chi0=sum((ei-ni)^2/ei)
+chi0
+pchisq(chi0,df=n-1,lower.tail=FALSE)
+```
+
+Se pide:
+
+a. Plantead un contraste de bondad de ajuste  $\chi^2$ $H_0$: los datos siguen una distribución $Po(\lambda=6)$. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.
+b. Reagrupar los datos y resolver el test manualmente pero usando R para el cálculo del $p$-valor. Resolver el contraste
+c. Resolver el contraste con la función adecuada  de  R.
+
+
+
+
+###  Solución
+
+
