@@ -1,24 +1,16 @@
 ---
-title:  Taller 2 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  -  Estadística inferencial mayo 2021.
+title:  Taller 2 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  -  Estadística inferencial mayo 2921.
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
-<<<<<<< HEAD
-=======
-  word_document: 
+  pdf_document: 
     toc: yes
->>>>>>> 7ec60ee4fa5d943fb39a12d7e958c27d44bc36e0
+    number_sections: yes
   html_document: 
     toc: yes
     number_sections: yes
-  pdf_document: 
+  word_document: 
     toc: yes
-<<<<<<< HEAD
-  pdf_document: 
-    toc: yes
-=======
->>>>>>> 7ec60ee4fa5d943fb39a12d7e958c27d44bc36e0
-    number_sections: yes
 urlcolor: blue
 toccolor: blue
 header-includes:
@@ -142,7 +134,7 @@ table(caras$aciertoA,caras$aciertoB)
 
 ```
 
-Donde `empleadop`  es la variable  el identificador del empleado y  `aciertoA` y  `aciertoB`  valen 1  si se acierta la identidad y 0 si se falla para  el mismo empleado en cada una de las cámaras.  
+Donde `empleadop`  es la variable  el identificador del empleado y `aciertoA` y `aciertoB`  valen 1  si se acierta la identidad y 0 si se falla para  el mismo empleado en cada una de las cámaras.  
 
 
 Se pide:
@@ -187,17 +179,12 @@ ei>5
 # test chi^2 sin agrupar...
 chi0=sum((ei-ni)^2/ei)
 chi0
-<<<<<<< HEAD
-k=12# clases   dce 0 a mayor o igual 11
-=======
-k=12# clases de 0 a 11
->>>>>>> 7ec60ee4fa5d943fb39a12d7e958c27d44bc36e0
-pchisq(chi0,df=k-1,lower.tail=FALSE)
+pchisq(chi0,df=n-1,lower.tail=FALSE)
 ```
 
 Se pide:
 
-a. Plantead un contraste de bondad de ajuste  $\chi^2$ $H_0$: los datos siguen una distribución $Po(\lambda=5)$. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.
+a. Plantead un contraste de bondad de ajuste  $\chi^2$ $H_0$: los datos siguen una distribución $Po(\lambda=6)$. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.
 b. Reagrupar los datos y resolver el test manualmente pero usando R para el cálculo del $p$-valor. Resolver el contraste
 c. Resolver el contraste con la función adecuada  de  R.
 
@@ -205,5 +192,22 @@ c. Resolver el contraste con la función adecuada  de  R.
 
 
 ###  Solución
+
+
+```{r}
+ni
+pi
+chisq.test(ni,p=pi)
+ni_agrupado=c(sum(ni[1:3]),ni[4:9],sum(ni[10:12]))
+pi_agrupado=c(sum(pi[1:3]),pi[4:9],sum(pi[10:12]))
+sum(pi_agrupado)
+n=sum(ni)
+n
+n*pi_agrupado>=5
+
+chisq.test(ni_agrupado,p = pi_agrupado)
+ei_agrupado=n*pi_agrupado
+sum((ni_agrupado-ei_agrupado)^2/ei_agrupado)
+```
 
 
