@@ -543,11 +543,12 @@ ei</code></pre>
 chi0=sum((ei-ni)^2/ei)
 chi0</code></pre>
 <pre><code>## [1] 10.36668</code></pre>
-<pre class="r"><code>pchisq(chi0,df=n-1,lower.tail=FALSE)</code></pre>
-<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>k=12# clases   dce 0 a mayor o igual 11
+pchisq(chi0,df=k-1,lower.tail=FALSE)</code></pre>
+<pre><code>## [1] 0.4977365</code></pre>
 <p>Se pide:</p>
 <ol style="list-style-type: lower-alpha">
-<li>Plantead un contraste de bondad de ajuste <span class="math inline">\(\chi^2\)</span> <span class="math inline">\(H_0\)</span>: los datos siguen una distribución <span class="math inline">\(Po(\lambda=6)\)</span>. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.</li>
+<li>Plantead un contraste de bondad de ajuste <span class="math inline">\(\chi^2\)</span> <span class="math inline">\(H_0\)</span>: los datos siguen una distribución <span class="math inline">\(Po(\lambda=5)\)</span>. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.</li>
 <li>Reagrupar los datos y resolver el test manualmente pero usando R para el cálculo del <span class="math inline">\(p\)</span>-valor. Resolver el contraste</li>
 <li>Resolver el contraste con la función adecuada de R.</li>
 </ol>

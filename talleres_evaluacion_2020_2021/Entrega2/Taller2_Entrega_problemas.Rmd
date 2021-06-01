@@ -3,14 +3,14 @@ title:  Taller 2 entrega problema en grupo. MAT3 (estadística) GIN2 2020-2021  
 author: "nombre1, apellido1_1 apellido1_22; nombre2, apellido2_1 apellido2_2;... "
 date: ''
 output:
-  pdf_document: 
-    toc: yes
-    number_sections: yes
   html_document: 
     toc: yes
     number_sections: yes
   word_document: 
     toc: yes
+  pdf_document: 
+    toc: yes
+    number_sections: yes
 urlcolor: blue
 toccolor: blue
 header-includes:
@@ -134,7 +134,7 @@ table(caras$aciertoA,caras$aciertoB)
 
 ```
 
-Donde `empleadop`  es la variable  el identificador del empleado y `aciertoA` y `aciertoB`  valen 1  si se acierta la identidad y 0 si se falla para  el mismo empleado en cada una de las cámaras.  
+Donde `empleadop`  es la variable  el identificador del empleado y  `aciertoA` y  `aciertoB`  valen 1  si se acierta la identidad y 0 si se falla para  el mismo empleado en cada una de las cámaras.  
 
 
 Se pide:
@@ -179,12 +179,13 @@ ei>5
 # test chi^2 sin agrupar...
 chi0=sum((ei-ni)^2/ei)
 chi0
-pchisq(chi0,df=n-1,lower.tail=FALSE)
+k=12# clases   dce 0 a mayor o igual 11
+pchisq(chi0,df=k-1,lower.tail=FALSE)
 ```
 
 Se pide:
 
-a. Plantead un contraste de bondad de ajuste  $\chi^2$ $H_0$: los datos siguen una distribución $Po(\lambda=6)$. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.
+a. Plantead un contraste de bondad de ajuste  $\chi^2$ $H_0$: los datos siguen una distribución $Po(\lambda=5)$. Calculas las probabilidades y frecuencias esperadas utilizando los datos del código anterior.
 b. Reagrupar los datos y resolver el test manualmente pero usando R para el cálculo del $p$-valor. Resolver el contraste
 c. Resolver el contraste con la función adecuada  de  R.
 
